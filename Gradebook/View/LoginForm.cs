@@ -1,35 +1,72 @@
 ﻿using Gradebook.Controller;
+using Gradebook.View;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook
 {
+    /// <summary>
+    /// Login Form for application
+    /// </summary>
     public partial class LoginForm : Form
     {
         private readonly AccountController _accountController;
 
+        /// <summary>
+        /// Constructor for the Login Form
+        /// </summary>
         public LoginForm()
         {
             InitializeComponent();
             this._accountController = new AccountController();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void loginButton_Click(object sender, EventArgs e)
         {
-            if (this._accountController.IsPasswordCorrect("username", "password")) {
-                MessageBox.Show("Password correct");
-            }
-            else
+            try
             {
-                MessageBox.Show("Something is wrong");
+                if (this._accountController.IsPasswordCorrect(this.usernameTextBox.Text, this.passwordTextBox.Text))
+                {
+                    this.Hide();
+                    using (Form mainWindow = new AdministratorDashboard(this.usernameTextBox.Text))
+                    {
+                        DialogResult result = mainWindow.ShowDialog(this);
+                    }
+                }
+                else { this.errorMessageLabel.Text = "Invalid username/password"; }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                this.errorMessageLabel.Text = "Username/password can't be blank";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
+
+        private void usernameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.errorMessageLabel.Text = "";
+        }
+
+        private void passwordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.errorMessageLabel.Text = "";
+        }
+
+        private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void PressEnterToLogin(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals(Convert.ToChar(13)))
+            {
+                this.loginButton_Click(sender, e);
+            }
+        }
+
     }
 }

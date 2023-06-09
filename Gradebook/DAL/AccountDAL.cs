@@ -9,6 +9,12 @@ namespace Gradebook.DAL
 {
     public class AccountDAL
     {
+        /// <summary>
+        /// Checks for any username and password match, not hashed
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="pass"></param>
+        /// <returns></returns>
         public bool IsPasswordCorrect(string user, string pass)
         {
             Boolean result = false;
