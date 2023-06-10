@@ -61,6 +61,7 @@
             this.Controls.Add(this.logoutLinkLabel);
             this.Name = "AdministratorDashboard";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorDashboard_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
