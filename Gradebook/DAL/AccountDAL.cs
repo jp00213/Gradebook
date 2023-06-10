@@ -6,7 +6,7 @@ namespace Gradebook.DAL
     public class AccountDAL
     {
         /// <summary>
-        /// Checks for any username and password match, not hashed
+        /// Checks for any username and password match (hashed)
         /// </summary>
         /// <param name="user"></param>
         /// <param name="pass"></param>
@@ -28,8 +28,8 @@ namespace Gradebook.DAL
                     selectCommand.Parameters.Add("@Username", System.Data.SqlDbType.VarChar);
                     selectCommand.Parameters["@Username"].Value = user;
                     selectCommand.Parameters.Add("@Password", System.Data.SqlDbType.VarChar);
-                    selectCommand.Parameters["@Password"].Value = pass;
-
+                    selectCommand.Parameters["@Password"].Value = Hashing.HashPassword(pass);
+                    
                     Int32 count = (Int32)selectCommand.ExecuteScalar();
                     if (count > 0) { result = true; }
                 }
