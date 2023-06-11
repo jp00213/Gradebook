@@ -69,11 +69,29 @@
     <Compile Include="DAL\Hashing.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
+    <Compile Include="View\AdministratorCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdministratorCourses.Designer.cs">
+      <DependentUpon>AdministratorCourses.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdministratorDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\AdministratorDashboard.Designer.cs">
       <DependentUpon>AdministratorDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdministratorStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdministratorStudents.Designer.cs">
+      <DependentUpon>AdministratorStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\AdministratorTeachers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdministratorTeachers.Designer.cs">
+      <DependentUpon>AdministratorTeachers.cs</DependentUpon>
     </Compile>
     <Compile Include="View\LoginForm.cs">
       <SubType>Form</SubType>
@@ -92,8 +110,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AdministratorCourses.resx">
+      <DependentUpon>AdministratorCourses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdministratorDashboard.resx">
       <DependentUpon>AdministratorDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdministratorStudents.resx">
+      <DependentUpon>AdministratorStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\AdministratorTeachers.resx">
+      <DependentUpon>AdministratorTeachers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginForm.resx">
       <DependentUpon>LoginForm.cs</DependentUpon>
