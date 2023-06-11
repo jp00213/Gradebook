@@ -71,6 +71,7 @@
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Teacher.cs" />
     <Compile Include="View\AdministratorCourses.cs">
       <SubType>Form</SubType>
     </Compile>
