@@ -44,16 +44,16 @@ namespace Gradebook.Model
         /// <summary>
         /// Person constructor.
         /// </summary>
-        /// <param name="lastName">record</param>
-        /// <param name="firstName"></param>
-        /// <param name="dateofBirth"></param>
-        /// <param name="addressStreet"></param>
-        /// <param name="city"></param>
-        /// <param name="state"></param>
-        /// <param name="zip"></param>
-        /// <param name="phone"></param>
-        /// <param name="sex"></param>
-        /// <param name="ssn"></param>
+        /// <param name="lastName">last name of person</param>
+        /// <param name="firstName">first name of person</param>
+        /// <param name="dateofBirth">dob of person</param>
+        /// <param name="addressStreet">street address of person</param>
+        /// <param name="city">city of person</param>
+        /// <param name="state">state of person</param>
+        /// <param name="zip">zip code of person</param>
+        /// <param name="phone">phone number of person</param>
+        /// <param name="sex">sex of person</param>
+        /// <param name="ssn">date of birth of person</param>
         /// <exception cref="ArgumentNullException"></exception>
         public Person(string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn)
         {
