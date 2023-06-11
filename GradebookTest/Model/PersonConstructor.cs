@@ -1,9 +1,4 @@
 ﻿using Gradebook.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GradebookTest.Model
 {
@@ -99,7 +94,6 @@ namespace GradebookTest.Model
 
             var exception10 = Assert.Throws<ArgumentNullException>(() => new Person("Pan", "Peter", DateOfBirth, "123 Happy St.", "Happy City", "CA", "91000", "2131101111", "M", null));
             Assert.That(exception10.ParamName, Is.EqualTo("SSN number cannot be null"));
-
 
         }
 
