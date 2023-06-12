@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gradebook">
+      <HintPath>obj\Debug\Gradebook.exe</HintPath>
+    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -67,10 +70,23 @@
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\GradebookDBConnection.cs" />
     <Compile Include="DAL\Hashing.cs" />
+    <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="Function\CreatePersonUserName.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
+    <Compile Include="UserControls\AddStudentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddStudentUserControl.Designer.cs">
+      <DependentUpon>AddStudentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FindLastUserName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\FindLastUserName.Designer.cs">
+      <DependentUpon>FindLastUserName.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\AdministratorCourses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +128,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddStudentUserControl.resx">
+      <DependentUpon>AddStudentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FindLastUserName.resx">
+      <DependentUpon>FindLastUserName.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\AdministratorCourses.resx">
       <DependentUpon>AdministratorCourses.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,8 +183,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="UserControls\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
