@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Gradebook.View
 {
-    public partial class UserControl1 : UserControl
+    public partial class AddTeacherUserControl : UserControl
     {
-        public UserControl1()
+        public AddTeacherUserControl()
         {
             InitializeComponent();
         }
+
     }
 }
