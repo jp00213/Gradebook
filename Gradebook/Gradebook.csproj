@@ -48,9 +48,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gradebook">
-      <HintPath>obj\Debug\Gradebook.exe</HintPath>
-    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -93,6 +90,18 @@
     </Compile>
     <Compile Include="UserControls\FindLastUserName.Designer.cs">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UpdateTeacherUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdateTeacherUserControl.Designer.cs">
+      <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ViewTeacherUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewTeacherUserControl.Designer.cs">
+      <DependentUpon>ViewTeacherUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="View\AdministratorCourses.cs">
       <SubType>Form</SubType>
@@ -143,6 +152,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FindLastUserName.resx">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UpdateTeacherUserControl.resx">
+      <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewTeacherUserControl.resx">
+      <DependentUpon>ViewTeacherUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\AdministratorCourses.resx">
       <DependentUpon>AdministratorCourses.cs</DependentUpon>
