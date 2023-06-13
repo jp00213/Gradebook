@@ -91,6 +91,12 @@
     <Compile Include="UserControls\FindLastUserName.Designer.cs">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UpdateTeacherUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UpdateTeacherUserControl.Designer.cs">
+      <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ViewTeacherUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FindLastUserName.resx">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UpdateTeacherUserControl.resx">
+      <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewTeacherUserControl.resx">
       <DependentUpon>ViewTeacherUserControl.cs</DependentUpon>
