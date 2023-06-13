@@ -76,12 +76,17 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />
-
     <Compile Include="UserControls\AddStudentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\AddStudentUserControl.Designer.cs">
       <DependentUpon>AddStudentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AddTeacherUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddTeacherUserControl.Designer.cs">
+      <DependentUpon>AddTeacherUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FindLastUserName.cs">
       <SubType>UserControl</SubType>
@@ -89,7 +94,6 @@
     <Compile Include="UserControls\FindLastUserName.Designer.cs">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
     </Compile>
-
     <Compile Include="View\AdministratorCourses.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="UserControls\AddStudentUserControl.resx">
       <DependentUpon>AddStudentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AddTeacherUserControl.resx">
+      <DependentUpon>AddTeacherUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FindLastUserName.resx">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
