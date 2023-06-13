@@ -33,7 +33,9 @@
             this.viewTeacherTabPage = new System.Windows.Forms.TabPage();
             this.updateTeacherTabPage = new System.Windows.Forms.TabPage();
             this.backHomeButton = new System.Windows.Forms.Button();
+            this.addTeacherUserControl1 = new Gradebook.UserControls.AddTeacherUserControl();
             this.adminTeacherTabControl.SuspendLayout();
+            this.addTeacherTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTeacherTabControl
@@ -50,6 +52,7 @@
             // 
             // addTeacherTabPage
             // 
+            this.addTeacherTabPage.Controls.Add(this.addTeacherUserControl1);
             this.addTeacherTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addTeacherTabPage.Location = new System.Drawing.Point(4, 29);
             this.addTeacherTabPage.Name = "addTeacherTabPage";
@@ -93,6 +96,13 @@
             this.backHomeButton.UseVisualStyleBackColor = true;
             this.backHomeButton.Click += new System.EventHandler(this.backHomeButton_Click);
             // 
+            // addTeacherUserControl1
+            // 
+            this.addTeacherUserControl1.Location = new System.Drawing.Point(43, 3);
+            this.addTeacherUserControl1.Name = "addTeacherUserControl1";
+            this.addTeacherUserControl1.Size = new System.Drawing.Size(878, 521);
+            this.addTeacherUserControl1.TabIndex = 0;
+            // 
             // AdministratorTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,7 +110,7 @@
             this.ClientSize = new System.Drawing.Size(989, 626);
             this.Controls.Add(this.backHomeButton);
             this.Controls.Add(this.adminTeacherTabControl);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdministratorTeachers";
@@ -108,6 +118,7 @@
             this.Text = "AdministratorTeachers";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorTeachers_FormClosed);
             this.adminTeacherTabControl.ResumeLayout(false);
+            this.addTeacherTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -119,5 +130,6 @@
         private System.Windows.Forms.TabPage viewTeacherTabPage;
         private System.Windows.Forms.TabPage updateTeacherTabPage;
         private System.Windows.Forms.Button backHomeButton;
+        private UserControls.AddTeacherUserControl addTeacherUserControl1;
     }
 }
