@@ -30,10 +30,10 @@
         {
             this.adminTeacherTabControl = new System.Windows.Forms.TabControl();
             this.addTeacherTabPage = new System.Windows.Forms.TabPage();
+            this.addTeacherUserControl1 = new Gradebook.UserControls.AddTeacherUserControl();
             this.viewTeacherTabPage = new System.Windows.Forms.TabPage();
             this.updateTeacherTabPage = new System.Windows.Forms.TabPage();
             this.backHomeButton = new System.Windows.Forms.Button();
-            this.addTeacherUserControl1 = new Gradebook.UserControls.AddTeacherUserControl();
             this.adminTeacherTabControl.SuspendLayout();
             this.addTeacherTabPage.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +61,13 @@
             this.addTeacherTabPage.TabIndex = 0;
             this.addTeacherTabPage.Text = "Add Teacher";
             this.addTeacherTabPage.UseVisualStyleBackColor = true;
+            // 
+            // addTeacherUserControl1
+            // 
+            this.addTeacherUserControl1.Location = new System.Drawing.Point(43, 3);
+            this.addTeacherUserControl1.Name = "addTeacherUserControl1";
+            this.addTeacherUserControl1.Size = new System.Drawing.Size(878, 521);
+            this.addTeacherUserControl1.TabIndex = 0;
             // 
             // viewTeacherTabPage
             // 
@@ -95,13 +102,6 @@
             this.backHomeButton.Text = "Home";
             this.backHomeButton.UseVisualStyleBackColor = true;
             this.backHomeButton.Click += new System.EventHandler(this.backHomeButton_Click);
-            // 
-            // addTeacherUserControl1
-            // 
-            this.addTeacherUserControl1.Location = new System.Drawing.Point(43, 3);
-            this.addTeacherUserControl1.Name = "addTeacherUserControl1";
-            this.addTeacherUserControl1.Size = new System.Drawing.Size(878, 521);
-            this.addTeacherUserControl1.TabIndex = 0;
             // 
             // AdministratorTeachers
             // 
