@@ -48,9 +48,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gradebook">
-      <HintPath>obj\Debug\Gradebook.exe</HintPath>
-    </Reference>
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
@@ -76,7 +73,6 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />
-
     <Compile Include="UserControls\AddStudentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,7 +85,6 @@
     <Compile Include="UserControls\FindLastUserName.Designer.cs">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
     </Compile>
-
     <Compile Include="View\AdministratorCourses.cs">
       <SubType>Form</SubType>
     </Compile>
