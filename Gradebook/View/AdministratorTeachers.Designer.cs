@@ -32,6 +32,7 @@
             this.addTeacherTabPage = new System.Windows.Forms.TabPage();
             this.viewTeacherTabPage = new System.Windows.Forms.TabPage();
             this.updateTeacherTabPage = new System.Windows.Forms.TabPage();
+            this.backHomeButton = new System.Windows.Forms.Button();
             this.adminTeacherTabControl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,11 +80,23 @@
             this.updateTeacherTabPage.Text = "Update Teacher";
             this.updateTeacherTabPage.UseVisualStyleBackColor = true;
             // 
+            // backHomeButton
+            // 
+            this.backHomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backHomeButton.Location = new System.Drawing.Point(22, 13);
+            this.backHomeButton.Name = "backHomeButton";
+            this.backHomeButton.Size = new System.Drawing.Size(75, 30);
+            this.backHomeButton.TabIndex = 1;
+            this.backHomeButton.Text = "Home";
+            this.backHomeButton.UseVisualStyleBackColor = true;
+            this.backHomeButton.Click += new System.EventHandler(this.backHomeButton_Click);
+            // 
             // AdministratorTeachers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(989, 626);
+            this.Controls.Add(this.backHomeButton);
             this.Controls.Add(this.adminTeacherTabControl);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
@@ -103,5 +116,6 @@
         private System.Windows.Forms.TabPage addTeacherTabPage;
         private System.Windows.Forms.TabPage viewTeacherTabPage;
         private System.Windows.Forms.TabPage updateTeacherTabPage;
+        private System.Windows.Forms.Button backHomeButton;
     }
 }
