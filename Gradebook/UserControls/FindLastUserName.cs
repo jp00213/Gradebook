@@ -22,7 +22,6 @@ namespace Gradebook.UserControls
             string theName = _personDAL.GetTheLastCreatedUsernameByFirstAndLastName(this.textBox1.Text, this.textBox2.Text);
             System.Windows.Forms.MessageBox.Show(theName);
             this.textBox3.Text = theName;
-
         }
     }
 }
