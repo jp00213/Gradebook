@@ -75,6 +75,8 @@
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
+    <Compile Include="Model\Teacher.cs" />
+
     <Compile Include="UserControls\AddStudentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -87,6 +89,7 @@
     <Compile Include="UserControls\FindLastUserName.Designer.cs">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
     </Compile>
+
     <Compile Include="View\AdministratorCourses.cs">
       <SubType>Form</SubType>
     </Compile>
