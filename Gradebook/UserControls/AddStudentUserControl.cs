@@ -26,7 +26,6 @@ namespace Gradebook.UserControls
 
         private void addStudentButton_Click(object sender, EventArgs e)
         {
-
             string LastName = this.lastNameTextBox.Text;
             string FirstName = this.firstNameTextBox.Text;
             DateTime DateOfBirth = this.dobPicker.Value;
@@ -40,7 +39,6 @@ namespace Gradebook.UserControls
 
             Person newStudent = new Person(LastName, FirstName, DateOfBirth, AddressStreet, City, State, Zip, Phone, Sex, SSN);
             this._personDAL.AddPersonAsStudent(newStudent);
-
         }
     }
 }

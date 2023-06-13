@@ -194,6 +194,7 @@
             this.addStudentButton.TabIndex = 14;
             this.addStudentButton.Text = "Add Student";
             this.addStudentButton.UseVisualStyleBackColor = true;
+            this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
             // 
             // lastNameTextBox
             // 
