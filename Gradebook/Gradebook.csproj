@@ -75,6 +75,12 @@
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />
+    <Compile Include="UserControls\AddNewCourseUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AddNewCourseUserControl.Designer.cs">
+      <DependentUpon>AddNewCourseUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\AddStudentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -146,6 +152,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\AddNewCourseUserControl.resx">
+      <DependentUpon>AddNewCourseUserControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddStudentUserControl.resx">
       <DependentUpon>AddStudentUserControl.cs</DependentUpon>
     </EmbeddedResource>

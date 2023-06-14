@@ -21,5 +21,10 @@ namespace Gradebook.View
             Owner.Show();
         }
 
+        private void backHomeButton_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Owner.Show();
+        }
     }
 }
