@@ -1,12 +1,68 @@
-﻿using System;
+﻿using Gradebook.Model;
+using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Gradebook.DAL
 {
-    internal class TeacherDAL
+    /// <summary>
+    /// THe DAL that interacts with the DB for the Teacher objects
+    /// </summary>
+    public class TeacherDAL
     {
+        public List<Teacher> GetTeacherByNameDOB(string firstName, string lastName, DateTime dob)
+        {
+            List<Teacher> teachers = new List<Teacher>();
+            Teacher teacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM Teacher te " +
+                "JOIN person pe " +
+                "ON te.recordID = pe.recordID " +
+                "WHERE pe.firstName like @firstName " +
+                "AND pe.lastName like @lastName " +
+                "AND pe.birthday = @dob";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@firstName"].Value = firstName + "%";
+
+            selectCommand.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@lastName"].Value = lastName + "%";
+
+            selectCommand.Parameters.Add("@dob", System.Data.SqlDbType.Date);
+            selectCommand.Parameters["@dob"].Value = dob;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teacher = new Teacher
+                        {
+                            RecordId = (int)(reader)["recordID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            AddressStreet = (string)(reader)["addressStreet"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            TeacherID = (int)(reader)["teacherID"]
+                        };
+                        teachers.Add(teacher);
+                    }
+                }
+            }
+            return teachers;
+        }
     }
 }
