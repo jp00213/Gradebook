@@ -232,7 +232,6 @@ namespace Gradebook.DAL
                         result = affectedRecords > 0;
 
                         transaction.Commit();
-                        System.Windows.Forms.MessageBox.Show("processed");
                         connection.Close();
                     }
                     catch (SqlException sqlEx)
