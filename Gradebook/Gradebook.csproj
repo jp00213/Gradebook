@@ -69,6 +69,7 @@
     <Compile Include="DAL\GradebookDBConnection.cs" />
     <Compile Include="DAL\Hashing.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="Function\CreatePersonUserName.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Person.cs" />
