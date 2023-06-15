@@ -58,6 +58,8 @@
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.addTeacherButton = new System.Windows.Forms.Button();
+            this.zipErrorMessageLabel = new System.Windows.Forms.Label();
+            this.phoneErrorMessageLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // stateComboBox
@@ -113,11 +115,16 @@
             "WA",
             "WV",
             "WI",
-            "WY"});
+            "WY",
+            "Male",
+            "Female",
+            "Active",
+            "Inactive"});
             this.stateComboBox.Location = new System.Drawing.Point(583, 214);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(227, 21);
-            this.stateComboBox.TabIndex = 52;
+            this.stateComboBox.TabIndex = 47;
+            this.stateComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboboxOrDateTimePicker_MouseDown);
             // 
             // DOBErrorLabel
             // 
@@ -172,8 +179,9 @@
             this.dateOfBirthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.dateOfBirthDateTimePicker.Name = "dateOfBirthDateTimePicker";
             this.dateOfBirthDateTimePicker.Size = new System.Drawing.Size(228, 22);
-            this.dateOfBirthDateTimePicker.TabIndex = 46;
+            this.dateOfBirthDateTimePicker.TabIndex = 41;
             this.dateOfBirthDateTimePicker.Value = new System.DateTime(2023, 3, 23, 0, 0, 0, 0);
+            this.dateOfBirthDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboboxOrDateTimePicker_MouseDown);
             // 
             // lastNameErrorMessageLabel
             // 
@@ -189,28 +197,32 @@
             this.zipTextBox.Location = new System.Drawing.Point(583, 263);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(227, 20);
-            this.zipTextBox.TabIndex = 44;
+            this.zipTextBox.TabIndex = 48;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(583, 159);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(227, 20);
-            this.cityTextBox.TabIndex = 43;
+            this.cityTextBox.TabIndex = 46;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // addressTextBox
             // 
             this.addressTextBox.Location = new System.Drawing.Point(583, 110);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(227, 20);
-            this.addressTextBox.TabIndex = 42;
+            this.addressTextBox.TabIndex = 45;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // phoneTextBox
             // 
             this.phoneTextBox.Location = new System.Drawing.Point(582, 312);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(228, 20);
-            this.phoneTextBox.TabIndex = 41;
+            this.phoneTextBox.TabIndex = 49;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // firstNameTextBox
             // 
@@ -218,6 +230,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(228, 20);
             this.firstNameTextBox.TabIndex = 40;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // lastNameTextBox
             // 
@@ -225,6 +238,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(228, 20);
             this.lastNameTextBox.TabIndex = 39;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // zipLabel
             // 
@@ -339,25 +353,34 @@
             // sexComboBox
             // 
             this.sexComboBox.FormattingEnabled = true;
+            this.sexComboBox.Items.AddRange(new object[] {
+            "M",
+            "F"});
             this.sexComboBox.Location = new System.Drawing.Point(187, 308);
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(229, 21);
-            this.sexComboBox.TabIndex = 56;
+            this.sexComboBox.TabIndex = 43;
+            this.sexComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboboxOrDateTimePicker_MouseDown);
             // 
             // statusComboBox
             // 
             this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
             this.statusComboBox.Location = new System.Drawing.Point(188, 352);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(229, 21);
-            this.statusComboBox.TabIndex = 57;
+            this.statusComboBox.TabIndex = 44;
+            this.statusComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboboxOrDateTimePicker_MouseDown);
             // 
             // ssnTextBox
             // 
             this.ssnTextBox.Location = new System.Drawing.Point(188, 262);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(229, 20);
-            this.ssnTextBox.TabIndex = 58;
+            this.ssnTextBox.TabIndex = 42;
+            this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // clearButton
             // 
@@ -365,9 +388,10 @@
             this.clearButton.Location = new System.Drawing.Point(262, 435);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(134, 37);
-            this.clearButton.TabIndex = 59;
+            this.clearButton.TabIndex = 51;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // addTeacherButton
             // 
@@ -375,14 +399,35 @@
             this.addTeacherButton.Location = new System.Drawing.Point(527, 435);
             this.addTeacherButton.Name = "addTeacherButton";
             this.addTeacherButton.Size = new System.Drawing.Size(134, 38);
-            this.addTeacherButton.TabIndex = 60;
+            this.addTeacherButton.TabIndex = 50;
             this.addTeacherButton.Text = "Add Teacher";
             this.addTeacherButton.UseVisualStyleBackColor = true;
+            this.addTeacherButton.Click += new System.EventHandler(this.addTeacherButton_Click);
+            // 
+            // zipErrorMessageLabel
+            // 
+            this.zipErrorMessageLabel.AutoSize = true;
+            this.zipErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zipErrorMessageLabel.Location = new System.Drawing.Point(583, 286);
+            this.zipErrorMessageLabel.Name = "zipErrorMessageLabel";
+            this.zipErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
+            this.zipErrorMessageLabel.TabIndex = 61;
+            // 
+            // phoneErrorMessageLabel
+            // 
+            this.phoneErrorMessageLabel.AutoSize = true;
+            this.phoneErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneErrorMessageLabel.Location = new System.Drawing.Point(583, 335);
+            this.phoneErrorMessageLabel.Name = "phoneErrorMessageLabel";
+            this.phoneErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
+            this.phoneErrorMessageLabel.TabIndex = 62;
             // 
             // AddTeacherUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.phoneErrorMessageLabel);
+            this.Controls.Add(this.zipErrorMessageLabel);
             this.Controls.Add(this.addTeacherButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.ssnTextBox);
@@ -452,5 +497,7 @@
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button addTeacherButton;
+        private System.Windows.Forms.Label zipErrorMessageLabel;
+        private System.Windows.Forms.Label phoneErrorMessageLabel;
     }
 }
