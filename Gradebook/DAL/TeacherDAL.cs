@@ -13,6 +13,13 @@ namespace Gradebook.DAL
     /// </summary>
     public class TeacherDAL
     {
+        /// <summary>
+        /// Gets all the teachers from the db based on params
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns>A list of teachers based on name and dob</returns>
         public List<Teacher> GetTeacherByNameDOB(string firstName, string lastName, DateTime dob)
         {
             List<Teacher> teachers = new List<Teacher>();
@@ -56,7 +63,10 @@ namespace Gradebook.DAL
                             State = (string)(reader)["state"],
                             Zip = (string)(reader)["zip"],
                             Phone = (string)(reader)["phoneNumber"],
-                            TeacherID = (int)(reader)["teacherID"]
+                            TeacherID = (int)(reader)["teacherID"],
+                            Sex = (string)(reader)["sex"],
+                            SSN = (string)(reader)["ssn"],
+                            Status = (string)(reader)["activeStatus"]
                         };
                         teachers.Add(teacher);
                     }

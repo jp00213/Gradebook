@@ -15,6 +15,7 @@ namespace Gradebook.Controller
         /// </summary>
         /// 
         private readonly PersonDAL _personDAL;
+        private readonly TeacherDAL _teacherDAL;
 
         /// <summary>
         /// Creates a teacherController object
@@ -22,6 +23,7 @@ namespace Gradebook.Controller
         public TeacherController()
         {
             _personDAL = new PersonDAL();
+            _teacherDAL = new TeacherDAL();
         }
 
         /// <summary>
@@ -32,6 +34,11 @@ namespace Gradebook.Controller
         public Boolean AddPersonAsTeacher(Person person)
         {
             return this._personDAL.AddPersonAsTeacher(person);
+        }
+
+        public List<Teacher> GetTeacherByNameDOB(string firstName, string lastName, DateTime dob)
+        {
+            return this._teacherDAL.GetTeacherByNameDOB(firstName, lastName, dob);
         }
     }
 }
