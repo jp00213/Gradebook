@@ -28,23 +28,91 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.backHomeButton = new System.Windows.Forms.Button();
+            this.courseTabControl = new System.Windows.Forms.TabControl();
+            this.createCourseTab = new System.Windows.Forms.TabPage();
+            this.registerStudentTab = new System.Windows.Forms.TabPage();
+            this.addNewCourseUserControl1 = new Gradebook.UserControls.AddNewCourseUserControl();
+            this.courseTabControl.SuspendLayout();
+            this.createCourseTab.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // backHomeButton
+            // 
+            this.backHomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backHomeButton.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.backHomeButton.Location = new System.Drawing.Point(36, 24);
+            this.backHomeButton.Margin = new System.Windows.Forms.Padding(4);
+            this.backHomeButton.Name = "backHomeButton";
+            this.backHomeButton.Size = new System.Drawing.Size(139, 37);
+            this.backHomeButton.TabIndex = 2;
+            this.backHomeButton.Text = "Home";
+            this.backHomeButton.UseVisualStyleBackColor = true;
+            this.backHomeButton.Click += new System.EventHandler(this.backHomeButton_Click);
+            // 
+            // courseTabControl
+            // 
+            this.courseTabControl.Controls.Add(this.createCourseTab);
+            this.courseTabControl.Controls.Add(this.registerStudentTab);
+            this.courseTabControl.Location = new System.Drawing.Point(0, 87);
+            this.courseTabControl.Name = "courseTabControl";
+            this.courseTabControl.SelectedIndex = 0;
+            this.courseTabControl.Size = new System.Drawing.Size(1357, 589);
+            this.courseTabControl.TabIndex = 3;
+            // 
+            // createCourseTab
+            // 
+            this.createCourseTab.Controls.Add(this.addNewCourseUserControl1);
+            this.createCourseTab.Location = new System.Drawing.Point(4, 25);
+            this.createCourseTab.Name = "createCourseTab";
+            this.createCourseTab.Padding = new System.Windows.Forms.Padding(3);
+            this.createCourseTab.Size = new System.Drawing.Size(1349, 560);
+            this.createCourseTab.TabIndex = 0;
+            this.createCourseTab.Text = "Create Course";
+            this.createCourseTab.UseVisualStyleBackColor = true;
+            // 
+            // registerStudentTab
+            // 
+            this.registerStudentTab.Location = new System.Drawing.Point(4, 25);
+            this.registerStudentTab.Name = "registerStudentTab";
+            this.registerStudentTab.Padding = new System.Windows.Forms.Padding(3);
+            this.registerStudentTab.Size = new System.Drawing.Size(1349, 560);
+            this.registerStudentTab.TabIndex = 1;
+            this.registerStudentTab.Text = "Register Student";
+            this.registerStudentTab.UseVisualStyleBackColor = true;
+            // 
+            // addNewCourseUserControl1
+            // 
+            this.addNewCourseUserControl1.Location = new System.Drawing.Point(8, 6);
+            this.addNewCourseUserControl1.Name = "addNewCourseUserControl1";
+            this.addNewCourseUserControl1.Size = new System.Drawing.Size(1253, 643);
+            this.addNewCourseUserControl1.TabIndex = 0;
             // 
             // AdministratorCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1356, 675);
+            this.Controls.Add(this.courseTabControl);
+            this.Controls.Add(this.backHomeButton);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdministratorCourses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator Courses";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorCourses_FormClosed);
+            this.courseTabControl.ResumeLayout(false);
+            this.createCourseTab.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Button backHomeButton;
+        private System.Windows.Forms.TabControl courseTabControl;
+        private System.Windows.Forms.TabPage createCourseTab;
+        private System.Windows.Forms.TabPage registerStudentTab;
+        private UserControls.AddNewCourseUserControl addNewCourseUserControl1;
     }
 }
