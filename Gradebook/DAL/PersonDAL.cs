@@ -217,8 +217,10 @@ namespace Gradebook.DAL
                             insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@recordID", record);
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
+                            insertCommand.Parameters.AddWithValue("@activeStatus", person.ActiveStatus);
 
                             insertCommand.ExecuteNonQuery();
+
 
                             // check if insert passed
                             SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection);

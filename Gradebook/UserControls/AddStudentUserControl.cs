@@ -236,5 +236,9 @@ namespace Gradebook.UserControls
 
         }
 
+        private void TextBox_changed(object sender, EventArgs e)
+        {
+
+        }
     }
 }

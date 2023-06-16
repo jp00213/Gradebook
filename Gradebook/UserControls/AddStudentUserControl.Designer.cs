@@ -66,6 +66,9 @@
             this.dobErrorMessageLabel = new System.Windows.Forms.Label();
             this.firstNameErrorMessageLabel = new System.Windows.Forms.Label();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.messageErrorMainLabel = new System.Windows.Forms.Label();
+            this.noteLabel = new System.Windows.Forms.Label();
+            this.noteLable2 = new System.Windows.Forms.Label();
             this.addStudentUserControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +81,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(209, 351);
+            this.clearButton.Location = new System.Drawing.Point(130, 351);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 13;
@@ -89,7 +92,7 @@
             // 
             // addStudentButton
             // 
-            this.addStudentButton.Location = new System.Drawing.Point(558, 351);
+            this.addStudentButton.Location = new System.Drawing.Point(512, 351);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(75, 23);
             this.addStudentButton.TabIndex = 14;
@@ -112,7 +115,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
             this.lastNameTextBox.TabIndex = 15;
-         
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // zipLabel
             // 
@@ -129,6 +132,7 @@
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(214, 20);
             this.firstNameTextBox.TabIndex = 16;
+            this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statelabel
             // 
@@ -145,6 +149,7 @@
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(214, 20);
             this.phoneTextBox.TabIndex = 17;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // streeLabel
             // 
@@ -161,6 +166,7 @@
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(214, 20);
             this.ssnTextBox.TabIndex = 18;
+            this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // genderlabel
             // 
@@ -177,6 +183,7 @@
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Size = new System.Drawing.Size(214, 20);
             this.streetTextBox.TabIndex = 19;
+            this.streetTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statusLabel
             // 
@@ -193,6 +200,7 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(214, 20);
             this.cityTextBox.TabIndex = 20;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // ssnLabel
             // 
@@ -218,6 +226,7 @@
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(214, 20);
             this.zipTextBox.TabIndex = 22;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // firstNameLabel
             // 
@@ -234,6 +243,7 @@
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(200, 20);
             this.dobPicker.TabIndex = 23;
+            this.dobPicker.ValueChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // lastNameLabel
             // 
@@ -261,6 +271,7 @@
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(121, 21);
             this.statusComboBox.TabIndex = 25;
+            this.statusComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // lastNameErrorMessageLabel
             // 
@@ -279,12 +290,13 @@
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(121, 21);
             this.genderComboBox.TabIndex = 26;
+            this.genderComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // createStudentTitleLabel
             // 
             this.createStudentTitleLabel.AutoSize = true;
             this.createStudentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.createStudentTitleLabel.Location = new System.Drawing.Point(319, 29);
+            this.createStudentTitleLabel.Location = new System.Drawing.Point(317, 14);
             this.createStudentTitleLabel.Name = "createStudentTitleLabel";
             this.createStudentTitleLabel.Size = new System.Drawing.Size(184, 20);
             this.createStudentTitleLabel.TabIndex = 0;
@@ -292,6 +304,9 @@
             // 
             // addStudentUserControlPanel
             // 
+            this.addStudentUserControlPanel.Controls.Add(this.noteLable2);
+            this.addStudentUserControlPanel.Controls.Add(this.noteLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.messageErrorMainLabel);
             this.addStudentUserControlPanel.Controls.Add(this.genderErrorMessageLabel);
             this.addStudentUserControlPanel.Controls.Add(this.zipErrorMessageLabel);
             this.addStudentUserControlPanel.Controls.Add(this.stateErrorMessageLabel);
@@ -431,6 +446,34 @@
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(121, 21);
             this.stateComboBox.TabIndex = 27;
+            this.stateComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
+            // 
+            // messageErrorMainLabel
+            // 
+            this.messageErrorMainLabel.AutoSize = true;
+            this.messageErrorMainLabel.Location = new System.Drawing.Point(127, 37);
+            this.messageErrorMainLabel.Name = "messageErrorMainLabel";
+            this.messageErrorMainLabel.Size = new System.Drawing.Size(13, 13);
+            this.messageErrorMainLabel.TabIndex = 38;
+            this.messageErrorMainLabel.Text = "--";
+            // 
+            // noteLabel
+            // 
+            this.noteLabel.AutoSize = true;
+            this.noteLabel.Location = new System.Drawing.Point(82, 425);
+            this.noteLabel.Name = "noteLabel";
+            this.noteLabel.Size = new System.Drawing.Size(328, 13);
+            this.noteLabel.TabIndex = 39;
+            this.noteLabel.Text = "* default password is the first name + last 4 digits of SSN (smith5678)";
+            // 
+            // noteLable2
+            // 
+            this.noteLable2.AutoSize = true;
+            this.noteLable2.Location = new System.Drawing.Point(82, 451);
+            this.noteLable2.Name = "noteLable2";
+            this.noteLable2.Size = new System.Drawing.Size(261, 13);
+            this.noteLable2.TabIndex = 40;
+            this.noteLable2.Text = "All notes will be removed before moving to production.";
             // 
             // AddStudentUserControl
             // 
@@ -485,5 +528,8 @@
         private System.Windows.Forms.Label zipErrorMessageLabel;
         private System.Windows.Forms.Label stateErrorMessageLabel;
         private System.Windows.Forms.Label cityErrorMessageLabel;
+        private System.Windows.Forms.Label messageErrorMainLabel;
+        private System.Windows.Forms.Label noteLable2;
+        private System.Windows.Forms.Label noteLabel;
     }
 }
