@@ -30,9 +30,11 @@ namespace Gradebook.Model
 
         public string SSN { get; set; }
 
-        public string newPasswrod { get; set; }
+        public string NewPassword { get; set; }
 
-        public string userName { get; set; }
+        public string Username { get; set; }
+
+        public int StudentID { get; set; }
 
         /// <summary>
         /// Person constructor.
@@ -55,7 +57,6 @@ namespace Gradebook.Model
         /// <param name="phone">phone number of person</param>
         /// <param name="sex">sex of person</param>
         /// <param name="ssn">date of birth of person</param>
-        /// <param name="activeStatus">status of person</param>
         /// <exception cref="ArgumentNullException"></exception>
         public Person(string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn, int activeStatus)
         {
@@ -80,8 +81,11 @@ namespace Gradebook.Model
             this.Sex = sex;
             this.SSN = ssn;
             this.ActiveStatus = activeStatus;
+
         }
 
+
+        // constructor without active status.
         public Person(string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn)
         {
             _ = lastName ?? throw new ArgumentNullException("Last name cannot be null");
@@ -105,5 +109,36 @@ namespace Gradebook.Model
             this.Sex = sex;
             this.SSN = ssn;
         }
+
+
+        // constructor to create student object for edit use
+        public Person(int studentID, string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn, int activeStatus, string username)
+        {
+            this.StudentID = studentID;
+            this.LastName = lastName;
+            this.FirstName = firstName;
+            this.DateOfBirth = dateofBirth;
+            this.AddressStreet = addressStreet;
+            this.City = city;
+            this.State = state;
+            this.Zip = zip;
+            this.Phone = phone;
+            this.Sex = sex;
+            this.SSN = ssn;
+            this.ActiveStatus = activeStatus;
+            this.Username = username;
+        }
+
+
+
+        public Person(int recordID, string password)
+        {
+            this.RecordId = recordID;
+            this.NewPassword = password;
+        }
+
+
+
+
     }
 }

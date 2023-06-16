@@ -65,12 +65,12 @@
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
-
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\GradebookDBConnection.cs" />
     <Compile Include="DAL\Hashing.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
+    <Compile Include="DAL\StudentDAL.cs" />
     <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="Function\CreatePersonUserName.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
