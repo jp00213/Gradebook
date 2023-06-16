@@ -64,9 +64,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\CourseController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
+    <Compile Include="DAL\CourseDAL.cs" />
     <Compile Include="DAL\GradebookDBConnection.cs" />
     <Compile Include="DAL\Hashing.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
