@@ -55,6 +55,9 @@
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.createStudentTitleLabel = new System.Windows.Forms.Label();
             this.addStudentUserControlPanel = new System.Windows.Forms.Panel();
+            this.noteLable2 = new System.Windows.Forms.Label();
+            this.noteLabel = new System.Windows.Forms.Label();
+            this.messageErrorMainLabel = new System.Windows.Forms.Label();
             this.genderErrorMessageLabel = new System.Windows.Forms.Label();
             this.zipErrorMessageLabel = new System.Windows.Forms.Label();
             this.stateErrorMessageLabel = new System.Windows.Forms.Label();
@@ -66,9 +69,6 @@
             this.dobErrorMessageLabel = new System.Windows.Forms.Label();
             this.firstNameErrorMessageLabel = new System.Windows.Forms.Label();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
-            this.messageErrorMainLabel = new System.Windows.Forms.Label();
-            this.noteLabel = new System.Windows.Forms.Label();
-            this.noteLable2 = new System.Windows.Forms.Label();
             this.addStudentUserControlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,7 +95,7 @@
             this.addStudentButton.Location = new System.Drawing.Point(512, 351);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(75, 23);
-            this.addStudentButton.TabIndex = 14;
+            this.addStudentButton.TabIndex = 12;
             this.addStudentButton.Text = "Add Student";
             this.addStudentButton.UseVisualStyleBackColor = true;
             this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
@@ -114,7 +114,7 @@
             this.lastNameTextBox.Location = new System.Drawing.Point(130, 75);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
-            this.lastNameTextBox.TabIndex = 15;
+            this.lastNameTextBox.TabIndex = 1;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // zipLabel
@@ -131,7 +131,7 @@
             this.firstNameTextBox.Location = new System.Drawing.Point(130, 116);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(214, 20);
-            this.firstNameTextBox.TabIndex = 16;
+            this.firstNameTextBox.TabIndex = 2;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statelabel
@@ -148,7 +148,7 @@
             this.phoneTextBox.Location = new System.Drawing.Point(130, 201);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(214, 20);
-            this.phoneTextBox.TabIndex = 17;
+            this.phoneTextBox.TabIndex = 4;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // streeLabel
@@ -165,7 +165,7 @@
             this.ssnTextBox.Location = new System.Drawing.Point(130, 254);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(214, 20);
-            this.ssnTextBox.TabIndex = 18;
+            this.ssnTextBox.TabIndex = 5;
             this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // genderlabel
@@ -182,7 +182,7 @@
             this.streetTextBox.Location = new System.Drawing.Point(512, 75);
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Size = new System.Drawing.Size(214, 20);
-            this.streetTextBox.TabIndex = 19;
+            this.streetTextBox.TabIndex = 7;
             this.streetTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statusLabel
@@ -199,7 +199,7 @@
             this.cityTextBox.Location = new System.Drawing.Point(512, 120);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(214, 20);
-            this.cityTextBox.TabIndex = 20;
+            this.cityTextBox.TabIndex = 8;
             this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // ssnLabel
@@ -225,7 +225,7 @@
             this.zipTextBox.Location = new System.Drawing.Point(512, 204);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(214, 20);
-            this.zipTextBox.TabIndex = 22;
+            this.zipTextBox.TabIndex = 10;
             this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // firstNameLabel
@@ -242,7 +242,7 @@
             this.dobPicker.Location = new System.Drawing.Point(130, 159);
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(200, 20);
-            this.dobPicker.TabIndex = 23;
+            this.dobPicker.TabIndex = 3;
             this.dobPicker.ValueChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // lastNameLabel
@@ -270,7 +270,7 @@
             this.statusComboBox.Location = new System.Drawing.Point(130, 296);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(121, 21);
-            this.statusComboBox.TabIndex = 25;
+            this.statusComboBox.TabIndex = 6;
             this.statusComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // lastNameErrorMessageLabel
@@ -289,7 +289,7 @@
             this.genderComboBox.Location = new System.Drawing.Point(512, 251);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(121, 21);
-            this.genderComboBox.TabIndex = 26;
+            this.genderComboBox.TabIndex = 11;
             this.genderComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // createStudentTitleLabel
@@ -347,6 +347,33 @@
             this.addStudentUserControlPanel.Name = "addStudentUserControlPanel";
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(922, 606);
             this.addStudentUserControlPanel.TabIndex = 27;
+            // 
+            // noteLable2
+            // 
+            this.noteLable2.AutoSize = true;
+            this.noteLable2.Location = new System.Drawing.Point(82, 451);
+            this.noteLable2.Name = "noteLable2";
+            this.noteLable2.Size = new System.Drawing.Size(261, 13);
+            this.noteLable2.TabIndex = 40;
+            this.noteLable2.Text = "All notes will be removed before moving to production.";
+            // 
+            // noteLabel
+            // 
+            this.noteLabel.AutoSize = true;
+            this.noteLabel.Location = new System.Drawing.Point(82, 425);
+            this.noteLabel.Name = "noteLabel";
+            this.noteLabel.Size = new System.Drawing.Size(328, 13);
+            this.noteLabel.TabIndex = 39;
+            this.noteLabel.Text = "* default password is the first name + last 4 digits of SSN (smith5678)";
+            // 
+            // messageErrorMainLabel
+            // 
+            this.messageErrorMainLabel.AutoSize = true;
+            this.messageErrorMainLabel.Location = new System.Drawing.Point(127, 37);
+            this.messageErrorMainLabel.Name = "messageErrorMainLabel";
+            this.messageErrorMainLabel.Size = new System.Drawing.Size(13, 13);
+            this.messageErrorMainLabel.TabIndex = 38;
+            this.messageErrorMainLabel.Text = "--";
             // 
             // genderErrorMessageLabel
             // 
@@ -442,38 +469,62 @@
             // 
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Items.AddRange(new object[] {
+            "AL",
+            "AK",
+            "AZ",
+            "AR",
+            "CA",
+            "CO",
+            "CT",
+            "DE",
+            "FL",
+            "GA",
+            "HI",
+            "ID",
+            "IL",
+            "IN",
+            "IA",
+            "KS",
+            "KY",
+            "LA",
+            "ME",
+            "MD",
+            "MA",
+            "MI",
+            "MN",
+            "MS",
+            "MO",
+            "MT",
+            "NE",
+            "NV",
+            "NH",
+            "NJ",
+            "NM",
+            "NY",
+            "NC",
+            "ND",
+            "OH",
+            "OK",
+            "OR",
+            "PA",
+            "RI",
+            "SC",
+            "SD",
+            "TN",
+            "TX",
+            "UT",
+            "VT",
+            "VA",
+            "WA",
+            "WV",
+            "WI",
+            "WY"});
             this.stateComboBox.Location = new System.Drawing.Point(512, 162);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(121, 21);
-            this.stateComboBox.TabIndex = 27;
+            this.stateComboBox.TabIndex = 9;
             this.stateComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
-            // 
-            // messageErrorMainLabel
-            // 
-            this.messageErrorMainLabel.AutoSize = true;
-            this.messageErrorMainLabel.Location = new System.Drawing.Point(127, 37);
-            this.messageErrorMainLabel.Name = "messageErrorMainLabel";
-            this.messageErrorMainLabel.Size = new System.Drawing.Size(13, 13);
-            this.messageErrorMainLabel.TabIndex = 38;
-            this.messageErrorMainLabel.Text = "--";
-            // 
-            // noteLabel
-            // 
-            this.noteLabel.AutoSize = true;
-            this.noteLabel.Location = new System.Drawing.Point(82, 425);
-            this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(328, 13);
-            this.noteLabel.TabIndex = 39;
-            this.noteLabel.Text = "* default password is the first name + last 4 digits of SSN (smith5678)";
-            // 
-            // noteLable2
-            // 
-            this.noteLable2.AutoSize = true;
-            this.noteLable2.Location = new System.Drawing.Point(82, 451);
-            this.noteLable2.Name = "noteLable2";
-            this.noteLable2.Size = new System.Drawing.Size(261, 13);
-            this.noteLable2.TabIndex = 40;
-            this.noteLable2.Text = "All notes will be removed before moving to production.";
             // 
             // AddStudentUserControl
             // 

@@ -88,8 +88,12 @@ namespace Gradebook.DAL
                         using (SqlCommand insertCommand = new SqlCommand(insertStatementAccount, connection))
                         {
                             insertCommand.Transaction = transaction;
+                            string theSSN = person.SSN.ToString();
+                            string theFirstName = person.FirstName;
+                            string newPasswordText = theFirstName + theSSN.Substring(theSSN.Length - 4);
+                            string passwordhashed = Hashing.HashPassword(newPasswordText);
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
-                            insertCommand.Parameters.AddWithValue("@password", "passwordhashed");
+                            insertCommand.Parameters.AddWithValue("@password", passwordhashed);
                             insertCommand.ExecuteNonQuery();
                         }
 
@@ -100,6 +104,7 @@ namespace Gradebook.DAL
                             insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@recordID", record);
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
+                            insertCommand.Parameters.AddWithValue("@activeStatus", person.ActiveStatus);
 
                             insertCommand.ExecuteNonQuery();
 
@@ -115,8 +120,8 @@ namespace Gradebook.DAL
                         result = affectedRecords > 0;
 
                         transaction.Commit();
-                        //System.Windows.Forms.MessageBox.Show("processed");
-                        //connection.Close();
+                        //      System.Windows.Forms.MessageBox.Show("processed");
+                        //      connection.Close();
                     }
                     catch (SqlException sqlEx)
                     {
