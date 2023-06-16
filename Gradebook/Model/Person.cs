@@ -130,7 +130,7 @@ namespace Gradebook.Model
         }
 
 
-
+        // constructor to create student object for password use
         public Person(int recordID, string password)
         {
             this.RecordId = recordID;

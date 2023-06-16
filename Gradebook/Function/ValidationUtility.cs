@@ -119,7 +119,6 @@ namespace Gradebook.Function
                 }
                 catch (FormatException)
                 {
-
                     return false;
                 }
             }
