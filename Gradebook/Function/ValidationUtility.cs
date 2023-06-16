@@ -126,7 +126,7 @@ namespace Gradebook.Function
         }
 
         // check if input is valid phone number, 10 DIGITS
-        public static bool IsPhoneNumber(string input)
+        public static bool IsValidPhoneNumber(string input)
         {
             string phoneRegEx = @"^\d{10}$";
             bool validPhoneNumber = true;

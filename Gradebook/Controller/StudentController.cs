@@ -33,5 +33,16 @@ namespace Gradebook.Controller
             return this._personDAL.AddPersonAsStudent(person);
 
         }
+
+        /// <summary>
+        /// Gets the last created Username information
+        /// </summary>
+        /// <param name="firstNameIn"></param>
+        /// <param name="lastNameIn"></param>
+        /// <returns></returns>
+        public string GetTheLastCreatedUsernameInformation(string firstNameIn, string lastNameIn)
+        {
+            return this._personDAL.GetTheLastCreatedUsernameInformation(firstNameIn, lastNameIn);
+        }
     }
 }

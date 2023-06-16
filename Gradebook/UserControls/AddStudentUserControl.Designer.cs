@@ -112,6 +112,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
             this.lastNameTextBox.TabIndex = 15;
+         
             // 
             // zipLabel
             // 

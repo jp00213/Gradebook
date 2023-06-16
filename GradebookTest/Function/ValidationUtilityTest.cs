@@ -173,34 +173,34 @@ namespace GradebookTest.Function
         [Test]
         public void ShouldReturnTrueIfPhoneNumberIsValidOtherwiseFalse()
         {
-            var testValue1 = ValidationUtility.IsPhoneNumber("ABC");
+            var testValue1 = ValidationUtility.IsValidPhoneNumber("ABC");
             Assert.That(testValue1, Is.EqualTo(false));
 
-            var testValue2 = ValidationUtility.IsPhoneNumber("ABCDEFGHIJ");
+            var testValue2 = ValidationUtility.IsValidPhoneNumber("ABCDEFGHIJ");
             Assert.That(testValue2, Is.EqualTo(false));
 
-            var testValue3 = ValidationUtility.IsPhoneNumber("1");
+            var testValue3 = ValidationUtility.IsValidPhoneNumber("1");
             Assert.That(testValue3, Is.EqualTo(false));
 
-            var testValue4 = ValidationUtility.IsPhoneNumber("12345");
+            var testValue4 = ValidationUtility.IsValidPhoneNumber("12345");
             Assert.That(testValue4, Is.EqualTo(false));
 
-            var testValue5 = ValidationUtility.IsPhoneNumber("12345678");
+            var testValue5 = ValidationUtility.IsValidPhoneNumber("12345678");
             Assert.That(testValue5, Is.EqualTo(false));
 
-            var testValue6 = ValidationUtility.IsPhoneNumber("1234567890");
+            var testValue6 = ValidationUtility.IsValidPhoneNumber("1234567890");
             Assert.That(testValue6, Is.EqualTo(true));
 
-            var testValue7 = ValidationUtility.IsPhoneNumber("123.456.7890");
+            var testValue7 = ValidationUtility.IsValidPhoneNumber("123.456.7890");
             Assert.That(testValue7, Is.EqualTo(false));
 
-            var testValue8 = ValidationUtility.IsPhoneNumber("123-456-7890");
+            var testValue8 = ValidationUtility.IsValidPhoneNumber("123-456-7890");
             Assert.That(testValue8, Is.EqualTo(false));
 
-            var testValue9 = ValidationUtility.IsPhoneNumber("123-456.7890");
+            var testValue9 = ValidationUtility.IsValidPhoneNumber("123-456.7890");
             Assert.That(testValue9, Is.EqualTo(false));
 
-            var testValue10 = ValidationUtility.IsPhoneNumber("123.456-7890");
+            var testValue10 = ValidationUtility.IsValidPhoneNumber("123.456-7890");
             Assert.That(testValue10, Is.EqualTo(false));
         }
 
