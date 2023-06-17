@@ -239,6 +239,7 @@
             // 
             // dobPicker
             // 
+            this.dobPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dobPicker.Location = new System.Drawing.Point(130, 159);
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(200, 20);
@@ -295,10 +296,10 @@
             // createStudentTitleLabel
             // 
             this.createStudentTitleLabel.AutoSize = true;
-            this.createStudentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.createStudentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createStudentTitleLabel.Location = new System.Drawing.Point(317, 14);
             this.createStudentTitleLabel.Name = "createStudentTitleLabel";
-            this.createStudentTitleLabel.Size = new System.Drawing.Size(184, 20);
+            this.createStudentTitleLabel.Size = new System.Drawing.Size(207, 20);
             this.createStudentTitleLabel.TabIndex = 0;
             this.createStudentTitleLabel.Text = "Add Student Information";
             // 

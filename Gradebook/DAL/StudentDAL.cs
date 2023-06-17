@@ -216,18 +216,21 @@ namespace Gradebook.DAL
                 "from Student s, Person p  " +
                 "where s.recordID = p.recordID  " +
                 "and (s.studentID = @studentID   " +
-                "     or s.username like @userName  " +
-                "     or p.firstName like  @firstName  " +
-                "     or p.lastName like  @lastName  " +
+                "     or s.username = @userName  " +
+                "     or p.firstName =  @firstName  " +
+                "     or p.lastName =  @lastName  " +
                 "     or p.birthday =  @birthday) ";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
             selectCommand.Parameters.AddWithValue("@studentID", searchItemIn.StudentID);
-            selectCommand.Parameters.AddWithValue("@userName", searchItemIn.Username + "%");
-            selectCommand.Parameters.AddWithValue("@firstName", searchItemIn.FirstName + "%");
-            selectCommand.Parameters.AddWithValue("@lastName", searchItemIn.LastName + "%");
-            selectCommand.Parameters.AddWithValue("@birthday", searchItemIn.DateOfBirth);
+            selectCommand.Parameters.AddWithValue("@userName", searchItemIn.Username);
+            selectCommand.Parameters.AddWithValue("@firstName", searchItemIn.FirstName);
+            selectCommand.Parameters.AddWithValue("@lastName", searchItemIn.LastName);
+
+            selectCommand.Parameters.Add("@birthday", System.Data.SqlDbType.Date);
+            selectCommand.Parameters["@birthday"].Value = searchItemIn.DateOfBirth;
+
 
             using (selectCommand)
             {
@@ -239,20 +242,20 @@ namespace Gradebook.DAL
                         student = new Person
                         {
 
-                            StudentID = (int)(reader)["StudentID"],
-                            LastName = (string)(reader)["LastName"],
-                            FirstName = (string)(reader)["FirstName"],
-                            DateOfBirth = (DateTime)(reader)["DateOfBirth"],
-                            Phone = (string)(reader)["LastName"],
-                            Sex = (string)(reader)["Sex"],
-                            AddressStreet = (string)(reader)["AddressStreet"],
-                            City = (string)(reader)["City"],
-                            State = (string)(reader)["State"],
-                            Zip = (string)(reader)["Zip"],
-                            SSN = (string)(reader)["SSN"],
-                            ActiveStatus = (int)(reader)["ActiveStatus"],
-                            Username = (string)(reader)["Username"],
-                            RecordId = (int)(reader)["Person.RecordId"]
+                            StudentID = (int)(reader)["studentID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            Sex = (string)(reader)["sex"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            SSN = (string)(reader)["ssn"],
+                            ActiveStatus = (int)(byte)(reader)["activeStatus"],
+                            Username = (string)(reader)["username"],
+                            RecordId = (int)(reader)["recordId"]
 
                         };
                         students.Add(student);
@@ -262,8 +265,56 @@ namespace Gradebook.DAL
             return students;
         }
 
+        /// <summary>
+        /// Get student by username
+        /// </summary>
+        /// <param name="usernameIn"></param>
+        /// <returns></returns>
+        public Person GetStudentByUsername(string usernameIn)
+        {
+            Person student = new Person();
 
+            SqlConnection connection = GradebookDBConnection.GetConnection();
 
+            string selectStatement = "select * " +
+                                     "from Student s, Person p " +
+                                     "where s.recordID = p.recordID " +
+                                     "and s.username = @username  ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@username", usernameIn);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        student = new Person
+                        {
+                            StudentID = (int)(reader)["studentID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            Sex = (string)(reader)["sex"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            SSN = (string)(reader)["ssn"],
+                            ActiveStatus = (int)(byte)(reader)["activeStatus"],
+                            Username = (string)(reader)["username"],
+                            RecordId = (int)(reader)["recordId"]
+
+                        };
+                    }
+                }
+            }
+            return student;
+        }
 
 
 

@@ -66,6 +66,17 @@ namespace Gradebook.Controller
         }
 
         /// <summary>
+        /// Get sutdent by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public Person GetStudentByUsername(string username)
+        {
+            return _studentDAL.GetStudentByUsername(username);
+
+        }
+
+        /// <summary>
         /// Get student by parameters
         /// </summary>
         /// <param name="searchItemIn"></param>

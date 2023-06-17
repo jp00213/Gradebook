@@ -30,14 +30,16 @@
         {
             this.administratorStudentTabControl = new System.Windows.Forms.TabControl();
             this.addStudentTabPage = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.viewStudentTabPage = new System.Windows.Forms.TabPage();
             this.updateStudentTabPage = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.addStudentUserControl1 = new Gradebook.UserControls.AddStudentUserControl();
             this.findLastUserName1 = new Gradebook.UserControls.FindLastUserName();
+            this.searchStudentUserControl1 = new Gradebook.UserControls.SearchStudentUserControl();
             this.administratorStudentTabControl.SuspendLayout();
             this.addStudentTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.viewStudentTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // administratorStudentTabControl
@@ -62,8 +64,24 @@
             this.addStudentTabPage.Text = "Add Student";
             this.addStudentTabPage.UseVisualStyleBackColor = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.52631F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.47368F));
+            this.tableLayoutPanel1.Controls.Add(this.addStudentUserControl1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.findLastUserName1, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 15);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.09929F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.900709F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(964, 568);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
             // viewStudentTabPage
             // 
+            this.viewStudentTabPage.Controls.Add(this.searchStudentUserControl1);
             this.viewStudentTabPage.Location = new System.Drawing.Point(4, 22);
             this.viewStudentTabPage.Name = "viewStudentTabPage";
             this.viewStudentTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -81,21 +99,6 @@
             this.updateStudentTabPage.Text = "Update Student";
             this.updateStudentTabPage.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.52631F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.47368F));
-            this.tableLayoutPanel1.Controls.Add(this.addStudentUserControl1, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.findLastUserName1, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 15);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 96.09929F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.900709F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(964, 568);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
             // addStudentUserControl1
             // 
             this.addStudentUserControl1.Location = new System.Drawing.Point(3, 3);
@@ -110,13 +113,20 @@
             this.findLastUserName1.Size = new System.Drawing.Size(202, 402);
             this.findLastUserName1.TabIndex = 1;
             // 
+            // searchStudentUserControl1
+            // 
+            this.searchStudentUserControl1.Location = new System.Drawing.Point(6, 6);
+            this.searchStudentUserControl1.Name = "searchStudentUserControl1";
+            this.searchStudentUserControl1.Size = new System.Drawing.Size(950, 567);
+            this.searchStudentUserControl1.TabIndex = 0;
+            // 
             // AdministratorStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 693);
             this.Controls.Add(this.administratorStudentTabControl);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AdministratorStudents";
@@ -126,6 +136,7 @@
             this.administratorStudentTabControl.ResumeLayout(false);
             this.addStudentTabPage.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.viewStudentTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -139,5 +150,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private UserControls.AddStudentUserControl addStudentUserControl1;
         private UserControls.FindLastUserName findLastUserName1;
+        private UserControls.SearchStudentUserControl searchStudentUserControl1;
     }
 }
