@@ -40,5 +40,14 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetCoursesByYearSemester(semester, year);
         }
+
+        /// <summary>
+        /// Register student for a course
+        /// </summary>
+        /// <exception cref="NotImplementedException"></exception>
+        public Boolean RegisterStudent(int studentId, int courseId)
+        {
+            return this._courseDAL.RegisterStudent(studentId, courseId);
+        }
     }
 }

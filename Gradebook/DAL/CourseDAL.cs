@@ -111,5 +111,16 @@ namespace Gradebook.DAL
             }
             return courses;
         }
+
+        /// <summary>
+        /// Register student for a course
+        /// </summary>
+        /// <param name="studentId"></param>
+        /// <param name="courseId"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public Boolean RegisterStudent(int studentId, int courseId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
