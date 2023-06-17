@@ -38,12 +38,10 @@ namespace Gradebook.Function
                 string currentMaximumSuffixForThisUsername = new String(existingUsernameWithMaximumSuffixNumber.Where(Char.IsDigit).ToArray());
                 int tempNumber = Int32.Parse(currentMaximumSuffixForThisUsername);
 
-
                 newSuffix = (tempNumber + 1).ToString();
                 newUsername = firstNameInitial + lastName + newSuffix;
 
             }
-
             return newUsername.ToLower();
         }
 
@@ -76,15 +74,11 @@ namespace Gradebook.Function
                 string currentMaximumSuffixForThisUsername = new String(existingUsernameWithMaximumSuffixNumber.Where(Char.IsDigit).ToArray());
                 int tempNumber = Int32.Parse(currentMaximumSuffixForThisUsername);
 
-
                 newSuffix = (tempNumber + 1).ToString();
                 newUsername = "S_" + firstNameInitial + lastName + newSuffix;
 
             }
-
             return newUsername.ToLower();
         }
-
-
     }
 }

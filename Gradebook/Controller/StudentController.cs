@@ -2,9 +2,6 @@
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gradebook.Controller
 {
@@ -25,40 +22,58 @@ namespace Gradebook.Controller
             _studentDAL = new StudentDAL();
         }
 
+        /// <summary>
+        /// Add person as student
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
         public Boolean AddPersonAsStudent(Person person)
         {
             return this._personDAL.AddPersonAsStudent(person);
-
         }
 
-
-        // method for usercontrol FindLastUserName,   this is a temp function, not use in production later
+        /// <summary>
+        /// Get the last created username. Method for usercontrol FindLastUserName. This is a temp function.
+        /// </summary>
+        /// <param name="firstNameIn"></param>
+        /// <param name="lastNameIn"></param>
+        /// <returns></returns>
         public string GetTheLastCreatedUsernameInformation(string firstNameIn, string lastNameIn)
         {
             return this._personDAL.GetTheLastCreatedUsernameInformationFullName(firstNameIn, lastNameIn);
         }
 
-
+        /// <summary>
+        /// Update student passoword
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public Boolean UpdateStudentPassword(string username, string password)
         {
             string hashedPassword = Hashing.HashPassword(password);
             return _studentDAL.UpdateStudentPassword(username, hashedPassword);
         }
 
-
+        /// <summary>
+        /// Get student by ID
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
         public Person GetStudentByID(int studentID)
         {
             return _studentDAL.GetStudentByID(studentID);
-
         }
 
-
+        /// <summary>
+        /// Get student by parameters
+        /// </summary>
+        /// <param name="searchItemIn"></param>
+        /// <returns></returns>
         public List<Person> GetStudentByParameters(SearchItem searchItemIn)
         {
             return _studentDAL.GetStudentByParameters(searchItemIn);
         }
-
-
 
     }
 }
