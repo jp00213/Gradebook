@@ -32,7 +32,6 @@ namespace Gradebook.Controller
         }
 
 
-
         // method for usercontrol FindLastUserName,   this is a temp function, not use in production later
         public string GetTheLastCreatedUsernameInformation(string firstNameIn, string lastNameIn)
         {
