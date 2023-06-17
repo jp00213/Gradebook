@@ -6,7 +6,7 @@ namespace Gradebook.DAL
     /// <summary>
     /// Manages hashing passwords
     /// </summary>
-    static class Hashing
+    public class Hashing
     {
         /// <summary>
         /// Hashes a given password using SHA512, returns hashed password as a string

@@ -28,36 +28,256 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.createStudentTitleLabel = new System.Windows.Forms.Label();
-            this.errorMessageLabel = new System.Windows.Forms.Label();
-            this.lastNameLabel = new System.Windows.Forms.Label();
-            this.firstNameLabel = new System.Windows.Forms.Label();
-            this.dobLabel = new System.Windows.Forms.Label();
-            this.ssnLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
-            this.genderlabel = new System.Windows.Forms.Label();
-            this.phoneLabel = new System.Windows.Forms.Label();
-            this.zipLabel = new System.Windows.Forms.Label();
-            this.statelabel = new System.Windows.Forms.Label();
-            this.cityLabel = new System.Windows.Forms.Label();
-            this.streeLabel = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.clearButton = new System.Windows.Forms.Button();
             this.addStudentButton = new System.Windows.Forms.Button();
+            this.phoneLabel = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
+            this.zipLabel = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
+            this.statelabel = new System.Windows.Forms.Label();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.streeLabel = new System.Windows.Forms.Label();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
+            this.genderlabel = new System.Windows.Forms.Label();
             this.streetTextBox = new System.Windows.Forms.TextBox();
+            this.statusLabel = new System.Windows.Forms.Label();
             this.cityTextBox = new System.Windows.Forms.TextBox();
-            this.stateTextBox = new System.Windows.Forms.TextBox();
+            this.ssnLabel = new System.Windows.Forms.Label();
+            this.dobLabel = new System.Windows.Forms.Label();
             this.zipTextBox = new System.Windows.Forms.TextBox();
+            this.firstNameLabel = new System.Windows.Forms.Label();
             this.dobPicker = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.statusTextBox = new System.Windows.Forms.ComboBox();
-            this.genderTextBox = new System.Windows.Forms.ComboBox();
+            this.lastNameLabel = new System.Windows.Forms.Label();
+            this.cityLabel = new System.Windows.Forms.Label();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.lastNameErrorMessageLabel = new System.Windows.Forms.Label();
+            this.genderComboBox = new System.Windows.Forms.ComboBox();
+            this.createStudentTitleLabel = new System.Windows.Forms.Label();
             this.addStudentUserControlPanel = new System.Windows.Forms.Panel();
+            this.genderErrorMessageLabel = new System.Windows.Forms.Label();
+            this.zipErrorMessageLabel = new System.Windows.Forms.Label();
+            this.stateErrorMessageLabel = new System.Windows.Forms.Label();
+            this.cityErrorMessageLabel = new System.Windows.Forms.Label();
+            this.addressErrorMessageLabel = new System.Windows.Forms.Label();
+            this.statusErrorMessageLabel = new System.Windows.Forms.Label();
+            this.ssnErrorMessageLabel = new System.Windows.Forms.Label();
+            this.phoneErrorMessageLabel = new System.Windows.Forms.Label();
+            this.dobErrorMessageLabel = new System.Windows.Forms.Label();
+            this.firstNameErrorMessageLabel = new System.Windows.Forms.Label();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.addStudentUserControlPanel.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(648, 541);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(8, 20);
+            this.dateTimePicker1.TabIndex = 24;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(209, 351);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 13;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.clearButton_KeyPress);
+            // 
+            // addStudentButton
+            // 
+            this.addStudentButton.Location = new System.Drawing.Point(558, 351);
+            this.addStudentButton.Name = "addStudentButton";
+            this.addStudentButton.Size = new System.Drawing.Size(75, 23);
+            this.addStudentButton.TabIndex = 14;
+            this.addStudentButton.Text = "Add Student";
+            this.addStudentButton.UseVisualStyleBackColor = true;
+            this.addStudentButton.Click += new System.EventHandler(this.addStudentButton_Click);
+            // 
+            // phoneLabel
+            // 
+            this.phoneLabel.AutoSize = true;
+            this.phoneLabel.Location = new System.Drawing.Point(58, 204);
+            this.phoneLabel.Name = "phoneLabel";
+            this.phoneLabel.Size = new System.Drawing.Size(38, 13);
+            this.phoneLabel.TabIndex = 12;
+            this.phoneLabel.Text = "Phone";
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Location = new System.Drawing.Point(130, 75);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
+            this.lastNameTextBox.TabIndex = 15;
+            // 
+            // zipLabel
+            // 
+            this.zipLabel.AutoSize = true;
+            this.zipLabel.Location = new System.Drawing.Point(451, 207);
+            this.zipLabel.Name = "zipLabel";
+            this.zipLabel.Size = new System.Drawing.Size(22, 13);
+            this.zipLabel.TabIndex = 11;
+            this.zipLabel.Text = "Zip";
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Location = new System.Drawing.Point(130, 116);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(214, 20);
+            this.firstNameTextBox.TabIndex = 16;
+            // 
+            // statelabel
+            // 
+            this.statelabel.AutoSize = true;
+            this.statelabel.Location = new System.Drawing.Point(449, 166);
+            this.statelabel.Name = "statelabel";
+            this.statelabel.Size = new System.Drawing.Size(32, 13);
+            this.statelabel.TabIndex = 10;
+            this.statelabel.Text = "State";
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.Location = new System.Drawing.Point(130, 201);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(214, 20);
+            this.phoneTextBox.TabIndex = 17;
+            // 
+            // streeLabel
+            // 
+            this.streeLabel.AutoSize = true;
+            this.streeLabel.Location = new System.Drawing.Point(449, 75);
+            this.streeLabel.Name = "streeLabel";
+            this.streeLabel.Size = new System.Drawing.Size(35, 13);
+            this.streeLabel.TabIndex = 8;
+            this.streeLabel.Text = "Street";
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.Location = new System.Drawing.Point(130, 254);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(214, 20);
+            this.ssnTextBox.TabIndex = 18;
+            // 
+            // genderlabel
+            // 
+            this.genderlabel.AutoSize = true;
+            this.genderlabel.Location = new System.Drawing.Point(449, 254);
+            this.genderlabel.Name = "genderlabel";
+            this.genderlabel.Size = new System.Drawing.Size(42, 13);
+            this.genderlabel.TabIndex = 7;
+            this.genderlabel.Text = "Gender";
+            // 
+            // streetTextBox
+            // 
+            this.streetTextBox.Location = new System.Drawing.Point(512, 75);
+            this.streetTextBox.Name = "streetTextBox";
+            this.streetTextBox.Size = new System.Drawing.Size(214, 20);
+            this.streetTextBox.TabIndex = 19;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Location = new System.Drawing.Point(58, 299);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(37, 13);
+            this.statusLabel.TabIndex = 6;
+            this.statusLabel.Text = "Status";
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.Location = new System.Drawing.Point(512, 120);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(214, 20);
+            this.cityTextBox.TabIndex = 20;
+            // 
+            // ssnLabel
+            // 
+            this.ssnLabel.AutoSize = true;
+            this.ssnLabel.Location = new System.Drawing.Point(58, 251);
+            this.ssnLabel.Name = "ssnLabel";
+            this.ssnLabel.Size = new System.Drawing.Size(29, 13);
+            this.ssnLabel.TabIndex = 5;
+            this.ssnLabel.Text = "SSN";
+            // 
+            // dobLabel
+            // 
+            this.dobLabel.AutoSize = true;
+            this.dobLabel.Location = new System.Drawing.Point(58, 159);
+            this.dobLabel.Name = "dobLabel";
+            this.dobLabel.Size = new System.Drawing.Size(66, 13);
+            this.dobLabel.TabIndex = 4;
+            this.dobLabel.Text = "Date of Birth";
+            // 
+            // zipTextBox
+            // 
+            this.zipTextBox.Location = new System.Drawing.Point(512, 204);
+            this.zipTextBox.Name = "zipTextBox";
+            this.zipTextBox.Size = new System.Drawing.Size(214, 20);
+            this.zipTextBox.TabIndex = 22;
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Location = new System.Drawing.Point(58, 116);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(54, 13);
+            this.firstNameLabel.TabIndex = 3;
+            this.firstNameLabel.Text = "FirstName";
+            // 
+            // dobPicker
+            // 
+            this.dobPicker.Location = new System.Drawing.Point(130, 159);
+            this.dobPicker.Name = "dobPicker";
+            this.dobPicker.Size = new System.Drawing.Size(200, 20);
+            this.dobPicker.TabIndex = 23;
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Location = new System.Drawing.Point(58, 78);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
+            this.lastNameLabel.TabIndex = 2;
+            this.lastNameLabel.Text = "Last Name";
+            // 
+            // cityLabel
+            // 
+            this.cityLabel.AutoSize = true;
+            this.cityLabel.Location = new System.Drawing.Point(449, 123);
+            this.cityLabel.Name = "cityLabel";
+            this.cityLabel.Size = new System.Drawing.Size(24, 13);
+            this.cityLabel.TabIndex = 9;
+            this.cityLabel.Text = "City";
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Location = new System.Drawing.Point(130, 296);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(121, 21);
+            this.statusComboBox.TabIndex = 25;
+            // 
+            // lastNameErrorMessageLabel
+            // 
+            this.lastNameErrorMessageLabel.AutoSize = true;
+            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(127, 59);
+            this.lastNameErrorMessageLabel.Name = "lastNameErrorMessageLabel";
+            this.lastNameErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.lastNameErrorMessageLabel.TabIndex = 1;
+            this.lastNameErrorMessageLabel.Text = "--";
+            // 
+            // genderComboBox
+            // 
+            this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderComboBox.FormattingEnabled = true;
+            this.genderComboBox.Location = new System.Drawing.Point(512, 251);
+            this.genderComboBox.Name = "genderComboBox";
+            this.genderComboBox.Size = new System.Drawing.Size(121, 21);
+            this.genderComboBox.TabIndex = 26;
             // 
             // createStudentTitleLabel
             // 
@@ -69,233 +289,29 @@
             this.createStudentTitleLabel.TabIndex = 0;
             this.createStudentTitleLabel.Text = "Add Student Information";
             // 
-            // errorMessageLabel
-            // 
-            this.errorMessageLabel.AutoSize = true;
-            this.errorMessageLabel.Location = new System.Drawing.Point(127, 70);
-            this.errorMessageLabel.Name = "errorMessageLabel";
-            this.errorMessageLabel.Size = new System.Drawing.Size(13, 13);
-            this.errorMessageLabel.TabIndex = 1;
-            this.errorMessageLabel.Text = "--";
-            // 
-            // lastNameLabel
-            // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(54, 105);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
-            this.lastNameLabel.TabIndex = 2;
-            this.lastNameLabel.Text = "Last Name";
-            // 
-            // firstNameLabel
-            // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(54, 141);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(54, 13);
-            this.firstNameLabel.TabIndex = 3;
-            this.firstNameLabel.Text = "FirstName";
-            // 
-            // dobLabel
-            // 
-            this.dobLabel.AutoSize = true;
-            this.dobLabel.Location = new System.Drawing.Point(54, 182);
-            this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(66, 13);
-            this.dobLabel.TabIndex = 4;
-            this.dobLabel.Text = "Date of Birth";
-            // 
-            // ssnLabel
-            // 
-            this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(54, 254);
-            this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(29, 13);
-            this.ssnLabel.TabIndex = 5;
-            this.ssnLabel.Text = "SSN";
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(54, 302);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(37, 13);
-            this.statusLabel.TabIndex = 6;
-            this.statusLabel.Text = "Status";
-            // 
-            // genderlabel
-            // 
-            this.genderlabel.AutoSize = true;
-            this.genderlabel.Location = new System.Drawing.Point(449, 254);
-            this.genderlabel.Name = "genderlabel";
-            this.genderlabel.Size = new System.Drawing.Size(42, 13);
-            this.genderlabel.TabIndex = 7;
-            this.genderlabel.Text = "Gender";
-            // 
-            // phoneLabel
-            // 
-            this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(54, 214);
-            this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(38, 13);
-            this.phoneLabel.TabIndex = 12;
-            this.phoneLabel.Text = "Phone";
-            // 
-            // zipLabel
-            // 
-            this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(449, 214);
-            this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(22, 13);
-            this.zipLabel.TabIndex = 11;
-            this.zipLabel.Text = "Zip";
-            // 
-            // statelabel
-            // 
-            this.statelabel.AutoSize = true;
-            this.statelabel.Location = new System.Drawing.Point(449, 178);
-            this.statelabel.Name = "statelabel";
-            this.statelabel.Size = new System.Drawing.Size(32, 13);
-            this.statelabel.TabIndex = 10;
-            this.statelabel.Text = "State";
-            // 
-            // cityLabel
-            // 
-            this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(449, 138);
-            this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(24, 13);
-            this.cityLabel.TabIndex = 9;
-            this.cityLabel.Text = "City";
-            // 
-            // streeLabel
-            // 
-            this.streeLabel.AutoSize = true;
-            this.streeLabel.Location = new System.Drawing.Point(449, 102);
-            this.streeLabel.Name = "streeLabel";
-            this.streeLabel.Size = new System.Drawing.Size(35, 13);
-            this.streeLabel.TabIndex = 8;
-            this.streeLabel.Text = "Street";
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(209, 351);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 13;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
-            // 
-            // addStudentButton
-            // 
-            this.addStudentButton.Location = new System.Drawing.Point(558, 351);
-            this.addStudentButton.Name = "addStudentButton";
-            this.addStudentButton.Size = new System.Drawing.Size(75, 23);
-            this.addStudentButton.TabIndex = 14;
-            this.addStudentButton.Text = "Add Student";
-            this.addStudentButton.UseVisualStyleBackColor = true;
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(130, 102);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
-            this.lastNameTextBox.TabIndex = 15;
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(130, 138);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(214, 20);
-            this.firstNameTextBox.TabIndex = 16;
-            // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.Location = new System.Drawing.Point(130, 211);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(214, 20);
-            this.phoneTextBox.TabIndex = 17;
-            // 
-            // ssnTextBox
-            // 
-            this.ssnTextBox.Location = new System.Drawing.Point(130, 254);
-            this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(214, 20);
-            this.ssnTextBox.TabIndex = 18;
-            // 
-            // streetTextBox
-            // 
-            this.streetTextBox.Location = new System.Drawing.Point(512, 102);
-            this.streetTextBox.Name = "streetTextBox";
-            this.streetTextBox.Size = new System.Drawing.Size(214, 20);
-            this.streetTextBox.TabIndex = 19;
-            // 
-            // cityTextBox
-            // 
-            this.cityTextBox.Location = new System.Drawing.Point(512, 135);
-            this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(214, 20);
-            this.cityTextBox.TabIndex = 20;
-            // 
-            // stateTextBox
-            // 
-            this.stateTextBox.Location = new System.Drawing.Point(512, 175);
-            this.stateTextBox.Name = "stateTextBox";
-            this.stateTextBox.Size = new System.Drawing.Size(214, 20);
-            this.stateTextBox.TabIndex = 21;
-            // 
-            // zipTextBox
-            // 
-            this.zipTextBox.Location = new System.Drawing.Point(512, 211);
-            this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(214, 20);
-            this.zipTextBox.TabIndex = 22;
-            // 
-            // dobPicker
-            // 
-            this.dobPicker.Location = new System.Drawing.Point(130, 175);
-            this.dobPicker.Name = "dobPicker";
-            this.dobPicker.Size = new System.Drawing.Size(200, 20);
-            this.dobPicker.TabIndex = 23;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(648, 541);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(8, 20);
-            this.dateTimePicker1.TabIndex = 24;
-            // 
-            // statusTextBox
-            // 
-            this.statusTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.statusTextBox.FormattingEnabled = true;
-            this.statusTextBox.Location = new System.Drawing.Point(130, 299);
-            this.statusTextBox.Name = "statusTextBox";
-            this.statusTextBox.Size = new System.Drawing.Size(121, 21);
-            this.statusTextBox.TabIndex = 25;
-            // 
-            // genderTextBox
-            // 
-            this.genderTextBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.genderTextBox.FormattingEnabled = true;
-            this.genderTextBox.Location = new System.Drawing.Point(512, 254);
-            this.genderTextBox.Name = "genderTextBox";
-            this.genderTextBox.Size = new System.Drawing.Size(121, 21);
-            this.genderTextBox.TabIndex = 26;
-            // 
             // addStudentUserControlPanel
             // 
+            this.addStudentUserControlPanel.Controls.Add(this.genderErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.zipErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.stateErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.cityErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.addressErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.statusErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.ssnErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.phoneErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.dobErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.firstNameErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.stateComboBox);
             this.addStudentUserControlPanel.Controls.Add(this.createStudentTitleLabel);
-            this.addStudentUserControlPanel.Controls.Add(this.genderTextBox);
-            this.addStudentUserControlPanel.Controls.Add(this.errorMessageLabel);
-            this.addStudentUserControlPanel.Controls.Add(this.statusTextBox);
+            this.addStudentUserControlPanel.Controls.Add(this.genderComboBox);
+            this.addStudentUserControlPanel.Controls.Add(this.lastNameErrorMessageLabel);
+            this.addStudentUserControlPanel.Controls.Add(this.statusComboBox);
             this.addStudentUserControlPanel.Controls.Add(this.cityLabel);
             this.addStudentUserControlPanel.Controls.Add(this.lastNameLabel);
             this.addStudentUserControlPanel.Controls.Add(this.dobPicker);
             this.addStudentUserControlPanel.Controls.Add(this.firstNameLabel);
             this.addStudentUserControlPanel.Controls.Add(this.zipTextBox);
             this.addStudentUserControlPanel.Controls.Add(this.dobLabel);
-            this.addStudentUserControlPanel.Controls.Add(this.stateTextBox);
             this.addStudentUserControlPanel.Controls.Add(this.ssnLabel);
             this.addStudentUserControlPanel.Controls.Add(this.cityTextBox);
             this.addStudentUserControlPanel.Controls.Add(this.statusLabel);
@@ -316,6 +332,105 @@
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(922, 606);
             this.addStudentUserControlPanel.TabIndex = 27;
             // 
+            // genderErrorMessageLabel
+            // 
+            this.genderErrorMessageLabel.AutoSize = true;
+            this.genderErrorMessageLabel.Location = new System.Drawing.Point(509, 238);
+            this.genderErrorMessageLabel.Name = "genderErrorMessageLabel";
+            this.genderErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.genderErrorMessageLabel.TabIndex = 37;
+            this.genderErrorMessageLabel.Text = "--";
+            // 
+            // zipErrorMessageLabel
+            // 
+            this.zipErrorMessageLabel.AutoSize = true;
+            this.zipErrorMessageLabel.Location = new System.Drawing.Point(509, 188);
+            this.zipErrorMessageLabel.Name = "zipErrorMessageLabel";
+            this.zipErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.zipErrorMessageLabel.TabIndex = 36;
+            this.zipErrorMessageLabel.Text = "--";
+            // 
+            // stateErrorMessageLabel
+            // 
+            this.stateErrorMessageLabel.AutoSize = true;
+            this.stateErrorMessageLabel.Location = new System.Drawing.Point(509, 146);
+            this.stateErrorMessageLabel.Name = "stateErrorMessageLabel";
+            this.stateErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.stateErrorMessageLabel.TabIndex = 35;
+            this.stateErrorMessageLabel.Text = "--";
+            // 
+            // cityErrorMessageLabel
+            // 
+            this.cityErrorMessageLabel.AutoSize = true;
+            this.cityErrorMessageLabel.Location = new System.Drawing.Point(509, 104);
+            this.cityErrorMessageLabel.Name = "cityErrorMessageLabel";
+            this.cityErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.cityErrorMessageLabel.TabIndex = 34;
+            this.cityErrorMessageLabel.Text = "--";
+            // 
+            // addressErrorMessageLabel
+            // 
+            this.addressErrorMessageLabel.AutoSize = true;
+            this.addressErrorMessageLabel.Location = new System.Drawing.Point(509, 59);
+            this.addressErrorMessageLabel.Name = "addressErrorMessageLabel";
+            this.addressErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.addressErrorMessageLabel.TabIndex = 33;
+            this.addressErrorMessageLabel.Text = "--";
+            // 
+            // statusErrorMessageLabel
+            // 
+            this.statusErrorMessageLabel.AutoSize = true;
+            this.statusErrorMessageLabel.Location = new System.Drawing.Point(127, 277);
+            this.statusErrorMessageLabel.Name = "statusErrorMessageLabel";
+            this.statusErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.statusErrorMessageLabel.TabIndex = 32;
+            this.statusErrorMessageLabel.Text = "--";
+            // 
+            // ssnErrorMessageLabel
+            // 
+            this.ssnErrorMessageLabel.AutoSize = true;
+            this.ssnErrorMessageLabel.Location = new System.Drawing.Point(127, 238);
+            this.ssnErrorMessageLabel.Name = "ssnErrorMessageLabel";
+            this.ssnErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.ssnErrorMessageLabel.TabIndex = 31;
+            this.ssnErrorMessageLabel.Text = "--";
+            // 
+            // phoneErrorMessageLabel
+            // 
+            this.phoneErrorMessageLabel.AutoSize = true;
+            this.phoneErrorMessageLabel.Location = new System.Drawing.Point(127, 182);
+            this.phoneErrorMessageLabel.Name = "phoneErrorMessageLabel";
+            this.phoneErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.phoneErrorMessageLabel.TabIndex = 30;
+            this.phoneErrorMessageLabel.Text = "--";
+            // 
+            // dobErrorMessageLabel
+            // 
+            this.dobErrorMessageLabel.AutoSize = true;
+            this.dobErrorMessageLabel.Location = new System.Drawing.Point(127, 143);
+            this.dobErrorMessageLabel.Name = "dobErrorMessageLabel";
+            this.dobErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.dobErrorMessageLabel.TabIndex = 29;
+            this.dobErrorMessageLabel.Text = "--";
+            // 
+            // firstNameErrorMessageLabel
+            // 
+            this.firstNameErrorMessageLabel.AutoSize = true;
+            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(127, 100);
+            this.firstNameErrorMessageLabel.Name = "firstNameErrorMessageLabel";
+            this.firstNameErrorMessageLabel.Size = new System.Drawing.Size(13, 13);
+            this.firstNameErrorMessageLabel.TabIndex = 28;
+            this.firstNameErrorMessageLabel.Text = "--";
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Location = new System.Drawing.Point(512, 162);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(121, 21);
+            this.stateComboBox.TabIndex = 27;
+            // 
             // AddStudentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,34 +446,43 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label createStudentTitleLabel;
-        private System.Windows.Forms.Label errorMessageLabel;
-        private System.Windows.Forms.Label lastNameLabel;
-        private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.Label dobLabel;
-        private System.Windows.Forms.Label ssnLabel;
-        private System.Windows.Forms.Label statusLabel;
-        private System.Windows.Forms.Label genderlabel;
-        private System.Windows.Forms.Label phoneLabel;
-        private System.Windows.Forms.Label zipLabel;
-        private System.Windows.Forms.Label statelabel;
-        private System.Windows.Forms.Label cityLabel;
-        private System.Windows.Forms.Label streeLabel;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button addStudentButton;
+        private System.Windows.Forms.Label phoneLabel;
         private System.Windows.Forms.TextBox lastNameTextBox;
+        private System.Windows.Forms.Label zipLabel;
         private System.Windows.Forms.TextBox firstNameTextBox;
+        private System.Windows.Forms.Label statelabel;
         private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.Label streeLabel;
         private System.Windows.Forms.TextBox ssnTextBox;
+        private System.Windows.Forms.Label genderlabel;
         private System.Windows.Forms.TextBox streetTextBox;
+        private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.TextBox cityTextBox;
-        private System.Windows.Forms.TextBox stateTextBox;
+        private System.Windows.Forms.Label ssnLabel;
+        private System.Windows.Forms.Label dobLabel;
         private System.Windows.Forms.TextBox zipTextBox;
+        private System.Windows.Forms.Label firstNameLabel;
         private System.Windows.Forms.DateTimePicker dobPicker;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.ComboBox statusTextBox;
-        private System.Windows.Forms.ComboBox genderTextBox;
+        private System.Windows.Forms.Label lastNameLabel;
+        private System.Windows.Forms.Label cityLabel;
+        private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.Label lastNameErrorMessageLabel;
+        private System.Windows.Forms.ComboBox genderComboBox;
+        private System.Windows.Forms.Label createStudentTitleLabel;
         private System.Windows.Forms.Panel addStudentUserControlPanel;
+        private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.Label firstNameErrorMessageLabel;
+        private System.Windows.Forms.Label addressErrorMessageLabel;
+        private System.Windows.Forms.Label statusErrorMessageLabel;
+        private System.Windows.Forms.Label ssnErrorMessageLabel;
+        private System.Windows.Forms.Label phoneErrorMessageLabel;
+        private System.Windows.Forms.Label dobErrorMessageLabel;
+        private System.Windows.Forms.Label genderErrorMessageLabel;
+        private System.Windows.Forms.Label zipErrorMessageLabel;
+        private System.Windows.Forms.Label stateErrorMessageLabel;
+        private System.Windows.Forms.Label cityErrorMessageLabel;
     }
 }

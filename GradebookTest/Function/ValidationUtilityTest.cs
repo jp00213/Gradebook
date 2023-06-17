@@ -192,16 +192,126 @@ namespace GradebookTest.Function
             Assert.That(testValue6, Is.EqualTo(true));
 
             var testValue7 = ValidationUtility.IsPhoneNumber("123.456.7890");
-            Assert.That(testValue7, Is.EqualTo(true));
+            Assert.That(testValue7, Is.EqualTo(false));
 
             var testValue8 = ValidationUtility.IsPhoneNumber("123-456-7890");
-            Assert.That(testValue8, Is.EqualTo(true));
+            Assert.That(testValue8, Is.EqualTo(false));
 
             var testValue9 = ValidationUtility.IsPhoneNumber("123-456.7890");
-            Assert.That(testValue9, Is.EqualTo(true));
+            Assert.That(testValue9, Is.EqualTo(false));
 
             var testValue10 = ValidationUtility.IsPhoneNumber("123.456-7890");
-            Assert.That(testValue10, Is.EqualTo(true));
+            Assert.That(testValue10, Is.EqualTo(false));
+        }
+
+
+        [Test]
+        public void ShouldReturnTrueIfZipIsValidOtherwiseFalse()
+        {
+            var testValue1 = ValidationUtility.IsValidZipCode("123");
+            Assert.That(testValue1, Is.EqualTo(false));
+
+            var testValue2 = ValidationUtility.IsValidZipCode("1234");
+            Assert.That(testValue2, Is.EqualTo(false));
+
+            var testValue3 = ValidationUtility.IsValidZipCode("ABC");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsValidZipCode("ABCDE");
+            Assert.That(testValue4, Is.EqualTo(false));
+
+            var testValue5 = ValidationUtility.IsValidZipCode("12345");
+            Assert.That(testValue5, Is.EqualTo(true));
+
+            var testValue6 = ValidationUtility.IsValidZipCode("99999");
+            Assert.That(testValue6, Is.EqualTo(true));
+
+            var testValue7 = ValidationUtility.IsValidZipCode("50000");
+            Assert.That(testValue7, Is.EqualTo(true));
+
+            var testValue8 = ValidationUtility.IsValidZipCode("72378");
+            Assert.That(testValue8, Is.EqualTo(true));
+        }
+
+
+        [Test]
+        public void ShouldReturnTrueIfSSNIsValidOtherwiseFalse()
+        {
+            var testValue1 = ValidationUtility.IsSSNValid("123");
+            Assert.That(testValue1, Is.EqualTo(false));
+
+            var testValue2 = ValidationUtility.IsSSNValid("1234");
+            Assert.That(testValue2, Is.EqualTo(false));
+
+            var testValue3 = ValidationUtility.IsSSNValid("12345678");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsSSNValid("123abcd");
+            Assert.That(testValue4, Is.EqualTo(false));
+
+            var testValue5 = ValidationUtility.IsSSNValid("123456789");
+            Assert.That(testValue5, Is.EqualTo(true));
+
+            var testValue6 = ValidationUtility.IsSSNValid("222222222");
+            Assert.That(testValue6, Is.EqualTo(true));
+
+            var testValue7 = ValidationUtility.IsSSNValid("333114444");
+            Assert.That(testValue7, Is.EqualTo(true));
+
+            var testValue8 = ValidationUtility.IsSSNValid("333224444");
+            Assert.That(testValue8, Is.EqualTo(true));
+        }
+
+
+        [Test]
+        public void ShouldReturnTrueIfGenderIsValidOtherwiseFalse()
+        {
+            var testValue1 = ValidationUtility.IsGenderValid("123");
+            Assert.That(testValue1, Is.EqualTo(false));
+
+            var testValue2 = ValidationUtility.IsGenderValid("A");
+            Assert.That(testValue2, Is.EqualTo(false));
+
+            var testValue3 = ValidationUtility.IsGenderValid("B");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsGenderValid("Cde");
+            Assert.That(testValue4, Is.EqualTo(false));
+
+            var testValue5 = ValidationUtility.IsGenderValid("");
+            Assert.That(testValue5, Is.EqualTo(false));
+
+            var testValue6 = ValidationUtility.IsGenderValid("M");
+            Assert.That(testValue6, Is.EqualTo(true));
+
+            var testValue7 = ValidationUtility.IsGenderValid("F");
+            Assert.That(testValue7, Is.EqualTo(true));
+        }
+
+
+        [Test]
+        public void ShouldReturnTrueIfStatusIsValidOtherwiseFalse()
+        {
+            var testValue1 = ValidationUtility.IsStatusValid("123");
+            Assert.That(testValue1, Is.EqualTo(false));
+
+            var testValue2 = ValidationUtility.IsStatusValid("A");
+            Assert.That(testValue2, Is.EqualTo(false));
+
+            var testValue3 = ValidationUtility.IsStatusValid("B");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsStatusValid("Cde");
+            Assert.That(testValue4, Is.EqualTo(false));
+
+            var testValue5 = ValidationUtility.IsStatusValid("");
+            Assert.That(testValue5, Is.EqualTo(false));
+
+            var testValue6 = ValidationUtility.IsStatusValid("Active");
+            Assert.That(testValue6, Is.EqualTo(true));
+
+            var testValue7 = ValidationUtility.IsStatusValid("Disable");
+            Assert.That(testValue7, Is.EqualTo(true));
         }
     }
 }

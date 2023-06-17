@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Gradebook.Function
@@ -127,28 +128,73 @@ namespace Gradebook.Function
         // check if input is valid phone number, 10 DIGITS
         public static bool IsPhoneNumber(string input)
         {
-            string phoneChars = input.Replace(".", "");
-            string phoneChars2 = phoneChars.Replace("-", "");
-
-            var thePhoneLength = phoneChars2.Length;
-
-            if (thePhoneLength != 10)
+            string phoneRegEx = @"^\d{10}$";
+            bool validPhoneNumber = true;
+            if (!Regex.Match(input, phoneRegEx).Success)
             {
-                return false;
+                validPhoneNumber = false;
+            }
+            return validPhoneNumber;
+        }
+
+        // check if input is valid zip code
+        public static bool IsValidZipCode(string zip)
+        {
+            string usZipRegEx = @"^\d{5}(\d{4})?$";
+
+            bool validZipCode = true;
+            if ((!Regex.Match(zip, usZipRegEx).Success))
+            {
+                validZipCode = false;
+            }
+            return validZipCode;
+        }
+
+        // check if input is valid SSN
+        public static bool IsSSNValid(string ssn)
+        {
+            string ssnRegEx = @"^[0-9]{9}$";
+            bool validSSN = true;
+            if (ssn.Equals(""))
+            {
+                validSSN = true;
+            }
+            else if (!Regex.Match(ssn, ssnRegEx).Success)
+            {
+                validSSN = false;
+            }
+            return validSSN;
+        }
+
+        // check if input is valid gender
+        public static bool IsGenderValid(string sex)
+        {
+            bool validSex = true;
+            if (String.Equals(sex, "M") || String.Equals(sex, "F"))
+            {
+                validSex = true;
             }
             else
             {
-                try
-                {
-                    Convert.ToInt64(phoneChars2);
-                    return true;
-                }
-                catch (FormatException)
-                {
-
-                    return false;
-                }
+                validSex = false;
             }
+            return validSex;
         }
+
+        // check if input is valid status
+        public static bool IsStatusValid(string status)
+        {
+            bool validData = true;
+            if (String.Equals(status, "Active") || String.Equals(status, "Disable"))
+            {
+                validData = true;
+            }
+            else
+            {
+                validData = false;
+            }
+            return validData;
+        }
+
     }
 }
