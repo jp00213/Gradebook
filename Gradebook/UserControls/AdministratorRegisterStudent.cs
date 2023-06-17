@@ -29,8 +29,16 @@ namespace Gradebook.UserControls
             if (ValidationUtility.IsInt32(this.studentIDTextBox.Text))
             {
                 studentID = Convert.ToInt32(this.studentIDTextBox.Text);
-            } 
-            this.studentBindingSource.DataSource = this._studentController.GetStudentByID(studentID);
+            }
+            try
+            {
+                Person test = this._studentController.GetStudentByID(studentID);
+                this.fullNameLabel1.Text = test.FirstName + " " + test.LastName;
+                this.dateOfBirthLabel1.Text = test.DateOfBirth.ToString();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void registerButton_Click(object sender, EventArgs e)

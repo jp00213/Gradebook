@@ -47,7 +47,6 @@
             this.studentIDTextBox = new System.Windows.Forms.TextBox();
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.searchStudentButton = new System.Windows.Forms.Button();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fullNameLabel1 = new System.Windows.Forms.Label();
             this.dateOfBirthLabel1 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
@@ -55,7 +54,6 @@
             dateOfBirthLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // fullNameLabel
@@ -244,13 +242,8 @@
             this.searchStudentButton.UseVisualStyleBackColor = true;
             this.searchStudentButton.Click += new System.EventHandler(this.searchStudentButton_Click);
             // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(Gradebook.Model.Student);
-            // 
             // fullNameLabel1
             // 
-            this.fullNameLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "FullName", true));
             this.fullNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.fullNameLabel1.Location = new System.Drawing.Point(766, 337);
             this.fullNameLabel1.Name = "fullNameLabel1";
@@ -260,7 +253,6 @@
             // 
             // dateOfBirthLabel1
             // 
-            this.dateOfBirthLabel1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "DateOfBirth", true));
             this.dateOfBirthLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dateOfBirthLabel1.Location = new System.Drawing.Point(766, 371);
             this.dateOfBirthLabel1.Name = "dateOfBirthLabel1";
@@ -301,7 +293,6 @@
             this.Size = new System.Drawing.Size(1267, 553);
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,7 +316,6 @@
         private System.Windows.Forms.TextBox studentIDTextBox;
         private System.Windows.Forms.Label studentIDLabel;
         private System.Windows.Forms.Button searchStudentButton;
-        private System.Windows.Forms.BindingSource studentBindingSource;
         private System.Windows.Forms.Label fullNameLabel1;
         private System.Windows.Forms.Label dateOfBirthLabel1;
         private System.Windows.Forms.Button registerButton;
