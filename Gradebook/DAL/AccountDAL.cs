@@ -3,6 +3,9 @@ using System.Data.SqlClient;
 
 namespace Gradebook.DAL
 {
+    /// <summary>
+    /// Defines the DAL for the Account object
+    /// </summary>
     public class AccountDAL
     {
         /// <summary>
