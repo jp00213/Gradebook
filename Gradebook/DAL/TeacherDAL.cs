@@ -58,7 +58,7 @@ namespace Gradebook.DAL
                             LastName = (string)(reader)["lastName"],
                             FirstName = (string)(reader)["firstName"],
                             DateOfBirth = (DateTime)(reader)["birthday"],
-                            AddressStreet = (string)(reader)["addressStreet"],
+                            AddressStreet = (string)(reader)["street"],
                             City = (string)(reader)["city"],
                             State = (string)(reader)["state"],
                             Zip = (string)(reader)["zip"],
