@@ -45,8 +45,8 @@ namespace Gradebook.DAL
                 {
                     try
                     {
-                        var oldUsername = GetTheLastCreatedUsernameByFirstAndLastName(person.FirstName, person.LastName);
-                        string newUsername = CreatePersonUserName.CreateNewPersonUsername(person.FirstName, person.LastName, oldUsername);
+                        var oldUsername = GetTheLastCreatedUsernameByFirstAndLastNameForStudent(person.FirstName, person.LastName);
+                        string newUsername = CreatePersonUserName.CreateNewPersonUsernameStudent (person.FirstName, person.LastName, oldUsername);
 
                         // part 1
                         using (SqlCommand insertCommand = new SqlCommand(insertStatementPerson, connection))
@@ -136,7 +136,7 @@ namespace Gradebook.DAL
         /// <summary>
         /// Creates person as a teacher in the DB
         /// </summary>
-        /// <param name="person">person student</param>
+        /// <param name="person">person teacher</param>
         /// <returns></returns>
         public Boolean AddPersonAsTeacher(Person person)
         {
@@ -264,11 +264,12 @@ namespace Gradebook.DAL
             string selectStatement =
 
                "select * " +
-               "from person p, student s " +
+               "from person p, teacher s " +
                "where p.recordID = s.recordID " +
                "and p.recordID = (select max(r.recordID) " +
-                                 "from person r " +
-                                 "where lower(r.firstName) = lower(@firstName) " +
+                                 "from person r, teacher t " +
+                                 "where r.recordID = t.recordID " +
+                                 "and lower(r.firstName) = lower(@firstName) " +
                                  "and lower(r.lastName) = lower(@lastName))  ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
@@ -302,7 +303,7 @@ namespace Gradebook.DAL
        /// <param name="firstNameIn">first name entered</param>
        /// <param name="lastNameIn">last name entered</param>
        /// <returns>student information</returns>
-        public string GetTheLastCreatedUsernameInformation(string firstNameIn, string lastNameIn)
+        public string GetTheLastCreatedUsernameInformationFullName(string firstNameIn, string lastNameIn)
         {
             var theUsername = "";
             var theStudentID = "";
@@ -314,8 +315,9 @@ namespace Gradebook.DAL
                "from person p, student s " +
                "where p.recordID = s.recordID " +
                "and p.recordID = (select max(r.recordID) " +
-                                 "from person r " +
-                                 "where lower(r.firstName) = lower(@firstName) " +
+                                 "from person r , student s " +
+                                 "where r.recordID = s.recordID " +
+                                 "and lower(r.firstName) = lower(@firstName) " +
                                  "and lower(r.lastName) = lower(@lastName))  ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
@@ -345,5 +347,51 @@ namespace Gradebook.DAL
 
             return completeStudentInfo;
         }
+
+        /// <summary>
+        /// Get the last created Username by first and last name for Student
+        /// </summary>
+        /// <param name="firstNameIn">first name</param>
+        /// <param name="lastNameIn">last name</param>
+        /// <returns>username</returns>
+        public string GetTheLastCreatedUsernameByFirstAndLastNameForStudent(string firstNameIn, string lastNameIn)
+        {
+            var theUsername = "";
+            string selectStatement =
+
+               "select * " +
+               "from person p, student s " +
+               "where p.recordID = s.recordID " +
+               "and p.recordID = (select max(r.recordID) " +
+                                 "from person r , student k " +
+                                 "where r.recordID = k.recordID " +
+                                 "and lower(r.firstName) = lower(@firstName) " +
+                                 "and lower(r.lastName) = lower(@lastName))  ";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@firstName", firstNameIn);
+                    selectCommand.Parameters.AddWithValue("@lastName", lastNameIn);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            {
+                                theUsername = reader["username"].ToString();
+                            };
+
+                        }
+                    }
+                }
+            }
+            return theUsername;
+        }
+
     }
 }

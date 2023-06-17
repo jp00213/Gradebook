@@ -1,10 +1,8 @@
-﻿using Gradebook.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
+using Gradebook.Model;
 
 namespace Gradebook.DAL
 {
@@ -14,7 +12,43 @@ namespace Gradebook.DAL
     public class StudentDAL
     {
         /// <summary>
-        /// Update a studen in DB
+        /// Update student password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public bool UpdateStudentPassword(string username, string password)
+        {
+            string updateStatement = "update a  " +
+                                     "set a.password = @password  " +
+                                     "from Account a  " +
+                                     "where a.username = @username  ";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                {
+                    updateCommand.Parameters.AddWithValue("@username", username);
+                    updateCommand.Parameters.AddWithValue("@password", password);
+
+                    int updateCount = updateCommand.ExecuteNonQuery();
+
+                    if (updateCount > 0)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Update student info
         /// </summary>
         /// <param name="personNew"></param>
         /// <param name="personOld"></param>
@@ -22,7 +56,8 @@ namespace Gradebook.DAL
         public bool UpdateStudent(Person personNew, Person personOld)
         {
             bool result = false;
-            int affectedRecords = 0;
+            int updatePerson = 0;
+            int updateStudent = 0;
             int recordID = personNew.RecordId;
             string updatePersonStatement = "update p  " +
                                      "set p.firstName = @newFirstName,  " +
@@ -54,8 +89,6 @@ namespace Gradebook.DAL
                                                   "where s.recordID = @recordID  " +
                                                   "and s.activeStatus = @oldStatus  ";
 
-            string selectStatementCount = "SELECT @@ROWCOUNT ";
-
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
             {
                 connection.Open();
@@ -63,10 +96,8 @@ namespace Gradebook.DAL
                 {
                     try
                     {
-                        using (SqlCommand updateCommand = new SqlCommand(updatePersonStatement, connection))
+                        using (SqlCommand updateCommand = new SqlCommand(updatePersonStatement, connection, transaction))
                         {
-                            updateCommand.Transaction = transaction;
-
                             updateCommand.Parameters.AddWithValue("@newFirstName", personNew.FirstName);
                             updateCommand.Parameters.AddWithValue("@newLastName", personNew.LastName);
                             updateCommand.Parameters.AddWithValue("@newDob", personNew.DateOfBirth);
@@ -89,33 +120,26 @@ namespace Gradebook.DAL
                             updateCommand.Parameters.AddWithValue("@oldZip", personOld.Zip);
                             updateCommand.Parameters.AddWithValue("@oldSSN", personOld.SSN);
 
-                            updateCommand.ExecuteNonQuery();
+                            updatePerson = updateCommand.ExecuteNonQuery();
                         }
-                        using (SqlCommand updateStudentCommand = new SqlCommand(updateStudentStatusStatement, connection))
-                        {
-                            updateStudentCommand.Transaction = transaction;
 
+                        using (SqlCommand updateStudentCommand = new SqlCommand(updateStudentStatusStatement, connection, transaction))
+                        {
                             updateStudentCommand.Parameters.AddWithValue("@newStatus", personNew.ActiveStatus);
                             updateStudentCommand.Parameters.AddWithValue("@recordID", recordID);
                             updateStudentCommand.Parameters.AddWithValue("@oldStatus", personOld.ActiveStatus);
+                            updateStudent = updateStudentCommand.ExecuteNonQuery();
 
-                            updateStudentCommand.ExecuteNonQuery();
-
-                            // check if insert passed
-                            SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection);
-                            selectCommand.Transaction = transaction;
-                            using (selectCommand)
-                            {
-                                affectedRecords = Convert.ToInt32(selectCommand.ExecuteScalar());
-                            }
                         }
 
-                        result = affectedRecords > 0;
+                        if ((updatePerson == 1) && (updateStudent == 1))
+                        {
+                            transaction.Commit();
 
-                        transaction.Commit();
-                        //      System.Windows.Forms.MessageBox.Show("processed");
-                        //      connection.Close();
+                            System.Windows.Forms.MessageBox.Show("update processed");
+                        };
                     }
+
                     catch (SqlException sqlEx)
                     {
                         System.Windows.Forms.MessageBox.Show(sqlEx.Message);
@@ -129,64 +153,145 @@ namespace Gradebook.DAL
         /// <summary>
         /// Get student by ID
         /// </summary>
-        /// <param name="id">name</param>
-        /// <returns>student</returns>
-        public Person GetStudentByID(int id)
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        public Person GetStudentByID(int studentID)
         {
             Person student = new Person();
 
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement = "select * " +
+                                     "from Student s, Person p " +
+                                     "where s.recordID = p.recordID and s.studentID = @studentID  ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", studentID);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        student = new Person
+                        {
+                            StudentID = (int)(reader)["StudentID"],
+                            LastName = (string)(reader)["LastName"],
+                            FirstName = (string)(reader)["FirstName"],
+                            DateOfBirth = (DateTime)(reader)["DateOfBirth"],
+                            Phone = (string)(reader)["LastName"],
+                            Sex = (string)(reader)["Sex"],
+                            AddressStreet = (string)(reader)["AddressStreet"],
+                            City = (string)(reader)["City"],
+                            State = (string)(reader)["State"],
+                            Zip = (string)(reader)["Zip"],
+                            SSN = (string)(reader)["SSN"],
+                            ActiveStatus = (int)(reader)["ActiveStatus"],
+                            Username = (string)(reader)["Username"],
+                            RecordId = (int)(reader)["Person.RecordId"]
+
+                        };
+                    }
+                }
+            }
             return student;
         }
 
         /// <summary>
-        /// Get student by name and DOB
+        /// Get student by parameters
         /// </summary>
-        /// <param name="firstName">first name</param>
-        /// <param name="lastName">last name</param>
-        /// <param name="dob"></param>
-        /// <returns>student</returns>
-        public List<Person> GetStudentByNameDOB(string firstName, string lastName, DateTime dob)
+        /// <param name="searchItemIn"></param>
+        /// <returns></returns>
+        public List<Person> GetStudentByParameters(SearchItem searchItemIn)
         {
             List<Person> students = new List<Person>();
+            Person student = new Person();
+            SqlConnection connection = GradebookDBConnection.GetConnection();
 
+            string selectStatement =
+                "select *  " +
+                "from Student s, Person p  " +
+                "where s.recordID = p.recordID  " +
+                "and (s.studentID = @studentID   " +
+                "     or s.username like @userName  " +
+                "     or p.firstName like  @firstName  " +
+                "     or p.lastName like  @lastName  " +
+                "     or p.birthday =  @birthday) ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", searchItemIn.StudentID);
+            selectCommand.Parameters.AddWithValue("@userName", searchItemIn.Username + "%");
+            selectCommand.Parameters.AddWithValue("@firstName", searchItemIn.FirstName + "%");
+            selectCommand.Parameters.AddWithValue("@lastName", searchItemIn.LastName + "%");
+            selectCommand.Parameters.AddWithValue("@birthday", searchItemIn.DateOfBirth);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        student = new Person
+                        {
+
+                            StudentID = (int)(reader)["StudentID"],
+                            LastName = (string)(reader)["LastName"],
+                            FirstName = (string)(reader)["FirstName"],
+                            DateOfBirth = (DateTime)(reader)["DateOfBirth"],
+                            Phone = (string)(reader)["LastName"],
+                            Sex = (string)(reader)["Sex"],
+                            AddressStreet = (string)(reader)["AddressStreet"],
+                            City = (string)(reader)["City"],
+                            State = (string)(reader)["State"],
+                            Zip = (string)(reader)["Zip"],
+                            SSN = (string)(reader)["SSN"],
+                            ActiveStatus = (int)(reader)["ActiveStatus"],
+                            Username = (string)(reader)["Username"],
+                            RecordId = (int)(reader)["Person.RecordId"]
+
+                        };
+                        students.Add(student);
+                    }
+                }
+            }
             return students;
         }
 
-        /// <summary>
-        /// Get studnet by last and first name
-        /// </summary>
-        /// <param name="firstName">first name</param>
-        /// <param name="lastName">last name</param>
-        /// <returns>student</returns>
-        public List<Person> GetStudentByLastAndFirstName(string firstName, string lastName)
-        {
-            List<Person> students = new List<Person>();
-            return students;
 
-        }
 
-        /// <summary>
-        /// Get sutdent by last name and DOB
-        /// </summary>
-        /// <param name="lastName">last name</param>
-        /// <param name="dob">dob</param>
-        /// <returns>student</returns>
-        public List<Person> GetStudentByLastAndDOB(string lastName, DateTime dob)
-        {
-            List<Person> students = new List<Person>();
-            return students;
 
-        }
 
-        /// <summary>
-        /// Get student by DOB
-        /// </summary>
-        /// <param name="dobIn">dob</param>
-        /// <returns>student</returns>
-        public List<Person> GetStudentByDobOnly(DateTime dobIn)
-        {
-            List<Person> students = new List<Person>();
-            return students;
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

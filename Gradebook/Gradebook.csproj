@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -78,6 +78,7 @@
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\Person.cs" />
+    <Compile Include="Model\SearchItem.cs" />
     <Compile Include="Model\Student.cs" />
     <Compile Include="Model\Teacher.cs" />
     <Compile Include="UserControls\AddNewCourseUserControl.cs">
