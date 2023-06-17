@@ -6,12 +6,19 @@ using Gradebook.Model;
 
 namespace Gradebook.DAL
 {
+    /// <summary>
+    /// Defines the DAL for the Student object
+    /// </summary>
     public class StudentDAL
     {
-
+        /// <summary>
+        /// Update student password
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool UpdateStudentPassword(string username, string password)
         {
-
             string updateStatement = "update a  " +
                                      "set a.password = @password  " +
                                      "from Account a  " +
@@ -36,13 +43,16 @@ namespace Gradebook.DAL
                     {
                         return false;
                     }
-
                 }
-
             }
         }
 
-
+        /// <summary>
+        /// Update student info
+        /// </summary>
+        /// <param name="personNew"></param>
+        /// <param name="personOld"></param>
+        /// <returns></returns>
         public bool UpdateStudent(Person personNew, Person personOld)
         {
             bool result = false;
@@ -73,8 +83,6 @@ namespace Gradebook.DAL
                                      "and p.zip = @oldZip  " +
                                      "and p.ssn = @oldSSN  ";
 
-
-
             string updateStudentStatusStatement = "update s  " +
                                                   "set s.activeStatus = @newStatus " +
                                                   "from Student s  " +
@@ -88,7 +96,6 @@ namespace Gradebook.DAL
                 {
                     try
                     {
-
                         using (SqlCommand updateCommand = new SqlCommand(updatePersonStatement, connection, transaction))
                         {
                             updateCommand.Parameters.AddWithValue("@newFirstName", personNew.FirstName);
@@ -125,13 +132,11 @@ namespace Gradebook.DAL
 
                         }
 
-
                         if ((updatePerson == 1) && (updateStudent == 1))
                         {
                             transaction.Commit();
 
                             System.Windows.Forms.MessageBox.Show("update processed");
-
                         };
                     }
 
@@ -145,7 +150,11 @@ namespace Gradebook.DAL
             return result;
         }
 
-
+        /// <summary>
+        /// Get student by ID
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
         public Person GetStudentByID(int studentID)
         {
             Person student = new Person();
@@ -188,14 +197,14 @@ namespace Gradebook.DAL
                     }
                 }
             }
-
-
             return student;
         }
 
-
-
-
+        /// <summary>
+        /// Get student by parameters
+        /// </summary>
+        /// <param name="searchItemIn"></param>
+        /// <returns></returns>
         public List<Person> GetStudentByParameters(SearchItem searchItemIn)
         {
             List<Person> students = new List<Person>();
