@@ -53,15 +53,6 @@
             this.resultsFirstNameLabel = new System.Windows.Forms.Label();
             this.teacherIDLabel = new System.Windows.Forms.Label();
             this.teacherSearchDataGridView = new System.Windows.Forms.DataGridView();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.lastNameTextbox = new System.Windows.Forms.TextBox();
-            this.firstNameTextbox = new System.Windows.Forms.TextBox();
-            this.sexComboBox = new System.Windows.Forms.ComboBox();
-            this.statusComboBox = new System.Windows.Forms.ComboBox();
-            this.stateComboBox = new System.Windows.Forms.ComboBox();
-            this.saveButton = new System.Windows.Forms.Button();
-            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,6 +67,15 @@
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchButton = new System.Windows.Forms.Button();
+            this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.lastNameTextbox = new System.Windows.Forms.TextBox();
+            this.firstNameTextbox = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.stateComboBox = new System.Windows.Forms.ComboBox();
+            this.statusComboBox = new System.Windows.Forms.ComboBox();
+            this.sexComboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -92,6 +92,7 @@
             // 
             // resultsDOBDateTimePicker
             // 
+            this.resultsDOBDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "DateOfBirth", true));
             this.resultsDOBDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.resultsDOBDateTimePicker.Location = new System.Drawing.Point(235, 451);
             this.resultsDOBDateTimePicker.Name = "resultsDOBDateTimePicker";
@@ -130,6 +131,7 @@
             // 
             // phoneTextBox
             // 
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Phone", true));
             this.phoneTextBox.Location = new System.Drawing.Point(589, 493);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(233, 20);
@@ -137,6 +139,7 @@
             // 
             // zipTextBox
             // 
+            this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Zip", true));
             this.zipTextBox.Location = new System.Drawing.Point(589, 451);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(233, 20);
@@ -144,6 +147,7 @@
             // 
             // cityTextBox
             // 
+            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "City", true));
             this.cityTextBox.Location = new System.Drawing.Point(588, 365);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(234, 20);
@@ -151,6 +155,7 @@
             // 
             // addressTextBox
             // 
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "AddressStreet", true));
             this.addressTextBox.Location = new System.Drawing.Point(589, 325);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(233, 20);
@@ -158,6 +163,7 @@
             // 
             // resultsLastNameTextBox
             // 
+            this.resultsLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "LastName", true));
             this.resultsLastNameTextBox.Location = new System.Drawing.Point(235, 409);
             this.resultsLastNameTextBox.Name = "resultsLastNameTextBox";
             this.resultsLastNameTextBox.Size = new System.Drawing.Size(233, 20);
@@ -165,6 +171,7 @@
             // 
             // resultsFirstNameTextbox
             // 
+            this.resultsFirstNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "FirstName", true));
             this.resultsFirstNameTextbox.Location = new System.Drawing.Point(235, 364);
             this.resultsFirstNameTextbox.Name = "resultsFirstNameTextbox";
             this.resultsFirstNameTextbox.Size = new System.Drawing.Size(233, 20);
@@ -172,6 +179,7 @@
             // 
             // teacherIDtextBox
             // 
+            this.teacherIDtextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "TeacherID", true));
             this.teacherIDtextBox.Location = new System.Drawing.Point(235, 324);
             this.teacherIDtextBox.Name = "teacherIDtextBox";
             this.teacherIDtextBox.ReadOnly = true;
@@ -313,77 +321,6 @@
             this.teacherSearchDataGridView.Size = new System.Drawing.Size(662, 177);
             this.teacherSearchDataGridView.TabIndex = 36;
             // 
-            // searchButton
-            // 
-            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchButton.Location = new System.Drawing.Point(751, 61);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(104, 27);
-            this.searchButton.TabIndex = 35;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // dobDateTimePicker
-            // 
-            this.dobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dobDateTimePicker.Location = new System.Drawing.Point(527, 68);
-            this.dobDateTimePicker.Name = "dobDateTimePicker";
-            this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.dobDateTimePicker.TabIndex = 34;
-            // 
-            // lastNameTextbox
-            // 
-            this.lastNameTextbox.Location = new System.Drawing.Point(307, 68);
-            this.lastNameTextbox.Name = "lastNameTextbox";
-            this.lastNameTextbox.Size = new System.Drawing.Size(200, 20);
-            this.lastNameTextbox.TabIndex = 33;
-            // 
-            // firstNameTextbox
-            // 
-            this.firstNameTextbox.Location = new System.Drawing.Point(84, 68);
-            this.firstNameTextbox.Name = "firstNameTextbox";
-            this.firstNameTextbox.Size = new System.Drawing.Size(200, 20);
-            this.firstNameTextbox.TabIndex = 32;
-            // 
-            // sexComboBox
-            // 
-            this.sexComboBox.FormattingEnabled = true;
-            this.sexComboBox.Location = new System.Drawing.Point(235, 497);
-            this.sexComboBox.Name = "sexComboBox";
-            this.sexComboBox.Size = new System.Drawing.Size(233, 21);
-            this.sexComboBox.TabIndex = 63;
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(235, 538);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(233, 21);
-            this.statusComboBox.TabIndex = 64;
-            // 
-            // stateComboBox
-            // 
-            this.stateComboBox.FormattingEnabled = true;
-            this.stateComboBox.Location = new System.Drawing.Point(589, 409);
-            this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(233, 21);
-            this.stateComboBox.TabIndex = 65;
-            // 
-            // saveButton
-            // 
-            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(527, 582);
-            this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(137, 32);
-            this.saveButton.TabIndex = 66;
-            this.saveButton.Text = "Save";
-            this.saveButton.UseVisualStyleBackColor = true;
-            // 
-            // teacherBindingSource
-            // 
-            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
-            // 
             // teacherIDDataGridViewTextBoxColumn
             // 
             this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
@@ -469,6 +406,80 @@
             this.sSNDataGridViewTextBoxColumn.HeaderText = "SSN";
             this.sSNDataGridViewTextBoxColumn.Name = "sSNDataGridViewTextBoxColumn";
             // 
+            // teacherBindingSource
+            // 
+            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchButton.Location = new System.Drawing.Point(751, 61);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(104, 27);
+            this.searchButton.TabIndex = 35;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // dobDateTimePicker
+            // 
+            this.dobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dobDateTimePicker.Location = new System.Drawing.Point(527, 68);
+            this.dobDateTimePicker.Name = "dobDateTimePicker";
+            this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dobDateTimePicker.TabIndex = 34;
+            // 
+            // lastNameTextbox
+            // 
+            this.lastNameTextbox.Location = new System.Drawing.Point(307, 68);
+            this.lastNameTextbox.Name = "lastNameTextbox";
+            this.lastNameTextbox.Size = new System.Drawing.Size(200, 20);
+            this.lastNameTextbox.TabIndex = 33;
+            // 
+            // firstNameTextbox
+            // 
+            this.firstNameTextbox.Location = new System.Drawing.Point(84, 68);
+            this.firstNameTextbox.Name = "firstNameTextbox";
+            this.firstNameTextbox.Size = new System.Drawing.Size(200, 20);
+            this.firstNameTextbox.TabIndex = 32;
+            // 
+            // saveButton
+            // 
+            this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveButton.Location = new System.Drawing.Point(527, 582);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(137, 32);
+            this.saveButton.TabIndex = 66;
+            this.saveButton.Text = "Save";
+            this.saveButton.UseVisualStyleBackColor = true;
+            // 
+            // stateComboBox
+            // 
+            this.stateComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "State", true));
+            this.stateComboBox.FormattingEnabled = true;
+            this.stateComboBox.Location = new System.Drawing.Point(589, 409);
+            this.stateComboBox.Name = "stateComboBox";
+            this.stateComboBox.Size = new System.Drawing.Size(233, 21);
+            this.stateComboBox.TabIndex = 65;
+            // 
+            // statusComboBox
+            // 
+            this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Status", true));
+            this.statusComboBox.FormattingEnabled = true;
+            this.statusComboBox.Location = new System.Drawing.Point(235, 538);
+            this.statusComboBox.Name = "statusComboBox";
+            this.statusComboBox.Size = new System.Drawing.Size(233, 21);
+            this.statusComboBox.TabIndex = 64;
+            // 
+            // sexComboBox
+            // 
+            this.sexComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Sex", true));
+            this.sexComboBox.FormattingEnabled = true;
+            this.sexComboBox.Location = new System.Drawing.Point(235, 497);
+            this.sexComboBox.Name = "sexComboBox";
+            this.sexComboBox.Size = new System.Drawing.Size(233, 21);
+            this.sexComboBox.TabIndex = 63;
+            // 
             // UpdateTeacherUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,9 +555,6 @@
         private System.Windows.Forms.DateTimePicker dobDateTimePicker;
         private System.Windows.Forms.TextBox lastNameTextbox;
         private System.Windows.Forms.TextBox firstNameTextbox;
-        private System.Windows.Forms.ComboBox sexComboBox;
-        private System.Windows.Forms.ComboBox statusComboBox;
-        private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.BindingSource teacherBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherIDDataGridViewTextBoxColumn;
@@ -563,5 +571,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sSNDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox stateComboBox;
+        private System.Windows.Forms.ComboBox statusComboBox;
+        private System.Windows.Forms.ComboBox sexComboBox;
     }
 }
