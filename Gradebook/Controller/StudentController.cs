@@ -14,6 +14,7 @@ namespace Gradebook.Controller
         /// The controller class that mediates b/w the StudentDAL and the View.
         /// </summary>
         private readonly PersonDAL _personDAL;
+        private readonly StudentDAL _studentDAL;
 
         /// <summary>
         /// Create a StudentController object.
@@ -21,28 +22,43 @@ namespace Gradebook.Controller
         public StudentController()
         {
             _personDAL = new PersonDAL();
+            _studentDAL = new StudentDAL();
         }
 
-        /// <summary>
-        /// Adds a person as student.
-        /// </summary>
-        /// <param name="person">name of person</param>
-        /// <returns></returns>
         public Boolean AddPersonAsStudent(Person person)
         {
             return this._personDAL.AddPersonAsStudent(person);
 
         }
 
-        /// <summary>
-        /// Gets the last created Username information
-        /// </summary>
-        /// <param name="firstNameIn"></param>
-        /// <param name="lastNameIn"></param>
-        /// <returns></returns>
+
+        // method for usercontrol FindLastUserName,   this is a temp function, not use in production later
         public string GetTheLastCreatedUsernameInformation(string firstNameIn, string lastNameIn)
         {
-            return this._personDAL.GetTheLastCreatedUsernameInformation(firstNameIn, lastNameIn);
+            return this._personDAL.GetTheLastCreatedUsernameInformationFullName(firstNameIn, lastNameIn);
         }
+
+
+        public Boolean UpdateStudentPassword(string username, string password)
+        {
+            string hashedPassword = Hashing.HashPassword(password);
+            return _studentDAL.UpdateStudentPassword(username, hashedPassword);
+        }
+
+
+        public Person GetStudentByID(int studentID)
+        {
+            return _studentDAL.GetStudentByID(studentID);
+
+        }
+
+
+        public List<Person> GetStudentByParameters(SearchItem searchItemIn)
+        {
+            return _studentDAL.GetStudentByParameters(searchItemIn);
+        }
+
+
+
     }
 }
