@@ -231,7 +231,6 @@ namespace Gradebook.DAL
             selectCommand.Parameters.Add("@birthday", System.Data.SqlDbType.Date);
             selectCommand.Parameters["@birthday"].Value = searchItemIn.DateOfBirth;
 
-
             using (selectCommand)
             {
                 connection.Open();
