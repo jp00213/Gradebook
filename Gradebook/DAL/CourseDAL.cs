@@ -1,5 +1,6 @@
 ﻿using Gradebook.Model;
 using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Gradebook.DAL
@@ -65,6 +66,50 @@ namespace Gradebook.DAL
             }
 
             return result;
+        }
+
+        public List<Course> GetCoursesByYearSemester(string semester, int year)
+        {
+
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM course " +
+                "WHERE semester = @semester " +
+                "AND year = @year ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@semester", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@semester"].Value = semester;
+
+            selectCommand.Parameters.Add("@year", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@year"].Value = year;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
         }
     }
 }
