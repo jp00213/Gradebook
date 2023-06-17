@@ -15,7 +15,7 @@ using System.Windows.Forms;
 namespace Gradebook.UserControls
 {
     /// <summary>
-    /// This class manages usercontrol for viewing student information
+    /// This class manages usercontrol for adding student information
     /// </summary>
     public partial class AddStudentUserControl : UserControl
     {
