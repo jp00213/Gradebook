@@ -29,13 +29,21 @@ namespace Gradebook.UserControls
         private void teacherSearchDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             var teacherID = teacherSearchDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            this._teacher = this._teacherController.GetTeacherById(Int32.Parse(teacherID));
+            this._teacher = this._teacherController.GetTeacherByID(Int32.Parse(teacherID));
 
             if (_teacher != null)
             {
                 teacherBindingSource.DataSource = _teacher;
                 teacherBindingSource.ResetBindings(true);
-                this.update
+                this.saveButton.Enabled = true;
+            }
+        }
+
+        private void dobDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if(_teacher != null)
+            {
+                this.dobDateTimePicker.Value = this._teacher.DateOfBirth.Date;
             }
         }
     }

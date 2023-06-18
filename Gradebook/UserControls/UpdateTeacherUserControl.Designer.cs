@@ -429,6 +429,7 @@
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dobDateTimePicker.TabIndex = 34;
+            this.dobDateTimePicker.ValueChanged += new System.EventHandler(this.dobDateTimePicker_ValueChanged);
             // 
             // lastNameTextbox
             // 
