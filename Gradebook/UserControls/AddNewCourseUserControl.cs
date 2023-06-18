@@ -62,7 +62,7 @@ namespace Gradebook.UserControls
             }
             newCourse.Semester = this.semesterComboBox.Text;
             newCourse.Year = this.courseYearPicker.Value.Year;
-            newCourse.TeacherID = 0;
+            newCourse.TeacherID = (int)this.teacherComboBox.SelectedValue;
 
             if (this._courseController.AddNewCourse(newCourse))
             {
