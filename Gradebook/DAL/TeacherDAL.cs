@@ -74,5 +74,56 @@ namespace Gradebook.DAL
             }
             return teachers;
         }
+
+        /// <summary>
+        /// Gets all teachers
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns>A list of teachers based on name and dob</returns>
+        public List<Teacher> GetAllActiveTeachers()
+        {
+            List<Teacher> teachers = new List<Teacher>();
+            Teacher teacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM Teacher te " +
+                "JOIN person pe " +
+                "ON te.recordID = pe.recordID " +
+                "WHERE activeStatus = 1";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teacher = new Teacher
+                        {
+                            RecordId = (int)(reader)["recordID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            TeacherID = (int)(reader)["teacherID"],
+                            Sex = (string)(reader)["sex"],
+                            SSN = (reader)["ssn"] as string
+                        };
+                        teachers.Add(teacher);
+                    }
+                }
+            }
+            return teachers;
+        }
+
     }
 }

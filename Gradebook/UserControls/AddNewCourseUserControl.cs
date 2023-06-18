@@ -11,6 +11,7 @@ namespace Gradebook.UserControls
     public partial class AddNewCourseUserControl : UserControl
     {
         private CourseController _courseController;
+        private TeacherController _teacherController;
 
         /// <summary>
         /// Constructor for UserControl
@@ -19,7 +20,17 @@ namespace Gradebook.UserControls
         {
             InitializeComponent();
             this._courseController = new CourseController();
-            this.teacherComboBox.Items.Add("No teacher available");
+            this._teacherController = new TeacherController();
+            try
+            {
+                this.teacherComboBox.DataSource = this._teacherController.GetAllActiveTeachers();
+                this.teacherComboBox.DisplayMember = "FullName";
+                this.teacherComboBox.ValueMember = "TeacherID";
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.teacherComboBox.Items.Add("No teacher available");
+            }
         }
 
         private void clearButton_Click(object sender, EventArgs e)

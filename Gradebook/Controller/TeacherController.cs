@@ -40,5 +40,17 @@ namespace Gradebook.Controller
         {
             return this._teacherDAL.GetTeacherByNameDOB(firstName, lastName, dob);
         }
+        
+        /// <summary>
+        /// Return a list of all active teachers
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns></returns>
+        public List<Teacher> GetAllActiveTeachers()
+        {
+            return this._teacherDAL.GetAllActiveTeachers();
+        }
     }
 }
