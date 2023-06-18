@@ -20,5 +20,15 @@ namespace Gradebook.View
             Owner.Show();
         }
 
+        private void searchStudentUserControl1_StudentNumberChanged(object sender, System.EventArgs e)
+        {
+            this.currentStudentIDDataLabel.Text = searchStudentUserControl1.getCurrentStudentID();
+        }
+
+        private void currentStudentIDDataLabel_TextChanged(object sender, System.EventArgs e)
+        {
+            viewAndUpdateStudentUserControl1.SetCurrentViewEditID(this.currentStudentIDDataLabel.Text);
+     
+        }
     }
 }
