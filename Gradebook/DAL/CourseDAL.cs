@@ -68,9 +68,14 @@ namespace Gradebook.DAL
             return result;
         }
 
+        /// <summary>
+        /// Returns all courses in a particular year and semester
+        /// </summary>
+        /// <param name="semester"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public List<Course> GetCoursesByYearSemester(string semester, int year)
         {
-
             List<Course> courses = new List<Course>();
 
             SqlConnection connection = GradebookDBConnection.GetConnection();
@@ -120,7 +125,28 @@ namespace Gradebook.DAL
         /// <exception cref="NotImplementedException"></exception>
         public Boolean RegisterStudent(int studentId, int courseId)
         {
-            throw new NotImplementedException();
+            Boolean result = false;
+
+            string insertStatement = "INSERT INTO studentsincourse " +
+                "(courseId, studentID) " +
+                "VALUES (@courseID, @studentID)";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    insertCommand.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
+                    insertCommand.Parameters["@courseID"].Value = courseId;
+
+                    insertCommand.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
+                    insertCommand.Parameters["@studentID"].Value = studentId;
+
+                    int record = insertCommand.ExecuteNonQuery();
+                    result = record > 0;
+                }
+            }
+            return result;
         }
     }
 }

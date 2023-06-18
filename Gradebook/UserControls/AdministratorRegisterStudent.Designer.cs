@@ -29,16 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label fullNameLabel;
-            System.Windows.Forms.Label dateOfBirthLabel;
+            System.Windows.Forms.Label studentFullNameLabel;
+            System.Windows.Forms.Label studentBirthdayLabel;
             this.courseDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchCourseButton = new System.Windows.Forms.Button();
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,34 +40,41 @@
             this.studentIDTextBox = new System.Windows.Forms.TextBox();
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.searchStudentButton = new System.Windows.Forms.Button();
-            this.fullNameLabel1 = new System.Windows.Forms.Label();
-            this.dateOfBirthLabel1 = new System.Windows.Forms.Label();
             this.registerButton = new System.Windows.Forms.Button();
-            fullNameLabel = new System.Windows.Forms.Label();
-            dateOfBirthLabel = new System.Windows.Forms.Label();
+            this.studentNameTextBox = new System.Windows.Forms.TextBox();
+            this.studentBirthdayTextBox = new System.Windows.Forms.TextBox();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            studentFullNameLabel = new System.Windows.Forms.Label();
+            studentBirthdayLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // fullNameLabel
+            // studentFullNameLabel
             // 
-            fullNameLabel.AutoSize = true;
-            fullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            fullNameLabel.Location = new System.Drawing.Point(622, 337);
-            fullNameLabel.Name = "fullNameLabel";
-            fullNameLabel.Size = new System.Drawing.Size(100, 25);
-            fullNameLabel.TabIndex = 22;
-            fullNameLabel.Text = "Full Name";
+            studentFullNameLabel.AutoSize = true;
+            studentFullNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            studentFullNameLabel.Location = new System.Drawing.Point(622, 337);
+            studentFullNameLabel.Name = "studentFullNameLabel";
+            studentFullNameLabel.Size = new System.Drawing.Size(100, 25);
+            studentFullNameLabel.TabIndex = 22;
+            studentFullNameLabel.Text = "Full Name";
             // 
-            // dateOfBirthLabel
+            // studentBirthdayLabel
             // 
-            dateOfBirthLabel.AutoSize = true;
-            dateOfBirthLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dateOfBirthLabel.Location = new System.Drawing.Point(622, 371);
-            dateOfBirthLabel.Name = "dateOfBirthLabel";
-            dateOfBirthLabel.Size = new System.Drawing.Size(83, 25);
-            dateOfBirthLabel.TabIndex = 23;
-            dateOfBirthLabel.Text = "Birthday";
+            studentBirthdayLabel.AutoSize = true;
+            studentBirthdayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            studentBirthdayLabel.Location = new System.Drawing.Point(622, 371);
+            studentBirthdayLabel.Name = "studentBirthdayLabel";
+            studentBirthdayLabel.Size = new System.Drawing.Size(83, 25);
+            studentBirthdayLabel.TabIndex = 23;
+            studentBirthdayLabel.Text = "Birthday";
             // 
             // courseDataGridView
             // 
@@ -91,6 +91,7 @@
             this.dataGridViewTextBoxColumn6});
             this.courseDataGridView.DataSource = this.courseBindingSource;
             this.courseDataGridView.Location = new System.Drawing.Point(59, 80);
+            this.courseDataGridView.MultiSelect = false;
             this.courseDataGridView.Name = "courseDataGridView";
             this.courseDataGridView.ReadOnly = true;
             this.courseDataGridView.RowHeadersWidth = 51;
@@ -99,70 +100,12 @@
             this.courseDataGridView.Size = new System.Drawing.Size(1134, 220);
             this.courseDataGridView.TabIndex = 1;
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CourseID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CourseID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prefix";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Prefix";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Number";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Number";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Section";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Section";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "CreditHours";
-            this.dataGridViewTextBoxColumn6.HeaderText = "CreditHours";
-            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 125;
-            // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
-            // 
             // searchCourseButton
             // 
             this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchCourseButton.Location = new System.Drawing.Point(672, 31);
+            this.searchCourseButton.Location = new System.Drawing.Point(657, 22);
             this.searchCourseButton.Name = "searchCourseButton";
-            this.searchCourseButton.Size = new System.Drawing.Size(177, 30);
+            this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
             this.searchCourseButton.TabIndex = 2;
             this.searchCourseButton.Text = "Search Courses";
             this.searchCourseButton.UseVisualStyleBackColor = true;
@@ -236,29 +179,11 @@
             this.searchStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.searchStudentButton.Location = new System.Drawing.Point(352, 334);
             this.searchStudentButton.Name = "searchStudentButton";
-            this.searchStudentButton.Size = new System.Drawing.Size(177, 30);
+            this.searchStudentButton.Size = new System.Drawing.Size(178, 38);
             this.searchStudentButton.TabIndex = 22;
             this.searchStudentButton.Text = "Find Student";
             this.searchStudentButton.UseVisualStyleBackColor = true;
             this.searchStudentButton.Click += new System.EventHandler(this.searchStudentButton_Click);
-            // 
-            // fullNameLabel1
-            // 
-            this.fullNameLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.fullNameLabel1.Location = new System.Drawing.Point(766, 337);
-            this.fullNameLabel1.Name = "fullNameLabel1";
-            this.fullNameLabel1.Size = new System.Drawing.Size(100, 23);
-            this.fullNameLabel1.TabIndex = 23;
-            this.fullNameLabel1.Text = "label1";
-            // 
-            // dateOfBirthLabel1
-            // 
-            this.dateOfBirthLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dateOfBirthLabel1.Location = new System.Drawing.Point(766, 371);
-            this.dateOfBirthLabel1.Name = "dateOfBirthLabel1";
-            this.dateOfBirthLabel1.Size = new System.Drawing.Size(100, 23);
-            this.dateOfBirthLabel1.TabIndex = 24;
-            this.dateOfBirthLabel1.Text = "label1";
             // 
             // registerButton
             // 
@@ -271,15 +196,91 @@
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
             // 
+            // studentNameTextBox
+            // 
+            this.studentNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.studentNameTextBox.Location = new System.Drawing.Point(756, 334);
+            this.studentNameTextBox.Name = "studentNameTextBox";
+            this.studentNameTextBox.ReadOnly = true;
+            this.studentNameTextBox.Size = new System.Drawing.Size(235, 30);
+            this.studentNameTextBox.TabIndex = 26;
+            // 
+            // studentBirthdayTextBox
+            // 
+            this.studentBirthdayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.studentBirthdayTextBox.Location = new System.Drawing.Point(756, 371);
+            this.studentBirthdayTextBox.Name = "studentBirthdayTextBox";
+            this.studentBirthdayTextBox.ReadOnly = true;
+            this.studentBirthdayTextBox.Size = new System.Drawing.Size(235, 30);
+            this.studentBirthdayTextBox.TabIndex = 27;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CourseID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CourseID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prefix";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Prefix";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Number";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Number";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Section";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Section";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "CreditHours";
+            this.dataGridViewTextBoxColumn6.HeaderText = "CreditHours";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 125;
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
+            // 
             // AdministratorRegisterStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.studentBirthdayTextBox);
+            this.Controls.Add(this.studentNameTextBox);
             this.Controls.Add(this.registerButton);
-            this.Controls.Add(dateOfBirthLabel);
-            this.Controls.Add(this.dateOfBirthLabel1);
-            this.Controls.Add(fullNameLabel);
-            this.Controls.Add(this.fullNameLabel1);
+            this.Controls.Add(studentBirthdayLabel);
+            this.Controls.Add(studentFullNameLabel);
             this.Controls.Add(this.searchStudentButton);
             this.Controls.Add(this.studentIDLabel);
             this.Controls.Add(this.studentIDTextBox);
@@ -316,8 +317,8 @@
         private System.Windows.Forms.TextBox studentIDTextBox;
         private System.Windows.Forms.Label studentIDLabel;
         private System.Windows.Forms.Button searchStudentButton;
-        private System.Windows.Forms.Label fullNameLabel1;
-        private System.Windows.Forms.Label dateOfBirthLabel1;
         private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.TextBox studentNameTextBox;
+        private System.Windows.Forms.TextBox studentBirthdayTextBox;
     }
 }

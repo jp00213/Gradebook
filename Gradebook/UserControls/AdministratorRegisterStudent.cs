@@ -32,9 +32,9 @@ namespace Gradebook.UserControls
             }
             try
             {
-                Person test = this._studentController.GetStudentByID(studentID);
-                this.fullNameLabel1.Text = test.FirstName + " " + test.LastName;
-                this.dateOfBirthLabel1.Text = test.DateOfBirth.ToString();
+                Person student = this._studentController.GetStudentByID(studentID);
+                this.studentNameTextBox.Text = student.FirstName + " " + student.LastName;
+                this.studentBirthdayTextBox.Text = student.DateOfBirth.ToString("yyyy-MM-dd");
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -44,7 +44,14 @@ namespace Gradebook.UserControls
         private void registerButton_Click(object sender, EventArgs e)
         {
             int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
-            this._courseController.RegisterStudent(Convert.ToInt32(this.studentIDTextBox.Text), course);
+            try
+            {
+                this._courseController.RegisterStudent(Convert.ToInt32(this.studentIDTextBox.Text), course);
+                MessageBox.Show("Successfully registered for course");
+            } catch
+            {
+                MessageBox.Show("Did not register for course. Check previous registrations and try again");
+            }
         }
     }
 }
