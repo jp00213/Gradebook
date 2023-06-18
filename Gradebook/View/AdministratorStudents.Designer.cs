@@ -31,15 +31,19 @@
             this.administratorStudentTabControl = new System.Windows.Forms.TabControl();
             this.addStudentTabPage = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.viewStudentTabPage = new System.Windows.Forms.TabPage();
-            this.updateStudentTabPage = new System.Windows.Forms.TabPage();
             this.addStudentUserControl1 = new Gradebook.UserControls.AddStudentUserControl();
             this.findLastUserName1 = new Gradebook.UserControls.FindLastUserName();
+            this.viewStudentTabPage = new System.Windows.Forms.TabPage();
             this.searchStudentUserControl1 = new Gradebook.UserControls.SearchStudentUserControl();
+            this.updateStudentTabPage = new System.Windows.Forms.TabPage();
+            this.viewAndUpdateStudentUserControl1 = new Gradebook.UserControls.ViewAndUpdateStudentUserControl();
+            this.currentStudentIDMasterLabel = new System.Windows.Forms.Label();
+            this.currentStudentIDDataLabel = new System.Windows.Forms.Label();
             this.administratorStudentTabControl.SuspendLayout();
             this.addStudentTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.viewStudentTabPage.SuspendLayout();
+            this.updateStudentTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // administratorStudentTabControl
@@ -79,26 +83,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(964, 568);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // viewStudentTabPage
-            // 
-            this.viewStudentTabPage.Controls.Add(this.searchStudentUserControl1);
-            this.viewStudentTabPage.Location = new System.Drawing.Point(4, 22);
-            this.viewStudentTabPage.Name = "viewStudentTabPage";
-            this.viewStudentTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.viewStudentTabPage.Size = new System.Drawing.Size(986, 620);
-            this.viewStudentTabPage.TabIndex = 1;
-            this.viewStudentTabPage.Text = "View Student";
-            this.viewStudentTabPage.UseVisualStyleBackColor = true;
-            // 
-            // updateStudentTabPage
-            // 
-            this.updateStudentTabPage.Location = new System.Drawing.Point(4, 22);
-            this.updateStudentTabPage.Name = "updateStudentTabPage";
-            this.updateStudentTabPage.Size = new System.Drawing.Size(986, 620);
-            this.updateStudentTabPage.TabIndex = 2;
-            this.updateStudentTabPage.Text = "Update Student";
-            this.updateStudentTabPage.UseVisualStyleBackColor = true;
-            // 
             // addStudentUserControl1
             // 
             this.addStudentUserControl1.Location = new System.Drawing.Point(3, 3);
@@ -113,18 +97,68 @@
             this.findLastUserName1.Size = new System.Drawing.Size(202, 402);
             this.findLastUserName1.TabIndex = 1;
             // 
+            // viewStudentTabPage
+            // 
+            this.viewStudentTabPage.Controls.Add(this.searchStudentUserControl1);
+            this.viewStudentTabPage.Location = new System.Drawing.Point(4, 22);
+            this.viewStudentTabPage.Name = "viewStudentTabPage";
+            this.viewStudentTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.viewStudentTabPage.Size = new System.Drawing.Size(986, 620);
+            this.viewStudentTabPage.TabIndex = 1;
+            this.viewStudentTabPage.Text = "View Student";
+            this.viewStudentTabPage.UseVisualStyleBackColor = true;
+            // 
             // searchStudentUserControl1
             // 
             this.searchStudentUserControl1.Location = new System.Drawing.Point(6, 6);
             this.searchStudentUserControl1.Name = "searchStudentUserControl1";
-            this.searchStudentUserControl1.Size = new System.Drawing.Size(950, 567);
+            this.searchStudentUserControl1.Size = new System.Drawing.Size(960, 640);
             this.searchStudentUserControl1.TabIndex = 0;
+            this.searchStudentUserControl1.StudentNumberChanged += new System.EventHandler(this.searchStudentUserControl1_StudentNumberChanged);
+            // 
+            // updateStudentTabPage
+            // 
+            this.updateStudentTabPage.Controls.Add(this.viewAndUpdateStudentUserControl1);
+            this.updateStudentTabPage.Location = new System.Drawing.Point(4, 22);
+            this.updateStudentTabPage.Name = "updateStudentTabPage";
+            this.updateStudentTabPage.Size = new System.Drawing.Size(986, 620);
+            this.updateStudentTabPage.TabIndex = 2;
+            this.updateStudentTabPage.Text = "Update Student";
+            this.updateStudentTabPage.UseVisualStyleBackColor = true;
+            // 
+            // viewAndUpdateStudentUserControl1
+            // 
+            this.viewAndUpdateStudentUserControl1.Location = new System.Drawing.Point(6, 3);
+            this.viewAndUpdateStudentUserControl1.Name = "viewAndUpdateStudentUserControl1";
+            this.viewAndUpdateStudentUserControl1.Size = new System.Drawing.Size(960, 640);
+            this.viewAndUpdateStudentUserControl1.TabIndex = 0;
+            // 
+            // currentStudentIDMasterLabel
+            // 
+            this.currentStudentIDMasterLabel.AutoSize = true;
+            this.currentStudentIDMasterLabel.Location = new System.Drawing.Point(702, 27);
+            this.currentStudentIDMasterLabel.Name = "currentStudentIDMasterLabel";
+            this.currentStudentIDMasterLabel.Size = new System.Drawing.Size(106, 13);
+            this.currentStudentIDMasterLabel.TabIndex = 1;
+            this.currentStudentIDMasterLabel.Text = "Selected Student ID:";
+            // 
+            // currentStudentIDDataLabel
+            // 
+            this.currentStudentIDDataLabel.AutoSize = true;
+            this.currentStudentIDDataLabel.Location = new System.Drawing.Point(814, 27);
+            this.currentStudentIDDataLabel.Name = "currentStudentIDDataLabel";
+            this.currentStudentIDDataLabel.Size = new System.Drawing.Size(13, 13);
+            this.currentStudentIDDataLabel.TabIndex = 2;
+            this.currentStudentIDDataLabel.Text = "0";
+            this.currentStudentIDDataLabel.TextChanged += new System.EventHandler(this.currentStudentIDDataLabel_TextChanged);
             // 
             // AdministratorStudents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(997, 693);
+            this.Controls.Add(this.currentStudentIDDataLabel);
+            this.Controls.Add(this.currentStudentIDMasterLabel);
             this.Controls.Add(this.administratorStudentTabControl);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
@@ -137,7 +171,9 @@
             this.addStudentTabPage.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.viewStudentTabPage.ResumeLayout(false);
+            this.updateStudentTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -151,5 +187,8 @@
         private UserControls.AddStudentUserControl addStudentUserControl1;
         private UserControls.FindLastUserName findLastUserName1;
         private UserControls.SearchStudentUserControl searchStudentUserControl1;
+        private UserControls.ViewAndUpdateStudentUserControl viewAndUpdateStudentUserControl1;
+        private System.Windows.Forms.Label currentStudentIDMasterLabel;
+        private System.Windows.Forms.Label currentStudentIDDataLabel;
     }
 }

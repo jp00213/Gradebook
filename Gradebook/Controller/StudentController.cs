@@ -56,6 +56,18 @@ namespace Gradebook.Controller
         }
 
         /// <summary>
+        /// Update student information
+        /// </summary>
+        /// <param name="personNew"></param>
+        /// <param name="personOld"></param>
+        /// <returns></returns>
+        public bool UpdateStudent(Person personNew, Person personOld)
+        {
+
+            return _studentDAL.UpdateStudent(personNew, personOld);
+        }
+
+        /// <summary>
         /// Get student by ID
         /// </summary>
         /// <param name="studentID"></param>

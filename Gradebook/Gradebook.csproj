@@ -123,6 +123,12 @@
     <Compile Include="UserControls\UpdateTeacherUserControl.Designer.cs">
       <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ViewAndUpdateStudentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ViewAndUpdateStudentUserControl.Designer.cs">
+      <DependentUpon>ViewAndUpdateStudentUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ViewTeacherUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateTeacherUserControl.resx">
       <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ViewAndUpdateStudentUserControl.resx">
+      <DependentUpon>ViewAndUpdateStudentUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ViewTeacherUserControl.resx">
       <DependentUpon>ViewTeacherUserControl.cs</DependentUpon>
