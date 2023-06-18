@@ -89,6 +89,7 @@
             this.clearButton.TabIndex = 62;
             this.clearButton.Text = "Clear Edits";
             this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // resultsDOBDateTimePicker
             // 
@@ -455,6 +456,7 @@
             this.saveButton.TabIndex = 66;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // stateComboBox
             // 
