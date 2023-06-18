@@ -105,6 +105,12 @@
     <Compile Include="UserControls\AdministratorRegisterStudent.Designer.cs">
       <DependentUpon>AdministratorRegisterStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\ChangeStudentPasswordUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
+      <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\FindLastUserName.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -187,6 +193,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AdministratorRegisterStudent.resx">
       <DependentUpon>AdministratorRegisterStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
+      <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FindLastUserName.resx">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
