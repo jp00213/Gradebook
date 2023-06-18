@@ -59,19 +59,19 @@ namespace Gradebook.UserControls
             string state = this.stateComboBox.Text;
             string zip = this.zipTextBox.Text.Trim();
             string sex = this.sexComboBox.Text;
-            string status = this.statusComboBox.Text;
+            string ssn = this.statusComboBox.Text;
             Teacher oldTeacher = _teacher;
 
-            if (string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) || dob > DateTime.Now || string.IsNullOrEmpty(address) || address.Length < 5 || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state) || !IsValidZipCode(zip) || !IsPhoneNumberValid(phone) || string.IsNullOrEmpty(sex) || string.IsNullOrEmpty(status))
+            if (string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) || dob > DateTime.Now || string.IsNullOrEmpty(address) || address.Length < 5 || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state) || !IsValidZipCode(zip) || !IsPhoneNumberValid(phone) || string.IsNullOrEmpty(sex) || string.IsNullOrEmpty(ssn))
             {
                 this.ShowInvalidErrorMessages();
             }
             else
             {
-                bool success = this._teacherController.UpdateTeacher(oldTeacher.RecordId, lastName, firstName, dob, address, city, state, zip, phone);
+                bool success = this._teacherController.UpdateTeacher(oldTeacher.RecordId, lastName, firstName, dob, address, city, state, zip, phone, sex, ssn);
                 if (success)
                 {
-                    MessageBox.Show("Patient successfully updated!", "Patient Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Teacher successfully updated!", "Teacher Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ResetForm();
                 }
             }

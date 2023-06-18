@@ -288,5 +288,81 @@ namespace Gradebook.DAL
             }
             return theUsername;
         }
+
+        /// <summary>
+        /// Updates person's info in the DB
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="birthday"></param>
+        /// <param name="addressStreet"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zip"></param>
+        /// <param name="phone"></param>
+        /// <param name="sex"></param>
+        /// <param name="ssn"></param>
+        /// <returns></returns>
+        public bool UpdatePerson(int recordID, string lastName, string firstName, DateTime birthday, string street, string city, string state, string zip, string phone, string sex, string ssn)
+        {
+            bool result = false;
+            int affectedRecords = 0;
+            string updateStatement = "UPDATE person SET " + "lastName = @newLastName, " + "firstName = @newFirstName, " +
+                "birthday = @newBirthday, " + "street = @newStreet, " + "city = @newCity, " + "state = @newState, "
+                + "zip = @newZip, " + "phoneNumber = @newPhone, sex = @newSex, ssn = @newSSN " + "WHERE recordID = @oldRecordID";
+            string selectStatement = "SELECT @@ROWCOUNT";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                        {
+                            updateCommand.Transaction = transaction;
+
+                            updateCommand.Parameters.AddWithValue("@oldRecordID", recordID);
+                            updateCommand.Parameters.AddWithValue("@newLastName", lastName);
+                            updateCommand.Parameters.AddWithValue("@newFirstName", firstName);
+                            updateCommand.Parameters.AddWithValue("@newBirthday", birthday);
+                            updateCommand.Parameters.AddWithValue("@newStreet", street);
+                            updateCommand.Parameters.AddWithValue("@newCity", city);
+                            updateCommand.Parameters.AddWithValue("@newState", state);
+                            updateCommand.Parameters.AddWithValue("@newZip", zip);
+                            updateCommand.Parameters.AddWithValue("@newPhone", phone);
+                            updateCommand.Parameters.AddWithValue("@newSex", sex);
+                            if (ssn == "")
+                            {
+                                updateCommand.Parameters.AddWithValue("@newSSN", DBNull.Value);
+                            }
+                            else
+                            {
+                                updateCommand.Parameters.AddWithValue("@newSSN", ssn);
+                            }
+
+                            updateCommand.ExecuteNonQuery();
+
+                            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+                            selectCommand.Transaction = transaction;
+                            using (selectCommand)
+                            {
+                                affectedRecords = Convert.ToInt32(selectCommand.ExecuteScalar());
+                            }
+
+                            result = affectedRecords > 0;
+                            transaction.Commit();
+                        }
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                    }
+                }
+            }
+            return result;
+        }
     }
 }

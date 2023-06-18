@@ -57,5 +57,25 @@ namespace Gradebook.Controller
         {
             return this._teacherDAL.GetTeacherByID(teacherID);
         }
+
+        /// <summary>
+        /// Updates patient in the db
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="birthday"></param>
+        /// <param name="street"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zip"></param>
+        /// <param name="phone"></param>
+        /// <param name="sex"></param>
+        /// <param name="ssn"></param>
+        /// <returns></returns>
+        public bool UpdateTeacher(int recordID, string lastName, string firstName, DateTime birthday, string street, string city, string state, string zip, string phone, string sex, string ssn)
+        {
+            return this._personDAL.UpdatePerson(recordID, lastName, firstName, birthday, street, city, state, zip, phone, sex, ssn);
+        }
     }
 }
