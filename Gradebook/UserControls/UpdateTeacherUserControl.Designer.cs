@@ -54,20 +54,6 @@
             this.resultsFirstNameLabel = new System.Windows.Forms.Label();
             this.teacherIDLabel = new System.Windows.Forms.Label();
             this.teacherSearchDataGridView = new System.Windows.Forms.DataGridView();
-            this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recordIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.addressStreetDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.zipDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchButton = new System.Windows.Forms.Button();
             this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastNameTextbox = new System.Windows.Forms.TextBox();
@@ -76,6 +62,27 @@
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.sexComboBox = new System.Windows.Forms.ComboBox();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
+            this.ssnLabel = new System.Windows.Forms.Label();
+            this.firstNameErrorLabel = new System.Windows.Forms.Label();
+            this.lastNameErrorLabel = new System.Windows.Forms.Label();
+            this.DOBErrorLabel = new System.Windows.Forms.Label();
+            this.ssnErrorLabel = new System.Windows.Forms.Label();
+            this.sexErrorLabel = new System.Windows.Forms.Label();
+            this.addressErrorLabel = new System.Windows.Forms.Label();
+            this.cityErrorLabel = new System.Windows.Forms.Label();
+            this.stateErrorLabel = new System.Windows.Forms.Label();
+            this.zipErrorLabel = new System.Windows.Forms.Label();
+            this.phoneErrorLabel = new System.Windows.Forms.Label();
+            this.statusErrorLabel = new System.Windows.Forms.Label();
+            this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
             this.SuspendLayout();
@@ -177,7 +184,7 @@
             // resultsFirstNameTextbox
             // 
             this.resultsFirstNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "FirstName", true));
-            this.resultsFirstNameTextbox.Location = new System.Drawing.Point(235, 364);
+            this.resultsFirstNameTextbox.Location = new System.Drawing.Point(235, 365);
             this.resultsFirstNameTextbox.Name = "resultsFirstNameTextbox";
             this.resultsFirstNameTextbox.Size = new System.Drawing.Size(233, 20);
             this.resultsFirstNameTextbox.TabIndex = 49;
@@ -245,7 +252,7 @@
             // 
             this.statusLabel.AutoSize = true;
             this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(181, 538);
+            this.statusLabel.Location = new System.Drawing.Point(535, 536);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(44, 16);
             this.statusLabel.TabIndex = 42;
@@ -255,7 +262,7 @@
             // 
             this.sexLabel.AutoSize = true;
             this.sexLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sexLabel.Location = new System.Drawing.Point(195, 497);
+            this.sexLabel.Location = new System.Drawing.Point(195, 535);
             this.sexLabel.Name = "sexLabel";
             this.sexLabel.Size = new System.Drawing.Size(30, 16);
             this.sexLabel.TabIndex = 41;
@@ -285,7 +292,7 @@
             // 
             this.resultsFirstNameLabel.AutoSize = true;
             this.resultsFirstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultsFirstNameLabel.Location = new System.Drawing.Point(157, 364);
+            this.resultsFirstNameLabel.Location = new System.Drawing.Point(157, 365);
             this.resultsFirstNameLabel.Name = "resultsFirstNameLabel";
             this.resultsFirstNameLabel.Size = new System.Drawing.Size(72, 16);
             this.resultsFirstNameLabel.TabIndex = 38;
@@ -308,109 +315,18 @@
             this.teacherSearchDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.teacherIDDataGridViewTextBoxColumn,
             this.statusDataGridViewTextBoxColumn,
-            this.recordIdDataGridViewTextBoxColumn,
             this.lastNameDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
             this.dateOfBirthDataGridViewTextBoxColumn,
-            this.addressStreetDataGridViewTextBoxColumn,
-            this.cityDataGridViewTextBoxColumn,
-            this.stateDataGridViewTextBoxColumn,
-            this.zipDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
             this.fullNameDataGridViewTextBoxColumn,
-            this.sexDataGridViewTextBoxColumn,
-            this.sSNDataGridViewTextBoxColumn});
+            this.sexDataGridViewTextBoxColumn});
             this.teacherSearchDataGridView.DataSource = this.teacherBindingSource;
             this.teacherSearchDataGridView.Location = new System.Drawing.Point(160, 111);
             this.teacherSearchDataGridView.Name = "teacherSearchDataGridView";
             this.teacherSearchDataGridView.Size = new System.Drawing.Size(662, 177);
             this.teacherSearchDataGridView.TabIndex = 36;
             this.teacherSearchDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherSearchDataGridView_CellClick);
-            // 
-            // teacherIDDataGridViewTextBoxColumn
-            // 
-            this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
-            this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
-            this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
-            // 
-            // statusDataGridViewTextBoxColumn
-            // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
-            // 
-            // recordIdDataGridViewTextBoxColumn
-            // 
-            this.recordIdDataGridViewTextBoxColumn.DataPropertyName = "RecordId";
-            this.recordIdDataGridViewTextBoxColumn.HeaderText = "RecordId";
-            this.recordIdDataGridViewTextBoxColumn.Name = "recordIdDataGridViewTextBoxColumn";
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            // 
-            // addressStreetDataGridViewTextBoxColumn
-            // 
-            this.addressStreetDataGridViewTextBoxColumn.DataPropertyName = "AddressStreet";
-            this.addressStreetDataGridViewTextBoxColumn.HeaderText = "AddressStreet";
-            this.addressStreetDataGridViewTextBoxColumn.Name = "addressStreetDataGridViewTextBoxColumn";
-            // 
-            // cityDataGridViewTextBoxColumn
-            // 
-            this.cityDataGridViewTextBoxColumn.DataPropertyName = "City";
-            this.cityDataGridViewTextBoxColumn.HeaderText = "City";
-            this.cityDataGridViewTextBoxColumn.Name = "cityDataGridViewTextBoxColumn";
-            // 
-            // stateDataGridViewTextBoxColumn
-            // 
-            this.stateDataGridViewTextBoxColumn.DataPropertyName = "State";
-            this.stateDataGridViewTextBoxColumn.HeaderText = "State";
-            this.stateDataGridViewTextBoxColumn.Name = "stateDataGridViewTextBoxColumn";
-            // 
-            // zipDataGridViewTextBoxColumn
-            // 
-            this.zipDataGridViewTextBoxColumn.DataPropertyName = "Zip";
-            this.zipDataGridViewTextBoxColumn.HeaderText = "Zip";
-            this.zipDataGridViewTextBoxColumn.Name = "zipDataGridViewTextBoxColumn";
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sexDataGridViewTextBoxColumn
-            // 
-            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
-            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
-            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
-            // 
-            // sSNDataGridViewTextBoxColumn
-            // 
-            this.sSNDataGridViewTextBoxColumn.DataPropertyName = "SSN";
-            this.sSNDataGridViewTextBoxColumn.HeaderText = "SSN";
-            this.sSNDataGridViewTextBoxColumn.Name = "sSNDataGridViewTextBoxColumn";
             // 
             // searchButton
             // 
@@ -471,7 +387,7 @@
             // 
             this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Status", true));
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(235, 538);
+            this.statusComboBox.Location = new System.Drawing.Point(589, 536);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(233, 21);
             this.statusComboBox.TabIndex = 64;
@@ -480,15 +396,194 @@
             // 
             this.sexComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Sex", true));
             this.sexComboBox.FormattingEnabled = true;
-            this.sexComboBox.Location = new System.Drawing.Point(235, 497);
+            this.sexComboBox.Location = new System.Drawing.Point(235, 535);
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(233, 21);
             this.sexComboBox.TabIndex = 63;
+            // 
+            // ssnTextBox
+            // 
+            this.ssnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Phone", true));
+            this.ssnTextBox.Location = new System.Drawing.Point(235, 493);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(233, 20);
+            this.ssnTextBox.TabIndex = 68;
+            // 
+            // ssnLabel
+            // 
+            this.ssnLabel.AutoSize = true;
+            this.ssnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ssnLabel.Location = new System.Drawing.Point(177, 493);
+            this.ssnLabel.Name = "ssnLabel";
+            this.ssnLabel.Size = new System.Drawing.Size(35, 16);
+            this.ssnLabel.TabIndex = 67;
+            this.ssnLabel.Text = "SSN";
+            // 
+            // firstNameErrorLabel
+            // 
+            this.firstNameErrorLabel.AutoSize = true;
+            this.firstNameErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstNameErrorLabel.Location = new System.Drawing.Point(232, 388);
+            this.firstNameErrorLabel.Name = "firstNameErrorLabel";
+            this.firstNameErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.firstNameErrorLabel.TabIndex = 69;
+            // 
+            // lastNameErrorLabel
+            // 
+            this.lastNameErrorLabel.AutoSize = true;
+            this.lastNameErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastNameErrorLabel.Location = new System.Drawing.Point(232, 433);
+            this.lastNameErrorLabel.Name = "lastNameErrorLabel";
+            this.lastNameErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.lastNameErrorLabel.TabIndex = 70;
+            // 
+            // DOBErrorLabel
+            // 
+            this.DOBErrorLabel.AutoSize = true;
+            this.DOBErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DOBErrorLabel.Location = new System.Drawing.Point(232, 475);
+            this.DOBErrorLabel.Name = "DOBErrorLabel";
+            this.DOBErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.DOBErrorLabel.TabIndex = 71;
+            // 
+            // ssnErrorLabel
+            // 
+            this.ssnErrorLabel.AutoSize = true;
+            this.ssnErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ssnErrorLabel.Location = new System.Drawing.Point(232, 516);
+            this.ssnErrorLabel.Name = "ssnErrorLabel";
+            this.ssnErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.ssnErrorLabel.TabIndex = 72;
+            // 
+            // sexErrorLabel
+            // 
+            this.sexErrorLabel.AutoSize = true;
+            this.sexErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sexErrorLabel.Location = new System.Drawing.Point(232, 559);
+            this.sexErrorLabel.Name = "sexErrorLabel";
+            this.sexErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.sexErrorLabel.TabIndex = 73;
+            // 
+            // addressErrorLabel
+            // 
+            this.addressErrorLabel.AutoSize = true;
+            this.addressErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressErrorLabel.Location = new System.Drawing.Point(586, 348);
+            this.addressErrorLabel.Name = "addressErrorLabel";
+            this.addressErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.addressErrorLabel.TabIndex = 74;
+            // 
+            // cityErrorLabel
+            // 
+            this.cityErrorLabel.AutoSize = true;
+            this.cityErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cityErrorLabel.Location = new System.Drawing.Point(586, 391);
+            this.cityErrorLabel.Name = "cityErrorLabel";
+            this.cityErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.cityErrorLabel.TabIndex = 75;
+            // 
+            // stateErrorLabel
+            // 
+            this.stateErrorLabel.AutoSize = true;
+            this.stateErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stateErrorLabel.Location = new System.Drawing.Point(586, 433);
+            this.stateErrorLabel.Name = "stateErrorLabel";
+            this.stateErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.stateErrorLabel.TabIndex = 76;
+            // 
+            // zipErrorLabel
+            // 
+            this.zipErrorLabel.AutoSize = true;
+            this.zipErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.zipErrorLabel.Location = new System.Drawing.Point(586, 474);
+            this.zipErrorLabel.Name = "zipErrorLabel";
+            this.zipErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.zipErrorLabel.TabIndex = 77;
+            // 
+            // phoneErrorLabel
+            // 
+            this.phoneErrorLabel.AutoSize = true;
+            this.phoneErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneErrorLabel.Location = new System.Drawing.Point(586, 518);
+            this.phoneErrorLabel.Name = "phoneErrorLabel";
+            this.phoneErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.phoneErrorLabel.TabIndex = 78;
+            // 
+            // statusErrorLabel
+            // 
+            this.statusErrorLabel.AutoSize = true;
+            this.statusErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusErrorLabel.Location = new System.Drawing.Point(586, 559);
+            this.statusErrorLabel.Name = "statusErrorLabel";
+            this.statusErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.statusErrorLabel.TabIndex = 79;
+            // 
+            // teacherIDDataGridViewTextBoxColumn
+            // 
+            this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
+            this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
+            this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
+            // 
+            // statusDataGridViewTextBoxColumn
+            // 
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            // 
+            // fullNameDataGridViewTextBoxColumn
+            // 
+            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
+            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
+            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // sexDataGridViewTextBoxColumn
+            // 
+            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
+            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
+            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
             // 
             // UpdateTeacherUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.statusErrorLabel);
+            this.Controls.Add(this.phoneErrorLabel);
+            this.Controls.Add(this.zipErrorLabel);
+            this.Controls.Add(this.stateErrorLabel);
+            this.Controls.Add(this.cityErrorLabel);
+            this.Controls.Add(this.addressErrorLabel);
+            this.Controls.Add(this.sexErrorLabel);
+            this.Controls.Add(this.ssnErrorLabel);
+            this.Controls.Add(this.DOBErrorLabel);
+            this.Controls.Add(this.lastNameErrorLabel);
+            this.Controls.Add(this.firstNameErrorLabel);
+            this.Controls.Add(this.ssnTextBox);
+            this.Controls.Add(this.ssnLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.stateComboBox);
             this.Controls.Add(this.statusComboBox);
@@ -562,22 +657,29 @@
         private System.Windows.Forms.TextBox firstNameTextbox;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.BindingSource teacherBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teacherIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recordIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn addressStreetDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cityDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn stateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn zipDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sSNDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox stateComboBox;
         private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.ComboBox sexComboBox;
+        private System.Windows.Forms.TextBox ssnTextBox;
+        private System.Windows.Forms.Label ssnLabel;
+        private System.Windows.Forms.Label firstNameErrorLabel;
+        private System.Windows.Forms.Label lastNameErrorLabel;
+        private System.Windows.Forms.Label DOBErrorLabel;
+        private System.Windows.Forms.Label ssnErrorLabel;
+        private System.Windows.Forms.Label sexErrorLabel;
+        private System.Windows.Forms.Label addressErrorLabel;
+        private System.Windows.Forms.Label cityErrorLabel;
+        private System.Windows.Forms.Label stateErrorLabel;
+        private System.Windows.Forms.Label zipErrorLabel;
+        private System.Windows.Forms.Label phoneErrorLabel;
+        private System.Windows.Forms.Label statusErrorLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn teacherIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
     }
 }
