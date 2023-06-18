@@ -36,9 +36,26 @@ namespace Gradebook.Controller
             return this._personDAL.AddPersonAsTeacher(person);
         }
 
+        /// <summary>
+        /// Gets all the teachers that match search criteria from db
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns>a list of teachers</returns>
         public List<Teacher> GetTeacherByNameDOB(string firstName, string lastName, DateTime dob)
         {
             return this._teacherDAL.GetTeacherByNameDOB(firstName, lastName, dob);
+        }
+
+        /// <summary>
+        /// Gets a teacher from the db based on ID
+        /// </summary>
+        /// <param name="teacherID"></param>
+        /// <returns>Teacher with corresponding id</returns>
+        public Teacher GetTeacherByID(int teacherID)
+        {
+            return this._teacherDAL.GetTeacherByID(teacherID);
         }
     }
 }

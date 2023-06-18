@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.clearButton = new System.Windows.Forms.Button();
             this.resultsDOBDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dobLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
@@ -67,7 +68,6 @@
             this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sSNDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchButton = new System.Windows.Forms.Button();
             this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastNameTextbox = new System.Windows.Forms.TextBox();
@@ -76,8 +76,8 @@
             this.stateComboBox = new System.Windows.Forms.ComboBox();
             this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.sexComboBox = new System.Windows.Forms.ComboBox();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // clearButton
@@ -98,6 +98,10 @@
             this.resultsDOBDateTimePicker.Name = "resultsDOBDateTimePicker";
             this.resultsDOBDateTimePicker.Size = new System.Drawing.Size(233, 20);
             this.resultsDOBDateTimePicker.TabIndex = 61;
+            // 
+            // teacherBindingSource
+            // 
+            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
             // 
             // dobLabel
             // 
@@ -320,6 +324,7 @@
             this.teacherSearchDataGridView.Name = "teacherSearchDataGridView";
             this.teacherSearchDataGridView.Size = new System.Drawing.Size(662, 177);
             this.teacherSearchDataGridView.TabIndex = 36;
+            this.teacherSearchDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherSearchDataGridView_CellClick);
             // 
             // teacherIDDataGridViewTextBoxColumn
             // 
@@ -406,10 +411,6 @@
             this.sSNDataGridViewTextBoxColumn.HeaderText = "SSN";
             this.sSNDataGridViewTextBoxColumn.Name = "sSNDataGridViewTextBoxColumn";
             // 
-            // teacherBindingSource
-            // 
-            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
-            // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -445,6 +446,7 @@
             // 
             // saveButton
             // 
+            this.saveButton.Enabled = false;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.Location = new System.Drawing.Point(527, 582);
             this.saveButton.Name = "saveButton";
@@ -518,8 +520,8 @@
             this.Controls.Add(this.firstNameTextbox);
             this.Name = "UpdateTeacherUserControl";
             this.Size = new System.Drawing.Size(947, 634);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

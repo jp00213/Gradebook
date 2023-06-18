@@ -66,13 +66,63 @@ namespace Gradebook.DAL
                             TeacherID = (int)(reader)["teacherID"],
                             Sex = (string)(reader)["sex"],
                             SSN = (string)(reader)["ssn"],
-                            Status = (string)(reader)["activeStatus"]
+                            Status = (int)(reader)["activeStatus"]
                         };
                         teachers.Add(teacher);
                     }
                 }
             }
             return teachers;
+        }
+
+        /// <summary>
+        /// Get a teacher from the db
+        /// </summary>
+        /// <param name="teacherID"></param>
+        /// <returns>Teacher with specified id</returns>
+        public Teacher GetTeacherByID(int teacherID)
+        {
+            Teacher teacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM Teacher te " +
+                "JOIN person pe " +
+                "ON te.recordID = pe.recordID " +
+                "WHERE te.teacherID = @teacherID";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@teacherID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@teacherID"].Value = teacherID;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teacher = new Teacher
+                        {
+                            RecordId = (int)(reader)["recordID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            TeacherID = (int)(reader)["patientID"],
+                            Sex = (string)(reader)["sex"],
+                            SSN = (string)(reader)["ssn"],
+                            Status = (int)(reader)["activeStatus"]
+                        };
+                    }
+                }
+            }
+            return teacher;
         }
     }
 }

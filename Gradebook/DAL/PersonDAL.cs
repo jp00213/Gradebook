@@ -152,7 +152,7 @@ namespace Gradebook.DAL
             // get the new person record id
             string selectStatementRecordID = "SELECT IDENT_CURRENT('person') FROM person ";
             string insertStatementAccount = "insert into account (username, password) values (@newUsername, @password) ";
-            string insertStatementStudent = "insert into teacher (recordID, activeStatus, username) VALUES (@recordID, 1, @newUsername) ";
+            string insertStatementTeacher = "insert into teacher (recordID, activeStatus, username) VALUES (@recordID, 1, @newUsername) ";
             string selectStatementCount = "SELECT @@ROWCOUNT ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
@@ -212,7 +212,7 @@ namespace Gradebook.DAL
 
 
                         // part 4 insert to student (auto create student ID, username, record ID, )
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementStudent, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementTeacher, connection))
                         {
                             insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@recordID", record);

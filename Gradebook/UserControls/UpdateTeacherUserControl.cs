@@ -1,13 +1,6 @@
 ﻿using Gradebook.Controller;
 using Gradebook.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
@@ -31,6 +24,19 @@ namespace Gradebook.UserControls
             DateTime dob = this.dobDateTimePicker.Value;
 
             this.teacherSearchDataGridView.DataSource = _teacherController.GetTeacherByNameDOB(firstName, lastName, dob);
+        }
+
+        private void teacherSearchDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var teacherID = teacherSearchDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            this._teacher = this._teacherController.GetTeacherById(Int32.Parse(teacherID));
+
+            if (_teacher != null)
+            {
+                teacherBindingSource.DataSource = _teacher;
+                teacherBindingSource.ResetBindings(true);
+                this.update
+            }
         }
     }
 }
