@@ -16,7 +16,8 @@ namespace Gradebook.UserControls
         {
             InitializeComponent();
             this._teacherController = new TeacherController();
-            this._teacher= new Teacher();   
+            this._teacher = null;
+            this.saveButton.Enabled = false;
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -25,7 +26,8 @@ namespace Gradebook.UserControls
             string lastName = this.lastNameTextbox.Text;
             DateTime dob = this.dobDateTimePicker.Value;
 
-            this.teacherSearchDataGridView.DataSource = _teacherController.GetTeacherByNameDOB(firstName, lastName, dob);
+            /*this.teacherSearchDataGridView.DataSource = _teacherController.GetTeacherByNameDOB(firstName, lastName, dob);*/
+            this.teacherSearchDataGridView.DataSource = _teacherController.GetAllActiveTeachers();
         }
 
         private void teacherSearchDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -43,10 +45,10 @@ namespace Gradebook.UserControls
 
         private void dobDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if(_teacher != null)
+            /*if(_teacher != null)
             {
                 this.dobDateTimePicker.Value = this._teacher.DateOfBirth.Date;
-            }
+            }*/
         }
 
         private void saveButton_Click(object sender, EventArgs e)
