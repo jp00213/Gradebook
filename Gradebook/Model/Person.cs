@@ -81,8 +81,8 @@ namespace Gradebook.Model
             this.Sex = sex;
             this.SSN = ssn;
             this.ActiveStatus = activeStatus;
-
         }
+
 
 
         // constructor without active status.
@@ -112,7 +112,7 @@ namespace Gradebook.Model
 
 
         // constructor to create student object for edit use
-        public Person(int studentID, string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn, int activeStatus, string username)
+        public Person(int recordID, int studentID, string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn, int activeStatus, string username)
         {
             this.StudentID = studentID;
             this.LastName = lastName;
@@ -127,6 +127,7 @@ namespace Gradebook.Model
             this.SSN = ssn;
             this.ActiveStatus = activeStatus;
             this.Username = username;
+            this.RecordId = recordID;
         }
 
 

@@ -108,7 +108,7 @@ namespace Gradebook.DAL
                             updateCommand.Parameters.AddWithValue("@newState", personNew.State);
                             updateCommand.Parameters.AddWithValue("@newZip", personNew.Zip);
                             updateCommand.Parameters.AddWithValue("@newSSN", personNew.SSN);
-                            updateCommand.Parameters.AddWithValue("@recordID ", recordID);
+                            updateCommand.Parameters.AddWithValue("@recordID ", personNew.RecordId);
                             updateCommand.Parameters.AddWithValue("@oldFirstName", personOld.FirstName);
                             updateCommand.Parameters.AddWithValue("@oldLastName", personOld.LastName);
                             updateCommand.Parameters.AddWithValue("@oldDob", personOld.DateOfBirth);
@@ -122,24 +122,25 @@ namespace Gradebook.DAL
 
                             updatePerson = updateCommand.ExecuteNonQuery();
                         }
-
                         using (SqlCommand updateStudentCommand = new SqlCommand(updateStudentStatusStatement, connection, transaction))
                         {
                             updateStudentCommand.Parameters.AddWithValue("@newStatus", personNew.ActiveStatus);
-                            updateStudentCommand.Parameters.AddWithValue("@recordID", recordID);
+                            updateStudentCommand.Parameters.AddWithValue("@recordID", personNew.RecordId);
                             updateStudentCommand.Parameters.AddWithValue("@oldStatus", personOld.ActiveStatus);
                             updateStudent = updateStudentCommand.ExecuteNonQuery();
 
                         }
+                        System.Windows.Forms.MessageBox.Show(updatePerson.ToString() + updateStudent.ToString());
 
                         if ((updatePerson == 1) && (updateStudent == 1))
                         {
+                            result = true;
                             transaction.Commit();
 
-                            System.Windows.Forms.MessageBox.Show("update processed");
+                            //           System.Windows.Forms.MessageBox.Show("update processed");
+
                         };
                     }
-
                     catch (SqlException sqlEx)
                     {
                         System.Windows.Forms.MessageBox.Show(sqlEx.Message);
@@ -155,6 +156,7 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="studentID"></param>
         /// <returns></returns>
+
         public Person GetStudentByID(int studentID)
         {
             Person student = new Person();
@@ -178,20 +180,20 @@ namespace Gradebook.DAL
                     {
                         student = new Person
                         {
-                            StudentID = (int)(reader)["StudentID"],
-                            LastName = (string)(reader)["LastName"],
-                            FirstName = (string)(reader)["FirstName"],
-                            DateOfBirth = (DateTime)(reader)["DateOfBirth"],
-                            Phone = (string)(reader)["LastName"],
-                            Sex = (string)(reader)["Sex"],
-                            AddressStreet = (string)(reader)["AddressStreet"],
-                            City = (string)(reader)["City"],
-                            State = (string)(reader)["State"],
-                            Zip = (string)(reader)["Zip"],
-                            SSN = (string)(reader)["SSN"],
-                            ActiveStatus = (int)(reader)["ActiveStatus"],
-                            Username = (string)(reader)["Username"],
-                            RecordId = (int)(reader)["Person.RecordId"]
+                            StudentID = (int)(reader)["studentID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            Sex = (string)(reader)["sex"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            SSN = reader["ssn"] as string,
+                            ActiveStatus = (int)(byte)(reader)["activeStatus"],
+                            Username = (string)(reader)["username"],
+                            RecordId = (int)(reader)["recordId"]
 
                         };
                     }
@@ -209,6 +211,8 @@ namespace Gradebook.DAL
         {
             List<Person> students = new List<Person>();
             Person student = new Person();
+            string theSSN = "";
+
             SqlConnection connection = GradebookDBConnection.GetConnection();
 
             string selectStatement =
@@ -240,7 +244,6 @@ namespace Gradebook.DAL
                     {
                         student = new Person
                         {
-
                             StudentID = (int)(reader)["studentID"],
                             LastName = (string)(reader)["lastName"],
                             FirstName = (string)(reader)["firstName"],
@@ -251,11 +254,10 @@ namespace Gradebook.DAL
                             City = (string)(reader)["city"],
                             State = (string)(reader)["state"],
                             Zip = (string)(reader)["zip"],
-                            SSN = (string)(reader)["ssn"],
+                            SSN = reader["ssn"] as string,
                             ActiveStatus = (int)(byte)(reader)["activeStatus"],
                             Username = (string)(reader)["username"],
                             RecordId = (int)(reader)["recordId"]
-
                         };
                         students.Add(student);
                     }
@@ -303,7 +305,7 @@ namespace Gradebook.DAL
                             City = (string)(reader)["city"],
                             State = (string)(reader)["state"],
                             Zip = (string)(reader)["zip"],
-                            SSN = (string)(reader)["ssn"],
+                            SSN = reader["ssn"] as string,
                             ActiveStatus = (int)(byte)(reader)["activeStatus"],
                             Username = (string)(reader)["username"],
                             RecordId = (int)(reader)["recordId"]
@@ -314,34 +316,6 @@ namespace Gradebook.DAL
             }
             return student;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

@@ -348,6 +348,7 @@
             this.addStudentUserControlPanel.Name = "addStudentUserControlPanel";
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(922, 606);
             this.addStudentUserControlPanel.TabIndex = 27;
+
             // 
             // noteLable2
             // 

@@ -240,5 +240,6 @@ namespace Gradebook.UserControls
         {
             this.ClearInvalidFields();
         }
+
     }
 }

@@ -49,10 +49,8 @@ namespace Gradebook.DAL
                         string newUsername = CreatePersonUserName.CreateNewPersonUsernameStudent (person.FirstName, person.LastName, oldUsername);
 
                         // part 1
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementPerson, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementPerson, connection, transaction))
                         {
-                            insertCommand.Transaction = transaction;
-
                             insertCommand.Parameters.AddWithValue("@lastName", person.LastName);
                             insertCommand.Parameters.AddWithValue("@firstName", person.FirstName);
                             insertCommand.Parameters.AddWithValue("@birthday", person.DateOfBirth);
@@ -85,7 +83,7 @@ namespace Gradebook.DAL
 
 
                         // part 3 insert to account(username and password)
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementAccount, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementAccount, connection, transaction))
                         {
                             insertCommand.Transaction = transaction;
                             string theSSN = person.SSN.ToString();
@@ -99,7 +97,7 @@ namespace Gradebook.DAL
 
 
                         // part 4 insert to student (auto create student ID, username, record ID, )
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementStudent, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementStudent, connection, transaction))
                         {
                             insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@recordID", record);
@@ -109,7 +107,7 @@ namespace Gradebook.DAL
                             insertCommand.ExecuteNonQuery();
 
                             // check if insert passed
-                            SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection);
+                            SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection, transaction);
                             selectCommand.Transaction = transaction;
                             using (selectCommand)
                             {
