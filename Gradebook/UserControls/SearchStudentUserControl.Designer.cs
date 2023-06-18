@@ -187,6 +187,7 @@
             this.dob,
             this.phone,
             this.SSN});
+            this.studentListView.FullRowSelect = true;
             this.studentListView.HideSelection = false;
             this.studentListView.Location = new System.Drawing.Point(17, 138);
             this.studentListView.Name = "studentListView";

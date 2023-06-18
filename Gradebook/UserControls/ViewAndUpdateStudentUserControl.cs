@@ -23,6 +23,7 @@ namespace Gradebook.UserControls
         /// </summary>
         private readonly StudentController _studentController;
         private Person theStudent;
+
         public ViewAndUpdateStudentUserControl()
         {
             InitializeComponent();
@@ -290,6 +291,8 @@ namespace Gradebook.UserControls
         {
             this.ClearInvalidFields();
         }
+
+
     }
 
 }

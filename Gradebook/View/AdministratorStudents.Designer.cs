@@ -34,8 +34,8 @@
             this.addStudentUserControl1 = new Gradebook.UserControls.AddStudentUserControl();
             this.findLastUserName1 = new Gradebook.UserControls.FindLastUserName();
             this.viewStudentTabPage = new System.Windows.Forms.TabPage();
-            this.searchStudentUserControl1 = new Gradebook.UserControls.SearchStudentUserControl();
             this.updateStudentTabPage = new System.Windows.Forms.TabPage();
+            this.searchStudentUserControl1 = new Gradebook.UserControls.SearchStudentUserControl();
             this.viewAndUpdateStudentUserControl1 = new Gradebook.UserControls.ViewAndUpdateStudentUserControl();
             this.administratorStudentTabControl.SuspendLayout();
             this.addStudentTabPage.SuspendLayout();
@@ -106,13 +106,6 @@
             this.viewStudentTabPage.Text = "View Student";
             this.viewStudentTabPage.UseVisualStyleBackColor = true;
             // 
-            // searchStudentUserControl1
-            // 
-            this.searchStudentUserControl1.Location = new System.Drawing.Point(6, 6);
-            this.searchStudentUserControl1.Name = "searchStudentUserControl1";
-            this.searchStudentUserControl1.Size = new System.Drawing.Size(950, 567);
-            this.searchStudentUserControl1.TabIndex = 0;
-            // 
             // updateStudentTabPage
             // 
             this.updateStudentTabPage.Controls.Add(this.viewAndUpdateStudentUserControl1);
@@ -123,11 +116,18 @@
             this.updateStudentTabPage.Text = "Update Student";
             this.updateStudentTabPage.UseVisualStyleBackColor = true;
             // 
+            // searchStudentUserControl1
+            // 
+            this.searchStudentUserControl1.Location = new System.Drawing.Point(6, 6);
+            this.searchStudentUserControl1.Name = "searchStudentUserControl1";
+            this.searchStudentUserControl1.Size = new System.Drawing.Size(960, 640);
+            this.searchStudentUserControl1.TabIndex = 0;
+            // 
             // viewAndUpdateStudentUserControl1
             // 
             this.viewAndUpdateStudentUserControl1.Location = new System.Drawing.Point(6, 3);
             this.viewAndUpdateStudentUserControl1.Name = "viewAndUpdateStudentUserControl1";
-            this.viewAndUpdateStudentUserControl1.Size = new System.Drawing.Size(956, 567);
+            this.viewAndUpdateStudentUserControl1.Size = new System.Drawing.Size(960, 640);
             this.viewAndUpdateStudentUserControl1.TabIndex = 0;
             // 
             // AdministratorStudents
