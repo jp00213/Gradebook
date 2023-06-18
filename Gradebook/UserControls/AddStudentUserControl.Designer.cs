@@ -348,25 +348,22 @@
             this.addStudentUserControlPanel.Name = "addStudentUserControlPanel";
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(922, 606);
             this.addStudentUserControlPanel.TabIndex = 27;
-
             // 
             // noteLable2
             // 
             this.noteLable2.AutoSize = true;
             this.noteLable2.Location = new System.Drawing.Point(82, 451);
             this.noteLable2.Name = "noteLable2";
-            this.noteLable2.Size = new System.Drawing.Size(261, 13);
+            this.noteLable2.Size = new System.Drawing.Size(0, 13);
             this.noteLable2.TabIndex = 40;
-            this.noteLable2.Text = "All notes will be removed before moving to production.";
             // 
             // noteLabel
             // 
             this.noteLabel.AutoSize = true;
             this.noteLabel.Location = new System.Drawing.Point(82, 425);
             this.noteLabel.Name = "noteLabel";
-            this.noteLabel.Size = new System.Drawing.Size(328, 13);
+            this.noteLabel.Size = new System.Drawing.Size(0, 13);
             this.noteLabel.TabIndex = 39;
-            this.noteLabel.Text = "* default password is the first name + last 4 digits of SSN (smith5678)";
             // 
             // messageErrorMainLabel
             // 

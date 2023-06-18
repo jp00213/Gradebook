@@ -89,7 +89,6 @@
             this.addStudentUserControlPanel.Controls.Add(this.currentStudentIDSetLabel);
             this.addStudentUserControlPanel.Controls.Add(this.editRadioButton);
             this.addStudentUserControlPanel.Controls.Add(this.viewOnlyRadioButton);
-            this.addStudentUserControlPanel.Controls.Add(this.label1);
             this.addStudentUserControlPanel.Controls.Add(this.messageErrorMainLabel);
             this.addStudentUserControlPanel.Controls.Add(this.genderErrorMessageLabel);
             this.addStudentUserControlPanel.Controls.Add(this.zipErrorMessageLabel);
@@ -126,6 +125,7 @@
             this.addStudentUserControlPanel.Controls.Add(this.lastNameTextBox);
             this.addStudentUserControlPanel.Controls.Add(this.phoneLabel);
             this.addStudentUserControlPanel.Controls.Add(this.updateStudentButton);
+            this.addStudentUserControlPanel.Controls.Add(this.label1);
             this.addStudentUserControlPanel.Location = new System.Drawing.Point(4, 0);
             this.addStudentUserControlPanel.Name = "addStudentUserControlPanel";
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(922, 606);
@@ -156,7 +156,7 @@
             this.editRadioButton.Location = new System.Drawing.Point(256, 64);
             this.editRadioButton.Name = "editRadioButton";
             this.editRadioButton.Size = new System.Drawing.Size(79, 17);
-            this.editRadioButton.TabIndex = 41;
+            this.editRadioButton.TabIndex = 3;
             this.editRadioButton.TabStop = true;
             this.editRadioButton.Text = "Enable Edit";
             this.editRadioButton.UseVisualStyleBackColor = true;
@@ -168,7 +168,7 @@
             this.viewOnlyRadioButton.Location = new System.Drawing.Point(135, 64);
             this.viewOnlyRadioButton.Name = "viewOnlyRadioButton";
             this.viewOnlyRadioButton.Size = new System.Drawing.Size(72, 17);
-            this.viewOnlyRadioButton.TabIndex = 40;
+            this.viewOnlyRadioButton.TabIndex = 2;
             this.viewOnlyRadioButton.TabStop = true;
             this.viewOnlyRadioButton.Text = "View Only";
             this.viewOnlyRadioButton.UseVisualStyleBackColor = true;
@@ -177,7 +177,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(82, 425);
+            this.label1.Location = new System.Drawing.Point(524, 420);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 39;
@@ -340,7 +340,7 @@
             this.stateComboBox.Location = new System.Drawing.Point(517, 223);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(121, 21);
-            this.stateComboBox.TabIndex = 9;
+            this.stateComboBox.TabIndex = 11;
             this.stateComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // viewAndUpdateStudentTitleLabel
@@ -360,7 +360,7 @@
             this.genderComboBox.Location = new System.Drawing.Point(517, 312);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(121, 21);
-            this.genderComboBox.TabIndex = 11;
+            this.genderComboBox.TabIndex = 13;
             this.genderComboBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // lastNameErrorMessageLabel
@@ -406,7 +406,7 @@
             this.dobPicker.Location = new System.Drawing.Point(135, 220);
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(200, 20);
-            this.dobPicker.TabIndex = 3;
+            this.dobPicker.TabIndex = 6;
             this.dobPicker.ValueChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // firstNameLabel
@@ -423,7 +423,7 @@
             this.zipTextBox.Location = new System.Drawing.Point(517, 265);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(214, 20);
-            this.zipTextBox.TabIndex = 10;
+            this.zipTextBox.TabIndex = 12;
             this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // dobLabel
@@ -449,7 +449,7 @@
             this.cityTextBox.Location = new System.Drawing.Point(517, 181);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(214, 20);
-            this.cityTextBox.TabIndex = 8;
+            this.cityTextBox.TabIndex = 10;
             this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statusLabel
@@ -466,7 +466,7 @@
             this.streetTextBox.Location = new System.Drawing.Point(517, 136);
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Size = new System.Drawing.Size(214, 20);
-            this.streetTextBox.TabIndex = 7;
+            this.streetTextBox.TabIndex = 9;
             this.streetTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // genderlabel
@@ -483,7 +483,7 @@
             this.ssnTextBox.Location = new System.Drawing.Point(135, 315);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(214, 20);
-            this.ssnTextBox.TabIndex = 5;
+            this.ssnTextBox.TabIndex = 8;
             this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // streeLabel
@@ -500,7 +500,7 @@
             this.phoneTextBox.Location = new System.Drawing.Point(135, 262);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(214, 20);
-            this.phoneTextBox.TabIndex = 4;
+            this.phoneTextBox.TabIndex = 7;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statelabel
@@ -517,7 +517,7 @@
             this.firstNameTextBox.Location = new System.Drawing.Point(135, 177);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(214, 20);
-            this.firstNameTextBox.TabIndex = 2;
+            this.firstNameTextBox.TabIndex = 5;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // zipLabel
@@ -534,7 +534,7 @@
             this.lastNameTextBox.Location = new System.Drawing.Point(135, 136);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(214, 20);
-            this.lastNameTextBox.TabIndex = 1;
+            this.lastNameTextBox.TabIndex = 4;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // phoneLabel
@@ -551,7 +551,7 @@
             this.updateStudentButton.Location = new System.Drawing.Point(517, 415);
             this.updateStudentButton.Name = "updateStudentButton";
             this.updateStudentButton.Size = new System.Drawing.Size(75, 23);
-            this.updateStudentButton.TabIndex = 12;
+            this.updateStudentButton.TabIndex = 14;
             this.updateStudentButton.Text = "Update";
             this.updateStudentButton.UseVisualStyleBackColor = true;
             this.updateStudentButton.Click += new System.EventHandler(this.updateStudentButton_Click);
