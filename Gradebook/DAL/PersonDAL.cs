@@ -35,7 +35,7 @@ namespace Gradebook.DAL
             // get the new person record id
             string selectStatementRecordID = "SELECT IDENT_CURRENT('person') FROM person ";
             string insertStatementAccount = "insert into account (username, password) values (@newUsername, @password) ";
-            string insertStatementStudent = "insert into student (recordID, activeStatus, username) VALUES (@recordID, 1, @newUsername) ";
+            string insertStatementStudent = "insert into student (recordID, activeStatus, username) VALUES (@recordID, @activeStatus, @newUsername) ";
             string selectStatementCount = "SELECT @@ROWCOUNT ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
@@ -45,14 +45,12 @@ namespace Gradebook.DAL
                 {
                     try
                     {
-                        var oldUsername = GetTheLastCreatedUsernameByFirstAndLastName(person.FirstName, person.LastName);
-                        string newUsername = CreatePersonUserName.CreateNewPersonUsername(person.FirstName, person.LastName, oldUsername);
+                        var oldUsername = GetTheLastCreatedUsernameByFirstAndLastNameForStudent(person.FirstName, person.LastName);
+                        string newUsername = CreatePersonUserName.CreateNewPersonUsernameStudent (person.FirstName, person.LastName, oldUsername);
 
                         // part 1
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementPerson, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementPerson, connection, transaction))
                         {
-                            insertCommand.Transaction = transaction;
-
                             insertCommand.Parameters.AddWithValue("@lastName", person.LastName);
                             insertCommand.Parameters.AddWithValue("@firstName", person.FirstName);
                             insertCommand.Parameters.AddWithValue("@birthday", person.DateOfBirth);
@@ -85,26 +83,31 @@ namespace Gradebook.DAL
 
 
                         // part 3 insert to account(username and password)
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementAccount, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementAccount, connection, transaction))
                         {
                             insertCommand.Transaction = transaction;
+                            string theSSN = person.SSN.ToString();
+                            string theFirstName = person.FirstName;
+                            string newPasswordText = theFirstName + theSSN.Substring(theSSN.Length - 4);
+                            string passwordhashed = Hashing.HashPassword(newPasswordText);
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
-                            insertCommand.Parameters.AddWithValue("@password", "mypassword");
+                            insertCommand.Parameters.AddWithValue("@password", passwordhashed);
                             insertCommand.ExecuteNonQuery();
                         }
 
 
                         // part 4 insert to student (auto create student ID, username, record ID, )
-                        using (SqlCommand insertCommand = new SqlCommand(insertStatementStudent, connection))
+                        using (SqlCommand insertCommand = new SqlCommand(insertStatementStudent, connection, transaction))
                         {
                             insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@recordID", record);
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
+                            insertCommand.Parameters.AddWithValue("@activeStatus", person.ActiveStatus);
 
                             insertCommand.ExecuteNonQuery();
 
                             // check if insert passed
-                            SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection);
+                            SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection, transaction);
                             selectCommand.Transaction = transaction;
                             using (selectCommand)
                             {
@@ -115,8 +118,8 @@ namespace Gradebook.DAL
                         result = affectedRecords > 0;
 
                         transaction.Commit();
-                        System.Windows.Forms.MessageBox.Show("processed");
-                        connection.Close();
+                        //      System.Windows.Forms.MessageBox.Show("processed");
+                        //      connection.Close();
                     }
                     catch (SqlException sqlEx)
                     {
@@ -131,7 +134,7 @@ namespace Gradebook.DAL
         /// <summary>
         /// Creates person as a teacher in the DB
         /// </summary>
-        /// <param name="person">person student</param>
+        /// <param name="person">person teacher</param>
         /// <returns></returns>
         public Boolean AddPersonAsTeacher(Person person)
         {
@@ -217,8 +220,10 @@ namespace Gradebook.DAL
                             insertCommand.Transaction = transaction;
                             insertCommand.Parameters.AddWithValue("@recordID", record);
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
+                            insertCommand.Parameters.AddWithValue("@activeStatus", person.ActiveStatus);
 
                             insertCommand.ExecuteNonQuery();
+
 
                             // check if insert passed
                             SqlCommand selectCommand = new SqlCommand(selectStatementCount, connection);
@@ -250,8 +255,104 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="firstNameIn">first name of student</param>
         /// <param name="lastNameIn">last name of student</param>
-        /// <returns></returns>
+        /// <returns>username</returns>
         public string GetTheLastCreatedUsernameByFirstAndLastName(string firstNameIn, string lastNameIn)
+        {
+            var theUsername = "";
+            string selectStatement =
+
+               "select * " +
+               "from person p, teacher s " +
+               "where p.recordID = s.recordID " +
+               "and p.recordID = (select max(r.recordID) " +
+                                 "from person r, teacher t " +
+                                 "where r.recordID = t.recordID " +
+                                 "and lower(r.firstName) = lower(@firstName) " +
+                                 "and lower(r.lastName) = lower(@lastName))  ";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@firstName", firstNameIn);
+                    selectCommand.Parameters.AddWithValue("@lastName", lastNameIn);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            {
+                                theUsername = reader["username"].ToString();
+                            };
+
+                        }
+                    }
+                }
+            }
+            return theUsername;
+        }
+
+       /// <summary>
+       /// Get the last created username informaton
+       /// </summary>
+       /// <param name="firstNameIn">first name entered</param>
+       /// <param name="lastNameIn">last name entered</param>
+       /// <returns>student information</returns>
+        public string GetTheLastCreatedUsernameInformationFullName(string firstNameIn, string lastNameIn)
+        {
+            var theUsername = "";
+            var theStudentID = "";
+            var completeStudentInfo = "";
+
+            string selectStatement =
+
+               "select * " +
+               "from person p, student s " +
+               "where p.recordID = s.recordID " +
+               "and p.recordID = (select max(r.recordID) " +
+                                 "from person r , student s " +
+                                 "where r.recordID = s.recordID " +
+                                 "and lower(r.firstName) = lower(@firstName) " +
+                                 "and lower(r.lastName) = lower(@lastName))  ";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+
+                using (SqlCommand selectCommand = new SqlCommand(selectStatement, connection))
+                {
+                    selectCommand.Parameters.AddWithValue("@firstName", firstNameIn);
+                    selectCommand.Parameters.AddWithValue("@lastName", lastNameIn);
+
+                    using (SqlDataReader reader = selectCommand.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                            {
+                                theUsername = reader["username"].ToString();
+                                theStudentID = reader["studentID"].ToString();
+                            };
+
+                        }
+                    }
+                }
+            }
+            completeStudentInfo = "Student ID = " + theStudentID + "\n" + "Username = " + theUsername + "\n" + "Student name: " + firstNameIn + " " + lastNameIn + " ";
+
+            return completeStudentInfo;
+        }
+
+        /// <summary>
+        /// Get the last created Username by first and last name for Student
+        /// </summary>
+        /// <param name="firstNameIn">first name</param>
+        /// <param name="lastNameIn">last name</param>
+        /// <returns>username</returns>
+        public string GetTheLastCreatedUsernameByFirstAndLastNameForStudent(string firstNameIn, string lastNameIn)
         {
             var theUsername = "";
             string selectStatement =
@@ -260,8 +361,9 @@ namespace Gradebook.DAL
                "from person p, student s " +
                "where p.recordID = s.recordID " +
                "and p.recordID = (select max(r.recordID) " +
-                                 "from person r " +
-                                 "where lower(r.firstName) = lower(@firstName) " +
+                                 "from person r , student k " +
+                                 "where r.recordID = k.recordID " +
+                                 "and lower(r.firstName) = lower(@firstName) " +
                                  "and lower(r.lastName) = lower(@lastName))  ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())

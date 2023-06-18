@@ -48,6 +48,7 @@ namespace Gradebook.Controller
             return this._teacherDAL.GetTeacherByNameDOB(firstName, lastName, dob);
         }
 
+
         /// <summary>
         /// Gets a teacher from the db based on ID
         /// </summary>
@@ -76,6 +77,19 @@ namespace Gradebook.Controller
         public bool UpdateTeacher(int recordID, string lastName, string firstName, DateTime birthday, string street, string city, string state, string zip, string phone, string sex, string ssn)
         {
             return this._personDAL.UpdatePerson(recordID, lastName, firstName, birthday, street, city, state, zip, phone, sex, ssn);
+        }
+        
+        /// <summary>
+        /// Return a list of all active teachers
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="dob"></param>
+        /// <returns></returns>
+        public List<Teacher> GetAllActiveTeachers()
+        {
+            return this._teacherDAL.GetAllActiveTeachers();
+
         }
     }
 }

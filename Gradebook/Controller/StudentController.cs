@@ -2,9 +2,6 @@
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gradebook.Controller
 {
@@ -14,6 +11,7 @@ namespace Gradebook.Controller
         /// The controller class that mediates b/w the StudentDAL and the View.
         /// </summary>
         private readonly PersonDAL _personDAL;
+        private readonly StudentDAL _studentDAL;
 
         /// <summary>
         /// Create a StudentController object.
@@ -21,17 +19,84 @@ namespace Gradebook.Controller
         public StudentController()
         {
             _personDAL = new PersonDAL();
+            _studentDAL = new StudentDAL();
         }
 
         /// <summary>
-        /// Adds a person as student.
+        /// Add person as student
         /// </summary>
-        /// <param name="person">name of person</param>
+        /// <param name="person"></param>
         /// <returns></returns>
         public Boolean AddPersonAsStudent(Person person)
         {
             return this._personDAL.AddPersonAsStudent(person);
+        }
+
+        /// <summary>
+        /// Get the last created username. Method for usercontrol FindLastUserName. This is a temp function.
+        /// </summary>
+        /// <param name="firstNameIn"></param>
+        /// <param name="lastNameIn"></param>
+        /// <returns></returns>
+        public string GetTheLastCreatedUsernameInformation(string firstNameIn, string lastNameIn)
+        {
+            return this._personDAL.GetTheLastCreatedUsernameInformationFullName(firstNameIn, lastNameIn);
+        }
+
+        /// <summary>
+        /// Update student passoword
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public Boolean UpdateStudentPassword(string username, string password)
+        {
+            string hashedPassword = Hashing.HashPassword(password);
+            return _studentDAL.UpdateStudentPassword(username, hashedPassword);
+        }
+
+        /// <summary>
+        /// Update student information
+        /// </summary>
+        /// <param name="personNew"></param>
+        /// <param name="personOld"></param>
+        /// <returns></returns>
+        public bool UpdateStudent(Person personNew, Person personOld)
+        {
+
+            return _studentDAL.UpdateStudent(personNew, personOld);
+        }
+
+        /// <summary>
+        /// Get student by ID
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        public Person GetStudentByID(int studentID)
+        {
+            return _studentDAL.GetStudentByID(studentID);
+        }
+
+        /// <summary>
+        /// Get sutdent by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
+        public Person GetStudentByUsername(string username)
+        {
+            return _studentDAL.GetStudentByUsername(username);
 
         }
+
+        /// <summary>
+        /// Get student by parameters
+        /// </summary>
+        /// <param name="searchItemIn"></param>
+        /// <returns></returns>
+        public List<Person> GetStudentByParameters(SearchItem searchItemIn)
+        {
+            return _studentDAL.GetStudentByParameters(searchItemIn);
+        }
+
     }
 }
