@@ -59,7 +59,10 @@
             this.clearButton = new System.Windows.Forms.Button();
             this.addTeacherButton = new System.Windows.Forms.Button();
             this.zipErrorMessageLabel = new System.Windows.Forms.Label();
-            this.phoneErrorMessageLabel = new System.Windows.Forms.Label();
+            this.ssnErrorMessageLabel = new System.Windows.Forms.Label();
+            this.sexErrorMessageLabel = new System.Windows.Forms.Label();
+            this.statusErrorMessageLabel = new System.Windows.Forms.Label();
+            this.phoneErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // stateComboBox
@@ -413,20 +416,50 @@
             this.zipErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
             this.zipErrorMessageLabel.TabIndex = 61;
             // 
-            // phoneErrorMessageLabel
+            // ssnErrorMessageLabel
             // 
-            this.phoneErrorMessageLabel.AutoSize = true;
-            this.phoneErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneErrorMessageLabel.Location = new System.Drawing.Point(583, 335);
-            this.phoneErrorMessageLabel.Name = "phoneErrorMessageLabel";
-            this.phoneErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
-            this.phoneErrorMessageLabel.TabIndex = 62;
+            this.ssnErrorMessageLabel.AutoSize = true;
+            this.ssnErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ssnErrorMessageLabel.Location = new System.Drawing.Point(188, 285);
+            this.ssnErrorMessageLabel.Name = "ssnErrorMessageLabel";
+            this.ssnErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
+            this.ssnErrorMessageLabel.TabIndex = 62;
+            // 
+            // sexErrorMessageLabel
+            // 
+            this.sexErrorMessageLabel.AutoSize = true;
+            this.sexErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sexErrorMessageLabel.Location = new System.Drawing.Point(188, 332);
+            this.sexErrorMessageLabel.Name = "sexErrorMessageLabel";
+            this.sexErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
+            this.sexErrorMessageLabel.TabIndex = 63;
+            // 
+            // statusErrorMessageLabel
+            // 
+            this.statusErrorMessageLabel.AutoSize = true;
+            this.statusErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusErrorMessageLabel.Location = new System.Drawing.Point(188, 376);
+            this.statusErrorMessageLabel.Name = "statusErrorMessageLabel";
+            this.statusErrorMessageLabel.Size = new System.Drawing.Size(0, 15);
+            this.statusErrorMessageLabel.TabIndex = 64;
+            // 
+            // phoneErrorLabel
+            // 
+            this.phoneErrorLabel.AutoSize = true;
+            this.phoneErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneErrorLabel.Location = new System.Drawing.Point(583, 335);
+            this.phoneErrorLabel.Name = "phoneErrorLabel";
+            this.phoneErrorLabel.Size = new System.Drawing.Size(0, 15);
+            this.phoneErrorLabel.TabIndex = 65;
             // 
             // AddTeacherUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.phoneErrorMessageLabel);
+            this.Controls.Add(this.phoneErrorLabel);
+            this.Controls.Add(this.statusErrorMessageLabel);
+            this.Controls.Add(this.sexErrorMessageLabel);
+            this.Controls.Add(this.ssnErrorMessageLabel);
             this.Controls.Add(this.zipErrorMessageLabel);
             this.Controls.Add(this.addTeacherButton);
             this.Controls.Add(this.clearButton);
@@ -498,6 +531,9 @@
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button addTeacherButton;
         private System.Windows.Forms.Label zipErrorMessageLabel;
-        private System.Windows.Forms.Label phoneErrorMessageLabel;
+        private System.Windows.Forms.Label ssnErrorMessageLabel;
+        private System.Windows.Forms.Label sexErrorMessageLabel;
+        private System.Windows.Forms.Label statusErrorMessageLabel;
+        private System.Windows.Forms.Label phoneErrorLabel;
     }
 }

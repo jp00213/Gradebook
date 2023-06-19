@@ -17,7 +17,9 @@ namespace Gradebook.UserControls
         // 1. customer event
         private Person _controlNumber;
 
-        //2. custom event
+        /// <summary>
+        /// 2. custom event
+        /// </summary>
         public event EventHandler StudentNumberChanged;
 
         /// <summary>
@@ -36,7 +38,10 @@ namespace Gradebook.UserControls
             this._controlNumber = new Person();
         }
 
-        // 3. event - return current studentID
+        /// <summary>
+        /// 3. event - return current studentID
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnNumberchanged(EventArgs e)
         {
             StudentNumberChanged?.Invoke(this, e);

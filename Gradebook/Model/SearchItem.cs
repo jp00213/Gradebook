@@ -3,6 +3,9 @@
 
 namespace Gradebook.Model
 {
+    /// <summary>
+    /// Helper method that assists in student search
+    /// </summary>
     public class SearchItem
     {
         public int idNumber { get; set; }

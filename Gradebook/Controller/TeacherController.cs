@@ -2,18 +2,14 @@
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gradebook.Controller
 {
+    /// <summary>
+    /// The teacher controller which interfaces with DAL
+    /// </summary>
     public class TeacherController
-    {
-        /// <summary>
-        /// The controller class that is the go-between for the PersonDAL and the view
-        /// </summary>
-        /// 
+    { 
         private readonly PersonDAL _personDAL;
         private readonly TeacherDAL _teacherDAL;
 
@@ -85,7 +81,7 @@ namespace Gradebook.Controller
         /// <param name="firstName"></param>
         /// <param name="lastName"></param>
         /// <param name="dob"></param>
-        /// <returns></returns>
+        /// <returns> List of active teachers</returns>
         public List<Teacher> GetAllActiveTeachers()
         {
             return this._teacherDAL.GetAllActiveTeachers();

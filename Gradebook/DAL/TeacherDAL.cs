@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gradebook.DAL
 {
@@ -31,8 +28,8 @@ namespace Gradebook.DAL
                 "FROM Teacher te " +
                 "JOIN person pe " +
                 "ON te.recordID = pe.recordID " +
-                "WHERE pe.firstName like @firstName " +
-                "AND pe.lastName like @lastName " +
+                "WHERE pe.firstName like @firstName + '%'" +
+                "AND pe.lastName like @lastName + '%'" +
                 "AND pe.birthday = @dob";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
@@ -65,8 +62,7 @@ namespace Gradebook.DAL
                             Phone = (string)(reader)["phoneNumber"],
                             TeacherID = (int)(reader)["teacherID"],
                             Sex = (string)(reader)["sex"],
-                            SSN = (string)(reader)["ssn"],
-                            Status = (int)(reader)["activeStatus"]
+                            SSN = (reader)["ssn"] as string
                         };
                         teachers.Add(teacher);
                     }
@@ -115,10 +111,9 @@ namespace Gradebook.DAL
                             State = (string)(reader)["state"],
                             Zip = (string)(reader)["zip"],
                             Phone = (string)(reader)["phoneNumber"],
-                            TeacherID = (int)(reader)["patientID"],
+                            TeacherID = (int)(reader)["teacherID"],
                             Sex = (string)(reader)["sex"],
-                            SSN = (string)(reader)["ssn"],
-                            Status = (int)(reader)["activeStatus"]
+                            SSN = (reader)["ssn"] as string
                         };
                     }
                 }

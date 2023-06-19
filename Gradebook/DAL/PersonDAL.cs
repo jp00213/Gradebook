@@ -413,7 +413,7 @@ namespace Gradebook.DAL
         /// <param name="phone"></param>
         /// <param name="sex"></param>
         /// <param name="ssn"></param>
-        /// <returns></returns>
+        /// <returns>boolean result</returns>
         public bool UpdatePerson(int recordID, string lastName, string firstName, DateTime birthday, string street, string city, string state, string zip, string phone, string sex, string ssn)
         {
             bool result = false;

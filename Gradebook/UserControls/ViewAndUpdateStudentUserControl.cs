@@ -18,6 +18,9 @@ namespace Gradebook.UserControls
         private readonly StudentController _studentController;
         private Person theStudent;
 
+        /// <summary>
+        /// The update student user control
+        /// </summary>
         public ViewAndUpdateStudentUserControl()
         {
             InitializeComponent();
@@ -33,7 +36,11 @@ namespace Gradebook.UserControls
             this.editRadioButton.Enabled = false;
         }
 
-        // when the ID change, load the new Student data and populate them to each field.
+        /// <summary>
+        /// when the ID change, load the new Student data and populate them to each field.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void currentStudentIDForEdit_TextChanged(object sender, EventArgs e)
         {
             theStudent = this._studentController.GetStudentByID(Convert.ToInt32(this.currentStudentIDForEdit.Text));

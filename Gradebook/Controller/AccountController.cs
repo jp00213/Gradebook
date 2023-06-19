@@ -3,6 +3,9 @@ using System;
 
 namespace Gradebook.Controller
 {
+    /// <summary>
+    /// The account controller 
+    /// </summary>
     public class AccountController
     {
         private readonly AccountDAL _accountDAL;

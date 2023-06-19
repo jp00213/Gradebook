@@ -1,10 +1,8 @@
 ﻿using Gradebook.Controller;
-using Gradebook.DAL;
 using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Drawing;
-
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
