@@ -33,6 +33,9 @@ namespace Gradebook.UserControls
             cityTextBox.Clear();
             stateComboBox.SelectedItem = null;
             zipTextBox.Clear();
+            ssnTextBox.Clear();
+            stateComboBox.SelectedItem = null;
+            sexComboBox.SelectedItem = null;    
         }
         private void clearButton_Click(object sender, EventArgs e)
         {
