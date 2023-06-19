@@ -31,21 +31,17 @@
             this.adminTeacherTabControl = new System.Windows.Forms.TabControl();
             this.addTeacherTabPage = new System.Windows.Forms.TabPage();
             this.addTeacherUserControl1 = new Gradebook.UserControls.AddTeacherUserControl();
-            this.viewTeacherTabPage = new System.Windows.Forms.TabPage();
-            this.viewTeacherUserControl1 = new Gradebook.UserControls.ViewTeacherUserControl();
             this.updateTeacherTabPage = new System.Windows.Forms.TabPage();
             this.updateTeacherUserControl1 = new Gradebook.UserControls.UpdateTeacherUserControl();
             this.backHomeButton = new System.Windows.Forms.Button();
             this.adminTeacherTabControl.SuspendLayout();
             this.addTeacherTabPage.SuspendLayout();
-            this.viewTeacherTabPage.SuspendLayout();
             this.updateTeacherTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTeacherTabControl
             // 
             this.adminTeacherTabControl.Controls.Add(this.addTeacherTabPage);
-            this.adminTeacherTabControl.Controls.Add(this.viewTeacherTabPage);
             this.adminTeacherTabControl.Controls.Add(this.updateTeacherTabPage);
             this.adminTeacherTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminTeacherTabControl.Location = new System.Drawing.Point(-4, 61);
@@ -72,25 +68,6 @@
             this.addTeacherUserControl1.Name = "addTeacherUserControl1";
             this.addTeacherUserControl1.Size = new System.Drawing.Size(878, 521);
             this.addTeacherUserControl1.TabIndex = 0;
-            // 
-            // viewTeacherTabPage
-            // 
-            this.viewTeacherTabPage.Controls.Add(this.viewTeacherUserControl1);
-            this.viewTeacherTabPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.viewTeacherTabPage.Location = new System.Drawing.Point(4, 29);
-            this.viewTeacherTabPage.Name = "viewTeacherTabPage";
-            this.viewTeacherTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.viewTeacherTabPage.Size = new System.Drawing.Size(1100, 626);
-            this.viewTeacherTabPage.TabIndex = 1;
-            this.viewTeacherTabPage.Text = "View Teacher";
-            this.viewTeacherTabPage.UseVisualStyleBackColor = true;
-            // 
-            // viewTeacherUserControl1
-            // 
-            this.viewTeacherUserControl1.Location = new System.Drawing.Point(83, 0);
-            this.viewTeacherUserControl1.Name = "viewTeacherUserControl1";
-            this.viewTeacherUserControl1.Size = new System.Drawing.Size(989, 609);
-            this.viewTeacherUserControl1.TabIndex = 0;
             // 
             // updateTeacherTabPage
             // 
@@ -139,7 +116,6 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorTeachers_FormClosed);
             this.adminTeacherTabControl.ResumeLayout(false);
             this.addTeacherTabPage.ResumeLayout(false);
-            this.viewTeacherTabPage.ResumeLayout(false);
             this.updateTeacherTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -149,11 +125,9 @@
 
         private System.Windows.Forms.TabControl adminTeacherTabControl;
         private System.Windows.Forms.TabPage addTeacherTabPage;
-        private System.Windows.Forms.TabPage viewTeacherTabPage;
         private System.Windows.Forms.TabPage updateTeacherTabPage;
         private System.Windows.Forms.Button backHomeButton;
         private UserControls.AddTeacherUserControl addTeacherUserControl1;
-        private UserControls.ViewTeacherUserControl viewTeacherUserControl1;
         private UserControls.UpdateTeacherUserControl updateTeacherUserControl1;
     }
 }
