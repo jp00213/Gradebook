@@ -31,5 +31,10 @@ namespace Gradebook.View
             changeStudentPasswordUserControl1.SetCurrentStudentID(this.currentStudentIDDataLabel.Text);
         }
 
+        private void backHomeButton_Click(object sender, System.EventArgs e)
+        {
+            this.Hide();
+            Owner.Show();
+        }
     }
 }

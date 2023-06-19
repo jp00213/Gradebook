@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Gradebook.Function
 {
@@ -193,6 +191,85 @@ namespace Gradebook.Function
                 validData = false;
             }
             return validData;
+        }
+
+        // passwordscore
+        public enum PasswordScore
+        {
+            Blank = 0,
+            VeryWeak = 1,
+            Weak = 2,
+            Medium = 3,
+            Strong = 4,
+            VeryStrong = 5
+        }
+
+        // need 8 letters 
+        public static bool IsPasswordMeetComplexityStandard(string password)
+        {
+            int score = 0;
+
+            if (password.Length < 1)
+                score = 0;
+            if (password.Length <= 7)    // 0 point
+                score = 0;
+
+            if (password.Length > 7)   // 1 point
+                score++;
+            if (password.Length >= 12)  // 1 point
+                score++;
+
+            if (HasNumericInside(password))  // 1 point
+            {
+                score++;
+            }
+
+            if (HasNonNumbericInside(password)) // 1 point
+            {
+                score++;
+            }
+
+            if (score > 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // check has numeric inside
+        public static bool HasNumericInside(string word)
+        {
+            bool hasNumber = false;
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (char.IsDigit(word[i]))
+                {
+                    hasNumber = true;
+                    break;
+                }
+            }
+            if (hasNumber == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // check has non numeric inside
+        public static bool HasNonNumbericInside(string word)
+        {
+            foreach (char c in word)
+            {
+                if (!char.IsDigit(c))
+                    return true;
+            }
+            return false;
         }
 
         /// <summary>

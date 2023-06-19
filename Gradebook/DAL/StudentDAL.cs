@@ -130,7 +130,7 @@ namespace Gradebook.DAL
                             updateStudent = updateStudentCommand.ExecuteNonQuery();
 
                         }
-                        System.Windows.Forms.MessageBox.Show(updatePerson.ToString() + updateStudent.ToString());
+                        //System.Windows.Forms.MessageBox.Show(updatePerson.ToString() + updateStudent.ToString());
 
                         if ((updatePerson == 1) && (updateStudent == 1))
                         {
@@ -211,7 +211,7 @@ namespace Gradebook.DAL
         {
             List<Person> students = new List<Person>();
             Person student = new Person();
-            string theSSN = "";
+            //string theSSN = "";
 
             SqlConnection connection = GradebookDBConnection.GetConnection();
 

@@ -12,7 +12,7 @@ namespace Gradebook.Model
     public class Teacher : Person
     {
         public int TeacherID { get; set; }
-        public string Status { get; set; }
+        public int Status { get; set; }
 
         /// <summary>
         /// Teacher constructor

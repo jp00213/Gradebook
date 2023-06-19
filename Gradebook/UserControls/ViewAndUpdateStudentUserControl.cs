@@ -2,13 +2,7 @@
 using Gradebook.Function;
 using Gradebook.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
@@ -45,7 +39,18 @@ namespace Gradebook.UserControls
             theStudent = this._studentController.GetStudentByID(Convert.ToInt32(this.currentStudentIDForEdit.Text));
             firstNameTextBox.Text = theStudent.FirstName;
             lastNameTextBox.Text = theStudent.LastName;
-            dobPicker.Value = theStudent.DateOfBirth;
+
+            DateTime minDateAccept = new DateTime(1900, 1, 1);
+
+            if (theStudent.DateOfBirth == null || theStudent.DateOfBirth < minDateAccept)
+            {
+                dobPicker.Value = minDateAccept;
+            }
+            else
+            {
+                dobPicker.Value = theStudent.DateOfBirth;
+            }
+
             phoneTextBox.Text = theStudent.Phone;
             genderComboBox.Text = theStudent.Sex;
             streetTextBox.Text = theStudent.AddressStreet;

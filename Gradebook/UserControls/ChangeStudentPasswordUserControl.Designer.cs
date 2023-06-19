@@ -42,11 +42,13 @@
             this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
             this.changePasswordTitleLable = new System.Windows.Forms.Label();
             this.firstPasswordLabel = new System.Windows.Forms.Label();
+            this.complexityRequirementLabel = new System.Windows.Forms.Label();
             this.changeStudentPasswordPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // changeStudentPasswordPanel
             // 
+            this.changeStudentPasswordPanel.Controls.Add(this.complexityRequirementLabel);
             this.changeStudentPasswordPanel.Controls.Add(this.errorMessageLabel);
             this.changeStudentPasswordPanel.Controls.Add(this.changePasswordButton);
             this.changeStudentPasswordPanel.Controls.Add(this.maskedPasswordTextBox2);
@@ -184,6 +186,16 @@
             this.firstPasswordLabel.TabIndex = 0;
             this.firstPasswordLabel.Text = "Enter New Password:";
             // 
+            // complexityRequirementLabel
+            // 
+            this.complexityRequirementLabel.AutoSize = true;
+            this.complexityRequirementLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.complexityRequirementLabel.Location = new System.Drawing.Point(427, 163);
+            this.complexityRequirementLabel.Name = "complexityRequirementLabel";
+            this.complexityRequirementLabel.Size = new System.Drawing.Size(226, 13);
+            this.complexityRequirementLabel.TabIndex = 56;
+            this.complexityRequirementLabel.Text = "At least 8 characters including letters and digit.";
+            // 
             // ChangeStudentPasswordUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -213,5 +225,6 @@
         private System.Windows.Forms.MaskedTextBox maskedPasswordTextBox2;
         private System.Windows.Forms.MaskedTextBox maskedPasswordTextBox1;
         private System.Windows.Forms.Label errorMessageLabel;
+        private System.Windows.Forms.Label complexityRequirementLabel;
     }
 }

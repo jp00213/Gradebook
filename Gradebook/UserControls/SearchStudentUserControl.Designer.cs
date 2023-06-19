@@ -125,7 +125,7 @@
             this.searchDobPicker.Location = new System.Drawing.Point(312, 15);
             this.searchDobPicker.Name = "searchDobPicker";
             this.searchDobPicker.Size = new System.Drawing.Size(48, 17);
-            this.searchDobPicker.TabIndex = 3;
+            this.searchDobPicker.TabIndex = 6;
             this.searchDobPicker.TabStop = true;
             this.searchDobPicker.Text = "DOB";
             this.searchDobPicker.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@
             this.searchNameRadioButton.Location = new System.Drawing.Point(234, 15);
             this.searchNameRadioButton.Name = "searchNameRadioButton";
             this.searchNameRadioButton.Size = new System.Drawing.Size(53, 17);
-            this.searchNameRadioButton.TabIndex = 3;
+            this.searchNameRadioButton.TabIndex = 5;
             this.searchNameRadioButton.TabStop = true;
             this.searchNameRadioButton.Text = "Name";
             this.searchNameRadioButton.UseVisualStyleBackColor = true;
@@ -242,7 +242,7 @@
             this.clearButton.Location = new System.Drawing.Point(767, 94);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 9;
+            this.clearButton.TabIndex = 13;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
@@ -252,7 +252,7 @@
             this.searchButton.Location = new System.Drawing.Point(676, 94);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
-            this.searchButton.TabIndex = 8;
+            this.searchButton.TabIndex = 12;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -263,35 +263,35 @@
             this.dob_Datepicker.Location = new System.Drawing.Point(553, 97);
             this.dob_Datepicker.Name = "dob_Datepicker";
             this.dob_Datepicker.Size = new System.Drawing.Size(107, 20);
-            this.dob_Datepicker.TabIndex = 7;
+            this.dob_Datepicker.TabIndex = 11;
             // 
             // lastNameTextBox
             // 
             this.lastNameTextBox.Location = new System.Drawing.Point(405, 97);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(142, 20);
-            this.lastNameTextBox.TabIndex = 6;
+            this.lastNameTextBox.TabIndex = 10;
             // 
             // firstNameTextBox
             // 
             this.firstNameTextBox.Location = new System.Drawing.Point(237, 97);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(162, 20);
-            this.firstNameTextBox.TabIndex = 5;
+            this.firstNameTextBox.TabIndex = 9;
             // 
             // usernameTextBox
             // 
             this.usernameTextBox.Location = new System.Drawing.Point(131, 97);
             this.usernameTextBox.Name = "usernameTextBox";
             this.usernameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.usernameTextBox.TabIndex = 4;
+            this.usernameTextBox.TabIndex = 8;
             // 
             // studentIDTextBox
             // 
             this.studentIDTextBox.Location = new System.Drawing.Point(25, 97);
             this.studentIDTextBox.Name = "studentIDTextBox";
             this.studentIDTextBox.Size = new System.Drawing.Size(100, 20);
-            this.studentIDTextBox.TabIndex = 3;
+            this.studentIDTextBox.TabIndex = 7;
             // 
             // dobTimePicker
             // 
