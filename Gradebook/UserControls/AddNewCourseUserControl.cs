@@ -1,4 +1,5 @@
 ﻿using Gradebook.Controller;
+using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Windows.Forms;
@@ -29,7 +30,7 @@ namespace Gradebook.UserControls
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                this.teacherComboBox.Items.Add("No teacher available");
+                this.teacherComboBox.Items.Insert(0, "No teacher available");
             }
         }
 
@@ -42,35 +43,38 @@ namespace Gradebook.UserControls
         private void addCourseButton_Click(object sender, EventArgs e)
         {
             Course newCourse = new Course();
-            newCourse.Name = this.nameTextBox.Text;
-            newCourse.Prefix = this.prefixTextBox.Text;
-            newCourse.Number = this.numberTextBox.Text;
-            if (Int32.TryParse(this.sectionTextBox.Text, out int section))
+            if (string.IsNullOrEmpty(this.nameTextBox.Text) || !ValidationUtility.IsBetweenNumberOfCharacters(1, 3, this.prefixTextBox.Text) ||
+                !ValidationUtility.IsBetweenNumberOfCharacters(1, 4, this.numberTextBox.Text) || !ValidationUtility.IsInt32(this.sectionTextBox.Text) ||
+                !ValidationUtility.IsInt32(this.creditHoursComboBox.Text) || string.IsNullOrEmpty(this.semesterComboBox.Text) ||
+                string.IsNullOrEmpty(this.courseYearPicker.Value.Year.ToString()) || this.teacherComboBox.SelectedValue == null)
             {
-                newCourse.Section = section;
+                this.ValidateDataEntry();
             }
             else
             {
-                Console.WriteLine("Section could not be parsed.");
-            }
-            if (Int32.TryParse(this.creditHoursComboBox.Text, out int credit))
-            {
-                newCourse.CreditHours = credit;
-            }
-            else
-            {
-                Console.WriteLine("Credit could not be parsed.");
-            }
-            newCourse.Semester = this.semesterComboBox.Text;
-            newCourse.Year = this.courseYearPicker.Value.Year;
-            newCourse.TeacherID = (int)this.teacherComboBox.SelectedValue;
+                newCourse.Name = this.nameTextBox.Text;
+                newCourse.Prefix = this.prefixTextBox.Text;
+                newCourse.Number = this.numberTextBox.Text;
+                if (Int32.TryParse(this.sectionTextBox.Text, out int section))
+                {
+                    newCourse.Section = section;
+                }
+                if (Int32.TryParse(this.creditHoursComboBox.Text, out int credit))
+                {
+                    newCourse.CreditHours = credit;
+                }
+                newCourse.Semester = this.semesterComboBox.Text;
+                newCourse.Year = this.courseYearPicker.Value.Year;
+                newCourse.TeacherID = (int)this.teacherComboBox.SelectedValue;
 
-            if (this._courseController.AddNewCourse(newCourse))
-            {
-                MessageBox.Show("Course Successfully Added");
-            } else
-            {
-                MessageBox.Show("Course was not added, check data and try again");
+                if (this._courseController.AddNewCourse(newCourse))
+                {
+                    MessageBox.Show("Course Successfully Added");
+                }
+                else
+                {
+                    MessageBox.Show("Course was not added, check data and try again");
+                }
             }
         }
 
@@ -101,6 +105,45 @@ namespace Gradebook.UserControls
         private void nameTextBox_TextChanged(object sender, EventArgs e)
         {
             this.ResetErrorMessages();
+        }
+
+        private Boolean ValidateDataEntry()
+        {
+            Boolean status = false;
+            if (string.IsNullOrEmpty(this.nameTextBox.Text))
+            {
+                this.nameErrorLabel.Text = "Name cannot be empty";
+            }
+            if (!ValidationUtility.IsBetweenNumberOfCharacters(1, 3, this.prefixTextBox.Text))
+            {
+                this.prefixErrorLabel.Text = "Prefix must be between 1 and 3 characters";
+            }
+            if (!ValidationUtility.IsBetweenNumberOfCharacters(1, 4, this.numberTextBox.Text))
+            {
+                this.numberErrorLabel.Text = "Number must be between 1 and 4 characters";
+            }
+            if (!ValidationUtility.IsInt32(this.sectionTextBox.Text))
+            {
+                this.sectionErrorLabel.Text = "Section must be a number";
+            }
+            if (!ValidationUtility.IsInt32(this.creditHoursComboBox.Text))
+            {
+                this.creditErrorLabel.Text = "Credit hours must be a number";
+            }
+            if (string.IsNullOrEmpty(this.semesterComboBox.Text))
+            {
+                this.semesterErrorLabel.Text = "Semester cannot be empty";
+            }
+            if (string.IsNullOrEmpty(this.courseYearPicker.Value.Year.ToString()))
+            {
+                this.yearErrorLabel.Text = "Year cannot be empty";
+            }
+            if (this.teacherComboBox.SelectedValue == null)
+            {
+                this.teacherErrorLabel.Text = "Teacher cannot be empty";
+            }
+
+            return status;
         }
     }
 }

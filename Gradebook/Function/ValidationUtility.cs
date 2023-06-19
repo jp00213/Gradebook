@@ -195,5 +195,21 @@ namespace Gradebook.Function
             return validData;
         }
 
+        /// <summary>
+        /// Tests if string has more than starting characters and less than ending characters (inclusive)
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="testString"></param>
+        /// <returns></returns>
+        public static bool IsBetweenNumberOfCharacters(int start, int end, string testString)
+        {
+            bool validData = true;
+            if (testString.Length > end || testString.Length < start)
+            {
+                validData = false;
+            } 
+            return validData;
+        }
     }
 }

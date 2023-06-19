@@ -266,9 +266,9 @@
             this.nameErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.nameErrorLabel.Location = new System.Drawing.Point(176, 72);
             this.nameErrorLabel.Name = "nameErrorLabel";
-            this.nameErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.nameErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.nameErrorLabel.TabIndex = 53;
-            this.nameErrorLabel.Text = "label1";
+            this.nameErrorLabel.Text = "  ";
             // 
             // prefixErrorLabel
             // 
@@ -277,9 +277,9 @@
             this.prefixErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.prefixErrorLabel.Location = new System.Drawing.Point(176, 135);
             this.prefixErrorLabel.Name = "prefixErrorLabel";
-            this.prefixErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.prefixErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.prefixErrorLabel.TabIndex = 54;
-            this.prefixErrorLabel.Text = "label2";
+            this.prefixErrorLabel.Text = "  ";
             // 
             // sectionErrorLabel
             // 
@@ -288,9 +288,9 @@
             this.sectionErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.sectionErrorLabel.Location = new System.Drawing.Point(176, 199);
             this.sectionErrorLabel.Name = "sectionErrorLabel";
-            this.sectionErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.sectionErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.sectionErrorLabel.TabIndex = 55;
-            this.sectionErrorLabel.Text = "label3";
+            this.sectionErrorLabel.Text = "  ";
             // 
             // semesterErrorLabel
             // 
@@ -299,9 +299,9 @@
             this.semesterErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.semesterErrorLabel.Location = new System.Drawing.Point(176, 271);
             this.semesterErrorLabel.Name = "semesterErrorLabel";
-            this.semesterErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.semesterErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.semesterErrorLabel.TabIndex = 56;
-            this.semesterErrorLabel.Text = "label4";
+            this.semesterErrorLabel.Text = "  ";
             // 
             // numberErrorLabel
             // 
@@ -310,9 +310,9 @@
             this.numberErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.numberErrorLabel.Location = new System.Drawing.Point(619, 135);
             this.numberErrorLabel.Name = "numberErrorLabel";
-            this.numberErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.numberErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.numberErrorLabel.TabIndex = 57;
-            this.numberErrorLabel.Text = "label5";
+            this.numberErrorLabel.Text = "  ";
             // 
             // creditErrorLabel
             // 
@@ -321,9 +321,9 @@
             this.creditErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.creditErrorLabel.Location = new System.Drawing.Point(619, 202);
             this.creditErrorLabel.Name = "creditErrorLabel";
-            this.creditErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.creditErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.creditErrorLabel.TabIndex = 58;
-            this.creditErrorLabel.Text = "label6";
+            this.creditErrorLabel.Text = "  ";
             // 
             // yearErrorLabel
             // 
@@ -332,9 +332,9 @@
             this.yearErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.yearErrorLabel.Location = new System.Drawing.Point(619, 271);
             this.yearErrorLabel.Name = "yearErrorLabel";
-            this.yearErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.yearErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.yearErrorLabel.TabIndex = 59;
-            this.yearErrorLabel.Text = "label7";
+            this.yearErrorLabel.Text = "  ";
             // 
             // teacherErrorLabel
             // 
@@ -343,9 +343,9 @@
             this.teacherErrorLabel.ForeColor = System.Drawing.Color.Red;
             this.teacherErrorLabel.Location = new System.Drawing.Point(176, 339);
             this.teacherErrorLabel.Name = "teacherErrorLabel";
-            this.teacherErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.teacherErrorLabel.Size = new System.Drawing.Size(13, 16);
             this.teacherErrorLabel.TabIndex = 60;
-            this.teacherErrorLabel.Text = "label1";
+            this.teacherErrorLabel.Text = "  ";
             // 
             // AddNewCourseUserControl
             // 

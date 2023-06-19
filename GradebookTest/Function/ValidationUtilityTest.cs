@@ -313,5 +313,22 @@ namespace GradebookTest.Function
             var testValue7 = ValidationUtility.IsStatusValid("Disable");
             Assert.That(testValue7, Is.EqualTo(true));
         }
+
+        [Test]
+        public void ShouldReturnTrueIfBetweenNumberOfCharacters()
+        {
+            var testValue1 = ValidationUtility.IsBetweenNumberOfCharacters(2, 5, "abc");
+            Assert.That(testValue1, Is.EqualTo(true));
+
+            var testValue2 = ValidationUtility.IsBetweenNumberOfCharacters(2, 5, "abcde");
+            Assert.That(testValue2, Is.EqualTo(true));
+
+            var testValue3 = ValidationUtility.IsBetweenNumberOfCharacters(2, 5, "a");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsBetweenNumberOfCharacters(1, 5, "a");
+            Assert.That(testValue4, Is.EqualTo(true));
+        }
+
     }
 }
