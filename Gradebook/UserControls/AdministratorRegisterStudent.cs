@@ -22,6 +22,7 @@ namespace Gradebook.UserControls
             InitializeComponent();
             this._courseController = new CourseController();
             this._studentController = new StudentController();
+            this.registerButton.Enabled = false;
         }
 
         private void searchCourseButton_Click(object sender, EventArgs e)
@@ -41,15 +42,25 @@ namespace Gradebook.UserControls
             } else
             {
                 this.findStudentErrorLabel.Text = "Student ID must be a number";
+                this.registerButton.Enabled = false;
             }
             try
             {
                 Person student = this._studentController.GetStudentByID(studentID);
-                this.studentNameTextBox.Text = student.FirstName + " " + student.LastName;
-                this.studentBirthdayTextBox.Text = student.DateOfBirth.ToString("yyyy-MM-dd");
+                if (string.IsNullOrEmpty(student.FirstName))
+                {
+                    this.findStudentErrorLabel.Text = "Cannot find student";
+                    this.registerButton.Enabled = false;
+                }
+                else
+                {
+                    this.studentNameTextBox.Text = student.FirstName + " " + student.LastName;
+                    this.studentBirthdayTextBox.Text = student.DateOfBirth.ToString("yyyy-MM-dd");
+                    this.registerButton.Enabled = true;
+                }
             } catch
             {
-                this.findStudentErrorLabel.Text = "Student not found";
+                this.findStudentErrorLabel.Text = "Error finding student";
             }
         }
 
@@ -60,10 +71,16 @@ namespace Gradebook.UserControls
             {
                 this._courseController.RegisterStudent(Convert.ToInt32(this.studentIDTextBox.Text), course);
                 MessageBox.Show("Successfully registered for course");
+            this.registerButton.Enabled = false;
             } catch
             {
                 MessageBox.Show("Did not register for course. Check previous registrations and try again");
             }
+        }
+
+        private void studentIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.findStudentErrorLabel.Text = "";
         }
     }
 }

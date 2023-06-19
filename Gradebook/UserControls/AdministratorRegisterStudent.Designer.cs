@@ -222,6 +222,7 @@
             this.studentIDTextBox.Name = "studentIDTextBox";
             this.studentIDTextBox.Size = new System.Drawing.Size(121, 30);
             this.studentIDTextBox.TabIndex = 20;
+            this.studentIDTextBox.TextChanged += new System.EventHandler(this.studentIDTextBox_TextChanged);
             // 
             // studentIDLabel
             // 
