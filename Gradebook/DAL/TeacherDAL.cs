@@ -169,5 +169,50 @@ namespace Gradebook.DAL
             }
             return teachers;
         }
+
+
+        public List<Teacher> GetTeacherByDobOnly(DateTime dobIn)
+        {
+            List<Teacher> teachers = new List<Teacher>();
+            Teacher teacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM Teacher t " +
+                "JOIN Person e " +
+                "ON t.recordID = e.recordID " +
+                "WHERE e.birthday = @dob ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@dob", dobIn);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teacher = new Teacher
+                        {
+                            RecordId = (int)(reader)["recordID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            TeacherID = (int)(reader)["teacherID"]
+                        };
+                        teachers.Add(teacher);
+                    }
+                }
+            }
+            return teachers;
+        }
     }
 }

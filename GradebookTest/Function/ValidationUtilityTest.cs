@@ -11,6 +11,68 @@ namespace GradebookTest.Function
 
 
         [Test]
+        public void ShouldReturnTrueIfContainsNumeric()
+        {
+            var testValue1 = ValidationUtility.HasNumericInside("ABC");
+            Assert.That(testValue1, Is.EqualTo(false));
+
+            var testValue2 = ValidationUtility.HasNumericInside("ABCAgafdasd##$#$Q#$");
+            Assert.That(testValue2, Is.EqualTo(false));
+
+            var testValue3 = ValidationUtility.HasNumericInside("AB1CAg2afdad2sd##$#$Q#$");
+            Assert.That(testValue3, Is.EqualTo(true));
+
+            var testValue4 = ValidationUtility.HasNumericInside("123");
+            Assert.That(testValue4, Is.EqualTo(true));
+
+            var testValue5 = ValidationUtility.HasNumericInside("A123%");
+            Assert.That(testValue5, Is.EqualTo(true));
+        }
+
+
+        [Test]
+        public void ShouldReturnTrueIfContainsNonNumeric()
+        {
+            var testValue1 = ValidationUtility.HasNonNumbericInside("ABC");
+            Assert.That(testValue1, Is.EqualTo(true));
+
+            var testValue2 = ValidationUtility.HasNonNumbericInside("ABCAgafdasd##$#$Q#$");
+            Assert.That(testValue2, Is.EqualTo(true));
+
+            var testValue3 = ValidationUtility.HasNonNumbericInside("AB1CAg2afdad2sd##$#$Q#$");
+            Assert.That(testValue3, Is.EqualTo(true));
+
+            var testValue4 = ValidationUtility.HasNonNumbericInside("123");
+            Assert.That(testValue4, Is.EqualTo(false));
+
+            var testValue5 = ValidationUtility.HasNonNumbericInside("A123%");
+            Assert.That(testValue5, Is.EqualTo(true));
+        }
+
+
+        [Test]
+        public void ShouldReturnTrueIfPassComplexityTest()
+        {
+            var testValue1 = ValidationUtility.IsPasswordMeetComplexityStandard("ABC");
+            Assert.That(testValue1, Is.EqualTo(false));
+
+            var testValue2 = ValidationUtility.IsPasswordMeetComplexityStandard("ABCDEFGH");
+            Assert.That(testValue2, Is.EqualTo(false));
+
+            var testValue3 = ValidationUtility.IsPasswordMeetComplexityStandard("ABCDEF9");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsPasswordMeetComplexityStandard("ABCDEFGHIJKL");
+            Assert.That(testValue4, Is.EqualTo(true));
+
+            var testValue5 = ValidationUtility.IsPasswordMeetComplexityStandard("ABCDEFG1");
+            Assert.That(testValue5, Is.EqualTo(true));
+
+            var testValue6 = ValidationUtility.IsPasswordMeetComplexityStandard("ABC3%$DEFG1");
+            Assert.That(testValue6, Is.EqualTo(true));
+        }
+
+        [Test]
         public void ShouldReturnTrueIfPresentAndFalseNotPresent()
         {
             var testValue1 = ValidationUtility.IsPresent("A");
@@ -313,5 +375,22 @@ namespace GradebookTest.Function
             var testValue7 = ValidationUtility.IsStatusValid("Disable");
             Assert.That(testValue7, Is.EqualTo(true));
         }
+
+        [Test]
+        public void ShouldReturnTrueIfBetweenNumberOfCharacters()
+        {
+            var testValue1 = ValidationUtility.IsBetweenNumberOfCharacters(2, 5, "abc");
+            Assert.That(testValue1, Is.EqualTo(true));
+
+            var testValue2 = ValidationUtility.IsBetweenNumberOfCharacters(2, 5, "abcde");
+            Assert.That(testValue2, Is.EqualTo(true));
+
+            var testValue3 = ValidationUtility.IsBetweenNumberOfCharacters(2, 5, "a");
+            Assert.That(testValue3, Is.EqualTo(false));
+
+            var testValue4 = ValidationUtility.IsBetweenNumberOfCharacters(1, 5, "a");
+            Assert.That(testValue4, Is.EqualTo(true));
+        }
+
     }
 }

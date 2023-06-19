@@ -241,5 +241,100 @@ namespace Gradebook.Function
             return validData;
         }
 
+        // passwordscore
+        public enum PasswordScore
+        {
+            Blank = 0,
+            VeryWeak = 1,
+            Weak = 2,
+            Medium = 3,
+            Strong = 4,
+            VeryStrong = 5
+        }
+
+        // need 8 letters 
+        public static bool IsPasswordMeetComplexityStandard(string password)
+        {
+            int score = 0;
+
+            if (password.Length < 1)
+                score = 0;
+            if (password.Length <= 7)    // 0 point
+                score = 0;
+
+            if (password.Length > 7)   // 1 point
+                score++;
+            if (password.Length >= 12)  // 1 point
+                score++;
+
+            if (HasNumericInside(password))  // 1 point
+            {
+                score++;
+            }
+
+            if (HasNonNumbericInside(password)) // 1 point
+            {
+                score++;
+            }
+
+            if (score > 2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // check has numeric inside
+        public static bool HasNumericInside(string word)
+        {
+            bool hasNumber = false;
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (char.IsDigit(word[i]))
+                {
+                    hasNumber = true;
+                    break;
+                }
+            }
+            if (hasNumber == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        // check has non numeric inside
+        public static bool HasNonNumbericInside(string word)
+        {
+            foreach (char c in word)
+            {
+                if (!char.IsDigit(c))
+                    return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Tests if string has more than starting characters and less than ending characters (inclusive)
+        /// </summary>
+        /// <param name="start"></param>
+        /// <param name="end"></param>
+        /// <param name="testString"></param>
+        /// <returns></returns>
+        public static bool IsBetweenNumberOfCharacters(int start, int end, string testString)
+        {
+            bool validData = true;
+            if (testString.Length > end || testString.Length < start)
+            {
+                validData = false;
+            } 
+            return validData;
+        }
     }
 }
