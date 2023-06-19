@@ -1,13 +1,8 @@
 ﻿using Gradebook.Controller;
+using Gradebook.Function;
 using Gradebook.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
@@ -17,7 +12,7 @@ namespace Gradebook.UserControls
     /// </summary>
     public partial class ChangeStudentPasswordUserControl : UserControl
     {
-        private StudentController _studentController;
+        private readonly StudentController _studentController;
         private Person theStudent;
         /// <summary>
         /// create constructors
@@ -90,6 +85,13 @@ namespace Gradebook.UserControls
 
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
+            if (!ValidationUtility.IsPasswordMeetComplexityStandard(this.maskedPasswordTextBox2.Text))
+            {
+                this.errorMessageLabel.Text = "Passwords do not match complexity requirement.";
+                this.errorMessageLabel.ForeColor = Color.Blue;
+                return;
+            }
+
             if (this.maskedPasswordTextBox1.Text == this.maskedPasswordTextBox2.Text)
             {
                 this.ResetPassword();

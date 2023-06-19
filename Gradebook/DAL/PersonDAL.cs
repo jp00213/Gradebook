@@ -357,14 +357,22 @@ namespace Gradebook.DAL
             var theUsername = "";
             string selectStatement =
 
-               "select * " +
+                               "select * " +
                "from person p, student s " +
                "where p.recordID = s.recordID " +
                "and p.recordID = (select max(r.recordID) " +
                                  "from person r , student k " +
-                                 "where r.recordID = k.recordID " +
-                                 "and lower(r.firstName) = lower(@firstName) " +
-                                 "and lower(r.lastName) = lower(@lastName))  ";
+                                 "where r.recordID = k.recordID   " +
+                                 "and  SUBSTRING (k.username,0, PATINDEX('%[0-9]%',k.username)) = concat( 's_', substring(lower(@firstName),1,1), lower(@lastName)) )";
+
+            /*"select * " +
+            "from person p, student s " +
+            "where p.recordID = s.recordID " +
+            "and p.recordID = (select max(r.recordID) " +
+                              "from person r , student k " +
+                              "where r.recordID = k.recordID " +
+                              "and lower(r.firstName) = lower(@firstName) " +
+                              "and lower(r.lastName) = lower(@lastName))  ";*/
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
             {
