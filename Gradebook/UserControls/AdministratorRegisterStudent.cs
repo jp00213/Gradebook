@@ -6,11 +6,17 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// UserControl for administrator to register student
+    /// </summary>
     public partial class AdministratorRegisterStudent : UserControl
     {
         private readonly CourseController _courseController;
         private readonly StudentController _studentController;
 
+        /// <summary>
+        /// Constructor for user control
+        /// </summary>
         public AdministratorRegisterStudent()
         {
             InitializeComponent();
@@ -20,7 +26,10 @@ namespace Gradebook.UserControls
 
         private void searchCourseButton_Click(object sender, EventArgs e)
         {
-            this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemester(this.semesterComboBox.Text, this.courseYearPicker.Value.Year);
+            try
+            {
+                this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemester(this.semesterComboBox.Text, this.courseYearPicker.Value.Year);
+            } catch { }
         }
 
         private void searchStudentButton_Click(object sender, EventArgs e)
@@ -29,15 +38,18 @@ namespace Gradebook.UserControls
             if (ValidationUtility.IsInt32(this.studentIDTextBox.Text))
             {
                 studentID = Convert.ToInt32(this.studentIDTextBox.Text);
+            } else
+            {
+                this.findStudentErrorLabel.Text = "Student ID must be a number";
             }
             try
             {
                 Person student = this._studentController.GetStudentByID(studentID);
                 this.studentNameTextBox.Text = student.FirstName + " " + student.LastName;
                 this.studentBirthdayTextBox.Text = student.DateOfBirth.ToString("yyyy-MM-dd");
-            } catch (Exception ex)
+            } catch
             {
-                MessageBox.Show(ex.Message);
+                this.findStudentErrorLabel.Text = "Student not found";
             }
         }
 
