@@ -1,4 +1,5 @@
 ﻿using Gradebook.Controller;
+using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Drawing;
@@ -58,9 +59,16 @@ namespace Gradebook.UserControls
             string zip = this.zipTextBox.Text.Trim();
             string sex = this.sexComboBox.Text;
             string ssn = this.ssnTextBox.Text.Trim();
-            string status = this.stateComboBox.Text;
+            string status = this.statusComboBox.Text;
 
-            if (string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) || dateOfBirth > DateTime.Now || string.IsNullOrEmpty(address) || address.Length < 5 || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state) || state.Length != 2 || !IsValidZipCode(zip) || !IsPhoneNumberValid(phone) || string.IsNullOrEmpty(sex) || string.IsNullOrEmpty(ssn) || string.IsNullOrEmpty(status))
+            if (string.IsNullOrEmpty(lastName) || !ValidationUtility.IsMoreThanOneLetters(lastName) ||
+                string.IsNullOrEmpty(firstName) || !ValidationUtility.IsMoreThanOneLetters(firstName) ||
+                dateOfBirth > DateTime.Now || string.IsNullOrEmpty(address) ||
+                !ValidationUtility.IsMoreThanOneLetters(address) || string.IsNullOrEmpty(city) ||
+                !ValidationUtility.IsMoreThanOneLetters(city) || string.IsNullOrEmpty(state) ||
+                state.Length != 2 || !ValidationUtility.IsValidZipCode(zip) ||
+                !ValidationUtility.IsValidPhoneNumber(phone) || !ValidationUtility.IsGenderValid(sex) ||
+                !ValidationUtility.IsSSNValid(ssn) || string.IsNullOrEmpty(ssn))
             {
                 this.ShowInvalidErrorMessage();
             }
@@ -78,123 +86,69 @@ namespace Gradebook.UserControls
 
         private void ShowInvalidErrorMessage()
         {
-            if (string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrWhiteSpace(lastNameTextBox.Text))
+            if (string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrWhiteSpace(lastNameTextBox.Text) ||
+                !ValidationUtility.IsMoreThanOneLetters(this.lastNameTextBox.Text.Trim()))
             {
                 this.lastNameErrorMessageLabel.Text = "Please enter your last name.";
                 this.lastNameErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (string.IsNullOrEmpty(firstNameTextBox.Text) || string.IsNullOrWhiteSpace(firstNameTextBox.Text))
+            if (string.IsNullOrEmpty(firstNameTextBox.Text) || string.IsNullOrWhiteSpace(firstNameTextBox.Text) ||
+                 !ValidationUtility.IsMoreThanOneLetters(this.firstNameTextBox.Text.Trim()))
             {
                 this.firstNameErrorMessageLabel.Text = "Please enter your first name.";
                 this.firstNameErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (dateOfBirthDateTimePicker.Value > DateTime.Now)
+            if (this.dateOfBirthDateTimePicker.Value > DateTime.Now)
             {
-                this.DOBErrorLabel.Text = "DOB cannot be in the future.";
+                this.DOBErrorLabel.Text = "Invalid Date. Birthday cannot be in future.";
                 this.DOBErrorLabel.ForeColor = Color.Red;
             }
 
-            if (string.IsNullOrEmpty(addressTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text) || addressTextBox.Text.Length < 5)
+            if (!ValidationUtility.IsMoreThanOneLetters(this.addressTextBox.Text.Trim()) ||
+                    string.IsNullOrEmpty(this.addressTextBox.Text.Trim()))
             {
                 this.addressErrorMessageLabel.Text = "Please enter your full street address.";
                 this.addressErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (string.IsNullOrEmpty(cityTextBox.Text) || string.IsNullOrWhiteSpace(cityTextBox.Text))
+            if (!ValidationUtility.IsMoreThanOneLetters(this.cityTextBox.Text.Trim()) ||
+                    string.IsNullOrEmpty(this.cityTextBox.Text.Trim()))
             {
                 this.cityErrorMessageLabel.Text = "Please enter your city.";
                 this.cityErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (string.IsNullOrEmpty(statusComboBox.Text) || string.IsNullOrWhiteSpace(statusComboBox.Text))
-            {
-                this.statusErrorMessageLabel.Text = "Please select a status.";
-                this.statusErrorMessageLabel.ForeColor = Color.Red;
-            }
-
-            if (string.IsNullOrEmpty(stateComboBox.Text))
+            if (this.stateComboBox.Text.Trim().Length != 2 || string.IsNullOrEmpty(this.stateComboBox.Text.Trim()))
             {
                 this.stateErrorMessageLabel.Text = "Please select your state abbreviation.";
                 this.stateErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (!IsValidZipCode(zipTextBox.Text))
+            if (!ValidationUtility.IsValidZipCode(this.zipTextBox.Text.Trim()))
             {
                 this.zipErrorMessageLabel.Text = "Please enter a valid zipcode.";
                 this.zipErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (!IsPhoneNumberValid(phoneTextBox.Text))
+            if (!ValidationUtility.IsValidPhoneNumber(this.phoneTextBox.Text.Trim()))
             {
-                this.phoneErrorLabel.Text = "Enter your 10 digit phone number, only numbers.";
+                this.phoneErrorLabel.Text = "Please enter your 10 digit phone only numbers.";
                 this.phoneErrorLabel.ForeColor = Color.Red;
             }
 
-            if (!IsSexValid(sexComboBox.Text) || string.IsNullOrEmpty(sexComboBox.Text))
+            if (!ValidationUtility.IsGenderValid(this.sexComboBox.Text.Trim()))
             {
-                this.sexErrorMessageLabel.Text = "Please select M or F.";
+                this.sexErrorMessageLabel.Text = "Please enter M or F.";
                 this.sexErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (!IsSSNValid(ssnTextBox.Text))
+            if (!ValidationUtility.IsSSNValid(this.ssnTextBox.Text.Trim()))
             {
                 this.ssnErrorMessageLabel.Text = "Please enter a valid 9 digit SSN, numbers only.";
                 this.ssnErrorMessageLabel.ForeColor = Color.Red;
             }
-        }
-
-        private bool IsValidZipCode(string zip)
-        {
-            string usZipRegEx = @"^\d{5}(\d{4})?$";
-
-            bool validZipCode = true;
-            if ((!Regex.Match(zip, usZipRegEx).Success))
-            {
-                validZipCode = false;
-            }
-            return validZipCode;
-        }
-
-        private bool IsPhoneNumberValid(string phoneNumber)
-        {
-            string phoneRegEx = @"^\d{10}$";
-            bool validPhoneNumber = true;
-            if (!Regex.Match(phoneNumber, phoneRegEx).Success)
-            {
-                validPhoneNumber = false;
-            }
-            return validPhoneNumber;
-        }
-
-        private bool IsSSNValid(string ssn)
-        {
-            string ssnRegEx = @"^[0-9]{9}$";
-            bool validSSN = true;
-            if (ssn.Equals(""))
-            {
-                validSSN = true;
-            }
-            else if (!Regex.Match(ssn, ssnRegEx).Success)
-            {
-                validSSN = false;
-            }
-            return validSSN;
-        }
-
-        private bool IsSexValid(string sex)
-        {
-            bool validSex = true;
-            if (String.Equals(sex, "M") || String.Equals(sex, "F"))
-            {
-                validSex = true;
-            }
-            else
-            {
-                validSex = false;
-            }
-            return validSex;
         }
 
         private void HideInvalidErrorMessages()
