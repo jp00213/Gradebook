@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace Gradebook.UserControls
 {
     /// <summary>
-    /// The usercontrol to register students
+    /// UserControl for administrator to register student
     /// </summary>
     public partial class AdministratorRegisterStudent : UserControl
     {
@@ -15,18 +15,22 @@ namespace Gradebook.UserControls
         private readonly StudentController _studentController;
 
         /// <summary>
-        /// The registerstudent constructor
+        /// Constructor for user control
         /// </summary>
         public AdministratorRegisterStudent()
         {
             InitializeComponent();
             this._courseController = new CourseController();
             this._studentController = new StudentController();
+            this.registerButton.Enabled = false;
         }
 
         private void searchCourseButton_Click(object sender, EventArgs e)
         {
-            this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemester(this.semesterComboBox.Text, this.courseYearPicker.Value.Year);
+            try
+            {
+                this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemester(this.semesterComboBox.Text, this.courseYearPicker.Value.Year);
+            } catch { }
         }
 
         private void searchStudentButton_Click(object sender, EventArgs e)
@@ -35,15 +39,28 @@ namespace Gradebook.UserControls
             if (ValidationUtility.IsInt32(this.studentIDTextBox.Text))
             {
                 studentID = Convert.ToInt32(this.studentIDTextBox.Text);
+            } else
+            {
+                this.findStudentErrorLabel.Text = "Student ID must be a number";
+                this.registerButton.Enabled = false;
             }
             try
             {
                 Person student = this._studentController.GetStudentByID(studentID);
-                this.studentNameTextBox.Text = student.FirstName + " " + student.LastName;
-                this.studentBirthdayTextBox.Text = student.DateOfBirth.ToString("yyyy-MM-dd");
-            } catch (Exception ex)
+                if (string.IsNullOrEmpty(student.FirstName))
+                {
+                    this.findStudentErrorLabel.Text = "Cannot find student";
+                    this.registerButton.Enabled = false;
+                }
+                else
+                {
+                    this.studentNameTextBox.Text = student.FirstName + " " + student.LastName;
+                    this.studentBirthdayTextBox.Text = student.DateOfBirth.ToString("yyyy-MM-dd");
+                    this.registerButton.Enabled = true;
+                }
+            } catch
             {
-                MessageBox.Show(ex.Message);
+                this.findStudentErrorLabel.Text = "Error finding student";
             }
         }
 
@@ -54,10 +71,16 @@ namespace Gradebook.UserControls
             {
                 this._courseController.RegisterStudent(Convert.ToInt32(this.studentIDTextBox.Text), course);
                 MessageBox.Show("Successfully registered for course");
+            this.registerButton.Enabled = false;
             } catch
             {
                 MessageBox.Show("Did not register for course. Check previous registrations and try again");
             }
+        }
+
+        private void studentIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.findStudentErrorLabel.Text = "";
         }
     }
 }

@@ -25,10 +25,25 @@ namespace Gradebook
         {
             try
             {
-                if (this._accountController.IsPasswordCorrect(this.usernameTextBox.Text, this.passwordTextBox.Text))
+                if (this._accountController.IsPasswordCorrectAdministrator(this.usernameTextBox.Text, this.passwordTextBox.Text))
                 {
                     this.Hide();
                     using (Form mainWindow = new AdministratorDashboard(this.usernameTextBox.Text))
+                    {
+                        DialogResult result = mainWindow.ShowDialog(this);
+                    }
+                } else if (this._accountController.IsPasswordCorrectTeacher(this.usernameTextBox.Text, this.passwordTextBox.Text))
+                {
+                    this.Hide();
+                    using (Form mainWindow = new TeacherDashboard(this.usernameTextBox.Text))
+                    {
+                        DialogResult result = mainWindow.ShowDialog(this);
+                    }
+                }
+                else if (this._accountController.IsPasswordCorrectStudent(this.usernameTextBox.Text, this.passwordTextBox.Text))
+                {
+                    this.Hide();
+                    using (Form mainWindow = new StudentDashboard(this.usernameTextBox.Text))
                     {
                         DialogResult result = mainWindow.ShowDialog(this);
                     }

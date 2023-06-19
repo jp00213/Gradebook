@@ -25,16 +25,19 @@ namespace Gradebook.UserControls
             this._teacherController = new TeacherController();
             this._teacher= null;
             this.SetupGenderComboBox();
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             string firstName = this.firstNameTextbox.Text;
             string lastName = this.lastNameTextbox.Text;
+
             DateTime dob = this.dobDateTimePicker.Value.Date;
             this.teacherSearchDataGridView.DataSource = _teacherController.GetTeacherByNameDOB(firstName, lastName, dob);
 
             this.ClearEdits();
+
         }
 
         private void teacherSearchDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
