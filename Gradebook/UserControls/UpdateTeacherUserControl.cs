@@ -23,16 +23,19 @@ namespace Gradebook.UserControls
         {
             string firstName = this.firstNameTextbox.Text;
             string lastName = this.lastNameTextbox.Text;
-            DateTime dob = this.dobDateTimePicker.Value;
-
+            DateTime dob = this.dobDateTimePicker.Value.Date;
             this.teacherSearchDataGridView.DataSource = _teacherController.GetTeacherByNameDOB(firstName, lastName, dob);
         }
 
         private void teacherSearchDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            var teacherID = teacherSearchDataGridView.SelectedRows[0].Cells[0].Value.ToString();
-            this._teacher = this._teacherController.GetTeacherByID(Int32.Parse(teacherID));
-
+            MessageBox.Show("Inside problem method...");
+            var teacherID = 5;
+            if (teacherID == -1) return;
+/*            teacherID = teacherSearchDataGridView.SelectedRows[1].Cells[0].Value.ToString();*/
+            MessageBox.Show(teacherID.ToString(), "Testing", MessageBoxButtons.OK);
+/*            this._teacher = this._teacherController.GetTeacherByID(Int32.Parse(teacherID));*/
+            this._teacher = this._teacherController.GetTeacherByID(teacherID);
             if (_teacher != null)
             {
                 teacherBindingSource.DataSource = _teacher;
