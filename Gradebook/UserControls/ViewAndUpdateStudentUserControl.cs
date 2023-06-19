@@ -126,7 +126,10 @@ namespace Gradebook.UserControls
             updateStudentButton.Enabled = true;
         }
 
-        // this is for the top panel to set the sub panel student ID
+        /// <summary>
+        /// this is for the top panel to set the sub panel student ID
+        /// </summary>
+        /// <param name="currentStudentIDIn"></param>
         public void SetCurrentViewEditID(string currentStudentIDIn)
         {
             this.currentStudentIDForEdit.Text = currentStudentIDIn;
@@ -304,7 +307,5 @@ namespace Gradebook.UserControls
             this.ClearInvalidFields();
         }
 
-
     }
-
 }

@@ -15,7 +15,6 @@ namespace Gradebook.DAL
         /// <param name="pass"></param>
         /// <returns></returns>
         public bool IsPasswordCorrectAdministrator(string user, string pass)
-
         {
             Boolean result = false;
 
@@ -107,7 +106,5 @@ namespace Gradebook.DAL
             }
             return result;
         }
-
-
     }
 }

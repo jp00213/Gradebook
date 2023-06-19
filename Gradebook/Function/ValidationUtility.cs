@@ -241,7 +241,9 @@ namespace Gradebook.Function
             return validData;
         }
 
-        // passwordscore
+        /// <summary>
+        /// Generates passwordscore
+        /// </summary>
         public enum PasswordScore
         {
             Blank = 0,
@@ -252,9 +254,14 @@ namespace Gradebook.Function
             VeryStrong = 5
         }
 
-        // need 8 letters 
+        /// <summary>
+        /// Does password meet complexity standard
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public static bool IsPasswordMeetComplexityStandard(string password)
         {
+            // need 8 letters 
             int score = 0;
 
             if (password.Length < 1)
@@ -287,7 +294,11 @@ namespace Gradebook.Function
             }
         }
 
-        // check has numeric inside
+        /// <summary>
+        /// Check if numeric inside
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         public static bool HasNumericInside(string word)
         {
             bool hasNumber = false;
@@ -309,7 +320,11 @@ namespace Gradebook.Function
             }
         }
 
-        // check has non numeric inside
+        /// <summary>
+        /// Check if non-numeric inside
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
         public static bool HasNonNumbericInside(string word)
         {
             foreach (char c in word)

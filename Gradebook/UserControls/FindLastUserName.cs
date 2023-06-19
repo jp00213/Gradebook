@@ -1,6 +1,5 @@
 ﻿using Gradebook.DAL;
 using System;
-
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
@@ -11,6 +10,10 @@ namespace Gradebook.UserControls
     public partial class FindLastUserName : UserControl
     {
         private PersonDAL _personDAL;
+
+        /// <summary>
+        /// Constructor for find last username
+        /// </summary>
         public FindLastUserName()
         {
             InitializeComponent();

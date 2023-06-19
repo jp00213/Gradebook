@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Gradebook.Controller
 {
+    /// <summary>
+    /// The student controller which interfaces with DAL
+    /// </summary>
     public class StudentController
     {
         /// <summary>

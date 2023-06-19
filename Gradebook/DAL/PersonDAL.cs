@@ -3,7 +3,6 @@ using Gradebook.Model;
 using System;
 using System.Data.SqlClient;
 
-
 namespace Gradebook.DAL
 {
     /// <summary>
@@ -123,7 +122,7 @@ namespace Gradebook.DAL
                     }
                     catch (SqlException sqlEx)
                     {
-                        System.Windows.Forms.MessageBox.Show(sqlEx.Message);
+                        // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
                     }
                 }
@@ -241,14 +240,13 @@ namespace Gradebook.DAL
                     }
                     catch (SqlException sqlEx)
                     {
-                        System.Windows.Forms.MessageBox.Show(sqlEx.Message);
+                        // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
                     }
                 }
             }
             return result;
         }
-
 
         /// <summary>
         /// Get the last created Username by first and last name of student

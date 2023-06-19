@@ -55,12 +55,15 @@ namespace Gradebook.UserControls
             this.OnNumberchanged(EventArgs.Empty);
         }
 
-
-        // 4. event - return current studentID
+        /// <summary>
+        /// 4. event - return current studentID
+        /// </summary>
+        /// <returns></returns>
         public string getCurrentStudentID()
         {
             return this._controlNumber.StudentID.ToString();
         }
+
         private void SetupDatePickerMinus10Years()
         {
             this.dob_Datepicker.Value = DateTime.Now.AddYears(-10);

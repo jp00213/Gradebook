@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 
-
 namespace Gradebook.Function
 {
     /// <summary>
@@ -13,6 +12,14 @@ namespace Gradebook.Function
            second Peter Pan username = ppan2
            third Peter Pan username = ppan3
         */
+        /// <summary>
+        /// Creates a username for a new person
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="existingUsernameWithMaximumSuffixNumber"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentNullException"></exception>
         public static string CreateNewPersonUsername(string firstName, string lastName, string existingUsernameWithMaximumSuffixNumber)
         {
             string newUsername = string.Empty;

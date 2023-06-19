@@ -142,7 +142,7 @@ namespace Gradebook.DAL
                     }
                     catch (SqlException sqlEx)
                     {
-                        System.Windows.Forms.MessageBox.Show(sqlEx.Message);
+                        // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
                     }
                 }
@@ -155,7 +155,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="studentID"></param>
         /// <returns></returns>
-
         public Person GetStudentByID(int studentID)
         {
             Person student = new Person();

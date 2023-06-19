@@ -14,6 +14,7 @@ namespace Gradebook.View
         {
             InitializeComponent();
         }
+
         private void AdministratorStudents_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();

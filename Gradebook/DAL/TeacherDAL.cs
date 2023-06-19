@@ -170,7 +170,11 @@ namespace Gradebook.DAL
             return teachers;
         }
 
-
+        /// <summary>
+        /// Get teachers by date of birth
+        /// </summary>
+        /// <param name="dobIn"></param>
+        /// <returns></returns>
         public List<Teacher> GetTeacherByDobOnly(DateTime dobIn)
         {
             List<Teacher> teachers = new List<Teacher>();

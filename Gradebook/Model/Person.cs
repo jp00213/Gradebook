@@ -171,8 +171,5 @@ namespace Gradebook.Model
             this.NewPassword = password;
         }
 
-
-
-
     }
 }
