@@ -31,11 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.clearButton = new System.Windows.Forms.Button();
             this.resultsDOBDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dobLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
-            this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.zipTextBox = new System.Windows.Forms.TextBox();
             this.cityTextBox = new System.Windows.Forms.TextBox();
             this.addressTextBox = new System.Windows.Forms.TextBox();
@@ -47,7 +45,6 @@
             this.stateLabel = new System.Windows.Forms.Label();
             this.cityLabel = new System.Windows.Forms.Label();
             this.addressLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
             this.sexLabel = new System.Windows.Forms.Label();
             this.resultsDOBLabel = new System.Windows.Forms.Label();
             this.resultsLastNameLabel = new System.Windows.Forms.Label();
@@ -60,9 +57,7 @@
             this.firstNameTextbox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.stateComboBox = new System.Windows.Forms.ComboBox();
-            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.sexComboBox = new System.Windows.Forms.ComboBox();
-            this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.ssnLabel = new System.Windows.Forms.Label();
             this.firstNameErrorLabel = new System.Windows.Forms.Label();
             this.lastNameErrorLabel = new System.Windows.Forms.Label();
@@ -74,17 +69,18 @@
             this.stateErrorLabel = new System.Windows.Forms.Label();
             this.zipErrorLabel = new System.Windows.Forms.Label();
             this.phoneErrorLabel = new System.Windows.Forms.Label();
-            this.statusErrorLabel = new System.Windows.Forms.Label();
+            this.ssnTextBox = new System.Windows.Forms.TextBox();
+            this.phoneTextBox = new System.Windows.Forms.TextBox();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // clearButton
@@ -106,10 +102,7 @@
             this.resultsDOBDateTimePicker.Name = "resultsDOBDateTimePicker";
             this.resultsDOBDateTimePicker.Size = new System.Drawing.Size(233, 20);
             this.resultsDOBDateTimePicker.TabIndex = 61;
-            // 
-            // teacherBindingSource
-            // 
-            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
+            this.resultsDOBDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resultsDOBDateTimePicker_MouseDown);
             // 
             // dobLabel
             // 
@@ -141,14 +134,6 @@
             this.firstNameLabel.TabIndex = 58;
             this.firstNameLabel.Text = "First Name";
             // 
-            // phoneTextBox
-            // 
-            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Phone", true));
-            this.phoneTextBox.Location = new System.Drawing.Point(589, 493);
-            this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(233, 20);
-            this.phoneTextBox.TabIndex = 57;
-            // 
             // zipTextBox
             // 
             this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Zip", true));
@@ -156,6 +141,7 @@
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(233, 20);
             this.zipTextBox.TabIndex = 56;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // cityTextBox
             // 
@@ -164,6 +150,7 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(234, 20);
             this.cityTextBox.TabIndex = 54;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // addressTextBox
             // 
@@ -172,6 +159,7 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(233, 20);
             this.addressTextBox.TabIndex = 53;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // resultsLastNameTextBox
             // 
@@ -180,6 +168,7 @@
             this.resultsLastNameTextBox.Name = "resultsLastNameTextBox";
             this.resultsLastNameTextBox.Size = new System.Drawing.Size(233, 20);
             this.resultsLastNameTextBox.TabIndex = 50;
+            this.resultsLastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // resultsFirstNameTextbox
             // 
@@ -188,6 +177,7 @@
             this.resultsFirstNameTextbox.Name = "resultsFirstNameTextbox";
             this.resultsFirstNameTextbox.Size = new System.Drawing.Size(233, 20);
             this.resultsFirstNameTextbox.TabIndex = 49;
+            this.resultsFirstNameTextbox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // teacherIDtextBox
             // 
@@ -248,16 +238,6 @@
             this.addressLabel.TabIndex = 43;
             this.addressLabel.Text = "Address";
             // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(535, 536);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(44, 16);
-            this.statusLabel.TabIndex = 42;
-            this.statusLabel.Text = "Status";
-            // 
             // sexLabel
             // 
             this.sexLabel.AutoSize = true;
@@ -314,17 +294,16 @@
             this.teacherSearchDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.teacherSearchDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.teacherIDDataGridViewTextBoxColumn,
-            this.statusDataGridViewTextBoxColumn,
-            this.lastNameDataGridViewTextBoxColumn,
             this.firstNameDataGridViewTextBoxColumn,
+            this.lastNameDataGridViewTextBoxColumn,
+            this.statusDataGridViewTextBoxColumn,
             this.dateOfBirthDataGridViewTextBoxColumn,
             this.phoneDataGridViewTextBoxColumn,
-            this.fullNameDataGridViewTextBoxColumn,
             this.sexDataGridViewTextBoxColumn});
             this.teacherSearchDataGridView.DataSource = this.teacherBindingSource;
-            this.teacherSearchDataGridView.Location = new System.Drawing.Point(160, 111);
+            this.teacherSearchDataGridView.Location = new System.Drawing.Point(103, 109);
             this.teacherSearchDataGridView.Name = "teacherSearchDataGridView";
-            this.teacherSearchDataGridView.Size = new System.Drawing.Size(662, 177);
+            this.teacherSearchDataGridView.Size = new System.Drawing.Size(738, 177);
             this.teacherSearchDataGridView.TabIndex = 36;
             this.teacherSearchDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherSearchDataGridView_CellClick);
             // 
@@ -382,15 +361,7 @@
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(233, 21);
             this.stateComboBox.TabIndex = 65;
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Status", true));
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(589, 536);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(233, 21);
-            this.statusComboBox.TabIndex = 64;
+            this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // sexComboBox
             // 
@@ -400,14 +371,7 @@
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(233, 21);
             this.sexComboBox.TabIndex = 63;
-            // 
-            // ssnTextBox
-            // 
-            this.ssnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Phone", true));
-            this.ssnTextBox.Location = new System.Drawing.Point(235, 493);
-            this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(233, 20);
-            this.ssnTextBox.TabIndex = 68;
+            this.sexComboBox.SelectedIndexChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // ssnLabel
             // 
@@ -509,14 +473,27 @@
             this.phoneErrorLabel.Size = new System.Drawing.Size(0, 15);
             this.phoneErrorLabel.TabIndex = 78;
             // 
-            // statusErrorLabel
+            // ssnTextBox
             // 
-            this.statusErrorLabel.AutoSize = true;
-            this.statusErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusErrorLabel.Location = new System.Drawing.Point(586, 559);
-            this.statusErrorLabel.Name = "statusErrorLabel";
-            this.statusErrorLabel.Size = new System.Drawing.Size(0, 15);
-            this.statusErrorLabel.TabIndex = 79;
+            this.ssnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "SSN", true));
+            this.ssnTextBox.Location = new System.Drawing.Point(235, 493);
+            this.ssnTextBox.Name = "ssnTextBox";
+            this.ssnTextBox.Size = new System.Drawing.Size(233, 20);
+            this.ssnTextBox.TabIndex = 80;
+            this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            // 
+            // phoneTextBox
+            // 
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Phone", true));
+            this.phoneTextBox.Location = new System.Drawing.Point(589, 492);
+            this.phoneTextBox.Name = "phoneTextBox";
+            this.phoneTextBox.Size = new System.Drawing.Size(233, 20);
+            this.phoneTextBox.TabIndex = 81;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            // 
+            // teacherBindingSource
+            // 
+            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
             // 
             // teacherIDDataGridViewTextBoxColumn
             // 
@@ -524,11 +501,11 @@
             this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
             this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
             // 
-            // statusDataGridViewTextBoxColumn
+            // firstNameDataGridViewTextBoxColumn
             // 
-            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
-            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -536,11 +513,11 @@
             this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
             this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
             // 
-            // firstNameDataGridViewTextBoxColumn
+            // statusDataGridViewTextBoxColumn
             // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.statusDataGridViewTextBoxColumn.DataPropertyName = "Status";
+            this.statusDataGridViewTextBoxColumn.HeaderText = "Status";
+            this.statusDataGridViewTextBoxColumn.Name = "statusDataGridViewTextBoxColumn";
             // 
             // dateOfBirthDataGridViewTextBoxColumn
             // 
@@ -554,13 +531,6 @@
             this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
             this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
             // 
-            // fullNameDataGridViewTextBoxColumn
-            // 
-            this.fullNameDataGridViewTextBoxColumn.DataPropertyName = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.HeaderText = "FullName";
-            this.fullNameDataGridViewTextBoxColumn.Name = "fullNameDataGridViewTextBoxColumn";
-            this.fullNameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // sexDataGridViewTextBoxColumn
             // 
             this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
@@ -571,7 +541,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.statusErrorLabel);
+            this.Controls.Add(this.phoneTextBox);
+            this.Controls.Add(this.ssnTextBox);
             this.Controls.Add(this.phoneErrorLabel);
             this.Controls.Add(this.zipErrorLabel);
             this.Controls.Add(this.stateErrorLabel);
@@ -582,18 +553,15 @@
             this.Controls.Add(this.DOBErrorLabel);
             this.Controls.Add(this.lastNameErrorLabel);
             this.Controls.Add(this.firstNameErrorLabel);
-            this.Controls.Add(this.ssnTextBox);
             this.Controls.Add(this.ssnLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.stateComboBox);
-            this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.sexComboBox);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.resultsDOBDateTimePicker);
             this.Controls.Add(this.dobLabel);
             this.Controls.Add(this.lastNameLabel);
             this.Controls.Add(this.firstNameLabel);
-            this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.zipTextBox);
             this.Controls.Add(this.cityTextBox);
             this.Controls.Add(this.addressTextBox);
@@ -605,7 +573,6 @@
             this.Controls.Add(this.stateLabel);
             this.Controls.Add(this.cityLabel);
             this.Controls.Add(this.addressLabel);
-            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.sexLabel);
             this.Controls.Add(this.resultsDOBLabel);
             this.Controls.Add(this.resultsLastNameLabel);
@@ -618,8 +585,8 @@
             this.Controls.Add(this.firstNameTextbox);
             this.Name = "UpdateTeacherUserControl";
             this.Size = new System.Drawing.Size(947, 634);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,7 +599,6 @@
         private System.Windows.Forms.Label dobLabel;
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.Label firstNameLabel;
-        private System.Windows.Forms.TextBox phoneTextBox;
         private System.Windows.Forms.TextBox zipTextBox;
         private System.Windows.Forms.TextBox cityTextBox;
         private System.Windows.Forms.TextBox addressTextBox;
@@ -644,7 +610,6 @@
         private System.Windows.Forms.Label stateLabel;
         private System.Windows.Forms.Label cityLabel;
         private System.Windows.Forms.Label addressLabel;
-        private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.Label sexLabel;
         private System.Windows.Forms.Label resultsDOBLabel;
         private System.Windows.Forms.Label resultsLastNameLabel;
@@ -658,9 +623,7 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.BindingSource teacherBindingSource;
         private System.Windows.Forms.ComboBox stateComboBox;
-        private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.ComboBox sexComboBox;
-        private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.Label ssnLabel;
         private System.Windows.Forms.Label firstNameErrorLabel;
         private System.Windows.Forms.Label lastNameErrorLabel;
@@ -672,14 +635,14 @@
         private System.Windows.Forms.Label stateErrorLabel;
         private System.Windows.Forms.Label zipErrorLabel;
         private System.Windows.Forms.Label phoneErrorLabel;
-        private System.Windows.Forms.Label statusErrorLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn teacherIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn firstNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn lastNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn statusDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateOfBirthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fullNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox ssnTextBox;
+        private System.Windows.Forms.TextBox phoneTextBox;
     }
 }
