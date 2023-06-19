@@ -43,10 +43,10 @@ namespace Gradebook.UserControls
 
         private void dobDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if(_teacher != null)
+            /*if(_teacher != null)
             {
                 this.dobDateTimePicker.Value = this._teacher.DateOfBirth.Date;
-            }
+            }*/
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -146,7 +146,7 @@ namespace Gradebook.UserControls
 
             if (!IsPhoneNumberValid(phoneTextBox.Text))
             {
-                this.phoneErrorLabel.Text = "Please enter your 10 digit phone number, numbers only.";
+                this.phoneErrorLabel.Text = "Please enter your 10 digit phone only numbers.";
                 this.phoneErrorLabel.ForeColor = Color.Red;
             }
 

@@ -52,8 +52,9 @@ namespace Gradebook.UserControls
             string zip = this.zipTextBox.Text.Trim();
             string sex = this.sexComboBox.Text;
             string ssn = this.ssnTextBox.Text.Trim();
+            string status = this.stateComboBox.Text;
 
-            if (string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) || dateOfBirth > DateTime.Now || string.IsNullOrEmpty(address) || address.Length < 5 || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state) || state.Length != 2 || !IsValidZipCode(zip) || !IsPhoneNumberValid(phone) || string.IsNullOrEmpty(sex) || string.IsNullOrEmpty(ssn))
+            if (string.IsNullOrEmpty(lastName) || string.IsNullOrEmpty(firstName) || dateOfBirth > DateTime.Now || string.IsNullOrEmpty(address) || address.Length < 5 || string.IsNullOrEmpty(city) || string.IsNullOrEmpty(state) || state.Length != 2 || !IsValidZipCode(zip) || !IsPhoneNumberValid(phone) || string.IsNullOrEmpty(sex) || string.IsNullOrEmpty(ssn) || string.IsNullOrEmpty(status))
             {
                 this.ShowInvalidErrorMessage();
             }
@@ -101,6 +102,12 @@ namespace Gradebook.UserControls
                 this.cityErrorMessageLabel.ForeColor = Color.Red;
             }
 
+            if (string.IsNullOrEmpty(statusComboBox.Text) || string.IsNullOrWhiteSpace(statusComboBox.Text))
+            {
+                this.statusErrorMessageLabel.Text = "Please select a status.";
+                this.statusErrorMessageLabel.ForeColor = Color.Red;
+            }
+
             if (string.IsNullOrEmpty(stateComboBox.Text))
             {
                 this.stateErrorMessageLabel.Text = "Please select your state abbreviation.";
@@ -115,8 +122,20 @@ namespace Gradebook.UserControls
 
             if (!IsPhoneNumberValid(phoneTextBox.Text))
             {
-                this.phoneErrorMessageLabel.Text = "Please enter your 10 digit phone number, numbers only.";
-                this.phoneErrorMessageLabel.ForeColor = Color.Red;
+                this.phoneErrorLabel.Text = "Enter your 10 digit phone number, only numbers.";
+                this.phoneErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!IsSexValid(sexComboBox.Text) || string.IsNullOrEmpty(sexComboBox.Text))
+            {
+                this.sexErrorMessageLabel.Text = "Please select M or F.";
+                this.sexErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!IsSSNValid(ssnTextBox.Text))
+            {
+                this.ssnErrorMessageLabel.Text = "Please enter a valid 9 digit SSN, numbers only.";
+                this.ssnErrorMessageLabel.ForeColor = Color.Red;
             }
         }
 
@@ -143,16 +162,48 @@ namespace Gradebook.UserControls
             return validPhoneNumber;
         }
 
+        private bool IsSSNValid(string ssn)
+        {
+            string ssnRegEx = @"^[0-9]{9}$";
+            bool validSSN = true;
+            if (ssn.Equals(""))
+            {
+                validSSN = true;
+            }
+            else if (!Regex.Match(ssn, ssnRegEx).Success)
+            {
+                validSSN = false;
+            }
+            return validSSN;
+        }
+
+        private bool IsSexValid(string sex)
+        {
+            bool validSex = true;
+            if (String.Equals(sex, "M") || String.Equals(sex, "F"))
+            {
+                validSex = true;
+            }
+            else
+            {
+                validSex = false;
+            }
+            return validSex;
+        }
+
         private void HideInvalidErrorMessages()
         {
             this.lastNameErrorMessageLabel.Text = "";
             this.firstNameErrorMessageLabel.Text = "";
             this.DOBErrorLabel.Text = "";
             this.addressErrorMessageLabel.Text = "";
-            this.phoneErrorMessageLabel.Text = "";
+            this.ssnErrorMessageLabel.Text = "";
             this.cityErrorMessageLabel.Text = "";
             this.stateErrorMessageLabel.Text = "";
             this.zipErrorMessageLabel.Text = "";
+            this.sexErrorMessageLabel.Text = "";
+            this.statusErrorMessageLabel.Text = "";
+            this.phoneErrorLabel.Text = "";
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
