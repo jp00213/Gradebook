@@ -31,8 +31,8 @@ namespace Gradebook.DAL
                 "FROM Teacher te " +
                 "JOIN person pe " +
                 "ON te.recordID = pe.recordID " +
-                "WHERE pe.firstName like @firstName " +
-                "AND pe.lastName like @lastName " +
+                "WHERE pe.firstName like @firstName + '%' " +
+                "AND pe.lastName like @lastName + '%'" +
                 "AND pe.birthday = @dob";
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
@@ -42,7 +42,7 @@ namespace Gradebook.DAL
             selectCommand.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar);
             selectCommand.Parameters["@lastName"].Value = lastName + "%";
 
-            selectCommand.Parameters.Add("@dob", System.Data.SqlDbType.Date);
+            selectCommand.Parameters.Add("@dob", System.Data.SqlDbType.DateTime);
             selectCommand.Parameters["@dob"].Value = dob;
 
             using (selectCommand)
