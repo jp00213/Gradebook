@@ -48,6 +48,14 @@
             this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.addCourseButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
+            this.nameErrorLabel = new System.Windows.Forms.Label();
+            this.prefixErrorLabel = new System.Windows.Forms.Label();
+            this.sectionErrorLabel = new System.Windows.Forms.Label();
+            this.semesterErrorLabel = new System.Windows.Forms.Label();
+            this.numberErrorLabel = new System.Windows.Forms.Label();
+            this.creditErrorLabel = new System.Windows.Forms.Label();
+            this.yearErrorLabel = new System.Windows.Forms.Label();
+            this.teacherErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -138,6 +146,7 @@
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(680, 30);
             this.nameTextBox.TabIndex = 10;
+            this.nameTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // prefixTextBox
             // 
@@ -146,6 +155,7 @@
             this.prefixTextBox.Name = "prefixTextBox";
             this.prefixTextBox.Size = new System.Drawing.Size(240, 30);
             this.prefixTextBox.TabIndex = 11;
+            this.prefixTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // numberTextBox
             // 
@@ -154,6 +164,7 @@
             this.numberTextBox.Name = "numberTextBox";
             this.numberTextBox.Size = new System.Drawing.Size(237, 30);
             this.numberTextBox.TabIndex = 12;
+            this.numberTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // sectionTextBox
             // 
@@ -162,6 +173,7 @@
             this.sectionTextBox.Name = "sectionTextBox";
             this.sectionTextBox.Size = new System.Drawing.Size(240, 30);
             this.sectionTextBox.TabIndex = 13;
+            this.sectionTextBox.TextChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // creditHoursComboBox
             // 
@@ -179,6 +191,7 @@
             this.creditHoursComboBox.Name = "creditHoursComboBox";
             this.creditHoursComboBox.Size = new System.Drawing.Size(237, 33);
             this.creditHoursComboBox.TabIndex = 14;
+            this.creditHoursComboBox.SelectedIndexChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // semesterComboBox
             // 
@@ -193,6 +206,7 @@
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(240, 33);
             this.semesterComboBox.TabIndex = 15;
+            this.semesterComboBox.SelectedIndexChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // courseYearPicker
             // 
@@ -205,6 +219,7 @@
             this.courseYearPicker.ShowUpDown = true;
             this.courseYearPicker.Size = new System.Drawing.Size(237, 30);
             this.courseYearPicker.TabIndex = 16;
+            this.courseYearPicker.ValueChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // teacherComboBox
             // 
@@ -214,6 +229,7 @@
             this.teacherComboBox.Name = "teacherComboBox";
             this.teacherComboBox.Size = new System.Drawing.Size(411, 33);
             this.teacherComboBox.TabIndex = 17;
+            this.teacherComboBox.SelectedIndexChanged += new System.EventHandler(this.nameTextBox_TextChanged);
             // 
             // teacherBindingSource
             // 
@@ -243,10 +259,106 @@
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
+            // nameErrorLabel
+            // 
+            this.nameErrorLabel.AutoSize = true;
+            this.nameErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.nameErrorLabel.Location = new System.Drawing.Point(176, 72);
+            this.nameErrorLabel.Name = "nameErrorLabel";
+            this.nameErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.nameErrorLabel.TabIndex = 53;
+            this.nameErrorLabel.Text = "label1";
+            // 
+            // prefixErrorLabel
+            // 
+            this.prefixErrorLabel.AutoSize = true;
+            this.prefixErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prefixErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.prefixErrorLabel.Location = new System.Drawing.Point(176, 135);
+            this.prefixErrorLabel.Name = "prefixErrorLabel";
+            this.prefixErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.prefixErrorLabel.TabIndex = 54;
+            this.prefixErrorLabel.Text = "label2";
+            // 
+            // sectionErrorLabel
+            // 
+            this.sectionErrorLabel.AutoSize = true;
+            this.sectionErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.sectionErrorLabel.Location = new System.Drawing.Point(176, 199);
+            this.sectionErrorLabel.Name = "sectionErrorLabel";
+            this.sectionErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.sectionErrorLabel.TabIndex = 55;
+            this.sectionErrorLabel.Text = "label3";
+            // 
+            // semesterErrorLabel
+            // 
+            this.semesterErrorLabel.AutoSize = true;
+            this.semesterErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.semesterErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.semesterErrorLabel.Location = new System.Drawing.Point(176, 271);
+            this.semesterErrorLabel.Name = "semesterErrorLabel";
+            this.semesterErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.semesterErrorLabel.TabIndex = 56;
+            this.semesterErrorLabel.Text = "label4";
+            // 
+            // numberErrorLabel
+            // 
+            this.numberErrorLabel.AutoSize = true;
+            this.numberErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.numberErrorLabel.Location = new System.Drawing.Point(619, 135);
+            this.numberErrorLabel.Name = "numberErrorLabel";
+            this.numberErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.numberErrorLabel.TabIndex = 57;
+            this.numberErrorLabel.Text = "label5";
+            // 
+            // creditErrorLabel
+            // 
+            this.creditErrorLabel.AutoSize = true;
+            this.creditErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creditErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.creditErrorLabel.Location = new System.Drawing.Point(619, 202);
+            this.creditErrorLabel.Name = "creditErrorLabel";
+            this.creditErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.creditErrorLabel.TabIndex = 58;
+            this.creditErrorLabel.Text = "label6";
+            // 
+            // yearErrorLabel
+            // 
+            this.yearErrorLabel.AutoSize = true;
+            this.yearErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.yearErrorLabel.Location = new System.Drawing.Point(619, 271);
+            this.yearErrorLabel.Name = "yearErrorLabel";
+            this.yearErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.yearErrorLabel.TabIndex = 59;
+            this.yearErrorLabel.Text = "label7";
+            // 
+            // teacherErrorLabel
+            // 
+            this.teacherErrorLabel.AutoSize = true;
+            this.teacherErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.teacherErrorLabel.Location = new System.Drawing.Point(176, 339);
+            this.teacherErrorLabel.Name = "teacherErrorLabel";
+            this.teacherErrorLabel.Size = new System.Drawing.Size(44, 16);
+            this.teacherErrorLabel.TabIndex = 60;
+            this.teacherErrorLabel.Text = "label1";
+            // 
             // AddNewCourseUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.teacherErrorLabel);
+            this.Controls.Add(this.yearErrorLabel);
+            this.Controls.Add(this.creditErrorLabel);
+            this.Controls.Add(this.numberErrorLabel);
+            this.Controls.Add(this.semesterErrorLabel);
+            this.Controls.Add(this.sectionErrorLabel);
+            this.Controls.Add(this.prefixErrorLabel);
+            this.Controls.Add(this.nameErrorLabel);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.addCourseButton);
             this.Controls.Add(this.teacherComboBox);
@@ -295,5 +407,13 @@
         private System.Windows.Forms.Button addCourseButton;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.BindingSource teacherBindingSource;
+        private System.Windows.Forms.Label nameErrorLabel;
+        private System.Windows.Forms.Label prefixErrorLabel;
+        private System.Windows.Forms.Label sectionErrorLabel;
+        private System.Windows.Forms.Label semesterErrorLabel;
+        private System.Windows.Forms.Label numberErrorLabel;
+        private System.Windows.Forms.Label creditErrorLabel;
+        private System.Windows.Forms.Label yearErrorLabel;
+        private System.Windows.Forms.Label teacherErrorLabel;
     }
 }

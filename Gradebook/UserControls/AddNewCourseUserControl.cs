@@ -10,8 +10,8 @@ namespace Gradebook.UserControls
     /// </summary>
     public partial class AddNewCourseUserControl : UserControl
     {
-        private CourseController _courseController;
-        private TeacherController _teacherController;
+        private readonly CourseController _courseController;
+        private readonly TeacherController _teacherController;
 
         /// <summary>
         /// Constructor for UserControl
@@ -36,6 +36,7 @@ namespace Gradebook.UserControls
         private void clearButton_Click(object sender, EventArgs e)
         {
             this.ResetFields();
+            this.ResetErrorMessages();
         }
 
         private void addCourseButton_Click(object sender, EventArgs e)
@@ -83,6 +84,23 @@ namespace Gradebook.UserControls
             this.creditHoursComboBox.SelectedIndex = 0;
             this.teacherComboBox.SelectedIndex = 0;
             this.courseYearPicker.Value = DateTime.Now;
+        }
+
+        private void ResetErrorMessages()
+        {
+            this.nameErrorLabel.Text = string.Empty;
+            this.prefixErrorLabel.Text = string.Empty;
+            this.numberErrorLabel.Text = string.Empty;
+            this.sectionErrorLabel.Text = string.Empty;
+            this.semesterErrorLabel.Text = string.Empty;
+            this.creditErrorLabel.Text = string.Empty;
+            this.teacherErrorLabel.Text = string.Empty;
+            this.yearErrorLabel.Text = string.Empty;
+        }
+
+        private void nameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.ResetErrorMessages();
         }
     }
 }
