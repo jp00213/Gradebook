@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// Currently unused view teacher user control. May come into play in further iterations
+    /// </summary>
     public partial class ViewTeacherUserControl : UserControl
     {
+        /// <summary>
+        /// User Control constructor
+        /// </summary>
         public ViewTeacherUserControl()
         {
             InitializeComponent();

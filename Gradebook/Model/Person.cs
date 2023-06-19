@@ -85,7 +85,20 @@ namespace Gradebook.Model
 
 
 
-        // constructor without active status.
+        /// <summary>
+        /// constructor without active status.
+        /// </summary>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="dateofBirth"></param>
+        /// <param name="addressStreet"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zip"></param>
+        /// <param name="phone"></param>
+        /// <param name="sex"></param>
+        /// <param name="ssn"></param>
+        /// <exception cref="ArgumentNullException"></exception>
         public Person(string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn)
         {
             _ = lastName ?? throw new ArgumentNullException("Last name cannot be null");
@@ -111,7 +124,23 @@ namespace Gradebook.Model
         }
 
 
-        // constructor to create student object for edit use
+        /// <summary>
+        /// constructor to create student object for edit use
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="studentID"></param>
+        /// <param name="lastName"></param>
+        /// <param name="firstName"></param>
+        /// <param name="dateofBirth"></param>
+        /// <param name="addressStreet"></param>
+        /// <param name="city"></param>
+        /// <param name="state"></param>
+        /// <param name="zip"></param>
+        /// <param name="phone"></param>
+        /// <param name="sex"></param>
+        /// <param name="ssn"></param>
+        /// <param name="activeStatus"></param>
+        /// <param name="username"></param>
         public Person(int recordID, int studentID, string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn, int activeStatus, string username)
         {
             this.StudentID = studentID;
@@ -131,7 +160,11 @@ namespace Gradebook.Model
         }
 
 
-        // constructor to create student object for password use
+        /// <summary>
+        /// constructor to create student object for password use
+        /// </summary>
+        /// <param name="recordID"></param>
+        /// <param name="password"></param>
         public Person(int recordID, string password)
         {
             this.RecordId = recordID;

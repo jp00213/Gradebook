@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// The usercontrol to add teachers
+    /// </summary>
     public partial class AddTeacherUserControl : UserControl
     {
         private TeacherController _teacherController;

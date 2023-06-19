@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Gradebook.Function
 {
@@ -13,7 +11,11 @@ namespace Gradebook.Function
     /// </summary>
     public static class ValidationUtility
     {
-        // check if input has value
+        /// <summary>
+        /// check if input has value
+        /// </summary>
+        /// <param name="stringIn"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsPresent(string stringIn)
         {
             var theLength = stringIn.Length;
@@ -22,7 +24,11 @@ namespace Gradebook.Function
             else { return true; }
         }
 
-        // check if input has value more than 1 letter
+        /// <summary>
+        /// check if input has value more than 1 letter
+        /// </summary>
+        /// <param name="stringIn"></param>
+        /// <returns>boolean reflecting valid status </returns>
         public static bool IsMoreThanOneLetters(string stringIn)
         {
             var theLength = stringIn.Length;
@@ -32,7 +38,11 @@ namespace Gradebook.Function
 
         }
 
-        // check if text input is valid datetime
+        /// <summary>
+        /// check if text input is valid datetime
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsDateTime(string input)
         {
             DateTime dateTime;
@@ -49,7 +59,11 @@ namespace Gradebook.Function
             return isDateTime;
         }
 
-        // check if input date is before or today
+        /// <summary>
+        /// check if input date is before or today
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsDateBeforeOrToday(string input)
         {
             var parameterDate = DateTime.ParseExact(input, "MM/dd/yyyy", CultureInfo.InvariantCulture);
@@ -62,7 +76,11 @@ namespace Gradebook.Function
             else { return false; };
         }
 
-        // check if input date is after or today
+        /// <summary>
+        /// check if input date is after or today
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsDateAfterOrToday(string input)
         {
             DateTime pDate;
@@ -75,7 +93,11 @@ namespace Gradebook.Function
             return pDate >= DateTime.Today;
         }
 
-        // check if input is integer
+        /// <summary>
+        /// check if input is integer
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsInt32(string input)
         {
             var theValue = IsPresent(input);
@@ -97,7 +119,11 @@ namespace Gradebook.Function
             }
         }
 
-        // check if input is decimal
+        /// <summary>
+        /// check if input is decimal
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsDecimal(string input)
         {
             string inputString = input;
@@ -124,7 +150,11 @@ namespace Gradebook.Function
             }
         }
 
-        // check if input is valid phone number, 10 DIGITS
+        /// <summary>
+        /// check if input is valid phone number, 10 DIGITS
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsValidPhoneNumber(string input)
         {
             string phoneRegEx = @"^\d{10}$";
@@ -136,7 +166,11 @@ namespace Gradebook.Function
             return validPhoneNumber;
         }
 
-        // check if input is valid zip code
+        /// <summary>
+        /// check if input is valid zip code
+        /// </summary>
+        /// <param name="zip"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsValidZipCode(string zip)
         {
             string usZipRegEx = @"^\d{5}(\d{4})?$";
@@ -149,7 +183,11 @@ namespace Gradebook.Function
             return validZipCode;
         }
 
-        // check if input is valid SSN
+        /// <summary>
+        /// check if input is valid SSN
+        /// </summary>
+        /// <param name="ssn"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsSSNValid(string ssn)
         {
             string ssnRegEx = @"^[0-9]{9}$";
@@ -165,7 +203,11 @@ namespace Gradebook.Function
             return validSSN;
         }
 
-        // check if input is valid gender
+        /// <summary>
+        /// check if input is valid gender
+        /// </summary>
+        /// <param name="sex"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsGenderValid(string sex)
         {
             bool validSex = true;
@@ -180,7 +222,11 @@ namespace Gradebook.Function
             return validSex;
         }
 
-        // check if input is valid status
+        /// <summary>
+        /// check if input is valid status
+        /// </summary>
+        /// <param name="status"></param>
+        /// <returns>boolean reflecting valid status</returns>
         public static bool IsStatusValid(string status)
         {
             bool validData = true;

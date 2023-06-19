@@ -13,7 +13,7 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="user"></param>
         /// <param name="pass"></param>
-        /// <returns></returns>
+        /// <returns>boolean result</returns>
         public bool IsPasswordCorrect(string user, string pass)
         {
             Boolean result = false;

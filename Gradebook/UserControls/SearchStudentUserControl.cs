@@ -2,12 +2,7 @@
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
@@ -22,7 +17,9 @@ namespace Gradebook.UserControls
         // 1. customer event
         private Person _controlNumber;
 
-        //2. custom event
+        /// <summary>
+        /// 2. custom event
+        /// </summary>
         public event EventHandler StudentNumberChanged;
 
         /// <summary>
@@ -41,7 +38,10 @@ namespace Gradebook.UserControls
             this._controlNumber = new Person();
         }
 
-        // 3. event - return current studentID
+        /// <summary>
+        /// 3. event - return current studentID
+        /// </summary>
+        /// <param name="e"></param>
         protected virtual void OnNumberchanged(EventArgs e)
         {
             StudentNumberChanged?.Invoke(this, e);

@@ -45,6 +45,14 @@ namespace Gradebook.Function
             return newUsername.ToLower();
         }
 
+        /// <summary>
+        /// Creates a new username for students
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="existingUsernameWithMaximumSuffixNumber"></param>
+        /// <returns>username</returns>
+        /// <exception cref="ArgumentNullException"></exception>
         /* first Peter Pan username = S_ppan1
            second Peter Pan username = S_ppan2
            third Peter Pan username = S_ppan3

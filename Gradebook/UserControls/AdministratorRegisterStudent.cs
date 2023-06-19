@@ -6,11 +6,17 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// The usercontrol to register students
+    /// </summary>
     public partial class AdministratorRegisterStudent : UserControl
     {
         private readonly CourseController _courseController;
         private readonly StudentController _studentController;
 
+        /// <summary>
+        /// The registerstudent constructor
+        /// </summary>
         public AdministratorRegisterStudent()
         {
             InitializeComponent();
