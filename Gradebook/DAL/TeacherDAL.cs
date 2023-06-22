@@ -218,5 +218,43 @@ namespace Gradebook.DAL
             }
             return teachers;
         }
+
+        /// <summary>
+        /// Get teacher status by ID
+        /// </summary>
+        /// <param name="teacherID"></param>
+        /// <returns>teacher</returns>
+        public Teacher GetTeacherStatusByID(int teacherID)
+        {
+            Teacher theTeacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement = " select * " +
+                                     "from teacher t " +
+                                     "where t.teacherID = @teacherID   ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@teacherID", teacherID);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        theTeacher = new Teacher
+                        {
+
+                            TeacherID = (int)(reader)["teacherID"],
+                            Status = (int)(byte)(reader)["activeStatus"]
+                        };
+                    }
+                }
+            }
+            return theTeacher;
+        }
     }
 }

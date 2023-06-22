@@ -120,7 +120,7 @@ namespace Gradebook.DAL
                         //      System.Windows.Forms.MessageBox.Show("processed");
                         //      connection.Close();
                     }
-                    catch (SqlException sqlEx)
+                    catch (SqlException)
                     {
                         // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
@@ -238,7 +238,7 @@ namespace Gradebook.DAL
                         transaction.Commit();
                         connection.Close();
                     }
-                    catch (SqlException sqlEx)
+                    catch (SqlException)
                     {
                         // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();

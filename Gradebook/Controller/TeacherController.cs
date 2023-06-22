@@ -87,5 +87,15 @@ namespace Gradebook.Controller
             return this._teacherDAL.GetAllActiveTeachers();
 
         }
+
+        /// <summary>
+        /// Get teacher status by ID
+        /// </summary>
+        /// <param name="teacherID"></param>
+        /// <returns>teacher status</returns>
+        public Teacher GetTeacherStatusByID(int teacherID)
+        {
+            return this._teacherDAL.GetTeacherStatusByID(teacherID);
+        }
     }
 }

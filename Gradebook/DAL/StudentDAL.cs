@@ -140,7 +140,7 @@ namespace Gradebook.DAL
 
                         };
                     }
-                    catch (SqlException sqlEx)
+                    catch (SqlException)
                     {
                         // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
