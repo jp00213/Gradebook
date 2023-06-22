@@ -67,6 +67,21 @@ namespace Gradebook.UserControls
                 newCourse.Year = this.courseYearPicker.Value.Year;
                 newCourse.TeacherID = (int)this.teacherComboBox.SelectedValue;
 
+                // Chiaosy iteration 2 
+
+                string currentTeacher_ID = this.teacherComboBox.SelectedValue.ToString();
+
+                Teacher theTeacher = this._teacherController.GetTeacherByID(Int32.Parse(currentTeacher_ID));
+
+                if (theTeacher.Status != 1)
+                {
+
+                    MessageBox.Show("The Teacher status is disabled. Please check teacher status first.");
+                    return;
+                }
+
+                // end iteration 2 modificaiton
+
                 if (this._courseController.AddNewCourse(newCourse))
                 {
                     MessageBox.Show("Course Successfully Added");
