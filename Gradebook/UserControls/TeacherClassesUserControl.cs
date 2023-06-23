@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
-    public partial class Classes : UserControl
+    public partial class TeacherClassesUserControl : UserControl
     {
-        public Classes()
+        public TeacherClassesUserControl()
         {
             InitializeComponent();
         }

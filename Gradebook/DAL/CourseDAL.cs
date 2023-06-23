@@ -148,5 +148,59 @@ namespace Gradebook.DAL
             }
             return result;
         }
+
+        /// <summary>
+        /// Returns all courses taught by a particular teacher in a particular year and semester
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <param name="semester"></param>
+        /// <param name="year"></param>
+        /// <returns>List of teachers</returns>
+        public List<Course> GetCoursesByTeacherIDYearAndSemester(int teacherID, string semester, int year)
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM course " +
+                "WHERE teacherID = @teacherID " +
+                "AND semester = @semester " +
+                "AND year = @year ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@teacherID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@teacherID"].Value = teacherID;
+
+            selectCommand.Parameters.Add("@semester", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@semester"].Value = semester;
+
+            selectCommand.Parameters.Add("@year", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@year"].Value = year;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
     }
 }
