@@ -249,7 +249,7 @@ namespace Gradebook.DAL
                         {
 
                             TeacherID = (int)(reader)["teacherID"],
-                            Status = (int)(byte)(reader)["activeStatus"]
+                            ActiveStatus = (int)(byte)(reader)["activeStatus"]
                         };
                     }
                 }

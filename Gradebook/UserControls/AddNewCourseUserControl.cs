@@ -73,7 +73,7 @@ namespace Gradebook.UserControls
 
                 Teacher theTeacher = this._teacherController.GetTeacherByID(Int32.Parse(currentTeacher_ID));
 
-                if (theTeacher.Status != 1)
+                if (theTeacher.ActiveStatus != 1)
                 {
 
                     MessageBox.Show("The Teacher status is disabled. Please check teacher status first.");
