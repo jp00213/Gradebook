@@ -6,7 +6,7 @@
     public class Teacher : Person
     {
         public int TeacherID { get; set; }
-        public int Status { get; set; }
+        //public int Status { get; set; }
 
         /// <summary>
         /// Teacher constructor
