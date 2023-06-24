@@ -101,5 +101,15 @@ namespace Gradebook.Controller
             return _studentDAL.GetStudentByParameters(searchItemIn);
         }
 
+        /// <summary>
+        /// Get student registered units total
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public int GetStudentRegisterUnitsTotal(SearchItem searchItems)
+        {
+            return _studentDAL.GetStudentRegisterUnitsTotal(searchItems);
+        }
+
     }
 }

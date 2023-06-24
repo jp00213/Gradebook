@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.changeStudentPasswordPanel = new System.Windows.Forms.Panel();
+            this.complexityRequirementLabel = new System.Windows.Forms.Label();
             this.errorMessageLabel = new System.Windows.Forms.Label();
             this.changePasswordButton = new System.Windows.Forms.Button();
             this.maskedPasswordTextBox2 = new System.Windows.Forms.MaskedTextBox();
@@ -42,7 +43,6 @@
             this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
             this.changePasswordTitleLable = new System.Windows.Forms.Label();
             this.firstPasswordLabel = new System.Windows.Forms.Label();
-            this.complexityRequirementLabel = new System.Windows.Forms.Label();
             this.changeStudentPasswordPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,6 +66,17 @@
             this.changeStudentPasswordPanel.Name = "changeStudentPasswordPanel";
             this.changeStudentPasswordPanel.Size = new System.Drawing.Size(917, 584);
             this.changeStudentPasswordPanel.TabIndex = 0;
+
+            // 
+            // complexityRequirementLabel
+            // 
+            this.complexityRequirementLabel.AutoSize = true;
+            this.complexityRequirementLabel.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.complexityRequirementLabel.Location = new System.Drawing.Point(427, 163);
+            this.complexityRequirementLabel.Name = "complexityRequirementLabel";
+            this.complexityRequirementLabel.Size = new System.Drawing.Size(226, 13);
+            this.complexityRequirementLabel.TabIndex = 56;
+            this.complexityRequirementLabel.Text = "At least 8 characters including letters and digit.";
             // 
             // errorMessageLabel
             // 
@@ -185,16 +196,6 @@
             this.firstPasswordLabel.Size = new System.Drawing.Size(109, 13);
             this.firstPasswordLabel.TabIndex = 0;
             this.firstPasswordLabel.Text = "Enter New Password:";
-            // 
-            // complexityRequirementLabel
-            // 
-            this.complexityRequirementLabel.AutoSize = true;
-            this.complexityRequirementLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.complexityRequirementLabel.Location = new System.Drawing.Point(427, 163);
-            this.complexityRequirementLabel.Name = "complexityRequirementLabel";
-            this.complexityRequirementLabel.Size = new System.Drawing.Size(226, 13);
-            this.complexityRequirementLabel.TabIndex = 56;
-            this.complexityRequirementLabel.Text = "At least 8 characters including letters and digit.";
             // 
             // ChangeStudentPasswordUserControl
             // 

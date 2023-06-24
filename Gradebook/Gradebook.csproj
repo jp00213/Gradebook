@@ -112,6 +112,12 @@
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StudentRegistrationDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentRegistrationDetailsUserControl.Designer.cs">
+      <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\TeacherClassesUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -215,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentRegistrationDetailsUserControl.resx">
+      <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherClassesUserControl.resx">
       <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>

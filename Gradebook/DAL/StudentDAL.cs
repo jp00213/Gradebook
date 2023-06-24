@@ -351,5 +351,49 @@ namespace Gradebook.DAL
             return student;
         }
 
+        /// <summary>
+        /// Get student registered units total.
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns>unit count result</returns>
+        public int GetStudentRegisterUnitsTotal(SearchItem searchItems)
+        {
+            int countResult = 0;
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement = "select isnull(sum(c.credithours),0) as countTotal  " +
+                                     "from StudentsInCourse sc, course c  " +
+                                     "where sc.courseID = c.courseID  " +
+                                     "and sc.studentID = @studentID  " +
+                                     "and c.semester = @semester  " +
+                                     "and c.year = @year ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@studentID", searchItems.StudentID);
+            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        {
+                            countResult = (int)(reader)["countTotal"];
+
+
+                        };
+                    }
+                }
+            }
+            return countResult;
+
+
+
+        }
+
     }
 }
