@@ -195,6 +195,44 @@ namespace Gradebook.DAL
                             CreditHours = (int)(reader)["credithours"],
                             Semester = (string)(reader)["semester"],
                             Year = (int)(reader)["year"],
+                            TeacherID = (int)(reader)["teacherID"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
+
+
+        public List<Course> GetCourseList()
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM course ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                            TeacherID = (int)(reader)["teacherID"],
                         };
                         courses.Add(addCourse);
                     }

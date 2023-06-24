@@ -33,7 +33,9 @@
             this.classesTabPage = new System.Windows.Forms.TabPage();
             this.assignmentsTabPage = new System.Windows.Forms.TabPage();
             this.gradesTabPage = new System.Windows.Forms.TabPage();
+            this.teacherClassesUserControl1 = new Gradebook.UserControls.TeacherClassesUserControl();
             this.teacherTabControl.SuspendLayout();
+            this.classesTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoutLinkLabel
@@ -63,6 +65,7 @@
             // 
             // classesTabPage
             // 
+            this.classesTabPage.Controls.Add(this.teacherClassesUserControl1);
             this.classesTabPage.Location = new System.Drawing.Point(4, 29);
             this.classesTabPage.Name = "classesTabPage";
             this.classesTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -91,6 +94,15 @@
             this.gradesTabPage.Text = "Grades";
             this.gradesTabPage.UseVisualStyleBackColor = true;
             // 
+            // teacherClassesUserControl1
+            // 
+            this.teacherClassesUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherClassesUserControl1.Location = new System.Drawing.Point(71, -4);
+            this.teacherClassesUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.teacherClassesUserControl1.Name = "teacherClassesUserControl1";
+            this.teacherClassesUserControl1.Size = new System.Drawing.Size(934, 589);
+            this.teacherClassesUserControl1.TabIndex = 0;
+            // 
             // TeacherDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -105,6 +117,7 @@
             this.Text = "TeacherDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorDashboard_FormClosed);
             this.teacherTabControl.ResumeLayout(false);
+            this.classesTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -117,5 +130,6 @@
         private System.Windows.Forms.TabPage classesTabPage;
         private System.Windows.Forms.TabPage assignmentsTabPage;
         private System.Windows.Forms.TabPage gradesTabPage;
+        private UserControls.TeacherClassesUserControl teacherClassesUserControl1;
     }
 }

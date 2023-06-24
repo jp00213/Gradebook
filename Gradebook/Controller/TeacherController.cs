@@ -12,6 +12,7 @@ namespace Gradebook.Controller
     { 
         private readonly PersonDAL _personDAL;
         private readonly TeacherDAL _teacherDAL;
+        private static CurrentUser _currentUser;
 
         /// <summary>
         /// Creates a teacherController object
@@ -20,6 +21,7 @@ namespace Gradebook.Controller
         {
             _personDAL = new PersonDAL();
             _teacherDAL = new TeacherDAL();
+            _currentUser = new CurrentUser();
         }
 
         /// <summary>
@@ -96,6 +98,24 @@ namespace Gradebook.Controller
         public Teacher GetTeacherStatusByID(int teacherID)
         {
             return this._teacherDAL.GetTeacherStatusByID(teacherID);
+        }
+
+        /// <summary>
+        /// Gets the current user's username
+        /// </summary>
+        /// <returns></returns>
+        public static string GetUsername()
+        {
+            return _currentUser.userName;
+        }
+
+        /// <summary>
+        /// Sets the current user's username
+        /// </summary>
+        /// <param name="username"></param>
+        public static void SetUsername(string username)
+        {
+            _currentUser.userName = username;
         }
     }
 }
