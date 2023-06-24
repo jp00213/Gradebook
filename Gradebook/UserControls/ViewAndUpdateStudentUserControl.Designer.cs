@@ -34,7 +34,6 @@
             this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
             this.editRadioButton = new System.Windows.Forms.RadioButton();
             this.viewOnlyRadioButton = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.messageErrorMainLabel = new System.Windows.Forms.Label();
             this.genderErrorMessageLabel = new System.Windows.Forms.Label();
             this.zipErrorMessageLabel = new System.Windows.Forms.Label();
@@ -71,6 +70,9 @@
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.phoneLabel = new System.Windows.Forms.Label();
             this.updateStudentButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.maximumAllowedUnitsComboBox = new System.Windows.Forms.ComboBox();
+            this.maximumUnitLabel = new System.Windows.Forms.Label();
             this.VewEditStudentUserControlPanel.SuspendLayout();
             this.addStudentUserControlPanel.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +87,8 @@
             // 
             // addStudentUserControlPanel
             // 
+            this.addStudentUserControlPanel.Controls.Add(this.maximumAllowedUnitsComboBox);
+            this.addStudentUserControlPanel.Controls.Add(this.maximumUnitLabel);
             this.addStudentUserControlPanel.Controls.Add(this.currentStudentIDForEdit);
             this.addStudentUserControlPanel.Controls.Add(this.currentStudentIDSetLabel);
             this.addStudentUserControlPanel.Controls.Add(this.editRadioButton);
@@ -173,15 +177,6 @@
             this.viewOnlyRadioButton.Text = "View Only";
             this.viewOnlyRadioButton.UseVisualStyleBackColor = true;
             this.viewOnlyRadioButton.Click += new System.EventHandler(this.viewOnlyRadioButton_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(524, 420);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "label1";
             // 
             // messageErrorMainLabel
             // 
@@ -385,7 +380,7 @@
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(454, 184);
+            this.cityLabel.Location = new System.Drawing.Point(487, 184);
             this.cityLabel.Name = "cityLabel";
             this.cityLabel.Size = new System.Drawing.Size(24, 13);
             this.cityLabel.TabIndex = 9;
@@ -394,7 +389,7 @@
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(63, 139);
+            this.lastNameLabel.Location = new System.Drawing.Point(71, 139);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(58, 13);
             this.lastNameLabel.TabIndex = 2;
@@ -412,7 +407,7 @@
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(63, 177);
+            this.firstNameLabel.Location = new System.Drawing.Point(71, 177);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(54, 13);
             this.firstNameLabel.TabIndex = 3;
@@ -438,7 +433,7 @@
             // ssnLabel
             // 
             this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(63, 312);
+            this.ssnLabel.Location = new System.Drawing.Point(96, 318);
             this.ssnLabel.Name = "ssnLabel";
             this.ssnLabel.Size = new System.Drawing.Size(29, 13);
             this.ssnLabel.TabIndex = 5;
@@ -455,7 +450,7 @@
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(63, 360);
+            this.statusLabel.Location = new System.Drawing.Point(87, 360);
             this.statusLabel.Name = "statusLabel";
             this.statusLabel.Size = new System.Drawing.Size(37, 13);
             this.statusLabel.TabIndex = 6;
@@ -472,7 +467,7 @@
             // genderlabel
             // 
             this.genderlabel.AutoSize = true;
-            this.genderlabel.Location = new System.Drawing.Point(454, 315);
+            this.genderlabel.Location = new System.Drawing.Point(466, 315);
             this.genderlabel.Name = "genderlabel";
             this.genderlabel.Size = new System.Drawing.Size(42, 13);
             this.genderlabel.TabIndex = 7;
@@ -489,7 +484,7 @@
             // streeLabel
             // 
             this.streeLabel.AutoSize = true;
-            this.streeLabel.Location = new System.Drawing.Point(454, 136);
+            this.streeLabel.Location = new System.Drawing.Point(476, 139);
             this.streeLabel.Name = "streeLabel";
             this.streeLabel.Size = new System.Drawing.Size(35, 13);
             this.streeLabel.TabIndex = 8;
@@ -506,7 +501,7 @@
             // statelabel
             // 
             this.statelabel.AutoSize = true;
-            this.statelabel.Location = new System.Drawing.Point(454, 227);
+            this.statelabel.Location = new System.Drawing.Point(479, 231);
             this.statelabel.Name = "statelabel";
             this.statelabel.Size = new System.Drawing.Size(32, 13);
             this.statelabel.TabIndex = 10;
@@ -523,7 +518,7 @@
             // zipLabel
             // 
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(456, 268);
+            this.zipLabel.Location = new System.Drawing.Point(486, 268);
             this.zipLabel.Name = "zipLabel";
             this.zipLabel.Size = new System.Drawing.Size(22, 13);
             this.zipLabel.TabIndex = 11;
@@ -540,7 +535,7 @@
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(63, 265);
+            this.phoneLabel.Location = new System.Drawing.Point(87, 262);
             this.phoneLabel.Name = "phoneLabel";
             this.phoneLabel.Size = new System.Drawing.Size(38, 13);
             this.phoneLabel.TabIndex = 12;
@@ -555,6 +550,59 @@
             this.updateStudentButton.Text = "Update";
             this.updateStudentButton.UseVisualStyleBackColor = true;
             this.updateStudentButton.Click += new System.EventHandler(this.updateStudentButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(524, 420);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "label1";
+            // 
+            // maximumAllowedUnitsComboBox
+            // 
+            this.maximumAllowedUnitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.maximumAllowedUnitsComboBox.FormattingEnabled = true;
+            this.maximumAllowedUnitsComboBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24"});
+            this.maximumAllowedUnitsComboBox.Location = new System.Drawing.Point(517, 357);
+            this.maximumAllowedUnitsComboBox.Name = "maximumAllowedUnitsComboBox";
+            this.maximumAllowedUnitsComboBox.Size = new System.Drawing.Size(121, 21);
+            this.maximumAllowedUnitsComboBox.TabIndex = 15;
+            // 
+            // maximumUnitLabel
+            // 
+            this.maximumUnitLabel.AutoSize = true;
+            this.maximumUnitLabel.Location = new System.Drawing.Point(393, 360);
+            this.maximumUnitLabel.Name = "maximumUnitLabel";
+            this.maximumUnitLabel.Size = new System.Drawing.Size(118, 13);
+            this.maximumUnitLabel.TabIndex = 44;
+            this.maximumUnitLabel.Text = "Maximum Allowed Units";
             // 
             // ViewAndUpdateStudentUserControl
             // 
@@ -615,5 +663,7 @@
         private System.Windows.Forms.RadioButton viewOnlyRadioButton;
         private System.Windows.Forms.Label currentStudentIDForEdit;
         private System.Windows.Forms.Label currentStudentIDSetLabel;
+        private System.Windows.Forms.ComboBox maximumAllowedUnitsComboBox;
+        private System.Windows.Forms.Label maximumUnitLabel;
     }
 }

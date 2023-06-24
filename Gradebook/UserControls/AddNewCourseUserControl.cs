@@ -80,7 +80,7 @@ namespace Gradebook.UserControls
                     return;
                 }
 
-                // end iteration 2 modificaiton
+                // end iteration 2 modification
 
                 if (this._courseController.AddNewCourse(newCourse))
                 {
