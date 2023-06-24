@@ -49,5 +49,22 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.RegisterStudent(studentId, courseId);
         }
+
+        /// <summary>
+        /// Returns a list of courses by teacherID, semester and year
+        /// </summary>
+        /// <param name="teacherID"></param>
+        /// <param name="semester"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public List<Course> GetCoursesByTeacherIDYearAndSemester(int teacherID, string semester, int year)
+        {
+            return this._courseDAL.GetCoursesByTeacherIDYearAndSemester(teacherID, semester, year);
+        }
+
+        public List<Course> GetCourseList()
+        {
+            return this._courseDAL.GetCourseList();
+        }
     }
 }

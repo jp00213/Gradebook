@@ -77,6 +77,7 @@
     <Compile Include="Function\CreatePersonUserName.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Course.cs" />
+    <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchItem.cs" />
     <Compile Include="Model\Student.cs" />
@@ -110,6 +111,12 @@
     </Compile>
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TeacherClassesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TeacherClassesUserControl.Designer.cs">
+      <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\FindLastUserName.cs">
       <SubType>UserControl</SubType>
@@ -208,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TeacherClassesUserControl.resx">
+      <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FindLastUserName.resx">
       <DependentUpon>FindLastUserName.cs</DependentUpon>
