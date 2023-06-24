@@ -29,7 +29,7 @@ namespace Gradebook.UserControls
             this.SetupGenderComboBox();
             this.SetupStatusComboBox();
             this.SetupDatePickerMinus10Years();
-            theStudent = new Person();
+            theStudent = new Student();
             viewOnlyRadioButton.Checked = true;
             this.DisableEdit();
             this.viewOnlyRadioButton.Enabled = false;
@@ -43,7 +43,15 @@ namespace Gradebook.UserControls
         /// <param name="e"></param>
         private void currentStudentIDForEdit_TextChanged(object sender, EventArgs e)
         {
+            this.LoadStudent();
+        }
+
+        private void LoadStudent()
+        {
+            theStudent = new Student();
             theStudent = this._studentController.GetStudentByID(Convert.ToInt32(this.currentStudentIDForEdit.Text));
+
+            viewOnlyRadioButton.Checked = true;
             firstNameTextBox.Text = theStudent.FirstName;
             lastNameTextBox.Text = theStudent.LastName;
 
@@ -57,7 +65,6 @@ namespace Gradebook.UserControls
             {
                 dobPicker.Value = theStudent.DateOfBirth;
             }
-
             phoneTextBox.Text = theStudent.Phone;
             genderComboBox.Text = theStudent.Sex;
             streetTextBox.Text = theStudent.AddressStreet;
@@ -66,7 +73,16 @@ namespace Gradebook.UserControls
             zipTextBox.Text = theStudent.Zip;
             ssnTextBox.Text = theStudent.SSN;
             label1.Text = theStudent.RecordId.ToString();
-
+            //maximumAllowedUnitsComboBox.Text = "";
+            //maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
+            if (theStudent.MaximumUnitsAllowed == null)
+            {
+                maximumAllowedUnitsComboBox.SelectedItem = null;
+            }
+            else
+            {
+                maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
+            };
             statusComboBox.SelectedIndex = theStudent.ActiveStatus;
             //  System.Windows.Forms.MessageBox.Show(theStudent.ActiveStatus.ToString());
             this.DisableEdit();
@@ -108,6 +124,7 @@ namespace Gradebook.UserControls
             ssnTextBox.Enabled = false;
             statusComboBox.Enabled = false;
             updateStudentButton.Enabled = false;
+            maximumAllowedUnitsComboBox.Enabled = false;
         }
 
         private void EnableEdit()
@@ -124,6 +141,7 @@ namespace Gradebook.UserControls
             ssnTextBox.Enabled = true;
             statusComboBox.Enabled = true;
             updateStudentButton.Enabled = true;
+            maximumAllowedUnitsComboBox.Enabled = true;
         }
 
         /// <summary>
@@ -185,7 +203,15 @@ namespace Gradebook.UserControls
             string sex = this.genderComboBox.Text.Trim();
             string ssn = this.ssnTextBox.Text.Trim();
             int status = this.statusComboBox.SelectedIndex;
-
+            int? maximumUnitsAllowed = null;
+            if (this.maximumAllowedUnitsComboBox.Text.Trim() is null || this.maximumAllowedUnitsComboBox.Text.Trim() == "")
+            {
+                maximumUnitsAllowed = null;
+            }
+            else
+            {
+                maximumUnitsAllowed = Convert.ToInt32(this.maximumAllowedUnitsComboBox.Text.Trim());
+            }
             if (
                 string.IsNullOrEmpty(lastName) ||
                 !ValidationUtility.IsMoreThanOneLetters(lastName) ||
@@ -213,9 +239,10 @@ namespace Gradebook.UserControls
             {
                 //int recordID, int studentID, string lastName, string firstName, DateTime dateofBirth, string addressStreet, string city, string state, string zip, string phone, string sex, string ssn, int activeStatus, string username)
                 Person newStudent = new Person(theStudent.RecordId, theStudent.StudentID, lastName, firstName, dateOfBirth, street, city, state, zip, phone, sex, ssn, status, theStudent.Username);
-
+                newStudent.MaximumUnitsAllowed = maximumUnitsAllowed;
                 if (this._studentController.UpdateStudent(newStudent, theStudent) == true)
                 {
+                    this.LoadStudent();
                     MessageBox.Show("The update is successful.");
                 }
                 else

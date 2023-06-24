@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -350,6 +351,26 @@ namespace Gradebook.Function
                 validData = false;
             } 
             return validData;
+        }
+
+        /// <summary>
+        /// Handle null value coming from the reader
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <param name="colName"></param>
+        /// <returns></returns>
+        public static int? SafeGetInt(this SqlDataReader reader, string colName)
+        {
+            int colIndex = reader.GetOrdinal(colName);
+
+            if (!reader.IsDBNull(colIndex))
+            {
+                return reader.GetInt32(colIndex);
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

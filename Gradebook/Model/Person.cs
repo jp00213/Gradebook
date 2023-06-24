@@ -36,6 +36,8 @@ namespace Gradebook.Model
 
         public int StudentID { get; set; }
 
+        public int? MaximumUnitsAllowed { get; set; }
+
         /// <summary>
         /// Person constructor.
         /// </summary>
