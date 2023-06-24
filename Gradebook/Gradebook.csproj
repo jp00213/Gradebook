@@ -76,6 +76,7 @@
     <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="Function\CreatePersonUserName.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
+    <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\Person.cs" />
