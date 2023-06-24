@@ -54,6 +54,7 @@
             this.teacherTabControl.Controls.Add(this.classesTabPage);
             this.teacherTabControl.Controls.Add(this.assignmentsTabPage);
             this.teacherTabControl.Controls.Add(this.gradesTabPage);
+            this.teacherTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherTabControl.Location = new System.Drawing.Point(0, 55);
             this.teacherTabControl.Name = "teacherTabControl";
             this.teacherTabControl.SelectedIndex = 0;
@@ -62,10 +63,10 @@
             // 
             // classesTabPage
             // 
-            this.classesTabPage.Location = new System.Drawing.Point(4, 22);
+            this.classesTabPage.Location = new System.Drawing.Point(4, 29);
             this.classesTabPage.Name = "classesTabPage";
             this.classesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.classesTabPage.Size = new System.Drawing.Size(1050, 597);
+            this.classesTabPage.Size = new System.Drawing.Size(1050, 590);
             this.classesTabPage.TabIndex = 0;
             this.classesTabPage.Text = "Classes";
             this.classesTabPage.UseVisualStyleBackColor = true;
@@ -97,7 +98,7 @@
             this.ClientSize = new System.Drawing.Size(1058, 679);
             this.Controls.Add(this.teacherTabControl);
             this.Controls.Add(this.logoutLinkLabel);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "TeacherDashboard";
