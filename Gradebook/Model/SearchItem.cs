@@ -13,6 +13,8 @@ namespace Gradebook.Model
         public DateTime DateOfBirth { get; set; }
         public string Username { get; set; }
         public int StudentID { get; set; }
+        public string Semester { get; set; }
+        public string Year { get; set; }
 
     }
 }
