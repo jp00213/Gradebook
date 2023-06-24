@@ -65,7 +65,6 @@ namespace Gradebook.UserControls
             {
                 dobPicker.Value = theStudent.DateOfBirth;
             }
-
             phoneTextBox.Text = theStudent.Phone;
             genderComboBox.Text = theStudent.Sex;
             streetTextBox.Text = theStudent.AddressStreet;
@@ -84,8 +83,6 @@ namespace Gradebook.UserControls
             {
                 maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
             };
-
-
             statusComboBox.SelectedIndex = theStudent.ActiveStatus;
             //  System.Windows.Forms.MessageBox.Show(theStudent.ActiveStatus.ToString());
             this.DisableEdit();
