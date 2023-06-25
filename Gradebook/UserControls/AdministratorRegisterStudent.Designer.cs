@@ -41,9 +41,9 @@
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchCourseButton = new System.Windows.Forms.Button();
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.semesterLabel = new System.Windows.Forms.Label();
             this.courseYearPicker = new System.Windows.Forms.DateTimePicker();
-            this.label6 = new System.Windows.Forms.Label();
+            this.yearLabel = new System.Windows.Forms.Label();
             this.studentIDTextBox = new System.Windows.Forms.TextBox();
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.searchStudentButton = new System.Windows.Forms.Button();
@@ -173,6 +173,7 @@
             // semesterComboBox
             // 
             this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.semesterComboBox.FormattingEnabled = true;
             this.semesterComboBox.Items.AddRange(new object[] {
             "Spring",
@@ -180,18 +181,18 @@
             "Fall"});
             this.semesterComboBox.Location = new System.Drawing.Point(177, 35);
             this.semesterComboBox.Name = "semesterComboBox";
-            this.semesterComboBox.Size = new System.Drawing.Size(193, 24);
+            this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
             this.semesterComboBox.TabIndex = 17;
             // 
-            // label7
+            // semesterLabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label7.Location = new System.Drawing.Point(75, 31);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(96, 25);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Semester";
+            this.semesterLabel.AutoSize = true;
+            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterLabel.Location = new System.Drawing.Point(75, 31);
+            this.semesterLabel.Name = "semesterLabel";
+            this.semesterLabel.Size = new System.Drawing.Size(96, 25);
+            this.semesterLabel.TabIndex = 16;
+            this.semesterLabel.Text = "Semester";
             // 
             // courseYearPicker
             // 
@@ -205,15 +206,15 @@
             this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
             this.courseYearPicker.TabIndex = 19;
             // 
-            // label6
+            // yearLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label6.Location = new System.Drawing.Point(420, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 25);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Year";
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.yearLabel.Location = new System.Drawing.Point(420, 34);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(53, 25);
+            this.yearLabel.TabIndex = 18;
+            this.yearLabel.Text = "Year";
             // 
             // studentIDTextBox
             // 
@@ -298,9 +299,9 @@
             this.Controls.Add(this.studentIDLabel);
             this.Controls.Add(this.studentIDTextBox);
             this.Controls.Add(this.courseYearPicker);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.yearLabel);
             this.Controls.Add(this.semesterComboBox);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.semesterLabel);
             this.Controls.Add(this.searchCourseButton);
             this.Controls.Add(this.courseDataGridView);
             this.Name = "AdministratorRegisterStudent";
@@ -324,9 +325,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.ComboBox semesterComboBox;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label semesterLabel;
         private System.Windows.Forms.DateTimePicker courseYearPicker;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label yearLabel;
         private System.Windows.Forms.TextBox studentIDTextBox;
         private System.Windows.Forms.Label studentIDLabel;
         private System.Windows.Forms.Button searchStudentButton;

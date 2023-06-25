@@ -35,8 +35,8 @@
             this.registerStudentTab = new System.Windows.Forms.TabPage();
             this.administratorRegisterStudent1 = new Gradebook.UserControls.AdministratorRegisterStudent();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.administratorSearchUpdateCourse1 = new Gradebook.UserControls.AdministratorSearchUpdateCourse();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.courseTabControl.SuspendLayout();
             this.createCourseTab.SuspendLayout();
             this.registerStudentTab.SuspendLayout();
@@ -116,6 +116,13 @@
             this.tabPage1.Text = "Search/Update Course";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // administratorSearchUpdateCourse1
+            // 
+            this.administratorSearchUpdateCourse1.Location = new System.Drawing.Point(3, 0);
+            this.administratorSearchUpdateCourse1.Name = "administratorSearchUpdateCourse1";
+            this.administratorSearchUpdateCourse1.Size = new System.Drawing.Size(1343, 549);
+            this.administratorSearchUpdateCourse1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
@@ -125,13 +132,6 @@
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "View/Drop Student Registrations";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // administratorSearchUpdateCourse1
-            // 
-            this.administratorSearchUpdateCourse1.Location = new System.Drawing.Point(3, 0);
-            this.administratorSearchUpdateCourse1.Name = "administratorSearchUpdateCourse1";
-            this.administratorSearchUpdateCourse1.Size = new System.Drawing.Size(1124, 549);
-            this.administratorSearchUpdateCourse1.TabIndex = 0;
             // 
             // AdministratorCourses
             // 
