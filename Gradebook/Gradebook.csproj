@@ -78,6 +78,7 @@
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="Model\Grades.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchItem.cs" />
     <Compile Include="Model\Student.cs" />
