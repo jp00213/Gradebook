@@ -374,6 +374,58 @@ namespace Gradebook.DAL
         }
 
         /// <summary>
+        /// Get student course grade details by studentID & courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns>grades</returns>
+        public List<Grades> GetStudentCourseGradeDetailsByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            List<Grades> grades = new List<Grades>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement = "  select studentID, " +
+                                     "a.courseID, " +
+                                     "a.assignmentID, " +
+                                     "a.description, " +
+                                     "isnull(weight,0) as weightout, " +
+                                     "isnull(score,0) as score, " +
+                                     "CONVERT(DECIMAL(10,2), (isnull(score, 0) * (isnull(weight,0)/100) )) as weighted_grade  " +
+                                     "from Grades g, Assignment a  " +
+                                     "where g.assignmentID = a.assignmentID  " +
+                                     "and g.studentID = @studentID  " +
+                                     "and a.courseID = @courseID  ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", gradesSearch.StudentID);
+            selectCommand.Parameters.AddWithValue("@courseID", gradesSearch.CourseID);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Grades grade = new Grades
+                        {
+
+                            StudentID = (int)(reader)["studentID"],
+                            CourseID = (int)(reader)["courseID"],
+                            AssignmentID = (int)(reader)["assignmentID"],
+                            Description = (string)(reader)["description"],
+                            Weight = (reader)["weightout"].ToString(),
+                            Score = (reader)["score"].ToString(),
+                            WeightGrade = (reader)["weighted_grade"].ToString()
+                        };
+                        grades.Add(grade);
+                    }
+                }
+            }
+            return grades;
+        }
+
+        /// <summary>
         /// Delete course
         /// </summary>
         /// <param name="courseID"></param>

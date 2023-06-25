@@ -53,11 +53,19 @@
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.semesterLabel = new System.Windows.Forms.Label();
             this.registrationDetailsLabel = new System.Windows.Forms.Label();
+            this.gradeListView = new System.Windows.Forms.ListView();
+            this.courseHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.assignmentHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.descriptionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.weightHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.scoreheader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.weightGradeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.gradeListView);
             this.panel1.Controls.Add(this.errorlabel);
             this.panel1.Controls.Add(this.courseListView);
             this.panel1.Controls.Add(this.unitsBalanceLabel);
@@ -99,6 +107,7 @@
             this.titleHeader,
             this.unitsHeader,
             this.instructorNameHeader});
+            this.courseListView.FullRowSelect = true;
             this.courseListView.HideSelection = false;
             this.courseListView.Location = new System.Drawing.Point(23, 127);
             this.courseListView.Name = "courseListView";
@@ -106,6 +115,7 @@
             this.courseListView.TabIndex = 54;
             this.courseListView.UseCompatibleStateImageBehavior = false;
             this.courseListView.View = System.Windows.Forms.View.Details;
+            this.courseListView.Click += new System.EventHandler(this.courseListView_Click);
             // 
             // courseIDHeader
             // 
@@ -283,6 +293,50 @@
             this.registrationDetailsLabel.TabIndex = 1;
             this.registrationDetailsLabel.Text = "Registration Details by Student ID";
             // 
+            // gradeListView
+            // 
+            this.gradeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.courseHeader,
+            this.assignmentHeader,
+            this.descriptionHeader,
+            this.weightHeader,
+            this.scoreheader,
+            this.weightGradeHeader});
+            this.gradeListView.HideSelection = false;
+            this.gradeListView.Location = new System.Drawing.Point(23, 305);
+            this.gradeListView.Name = "gradeListView";
+            this.gradeListView.Size = new System.Drawing.Size(888, 174);
+            this.gradeListView.TabIndex = 56;
+            this.gradeListView.UseCompatibleStateImageBehavior = false;
+            this.gradeListView.View = System.Windows.Forms.View.Details;
+            // 
+            // courseHeader
+            // 
+            this.courseHeader.Text = "Course ID";
+            // 
+            // assignmentHeader
+            // 
+            this.assignmentHeader.Text = "AssignmentID";
+            this.assignmentHeader.Width = 90;
+            // 
+            // descriptionHeader
+            // 
+            this.descriptionHeader.Text = "Description";
+            this.descriptionHeader.Width = 150;
+            // 
+            // weightHeader
+            // 
+            this.weightHeader.Text = "Weight";
+            // 
+            // scoreheader
+            // 
+            this.scoreheader.Text = "Score";
+            // 
+            // weightGradeHeader
+            // 
+            this.weightGradeHeader.Text = "Weighted Grade";
+            this.weightGradeHeader.Width = 100;
+            // 
             // StudentRegistrationDetailsUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,5 +377,12 @@
         private System.Windows.Forms.ColumnHeader unitsHeader;
         private System.Windows.Forms.ColumnHeader instructorNameHeader;
         private System.Windows.Forms.Label errorlabel;
+        private System.Windows.Forms.ListView gradeListView;
+        private System.Windows.Forms.ColumnHeader courseHeader;
+        private System.Windows.Forms.ColumnHeader assignmentHeader;
+        private System.Windows.Forms.ColumnHeader descriptionHeader;
+        private System.Windows.Forms.ColumnHeader weightHeader;
+        private System.Windows.Forms.ColumnHeader scoreheader;
+        private System.Windows.Forms.ColumnHeader weightGradeHeader;
     }
 }

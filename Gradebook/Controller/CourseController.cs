@@ -90,6 +90,16 @@ namespace Gradebook.Controller
         }
 
         /// <summary>
+        /// Get student course grade details by studentID & courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns></returns>
+        public List<Grades> GetStudentCourseGradeDetailsByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            return this._courseDAL.GetStudentCourseGradeDetailsByStudentIDAndCourseID(gradesSearch);
+        }
+
+        /// <summary>
         /// Delete course
         /// </summary>
         /// <param name="courseID"></param>
