@@ -16,6 +16,13 @@
                </ControlSetting>
             </ControlSettings>
          </PropertyUISetting>
+         <PropertyUISetting Name="StudentID">
+            <ControlSettings>
+               <ControlSetting ArtifactName="Microsoft:System.Windows.Forms:Form">
+                  <BindableControlInfo Name="[None]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+               </ControlSetting>
+            </ControlSettings>
+         </PropertyUISetting>
       </PropertyUISettings>
    </TypeUISetting>
 </GenericObjectDataSource>
