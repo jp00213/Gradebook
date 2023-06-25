@@ -14,5 +14,7 @@
         public string Semester { get; set; }
         public int Year { get; set; }
         public int TeacherID { get; set; }
+        public int StudentID { get; set; }
+        public string TeacherFullName { get; set; }
     }
 }
