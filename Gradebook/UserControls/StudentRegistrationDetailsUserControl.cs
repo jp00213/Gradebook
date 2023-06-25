@@ -88,13 +88,13 @@ namespace Gradebook.UserControls
             {
                 unitsBalanceLabel.Text = balance.ToString();
             }
-
         }
 
         private void ClearErrors()
         {
             this.errorlabel.Text = "";
             this.courseListView.Items.Clear();
+            this.gradeListView.Items.Clear();
             this.allowedUnitsLabel.Text = "0";
             this.registeredUnitsDisplayLabel.Text = "0";
             this.unitsBalanceLabel.Text = "0";
@@ -127,6 +127,7 @@ namespace Gradebook.UserControls
             this.searchButton.Enabled = false;
             this.clearButton.Enabled = false;
             this.courseListView.Items.Clear();
+            this.gradeListView.Items.Clear();
         }
 
         private void EnableAllFields()
@@ -141,6 +142,7 @@ namespace Gradebook.UserControls
             this.searchButton.Enabled = true;
             this.clearButton.Enabled = true;
             this.courseListView.Items.Clear();
+            this.gradeListView.Items.Clear();
         }
 
         private void currentStudentIDForEdit_TextChanged(object sender, EventArgs e)
@@ -185,9 +187,39 @@ namespace Gradebook.UserControls
             {
                 this.errorlabel.Text = "Record not found.";
             }
+        }
 
+        private void courseListView_Click(object sender, EventArgs e)
+        {
+            this.gradeListView.Items.Clear();
+            int studentID = Convert.ToInt32(this.currentStudentIDForEdit.Text);
+            string courseIDString = courseListView.SelectedItems[0].SubItems[0].Text;
+            int courseID = Convert.ToInt32(courseIDString);
 
+            Grades gradeSearchItems = new Grades();
+            gradeSearchItems.StudentID = studentID;
+            gradeSearchItems.CourseID = courseID;
+
+            List<Grades> gradeList = this._courseController.GetStudentCourseGradeDetailsByStudentIDAndCourseID(gradeSearchItems);
+
+            if (gradeList.Count > 0)
+            {
+                Grades currentData;
+                for (int i = 0; i < gradeList.Count; i++)
+                {
+                    currentData = gradeList[i];
+                    gradeListView.Items.Add(currentData.CourseID.ToString());
+                    gradeListView.Items[i].SubItems.Add(currentData.AssignmentID.ToString());
+                    gradeListView.Items[i].SubItems.Add(currentData.Description.ToString());
+                    gradeListView.Items[i].SubItems.Add(currentData.Weight.ToString());
+                    gradeListView.Items[i].SubItems.Add(currentData.Score.ToString());
+                    gradeListView.Items[i].SubItems.Add(currentData.WeightGrade).ToString();
+                }
+            }
+            else
+            {
+                this.errorlabel.Text = "Grades not found.";
+            }
         }
     }
-    
 }

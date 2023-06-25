@@ -88,5 +88,15 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetCoursesByMultipleParameters(testCourse);
         }
+
+        /// <summary>
+        /// Get student course grade details by studentID & courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns></returns>
+        public List<Grades> GetStudentCourseGradeDetailsByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            return this._courseDAL.GetStudentCourseGradeDetailsByStudentIDAndCourseID(gradesSearch);
+        }
     }
 }
