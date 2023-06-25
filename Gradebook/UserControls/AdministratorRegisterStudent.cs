@@ -66,9 +66,9 @@ namespace Gradebook.UserControls
 
         private void registerButton_Click(object sender, EventArgs e)
         {
-            int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
             try
             {
+                int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
                 this._courseController.RegisterStudent(Convert.ToInt32(this.studentIDTextBox.Text), course);
                 MessageBox.Show("Successfully registered for course");
             this.registerButton.Enabled = false;
