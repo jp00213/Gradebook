@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.gradeListView = new System.Windows.Forms.ListView();
+            this.courseHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.assignmentHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.descriptionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.weightHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.scoreheader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.weightGradeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.errorlabel = new System.Windows.Forms.Label();
             this.courseListView = new System.Windows.Forms.ListView();
             this.courseIDHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -53,18 +60,15 @@
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.semesterLabel = new System.Windows.Forms.Label();
             this.registrationDetailsLabel = new System.Windows.Forms.Label();
-            this.gradeListView = new System.Windows.Forms.ListView();
-            this.courseHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.assignmentHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.descriptionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.weightHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.scoreheader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.weightGradeHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.weightedGradeTotalLabel = new System.Windows.Forms.Label();
+            this.weightGradeTotalValueLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.weightGradeTotalValueLabel);
+            this.panel1.Controls.Add(this.weightedGradeTotalLabel);
             this.panel1.Controls.Add(this.gradeListView);
             this.panel1.Controls.Add(this.errorlabel);
             this.panel1.Controls.Add(this.courseListView);
@@ -87,6 +91,50 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(932, 634);
             this.panel1.TabIndex = 0;
+            // 
+            // gradeListView
+            // 
+            this.gradeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.courseHeader,
+            this.assignmentHeader,
+            this.descriptionHeader,
+            this.weightHeader,
+            this.scoreheader,
+            this.weightGradeHeader});
+            this.gradeListView.HideSelection = false;
+            this.gradeListView.Location = new System.Drawing.Point(23, 305);
+            this.gradeListView.Name = "gradeListView";
+            this.gradeListView.Size = new System.Drawing.Size(888, 174);
+            this.gradeListView.TabIndex = 56;
+            this.gradeListView.UseCompatibleStateImageBehavior = false;
+            this.gradeListView.View = System.Windows.Forms.View.Details;
+            // 
+            // courseHeader
+            // 
+            this.courseHeader.Text = "Course ID";
+            // 
+            // assignmentHeader
+            // 
+            this.assignmentHeader.Text = "AssignmentID";
+            this.assignmentHeader.Width = 90;
+            // 
+            // descriptionHeader
+            // 
+            this.descriptionHeader.Text = "Description";
+            this.descriptionHeader.Width = 150;
+            // 
+            // weightHeader
+            // 
+            this.weightHeader.Text = "Weight";
+            // 
+            // scoreheader
+            // 
+            this.scoreheader.Text = "Score";
+            // 
+            // weightGradeHeader
+            // 
+            this.weightGradeHeader.Text = "Weighted Grade";
+            this.weightGradeHeader.Width = 100;
             // 
             // errorlabel
             // 
@@ -293,49 +341,23 @@
             this.registrationDetailsLabel.TabIndex = 1;
             this.registrationDetailsLabel.Text = "Registration Details by Student ID";
             // 
-            // gradeListView
+            // weightedGradeTotalLabel
             // 
-            this.gradeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.courseHeader,
-            this.assignmentHeader,
-            this.descriptionHeader,
-            this.weightHeader,
-            this.scoreheader,
-            this.weightGradeHeader});
-            this.gradeListView.HideSelection = false;
-            this.gradeListView.Location = new System.Drawing.Point(23, 305);
-            this.gradeListView.Name = "gradeListView";
-            this.gradeListView.Size = new System.Drawing.Size(888, 174);
-            this.gradeListView.TabIndex = 56;
-            this.gradeListView.UseCompatibleStateImageBehavior = false;
-            this.gradeListView.View = System.Windows.Forms.View.Details;
+            this.weightedGradeTotalLabel.AutoSize = true;
+            this.weightedGradeTotalLabel.Location = new System.Drawing.Point(339, 482);
+            this.weightedGradeTotalLabel.Name = "weightedGradeTotalLabel";
+            this.weightedGradeTotalLabel.Size = new System.Drawing.Size(115, 13);
+            this.weightedGradeTotalLabel.TabIndex = 57;
+            this.weightedGradeTotalLabel.Text = "Weighted Grade Total:";
             // 
-            // courseHeader
+            // weightGradeTotalValueLabel
             // 
-            this.courseHeader.Text = "Course ID";
-            // 
-            // assignmentHeader
-            // 
-            this.assignmentHeader.Text = "AssignmentID";
-            this.assignmentHeader.Width = 90;
-            // 
-            // descriptionHeader
-            // 
-            this.descriptionHeader.Text = "Description";
-            this.descriptionHeader.Width = 150;
-            // 
-            // weightHeader
-            // 
-            this.weightHeader.Text = "Weight";
-            // 
-            // scoreheader
-            // 
-            this.scoreheader.Text = "Score";
-            // 
-            // weightGradeHeader
-            // 
-            this.weightGradeHeader.Text = "Weighted Grade";
-            this.weightGradeHeader.Width = 100;
+            this.weightGradeTotalValueLabel.AutoSize = true;
+            this.weightGradeTotalValueLabel.Location = new System.Drawing.Point(461, 482);
+            this.weightGradeTotalValueLabel.Name = "weightGradeTotalValueLabel";
+            this.weightGradeTotalValueLabel.Size = new System.Drawing.Size(13, 13);
+            this.weightGradeTotalValueLabel.TabIndex = 58;
+            this.weightGradeTotalValueLabel.Text = "0";
             // 
             // StudentRegistrationDetailsUserControl
             // 
@@ -384,5 +406,7 @@
         private System.Windows.Forms.ColumnHeader weightHeader;
         private System.Windows.Forms.ColumnHeader scoreheader;
         private System.Windows.Forms.ColumnHeader weightGradeHeader;
+        private System.Windows.Forms.Label weightedGradeTotalLabel;
+        private System.Windows.Forms.Label weightGradeTotalValueLabel;
     }
 }

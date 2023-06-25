@@ -109,5 +109,15 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.DeleteCourse(courseID);
         }
+
+        /// <summary>
+        /// Get student course weight grade by studentID & courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns></returns>
+        public string GetStudentCourseWeightGradeByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            return this._courseDAL.GetStudentCourseWeightGradeByStudentIDAndCourseID(gradesSearch);
+        }
     }
 }

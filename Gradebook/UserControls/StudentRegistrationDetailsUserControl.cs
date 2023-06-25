@@ -215,11 +215,18 @@ namespace Gradebook.UserControls
                     gradeListView.Items[i].SubItems.Add(currentData.Score.ToString());
                     gradeListView.Items[i].SubItems.Add(currentData.WeightGrade).ToString();
                 }
+                this.SetWeightGradesTotal(gradeSearchItems);
             }
             else
             {
                 this.errorlabel.Text = "Grades not found.";
             }
+        }
+
+        private void SetWeightGradesTotal(Grades gradeSearchItems)
+        {
+            this.weightGradeTotalValueLabel.Text = this._courseController.GetStudentCourseWeightGradeByStudentIDAndCourseID(gradeSearchItems);
+
         }
     }
 }
