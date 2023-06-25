@@ -390,9 +390,45 @@ namespace Gradebook.DAL
                 }
             }
             return countResult;
+        }
+
+        /// <summary>
+        /// Get student maximum allowed unit.
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        public int GetStudentMaximumAllowedUnit(int studentID)
+        {
+
+            int maxAllowedResult = 0;
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement = "select   isnull(s.maximumUnitsAllowed, 18) as maxunits " +
+                                     "from student s " +
+                                     "where s.studentID = @studentID ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", studentID);
 
 
 
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        {
+                            maxAllowedResult = (int)(reader)["maxunits"];
+
+                        };
+                    }
+                }
+            }
+            return maxAllowedResult;
         }
 
     }

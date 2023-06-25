@@ -29,22 +29,41 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.registrationDetailsLabel = new System.Windows.Forms.Label();
-            this.semesterLabel = new System.Windows.Forms.Label();
-            this.semesterComboBox = new System.Windows.Forms.ComboBox();
-            this.yearLabel = new System.Windows.Forms.Label();
-            this.courseYearPicker = new System.Windows.Forms.DateTimePicker();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.clearButton = new System.Windows.Forms.Button();
-            this.registeredUnitsLabel = new System.Windows.Forms.Label();
-            this.registeredUnitsDisplayLabel = new System.Windows.Forms.Label();
-            this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
             this.currentStudentIDForEdit = new System.Windows.Forms.Label();
+            this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
+            this.registeredUnitsDisplayLabel = new System.Windows.Forms.Label();
+            this.registeredUnitsLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.courseYearPicker = new System.Windows.Forms.DateTimePicker();
+            this.yearLabel = new System.Windows.Forms.Label();
+            this.semesterComboBox = new System.Windows.Forms.ComboBox();
+            this.semesterLabel = new System.Windows.Forms.Label();
+            this.registrationDetailsLabel = new System.Windows.Forms.Label();
+            this.allowedUnitsLabel = new System.Windows.Forms.Label();
+            this.maxAllowedUnitLabel = new System.Windows.Forms.Label();
+            this.unitsBalanceLabel = new System.Windows.Forms.Label();
+            this.unitAvailableLabel = new System.Windows.Forms.Label();
+            this.courseListView = new System.Windows.Forms.ListView();
+            this.courseIDHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prefixHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nuberHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sectionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.unitsHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.instructorNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.errorlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.errorlabel);
+            this.panel1.Controls.Add(this.courseListView);
+            this.panel1.Controls.Add(this.unitsBalanceLabel);
+            this.panel1.Controls.Add(this.unitAvailableLabel);
+            this.panel1.Controls.Add(this.allowedUnitsLabel);
+            this.panel1.Controls.Add(this.maxAllowedUnitLabel);
             this.panel1.Controls.Add(this.currentStudentIDForEdit);
             this.panel1.Controls.Add(this.currentStudentIDSetLabel);
             this.panel1.Controls.Add(this.registeredUnitsDisplayLabel);
@@ -61,24 +80,82 @@
             this.panel1.Size = new System.Drawing.Size(932, 634);
             this.panel1.TabIndex = 0;
             // 
-            // registrationDetailsLabel
+            // currentStudentIDForEdit
             // 
-            this.registrationDetailsLabel.AutoSize = true;
-            this.registrationDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrationDetailsLabel.Location = new System.Drawing.Point(3, 10);
-            this.registrationDetailsLabel.Name = "registrationDetailsLabel";
-            this.registrationDetailsLabel.Size = new System.Drawing.Size(284, 20);
-            this.registrationDetailsLabel.TabIndex = 1;
-            this.registrationDetailsLabel.Text = "Registration Details by Student ID";
+            this.currentStudentIDForEdit.AutoSize = true;
+            this.currentStudentIDForEdit.Location = new System.Drawing.Point(678, 46);
+            this.currentStudentIDForEdit.Name = "currentStudentIDForEdit";
+            this.currentStudentIDForEdit.Size = new System.Drawing.Size(13, 13);
+            this.currentStudentIDForEdit.TabIndex = 49;
+            this.currentStudentIDForEdit.Text = "0";
+            this.currentStudentIDForEdit.TextChanged += new System.EventHandler(this.currentStudentIDForEdit_TextChanged);
             // 
-            // semesterLabel
+            // currentStudentIDSetLabel
             // 
-            this.semesterLabel.AutoSize = true;
-            this.semesterLabel.Location = new System.Drawing.Point(20, 43);
-            this.semesterLabel.Name = "semesterLabel";
-            this.semesterLabel.Size = new System.Drawing.Size(51, 13);
-            this.semesterLabel.TabIndex = 3;
-            this.semesterLabel.Text = "Semester";
+            this.currentStudentIDSetLabel.AutoSize = true;
+            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(610, 46);
+            this.currentStudentIDSetLabel.Name = "currentStudentIDSetLabel";
+            this.currentStudentIDSetLabel.Size = new System.Drawing.Size(61, 13);
+            this.currentStudentIDSetLabel.TabIndex = 48;
+            this.currentStudentIDSetLabel.Text = "Student ID:";
+            // 
+            // registeredUnitsDisplayLabel
+            // 
+            this.registeredUnitsDisplayLabel.AutoSize = true;
+            this.registeredUnitsDisplayLabel.Location = new System.Drawing.Point(376, 95);
+            this.registeredUnitsDisplayLabel.Name = "registeredUnitsDisplayLabel";
+            this.registeredUnitsDisplayLabel.Size = new System.Drawing.Size(13, 13);
+            this.registeredUnitsDisplayLabel.TabIndex = 47;
+            this.registeredUnitsDisplayLabel.Text = "0";
+            // 
+            // registeredUnitsLabel
+            // 
+            this.registeredUnitsLabel.AutoSize = true;
+            this.registeredUnitsLabel.Location = new System.Drawing.Point(280, 95);
+            this.registeredUnitsLabel.Name = "registeredUnitsLabel";
+            this.registeredUnitsLabel.Size = new System.Drawing.Size(91, 13);
+            this.registeredUnitsLabel.TabIndex = 46;
+            this.registeredUnitsLabel.Text = "Units Registered: ";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Location = new System.Drawing.Point(473, 38);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.TabIndex = 8;
+            this.clearButton.Text = "Clear";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(379, 38);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 7;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // courseYearPicker
+            // 
+            this.courseYearPicker.CustomFormat = "yyyy";
+            this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.courseYearPicker.Location = new System.Drawing.Point(283, 40);
+            this.courseYearPicker.Name = "courseYearPicker";
+            this.courseYearPicker.ShowUpDown = true;
+            this.courseYearPicker.Size = new System.Drawing.Size(63, 20);
+            this.courseYearPicker.TabIndex = 6;
+            this.courseYearPicker.ValueChanged += new System.EventHandler(this.courseYearPicker_ValueChanged);
+            // 
+            // yearLabel
+            // 
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Location = new System.Drawing.Point(248, 43);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(29, 13);
+            this.yearLabel.TabIndex = 5;
+            this.yearLabel.Text = "Year";
             // 
             // semesterComboBox
             // 
@@ -92,80 +169,117 @@
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(150, 21);
             this.semesterComboBox.TabIndex = 4;
+            this.semesterComboBox.Click += new System.EventHandler(this.semesterComboBox_Click);
             // 
-            // yearLabel
+            // semesterLabel
             // 
-            this.yearLabel.AutoSize = true;
-            this.yearLabel.Location = new System.Drawing.Point(248, 43);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(29, 13);
-            this.yearLabel.TabIndex = 5;
-            this.yearLabel.Text = "Year";
+            this.semesterLabel.AutoSize = true;
+            this.semesterLabel.Location = new System.Drawing.Point(20, 43);
+            this.semesterLabel.Name = "semesterLabel";
+            this.semesterLabel.Size = new System.Drawing.Size(51, 13);
+            this.semesterLabel.TabIndex = 3;
+            this.semesterLabel.Text = "Semester";
             // 
-            // courseYearPicker
+            // registrationDetailsLabel
             // 
-            this.courseYearPicker.CustomFormat = "yyyy";
-            this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.courseYearPicker.Location = new System.Drawing.Point(283, 40);
-            this.courseYearPicker.Name = "courseYearPicker";
-            this.courseYearPicker.ShowUpDown = true;
-            this.courseYearPicker.Size = new System.Drawing.Size(63, 20);
-            this.courseYearPicker.TabIndex = 6;
+            this.registrationDetailsLabel.AutoSize = true;
+            this.registrationDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.registrationDetailsLabel.Location = new System.Drawing.Point(3, 10);
+            this.registrationDetailsLabel.Name = "registrationDetailsLabel";
+            this.registrationDetailsLabel.Size = new System.Drawing.Size(284, 20);
+            this.registrationDetailsLabel.TabIndex = 1;
+            this.registrationDetailsLabel.Text = "Registration Details by Student ID";
             // 
-            // searchButton
+            // allowedUnitsLabel
             // 
-            this.searchButton.Location = new System.Drawing.Point(379, 38);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
-            this.searchButton.TabIndex = 7;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.allowedUnitsLabel.AutoSize = true;
+            this.allowedUnitsLabel.Location = new System.Drawing.Point(224, 95);
+            this.allowedUnitsLabel.Name = "allowedUnitsLabel";
+            this.allowedUnitsLabel.Size = new System.Drawing.Size(13, 13);
+            this.allowedUnitsLabel.TabIndex = 51;
+            this.allowedUnitsLabel.Text = "0";
             // 
-            // clearButton
+            // maxAllowedUnitLabel
             // 
-            this.clearButton.Location = new System.Drawing.Point(473, 38);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 8;
-            this.clearButton.Text = "Clear";
-            this.clearButton.UseVisualStyleBackColor = true;
+            this.maxAllowedUnitLabel.AutoSize = true;
+            this.maxAllowedUnitLabel.Location = new System.Drawing.Point(34, 95);
+            this.maxAllowedUnitLabel.Name = "maxAllowedUnitLabel";
+            this.maxAllowedUnitLabel.Size = new System.Drawing.Size(184, 13);
+            this.maxAllowedUnitLabel.TabIndex = 50;
+            this.maxAllowedUnitLabel.Text = "Maximum Allowed Units per semester:";
             // 
-            // registeredUnitsLabel
+            // unitsBalanceLabel
             // 
-            this.registeredUnitsLabel.AutoSize = true;
-            this.registeredUnitsLabel.Location = new System.Drawing.Point(20, 91);
-            this.registeredUnitsLabel.Name = "registeredUnitsLabel";
-            this.registeredUnitsLabel.Size = new System.Drawing.Size(91, 13);
-            this.registeredUnitsLabel.TabIndex = 46;
-            this.registeredUnitsLabel.Text = "Units Registered: ";
+            this.unitsBalanceLabel.AutoSize = true;
+            this.unitsBalanceLabel.Location = new System.Drawing.Point(525, 95);
+            this.unitsBalanceLabel.Name = "unitsBalanceLabel";
+            this.unitsBalanceLabel.Size = new System.Drawing.Size(13, 13);
+            this.unitsBalanceLabel.TabIndex = 53;
+            this.unitsBalanceLabel.Text = "0";
             // 
-            // registeredUnitsDisplayLabel
+            // unitAvailableLabel
             // 
-            this.registeredUnitsDisplayLabel.AutoSize = true;
-            this.registeredUnitsDisplayLabel.Location = new System.Drawing.Point(117, 91);
-            this.registeredUnitsDisplayLabel.Name = "registeredUnitsDisplayLabel";
-            this.registeredUnitsDisplayLabel.Size = new System.Drawing.Size(13, 13);
-            this.registeredUnitsDisplayLabel.TabIndex = 47;
-            this.registeredUnitsDisplayLabel.Text = "0";
+            this.unitAvailableLabel.AutoSize = true;
+            this.unitAvailableLabel.Location = new System.Drawing.Point(428, 95);
+            this.unitAvailableLabel.Name = "unitAvailableLabel";
+            this.unitAvailableLabel.Size = new System.Drawing.Size(96, 13);
+            this.unitAvailableLabel.TabIndex = 52;
+            this.unitAvailableLabel.Text = "Units still available:";
             // 
-            // currentStudentIDSetLabel
+            // courseListView
             // 
-            this.currentStudentIDSetLabel.AutoSize = true;
-            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(610, 46);
-            this.currentStudentIDSetLabel.Name = "currentStudentIDSetLabel";
-            this.currentStudentIDSetLabel.Size = new System.Drawing.Size(61, 13);
-            this.currentStudentIDSetLabel.TabIndex = 48;
-            this.currentStudentIDSetLabel.Text = "Student ID:";
+            this.courseListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.courseIDHeader,
+            this.prefixHeader,
+            this.nuberHeader,
+            this.sectionHeader,
+            this.titleHeader,
+            this.unitsHeader,
+            this.instructorNameHeader});
+            this.courseListView.HideSelection = false;
+            this.courseListView.Location = new System.Drawing.Point(23, 127);
+            this.courseListView.Name = "courseListView";
+            this.courseListView.Size = new System.Drawing.Size(888, 163);
+            this.courseListView.TabIndex = 54;
+            this.courseListView.UseCompatibleStateImageBehavior = false;
+            this.courseListView.View = System.Windows.Forms.View.Details;
             // 
-            // currentStudentIDForEdit
+            // courseIDHeader
             // 
-            this.currentStudentIDForEdit.AutoSize = true;
-            this.currentStudentIDForEdit.Location = new System.Drawing.Point(678, 46);
-            this.currentStudentIDForEdit.Name = "currentStudentIDForEdit";
-            this.currentStudentIDForEdit.Size = new System.Drawing.Size(13, 13);
-            this.currentStudentIDForEdit.TabIndex = 49;
-            this.currentStudentIDForEdit.Text = "0";
+            this.courseIDHeader.Text = "Course #";
+            // 
+            // prefixHeader
+            // 
+            this.prefixHeader.Text = "Prefix";
+            // 
+            // nuberHeader
+            // 
+            this.nuberHeader.Text = "Number";
+            // 
+            // sectionHeader
+            // 
+            this.sectionHeader.Text = "Section";
+            // 
+            // titleHeader
+            // 
+            this.titleHeader.Text = "Title";
+            // 
+            // unitsHeader
+            // 
+            this.unitsHeader.Text = "Units";
+            // 
+            // instructorNameHeader
+            // 
+            this.instructorNameHeader.Text = "Instructor";
+            // 
+            // errorlabel
+            // 
+            this.errorlabel.AutoSize = true;
+            this.errorlabel.Location = new System.Drawing.Point(23, 79);
+            this.errorlabel.Name = "errorlabel";
+            this.errorlabel.Size = new System.Drawing.Size(10, 13);
+            this.errorlabel.TabIndex = 55;
+            this.errorlabel.Text = "-";
             // 
             // StudentRegistrationDetailsUserControl
             // 
@@ -194,5 +308,18 @@
         private System.Windows.Forms.Label registeredUnitsLabel;
         private System.Windows.Forms.Label currentStudentIDSetLabel;
         private System.Windows.Forms.Label currentStudentIDForEdit;
+        private System.Windows.Forms.Label unitsBalanceLabel;
+        private System.Windows.Forms.Label unitAvailableLabel;
+        private System.Windows.Forms.Label allowedUnitsLabel;
+        private System.Windows.Forms.Label maxAllowedUnitLabel;
+        private System.Windows.Forms.ListView courseListView;
+        private System.Windows.Forms.ColumnHeader courseIDHeader;
+        private System.Windows.Forms.ColumnHeader prefixHeader;
+        private System.Windows.Forms.ColumnHeader nuberHeader;
+        private System.Windows.Forms.ColumnHeader sectionHeader;
+        private System.Windows.Forms.ColumnHeader titleHeader;
+        private System.Windows.Forms.ColumnHeader unitsHeader;
+        private System.Windows.Forms.ColumnHeader instructorNameHeader;
+        private System.Windows.Forms.Label errorlabel;
     }
 }
