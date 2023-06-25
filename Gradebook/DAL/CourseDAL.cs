@@ -373,5 +373,37 @@ namespace Gradebook.DAL
             return courses;
         }
 
+        /// <summary>
+        /// Delete course
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool DeleteCourse(int courseID)
+        {
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string deleteStatement =
+                "DELETE FROM course " +
+                "WHERE courseID = @courseID ";
+
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
+
+            deleteCommand.Parameters.AddWithValue("@courseID", courseID);
+
+            using (deleteCommand)
+            {
+                connection.Open();
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
     }
 }

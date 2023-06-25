@@ -88,5 +88,16 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetCoursesByMultipleParameters(testCourse);
         }
+
+        /// <summary>
+        /// Delete course
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool DeleteCourse(int courseID)
+        {
+            return this._courseDAL.DeleteCourse(courseID);
+        }
     }
 }

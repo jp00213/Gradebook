@@ -70,5 +70,52 @@ namespace Gradebook.UserControls
             this.semesterComboBoxUpdate.Text = viewCourse.Semester;
             this.teacherComboBoxUpdate.SelectedValue = viewCourse.TeacherID;
         }
+
+        private void clearSearchButton_Click(object sender, EventArgs e)
+        {
+            this.ClearSearchDetails();
+        }
+
+        private void deleteCourseButton_Click(object sender, EventArgs e)
+        {
+            Course viewCourse = (Course)this.courseDataGridView.SelectedRows[0].DataBoundItem;
+            if (this._courseController.DeleteCourse(viewCourse.CourseID))
+            {
+                MessageBox.Show("Course deleted");
+                this.ClearCourseDetails();
+            }
+            else
+            {
+                MessageBox.Show("Course was not deleted. Check student registrations.");
+            }
+
+        }
+
+        private void clearCourseButton_Click(object sender, EventArgs e)
+        {
+            this.ClearCourseDetails();
+        }
+
+        private void ClearCourseDetails()
+        {
+            this.nameTextBoxUpdate.Text = "";
+            this.creditHoursComboBoxUpdate.Text = "";
+            this.prefixTextBoxUpdate.Text = "";
+            this.numberTextBoxUpdate.Text = "";
+            this.sectionTextBoxUpdate.Text = "";
+            this.dateTimePickerUpdate.Value = DateTime.Now;
+            this.semesterComboBoxUpdate.SelectedValue = 0;
+            this.teacherComboBoxUpdate.SelectedValue = 0;
+        }
+
+        private void ClearSearchDetails()
+        {
+            this.nameTextBox.Text = "";
+            this.prefixTextBox.Text = "";
+            this.numberTextBox.Text = "";
+            this.courseYearPicker.Value = DateTime.Now;
+            this.semesterComboBox.SelectedIndex = 0;
+            this.teacherComboBox.SelectedIndex = 0;
+        }
     }
 }
