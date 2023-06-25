@@ -109,6 +109,7 @@ namespace Gradebook.DAL
                             CreditHours = (int)(reader)["credithours"],
                             Semester = (string)(reader)["semester"],
                             Year = (int)(reader)["year"],
+                            TeacherID = (int)(reader)["teacherID"],
                         };
                         courses.Add(addCourse);
                     }
