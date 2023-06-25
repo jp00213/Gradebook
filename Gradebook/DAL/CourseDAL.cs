@@ -457,5 +457,45 @@ namespace Gradebook.DAL
 
             }
         }
+
+        /// <summary>
+        /// Get student course weight grade by studentID and courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns></returns>
+        public string GetStudentCourseWeightGradeByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            String grade = "";
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement = "  select  " +
+                                     "  sum(CONVERT(DECIMAL(10,2), (isnull(score, 0) * (isnull(weight,0)/100) ))) as weighted_grade  " +
+                                     "from Grades g, Assignment a  " +
+                                     "where g.assignmentID = a.assignmentID  " +
+                                     "and g.studentID = @studentID  " +
+                                     "and a.courseID = @courseID  ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", gradesSearch.StudentID);
+            selectCommand.Parameters.AddWithValue("@courseID", gradesSearch.CourseID);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        {
+
+
+                            grade = (reader)["weighted_grade"].ToString();
+                        };
+                    }
+                }
+            }
+            return grade;
+        }
     }
 }
