@@ -248,27 +248,35 @@ namespace Gradebook.DAL
         /// <returns>course</returns>
         public List<Course> GetStudentCourseDetailsByTermAndYearAndStudentID(Course searchItems)
         {
-
-
             List<Course> courses = new List<Course>();
 
             SqlConnection connection = GradebookDBConnection.GetConnection();
             string selectStatement =
-                "select *  " +
-                "from course c, StudentsInCourse s , teacher t, person p  " +
-                "where c.courseID = s.courseID " +
-                "and c.teacherID = t.teacherID  " +
-                "and t.recordID = p.recordID  " +
-                "and s.studentID = @studentID " +
-                "and c.semester = @semester " +
-                "and c.year = @year ";
 
+                // this query allows early test record with teacher as null
+                "select c.courseID, c.name, c.prefix, c.number, c.section, c.credithours, c.semester, c.year, isnull(p.firstName, ' Not Assigned ') as firstName, isnull(p.lastName, ' ') as lastName   " +
+                "from  StudentsInCourse s  " +
+                "join  course c on s.courseID = c.courseID  " +
+                "left join teacher t  on c.teacherID = t.teacherID  " +
+                "left join person p on t.recordID = p.recordID  " +
+                "where  s.studentID = @studentID  " +
+                "and c.semester = @semester  " +
+                "and c.year = @year  ";
+            /*
+            "select  *  " +
+            "from course c, StudentsInCourse s , teacher t, person p  " +
+            "where c.courseID = s.courseID " +
+            "and c.teacherID = t.teacherID  " +
+            "and t.recordID = p.recordID  " +
+            "and s.studentID = @studentID " +
+            "and c.semester = @semester " +
+            "and c.year = @year " ;
+              */
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
             selectCommand.Parameters.AddWithValue("@studentID", searchItems.StudentID);
             selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
             selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
-
 
             using (selectCommand)
             {
@@ -294,7 +302,6 @@ namespace Gradebook.DAL
                 }
             }
             return courses;
-
         }
     }
 }

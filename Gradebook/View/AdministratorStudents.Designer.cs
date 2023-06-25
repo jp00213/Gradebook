@@ -31,19 +31,19 @@
             this.administratorStudentTabControl = new System.Windows.Forms.TabControl();
             this.addStudentTabPage = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.addStudentUserControl1 = new Gradebook.UserControls.AddStudentUserControl();
             this.viewStudentTabPage = new System.Windows.Forms.TabPage();
+            this.searchStudentUserControl1 = new Gradebook.UserControls.SearchStudentUserControl();
             this.updateStudentTabPage = new System.Windows.Forms.TabPage();
+            this.viewAndUpdateStudentUserControl1 = new Gradebook.UserControls.ViewAndUpdateStudentUserControl();
             this.changePasswordTagPage = new System.Windows.Forms.TabPage();
+            this.changeStudentPasswordUserControl1 = new Gradebook.UserControls.ChangeStudentPasswordUserControl();
             this.studentReistrationDetailsTablPage = new System.Windows.Forms.TabPage();
+            this.studentRegistrationDetailsUserControl1 = new Gradebook.UserControls.StudentRegistrationDetailsUserControl();
             this.currentStudentIDMasterLabel = new System.Windows.Forms.Label();
             this.currentStudentIDDataLabel = new System.Windows.Forms.Label();
             this.backHomeButton = new System.Windows.Forms.Button();
             this.instructionLabel = new System.Windows.Forms.Label();
-            this.addStudentUserControl1 = new Gradebook.UserControls.AddStudentUserControl();
-            this.searchStudentUserControl1 = new Gradebook.UserControls.SearchStudentUserControl();
-            this.viewAndUpdateStudentUserControl1 = new Gradebook.UserControls.ViewAndUpdateStudentUserControl();
-            this.changeStudentPasswordUserControl1 = new Gradebook.UserControls.ChangeStudentPasswordUserControl();
-            this.studentRegistrationDetailsUserControl1 = new Gradebook.UserControls.StudentRegistrationDetailsUserControl();
             this.administratorStudentTabControl.SuspendLayout();
             this.addStudentTabPage.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
@@ -91,6 +91,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(964, 568);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
+            // addStudentUserControl1
+            // 
+            this.addStudentUserControl1.Location = new System.Drawing.Point(4, 4);
+            this.addStudentUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.addStudentUserControl1.Name = "addStudentUserControl1";
+            this.addStudentUserControl1.Size = new System.Drawing.Size(748, 537);
+            this.addStudentUserControl1.TabIndex = 0;
+            // 
             // viewStudentTabPage
             // 
             this.viewStudentTabPage.Controls.Add(this.searchStudentUserControl1);
@@ -102,6 +110,15 @@
             this.viewStudentTabPage.Text = "View Student";
             this.viewStudentTabPage.UseVisualStyleBackColor = true;
             // 
+            // searchStudentUserControl1
+            // 
+            this.searchStudentUserControl1.Location = new System.Drawing.Point(6, 6);
+            this.searchStudentUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.searchStudentUserControl1.Name = "searchStudentUserControl1";
+            this.searchStudentUserControl1.Size = new System.Drawing.Size(960, 640);
+            this.searchStudentUserControl1.TabIndex = 0;
+            this.searchStudentUserControl1.StudentNumberChanged += new System.EventHandler(this.searchStudentUserControl1_StudentNumberChanged);
+            // 
             // updateStudentTabPage
             // 
             this.updateStudentTabPage.Controls.Add(this.viewAndUpdateStudentUserControl1);
@@ -111,6 +128,14 @@
             this.updateStudentTabPage.TabIndex = 2;
             this.updateStudentTabPage.Text = "Update Student";
             this.updateStudentTabPage.UseVisualStyleBackColor = true;
+            // 
+            // viewAndUpdateStudentUserControl1
+            // 
+            this.viewAndUpdateStudentUserControl1.Location = new System.Drawing.Point(6, 3);
+            this.viewAndUpdateStudentUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.viewAndUpdateStudentUserControl1.Name = "viewAndUpdateStudentUserControl1";
+            this.viewAndUpdateStudentUserControl1.Size = new System.Drawing.Size(960, 640);
+            this.viewAndUpdateStudentUserControl1.TabIndex = 0;
             // 
             // changePasswordTagPage
             // 
@@ -122,6 +147,14 @@
             this.changePasswordTagPage.Text = "Change Password";
             this.changePasswordTagPage.UseVisualStyleBackColor = true;
             // 
+            // changeStudentPasswordUserControl1
+            // 
+            this.changeStudentPasswordUserControl1.Location = new System.Drawing.Point(3, 3);
+            this.changeStudentPasswordUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.changeStudentPasswordUserControl1.Name = "changeStudentPasswordUserControl1";
+            this.changeStudentPasswordUserControl1.Size = new System.Drawing.Size(929, 540);
+            this.changeStudentPasswordUserControl1.TabIndex = 0;
+            // 
             // studentReistrationDetailsTablPage
             // 
             this.studentReistrationDetailsTablPage.Controls.Add(this.studentRegistrationDetailsUserControl1);
@@ -132,6 +165,13 @@
             this.studentReistrationDetailsTablPage.TabIndex = 4;
             this.studentReistrationDetailsTablPage.Text = "Registration Details";
             this.studentReistrationDetailsTablPage.UseVisualStyleBackColor = true;
+            // 
+            // studentRegistrationDetailsUserControl1
+            // 
+            this.studentRegistrationDetailsUserControl1.Location = new System.Drawing.Point(13, 6);
+            this.studentRegistrationDetailsUserControl1.Name = "studentRegistrationDetailsUserControl1";
+            this.studentRegistrationDetailsUserControl1.Size = new System.Drawing.Size(973, 584);
+            this.studentRegistrationDetailsUserControl1.TabIndex = 0;
             // 
             // currentStudentIDMasterLabel
             // 
@@ -172,49 +212,10 @@
             this.instructionLabel.Location = new System.Drawing.Point(148, 16);
             this.instructionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.instructionLabel.Name = "instructionLabel";
-            this.instructionLabel.Size = new System.Drawing.Size(381, 15);
+            this.instructionLabel.Size = new System.Drawing.Size(515, 15);
             this.instructionLabel.TabIndex = 4;
-            this.instructionLabel.Text = "Select student in View tab to use in Update or Change Password tabs";
-            // 
-            // addStudentUserControl1
-            // 
-            this.addStudentUserControl1.Location = new System.Drawing.Point(4, 4);
-            this.addStudentUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.addStudentUserControl1.Name = "addStudentUserControl1";
-            this.addStudentUserControl1.Size = new System.Drawing.Size(748, 537);
-            this.addStudentUserControl1.TabIndex = 0;
-            // 
-            // searchStudentUserControl1
-            // 
-            this.searchStudentUserControl1.Location = new System.Drawing.Point(6, 6);
-            this.searchStudentUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.searchStudentUserControl1.Name = "searchStudentUserControl1";
-            this.searchStudentUserControl1.Size = new System.Drawing.Size(960, 640);
-            this.searchStudentUserControl1.TabIndex = 0;
-            this.searchStudentUserControl1.StudentNumberChanged += new System.EventHandler(this.searchStudentUserControl1_StudentNumberChanged);
-            // 
-            // viewAndUpdateStudentUserControl1
-            // 
-            this.viewAndUpdateStudentUserControl1.Location = new System.Drawing.Point(6, 3);
-            this.viewAndUpdateStudentUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.viewAndUpdateStudentUserControl1.Name = "viewAndUpdateStudentUserControl1";
-            this.viewAndUpdateStudentUserControl1.Size = new System.Drawing.Size(960, 640);
-            this.viewAndUpdateStudentUserControl1.TabIndex = 0;
-            // 
-            // changeStudentPasswordUserControl1
-            // 
-            this.changeStudentPasswordUserControl1.Location = new System.Drawing.Point(3, 3);
-            this.changeStudentPasswordUserControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.changeStudentPasswordUserControl1.Name = "changeStudentPasswordUserControl1";
-            this.changeStudentPasswordUserControl1.Size = new System.Drawing.Size(929, 540);
-            this.changeStudentPasswordUserControl1.TabIndex = 0;
-            // 
-            // studentRegistrationDetailsUserControl1
-            // 
-            this.studentRegistrationDetailsUserControl1.Location = new System.Drawing.Point(13, 6);
-            this.studentRegistrationDetailsUserControl1.Name = "studentRegistrationDetailsUserControl1";
-            this.studentRegistrationDetailsUserControl1.Size = new System.Drawing.Size(973, 584);
-            this.studentRegistrationDetailsUserControl1.TabIndex = 0;
+            this.instructionLabel.Text = "Select student in View Tab to use in Update, Change Password, and Registration De" +
+    "tails Tabs";
             // 
             // AdministratorStudents
             // 
