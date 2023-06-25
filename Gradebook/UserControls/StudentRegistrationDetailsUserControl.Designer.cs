@@ -29,6 +29,19 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.errorlabel = new System.Windows.Forms.Label();
+            this.courseListView = new System.Windows.Forms.ListView();
+            this.courseIDHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prefixHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nuberHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sectionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.unitsHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.instructorNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.unitsBalanceLabel = new System.Windows.Forms.Label();
+            this.unitAvailableLabel = new System.Windows.Forms.Label();
+            this.allowedUnitsLabel = new System.Windows.Forms.Label();
+            this.maxAllowedUnitLabel = new System.Windows.Forms.Label();
             this.currentStudentIDForEdit = new System.Windows.Forms.Label();
             this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
             this.registeredUnitsDisplayLabel = new System.Windows.Forms.Label();
@@ -40,19 +53,6 @@
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.semesterLabel = new System.Windows.Forms.Label();
             this.registrationDetailsLabel = new System.Windows.Forms.Label();
-            this.allowedUnitsLabel = new System.Windows.Forms.Label();
-            this.maxAllowedUnitLabel = new System.Windows.Forms.Label();
-            this.unitsBalanceLabel = new System.Windows.Forms.Label();
-            this.unitAvailableLabel = new System.Windows.Forms.Label();
-            this.courseListView = new System.Windows.Forms.ListView();
-            this.courseIDHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.prefixHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nuberHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.sectionHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.titleHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.unitsHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.instructorNameHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.errorlabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,99 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(932, 634);
             this.panel1.TabIndex = 0;
+            // 
+            // errorlabel
+            // 
+            this.errorlabel.AutoSize = true;
+            this.errorlabel.Location = new System.Drawing.Point(23, 79);
+            this.errorlabel.Name = "errorlabel";
+            this.errorlabel.Size = new System.Drawing.Size(10, 13);
+            this.errorlabel.TabIndex = 55;
+            this.errorlabel.Text = "-";
+            // 
+            // courseListView
+            // 
+            this.courseListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.courseIDHeader,
+            this.prefixHeader,
+            this.nuberHeader,
+            this.sectionHeader,
+            this.titleHeader,
+            this.unitsHeader,
+            this.instructorNameHeader});
+            this.courseListView.HideSelection = false;
+            this.courseListView.Location = new System.Drawing.Point(23, 127);
+            this.courseListView.Name = "courseListView";
+            this.courseListView.Size = new System.Drawing.Size(888, 163);
+            this.courseListView.TabIndex = 54;
+            this.courseListView.UseCompatibleStateImageBehavior = false;
+            this.courseListView.View = System.Windows.Forms.View.Details;
+            // 
+            // courseIDHeader
+            // 
+            this.courseIDHeader.Text = "Course #";
+            // 
+            // prefixHeader
+            // 
+            this.prefixHeader.Text = "Prefix";
+            // 
+            // nuberHeader
+            // 
+            this.nuberHeader.Text = "Number";
+            // 
+            // sectionHeader
+            // 
+            this.sectionHeader.Text = "Section";
+            // 
+            // titleHeader
+            // 
+            this.titleHeader.Text = "Title";
+            this.titleHeader.Width = 200;
+            // 
+            // unitsHeader
+            // 
+            this.unitsHeader.Text = "Units";
+            // 
+            // instructorNameHeader
+            // 
+            this.instructorNameHeader.Text = "Instructor";
+            this.instructorNameHeader.Width = 200;
+            // 
+            // unitsBalanceLabel
+            // 
+            this.unitsBalanceLabel.AutoSize = true;
+            this.unitsBalanceLabel.Location = new System.Drawing.Point(525, 95);
+            this.unitsBalanceLabel.Name = "unitsBalanceLabel";
+            this.unitsBalanceLabel.Size = new System.Drawing.Size(13, 13);
+            this.unitsBalanceLabel.TabIndex = 53;
+            this.unitsBalanceLabel.Text = "0";
+            // 
+            // unitAvailableLabel
+            // 
+            this.unitAvailableLabel.AutoSize = true;
+            this.unitAvailableLabel.Location = new System.Drawing.Point(428, 95);
+            this.unitAvailableLabel.Name = "unitAvailableLabel";
+            this.unitAvailableLabel.Size = new System.Drawing.Size(96, 13);
+            this.unitAvailableLabel.TabIndex = 52;
+            this.unitAvailableLabel.Text = "Units still available:";
+            // 
+            // allowedUnitsLabel
+            // 
+            this.allowedUnitsLabel.AutoSize = true;
+            this.allowedUnitsLabel.Location = new System.Drawing.Point(224, 95);
+            this.allowedUnitsLabel.Name = "allowedUnitsLabel";
+            this.allowedUnitsLabel.Size = new System.Drawing.Size(13, 13);
+            this.allowedUnitsLabel.TabIndex = 51;
+            this.allowedUnitsLabel.Text = "0";
+            // 
+            // maxAllowedUnitLabel
+            // 
+            this.maxAllowedUnitLabel.AutoSize = true;
+            this.maxAllowedUnitLabel.Location = new System.Drawing.Point(34, 95);
+            this.maxAllowedUnitLabel.Name = "maxAllowedUnitLabel";
+            this.maxAllowedUnitLabel.Size = new System.Drawing.Size(184, 13);
+            this.maxAllowedUnitLabel.TabIndex = 50;
+            this.maxAllowedUnitLabel.Text = "Maximum Allowed Units per semester:";
             // 
             // currentStudentIDForEdit
             // 
@@ -189,97 +282,6 @@
             this.registrationDetailsLabel.Size = new System.Drawing.Size(284, 20);
             this.registrationDetailsLabel.TabIndex = 1;
             this.registrationDetailsLabel.Text = "Registration Details by Student ID";
-            // 
-            // allowedUnitsLabel
-            // 
-            this.allowedUnitsLabel.AutoSize = true;
-            this.allowedUnitsLabel.Location = new System.Drawing.Point(224, 95);
-            this.allowedUnitsLabel.Name = "allowedUnitsLabel";
-            this.allowedUnitsLabel.Size = new System.Drawing.Size(13, 13);
-            this.allowedUnitsLabel.TabIndex = 51;
-            this.allowedUnitsLabel.Text = "0";
-            // 
-            // maxAllowedUnitLabel
-            // 
-            this.maxAllowedUnitLabel.AutoSize = true;
-            this.maxAllowedUnitLabel.Location = new System.Drawing.Point(34, 95);
-            this.maxAllowedUnitLabel.Name = "maxAllowedUnitLabel";
-            this.maxAllowedUnitLabel.Size = new System.Drawing.Size(184, 13);
-            this.maxAllowedUnitLabel.TabIndex = 50;
-            this.maxAllowedUnitLabel.Text = "Maximum Allowed Units per semester:";
-            // 
-            // unitsBalanceLabel
-            // 
-            this.unitsBalanceLabel.AutoSize = true;
-            this.unitsBalanceLabel.Location = new System.Drawing.Point(525, 95);
-            this.unitsBalanceLabel.Name = "unitsBalanceLabel";
-            this.unitsBalanceLabel.Size = new System.Drawing.Size(13, 13);
-            this.unitsBalanceLabel.TabIndex = 53;
-            this.unitsBalanceLabel.Text = "0";
-            // 
-            // unitAvailableLabel
-            // 
-            this.unitAvailableLabel.AutoSize = true;
-            this.unitAvailableLabel.Location = new System.Drawing.Point(428, 95);
-            this.unitAvailableLabel.Name = "unitAvailableLabel";
-            this.unitAvailableLabel.Size = new System.Drawing.Size(96, 13);
-            this.unitAvailableLabel.TabIndex = 52;
-            this.unitAvailableLabel.Text = "Units still available:";
-            // 
-            // courseListView
-            // 
-            this.courseListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.courseIDHeader,
-            this.prefixHeader,
-            this.nuberHeader,
-            this.sectionHeader,
-            this.titleHeader,
-            this.unitsHeader,
-            this.instructorNameHeader});
-            this.courseListView.HideSelection = false;
-            this.courseListView.Location = new System.Drawing.Point(23, 127);
-            this.courseListView.Name = "courseListView";
-            this.courseListView.Size = new System.Drawing.Size(888, 163);
-            this.courseListView.TabIndex = 54;
-            this.courseListView.UseCompatibleStateImageBehavior = false;
-            this.courseListView.View = System.Windows.Forms.View.Details;
-            // 
-            // courseIDHeader
-            // 
-            this.courseIDHeader.Text = "Course #";
-            // 
-            // prefixHeader
-            // 
-            this.prefixHeader.Text = "Prefix";
-            // 
-            // nuberHeader
-            // 
-            this.nuberHeader.Text = "Number";
-            // 
-            // sectionHeader
-            // 
-            this.sectionHeader.Text = "Section";
-            // 
-            // titleHeader
-            // 
-            this.titleHeader.Text = "Title";
-            // 
-            // unitsHeader
-            // 
-            this.unitsHeader.Text = "Units";
-            // 
-            // instructorNameHeader
-            // 
-            this.instructorNameHeader.Text = "Instructor";
-            // 
-            // errorlabel
-            // 
-            this.errorlabel.AutoSize = true;
-            this.errorlabel.Location = new System.Drawing.Point(23, 79);
-            this.errorlabel.Name = "errorlabel";
-            this.errorlabel.Size = new System.Drawing.Size(10, 13);
-            this.errorlabel.TabIndex = 55;
-            this.errorlabel.Text = "-";
             // 
             // StudentRegistrationDetailsUserControl
             // 
