@@ -78,5 +78,15 @@ namespace Gradebook.Controller
 
 
         }
+
+        /// <summary>
+        /// Get courses by many combinations of parameters
+        /// </summary>
+        /// <param name="testCourse"></param>
+        /// <returns></returns>
+        public List<Course> GetCoursesByMultipleParameters(Course testCourse)
+        {
+            return this._courseDAL.GetCoursesByMultipleParameters(testCourse);
+        }
     }
 }

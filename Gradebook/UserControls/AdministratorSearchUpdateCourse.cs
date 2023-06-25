@@ -42,7 +42,17 @@ namespace Gradebook.UserControls
         {
             try
             {
-                this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemester(this.semesterComboBox.Text, this.courseYearPicker.Value.Year);
+                Course parameters = new Course
+                {
+                    Name = this.nameTextBox.Text,
+                    Prefix = this.prefixTextBox.Text,
+                    Number = this.numberTextBox.Text,
+                    Year = this.courseYearPicker.Value.Year,
+                    Semester = this.semesterComboBox.Text,
+                    TeacherID = (int)this.teacherComboBox.SelectedValue
+                };
+
+                this.courseDataGridView.DataSource = this._courseController.GetCoursesByMultipleParameters(parameters);
             }
             catch { }
         }

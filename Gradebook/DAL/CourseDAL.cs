@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Gradebook.DAL
 {
@@ -304,5 +305,73 @@ namespace Gradebook.DAL
             }
             return courses;
         }
+
+        /// <summary>
+        /// Returns all courses in a particular year and semester
+        /// </summary>
+        /// <param name="semester"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public List<Course> GetCoursesByMultipleParameters(Course testCourse)
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM course WHERE 1=1 ";
+            if (!string.IsNullOrEmpty(testCourse.Name)) { selectStatement += "AND name LIKE @name "; }
+            if (!string.IsNullOrEmpty(testCourse.Semester)) { selectStatement += "AND semester = @semester "; }
+            if (testCourse.Year != 0) { selectStatement += "AND year = @year "; }
+            if (!string.IsNullOrEmpty(testCourse.Prefix)) { selectStatement += "AND prefix = @prefix "; }
+            if (!string.IsNullOrEmpty(testCourse.Number)) { selectStatement += "AND number = @number "; }
+            if (testCourse.TeacherID != 0) { selectStatement += "AND teacherID = @teacherID "; }
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@name", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@name"].Value = "%" + testCourse.Name + "%";
+
+            selectCommand.Parameters.Add("@semester", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@semester"].Value = testCourse.Semester;
+
+            selectCommand.Parameters.Add("@year", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@year"].Value = testCourse.Year;
+
+            selectCommand.Parameters.Add("@prefix", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@prefix"].Value = testCourse.Prefix;
+
+            selectCommand.Parameters.Add("@number", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@number"].Value = testCourse.Number;
+
+            selectCommand.Parameters.Add("@teacherID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@teacherID"].Value = testCourse.TeacherID;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                            TeacherID = (int)(reader)["teacherID"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
+
     }
 }
