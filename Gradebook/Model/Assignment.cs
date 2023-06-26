@@ -10,9 +10,8 @@
         public string description { get; set; }
         public decimal weight { get; set; }
 
-        public Assignment(int assignmentID, int courseID, string description, decimal weight)
+        public Assignment(int courseID, string description, decimal weight)
         {
-            this.assignmentID = assignmentID;
             this.courseID = courseID;
             this.description = description;
             this.weight = weight;
