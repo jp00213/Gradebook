@@ -5,16 +5,17 @@
     /// </summary>
     public class Assignment
     {
-        public int assignmentID { get; set; }
-        public int courseID { get; set; }
-        public string description { get; set; }
-        public decimal weight { get; set; }
+        public int AssignmentID { get; set; }
+        public int CourseID { get; set; }
+        public string Description { get; set; }
+        public decimal Weight { get; set; }
 
-        public Assignment(int courseID, string description, decimal weight)
+        public Assignment(int assignmentID, int courseID, string description, decimal weight)
         {
-            this.courseID = courseID;
-            this.description = description;
-            this.weight = weight;
+           this.AssignmentID = assignmentID;
+            this.CourseID = courseID;
+            this.Description = description;
+            this.Weight = weight;
         }
     }
 
