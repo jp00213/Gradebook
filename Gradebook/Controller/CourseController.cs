@@ -66,5 +66,10 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetCourseList();
         }
+
+        public Course GetCourseByName(string name) 
+        {
+            return this._courseDAL.GetCourseByName(name);
+        }
     }
 }
