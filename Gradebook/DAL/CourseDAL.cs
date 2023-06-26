@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Windows.Forms;
 
 namespace Gradebook.DAL
 {
@@ -496,6 +495,111 @@ namespace Gradebook.DAL
                 }
             }
             return grade;
+        }
+
+        /// <summary>
+        /// Updates a course
+        /// </summary>
+        /// <param name="updateCourse"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool UpdateCourse(Course updateCourse, Course oldCourse)
+        {
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string insertStatement =
+                "UPDATE course " +
+                "SET name = @name, prefix = @prefix, number = @number, section = @section, " +
+                "creditHours = @credithours, semester = @semester, year = @year, teacherID = @teacherID " +
+                "WHERE courseID = @courseID AND " +
+                "name = @oldName AND prefix = @oldPrefix AND number = @oldNumber AND section = @oldSection AND " +
+                "creditHours = @oldCredithours AND semester = @oldSemester AND year = @oldYear AND teacherID = @oldTeacherID ";
+
+            SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
+
+            insertCommand.Parameters.Add("@name", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@name"].Value = updateCourse.Name;
+
+            insertCommand.Parameters.Add("@prefix", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@prefix"].Value = updateCourse.Prefix;
+
+            insertCommand.Parameters.Add("@number", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@number"].Value = updateCourse.Number;
+
+            insertCommand.Parameters.Add("@section", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@section"].Value = updateCourse.Section;
+
+            insertCommand.Parameters.Add("@credithours", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@credithours"].Value = updateCourse.CreditHours;
+
+            insertCommand.Parameters.Add("@semester", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@semester"].Value = updateCourse.Semester;
+
+            insertCommand.Parameters.Add("@year", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@year"].Value = updateCourse.Year;
+
+            insertCommand.Parameters.Add("@teacherID", System.Data.SqlDbType.Int);
+            if (updateCourse.TeacherID == 0)
+            {
+                insertCommand.Parameters["@teacherID"].Value = DBNull.Value;
+            }
+            else
+            {
+                insertCommand.Parameters["@teacherID"].Value = updateCourse.TeacherID;
+            }
+
+            insertCommand.Parameters.Add("@oldName", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@oldName"].Value = oldCourse.Name;
+
+            insertCommand.Parameters.Add("@oldPrefix", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@oldPrefix"].Value = oldCourse.Prefix;
+
+            insertCommand.Parameters.Add("@oldNumber", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@oldNumber"].Value = oldCourse.Number;
+
+            insertCommand.Parameters.Add("@oldSection", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@oldSection"].Value = oldCourse.Section;
+
+            insertCommand.Parameters.Add("@oldCredithours", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@oldCredithours"].Value = oldCourse.CreditHours;
+
+            insertCommand.Parameters.Add("@oldSemester", System.Data.SqlDbType.VarChar);
+            insertCommand.Parameters["@oldSemester"].Value = oldCourse.Semester;
+
+            insertCommand.Parameters.Add("@oldYear", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@oldYear"].Value = oldCourse.Year;
+
+            insertCommand.Parameters.Add("@oldTeacherID", System.Data.SqlDbType.Int);
+            if (updateCourse.TeacherID == 0)
+            {
+                insertCommand.Parameters["@oldTeacherID"].Value = DBNull.Value;
+            }
+            else
+            {
+                insertCommand.Parameters["@oldTeacherID"].Value = oldCourse.TeacherID;
+            }
+
+
+
+
+
+            insertCommand.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
+            insertCommand.Parameters["@courseID"].Value = oldCourse.CourseID;
+
+            using (insertCommand)
+            {
+                connection.Open();
+                int rowsAffected = insertCommand.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+
         }
     }
 }

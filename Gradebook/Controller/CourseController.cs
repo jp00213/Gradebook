@@ -119,5 +119,16 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetStudentCourseWeightGradeByStudentIDAndCourseID(gradesSearch);
         }
+
+        /// <summary>
+        /// Updates a course
+        /// </summary>
+        /// <param name="updateCourse"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool UpdateCourse(Course updateCourse, Course oldCourse)
+        {
+            return this._courseDAL.UpdateCourse(updateCourse, oldCourse);
+        }
     }
 }

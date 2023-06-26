@@ -1,4 +1,5 @@
 ﻿using Gradebook.Controller;
+using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Windows.Forms;
@@ -116,6 +117,111 @@ namespace Gradebook.UserControls
             this.courseYearPicker.Value = DateTime.Now;
             this.semesterComboBox.SelectedIndex = 0;
             this.teacherComboBox.SelectedIndex = 0;
+        }
+
+        private void updateCourseButton_Click(object sender, EventArgs e)
+        {
+            Course updateCourse = new Course();
+            if (string.IsNullOrEmpty(this.nameTextBoxUpdate.Text) || !ValidationUtility.IsBetweenNumberOfCharacters(1, 3, this.prefixTextBoxUpdate.Text) ||
+                !ValidationUtility.IsBetweenNumberOfCharacters(1, 4, this.numberTextBoxUpdate.Text) || !ValidationUtility.IsInt32(this.sectionTextBoxUpdate.Text) ||
+                !ValidationUtility.IsInt32(this.creditHoursComboBoxUpdate.Text) || string.IsNullOrEmpty(this.semesterComboBoxUpdate.Text) ||
+                string.IsNullOrEmpty(this.dateTimePickerUpdate.Value.Year.ToString()) || this.teacherComboBoxUpdate.SelectedValue == null)
+            {
+                this.ValidateDataEntry();
+            }
+            else
+            {
+                Course oldCourse = (Course)this.courseDataGridView.SelectedRows[0].DataBoundItem;
+                updateCourse.Name = this.nameTextBoxUpdate.Text;
+                updateCourse.Prefix = this.prefixTextBoxUpdate.Text;
+                updateCourse.Number = this.numberTextBoxUpdate.Text;
+                if (Int32.TryParse(this.sectionTextBoxUpdate.Text, out int section))
+                {
+                    updateCourse.Section = section;
+                }
+                if (Int32.TryParse(this.creditHoursComboBoxUpdate.Text, out int credit))
+                {
+                    updateCourse.CreditHours = credit;
+                }
+                updateCourse.Semester = this.semesterComboBoxUpdate.Text;
+                updateCourse.Year = this.dateTimePickerUpdate.Value.Year;
+                updateCourse.TeacherID = (int)this.teacherComboBoxUpdate.SelectedValue;
+
+                // Chiaosy iteration 2 
+                string currentTeacher_ID = this.teacherComboBox.SelectedValue.ToString();
+                                Teacher theTeacher = this._teacherController.GetTeacherByID(Int32.Parse(currentTeacher_ID));
+                if (theTeacher.ActiveStatus != 1)
+                {
+                    MessageBox.Show("The Teacher status is disabled. Please check teacher status first.");
+                    return;
+                }
+                // end iteration 2 modification
+
+                if (this._courseController.UpdateCourse(updateCourse, oldCourse))
+                {
+                    MessageBox.Show("Course Successfully Updated");
+                }
+                else
+                {
+                    MessageBox.Show("Course was not updated, check data and try again");
+                }
+            }
+        }
+
+        private Boolean ValidateDataEntry()
+        {
+            Boolean status = false;
+            if (string.IsNullOrEmpty(this.nameTextBoxUpdate.Text))
+            {
+                this.nameErrorLabel.Text = "Name cannot be empty";
+            }
+            if (!ValidationUtility.IsBetweenNumberOfCharacters(1, 3, this.prefixTextBoxUpdate.Text))
+            {
+                this.prefixErrorLabel.Text = "Prefix must be between 1 and 3 characters";
+            }
+            if (!ValidationUtility.IsBetweenNumberOfCharacters(1, 4, this.numberTextBoxUpdate.Text))
+            {
+                this.numberErrorLabel.Text = "Number must be between 1 and 4 characters";
+            }
+            if (!ValidationUtility.IsInt32(this.sectionTextBoxUpdate.Text))
+            {
+                this.sectionErrorLabel.Text = "Section must be a number";
+            }
+            if (!ValidationUtility.IsInt32(this.creditHoursComboBoxUpdate.Text))
+            {
+                this.creditErrorLabel.Text = "Credit hours must be a number";
+            }
+            if (string.IsNullOrEmpty(this.semesterComboBoxUpdate.Text))
+            {
+                this.semesterErrorLabel.Text = "Semester cannot be empty";
+            }
+            if (string.IsNullOrEmpty(this.dateTimePickerUpdate.Value.Year.ToString()))
+            {
+                this.yearErrorLabel.Text = "Year cannot be empty";
+            }
+            if (this.teacherComboBoxUpdate.SelectedValue == null)
+            {
+                this.teacherErrorLabel.Text = "Teacher cannot be empty";
+            }
+
+            return status;
+        }
+
+        private void ResetErrorMessages()
+        {
+            this.nameErrorLabel.Text = string.Empty;
+            this.prefixErrorLabel.Text = string.Empty;
+            this.numberErrorLabel.Text = string.Empty;
+            this.sectionErrorLabel.Text = string.Empty;
+            this.semesterErrorLabel.Text = string.Empty;
+            this.creditErrorLabel.Text = string.Empty;
+            this.teacherErrorLabel.Text = string.Empty;
+            this.yearErrorLabel.Text = string.Empty;
+        }
+
+        private void nameTextBoxUpdate_TextChanged(object sender, EventArgs e)
+        {
+            this.ResetErrorMessages();
         }
     }
 }

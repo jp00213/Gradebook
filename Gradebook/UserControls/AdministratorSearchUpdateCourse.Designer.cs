@@ -43,7 +43,16 @@
             this.semesterLabel = new System.Windows.Forms.Label();
             this.searchCourseButton = new System.Windows.Forms.Button();
             this.courseDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TeacherID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.numberTextBox = new System.Windows.Forms.TextBox();
             this.prefixTextBox = new System.Windows.Forms.TextBox();
             this.nameTextBox = new System.Windows.Forms.TextBox();
@@ -63,16 +72,15 @@
             this.updateCourseButton = new System.Windows.Forms.Button();
             this.deleteCourseButton = new System.Windows.Forms.Button();
             this.clearSearchButton = new System.Windows.Forms.Button();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clearCourseButton = new System.Windows.Forms.Button();
+            this.teacherErrorLabel = new System.Windows.Forms.Label();
+            this.yearErrorLabel = new System.Windows.Forms.Label();
+            this.creditErrorLabel = new System.Windows.Forms.Label();
+            this.numberErrorLabel = new System.Windows.Forms.Label();
+            this.semesterErrorLabel = new System.Windows.Forms.Label();
+            this.sectionErrorLabel = new System.Windows.Forms.Label();
+            this.prefixErrorLabel = new System.Windows.Forms.Label();
+            this.nameErrorLabel = new System.Windows.Forms.Label();
             creditHoursLabelUpdate = new System.Windows.Forms.Label();
             nameLabelUpdate = new System.Windows.Forms.Label();
             numberLabelUpdate = new System.Windows.Forms.Label();
@@ -250,6 +258,76 @@
             this.courseDataGridView.TabIndex = 25;
             this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "CourseID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "CourseID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 92;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 73;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prefix";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Prefix";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 69;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Number";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Number";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 84;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Section";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Section";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 81;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Semester";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Semester";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 94;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Year";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Year";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 65;
+            // 
             // TeacherID
             // 
             this.TeacherID.DataPropertyName = "TeacherID";
@@ -258,6 +336,20 @@
             this.TeacherID.Name = "TeacherID";
             this.TeacherID.ReadOnly = true;
             this.TeacherID.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "TeacherFullName";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Teacher";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 87;
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
             // 
             // numberTextBox
             // 
@@ -340,6 +432,7 @@
             this.nameTextBoxUpdate.Name = "nameTextBoxUpdate";
             this.nameTextBoxUpdate.Size = new System.Drawing.Size(529, 30);
             this.nameTextBoxUpdate.TabIndex = 36;
+            this.nameTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // numberTextBoxUpdate
             // 
@@ -349,6 +442,7 @@
             this.numberTextBoxUpdate.Name = "numberTextBoxUpdate";
             this.numberTextBoxUpdate.Size = new System.Drawing.Size(200, 30);
             this.numberTextBoxUpdate.TabIndex = 38;
+            this.numberTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // prefixTextBoxUpdate
             // 
@@ -358,6 +452,7 @@
             this.prefixTextBoxUpdate.Name = "prefixTextBoxUpdate";
             this.prefixTextBoxUpdate.Size = new System.Drawing.Size(200, 30);
             this.prefixTextBoxUpdate.TabIndex = 40;
+            this.prefixTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // sectionTextBoxUpdate
             // 
@@ -367,6 +462,7 @@
             this.sectionTextBoxUpdate.Name = "sectionTextBoxUpdate";
             this.sectionTextBoxUpdate.Size = new System.Drawing.Size(200, 30);
             this.sectionTextBoxUpdate.TabIndex = 42;
+            this.sectionTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // teacherComboBoxUpdate
             // 
@@ -389,6 +485,7 @@
             this.dateTimePickerUpdate.ShowUpDown = true;
             this.dateTimePickerUpdate.Size = new System.Drawing.Size(200, 30);
             this.dateTimePickerUpdate.TabIndex = 49;
+            this.dateTimePickerUpdate.ValueChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // semesterComboBoxUpdate
             // 
@@ -403,6 +500,7 @@
             this.semesterComboBoxUpdate.Name = "semesterComboBoxUpdate";
             this.semesterComboBoxUpdate.Size = new System.Drawing.Size(240, 33);
             this.semesterComboBoxUpdate.TabIndex = 50;
+            this.semesterComboBoxUpdate.SelectedIndexChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // creditHoursComboBoxUpdate
             // 
@@ -420,6 +518,7 @@
             this.creditHoursComboBoxUpdate.Name = "creditHoursComboBoxUpdate";
             this.creditHoursComboBoxUpdate.Size = new System.Drawing.Size(200, 33);
             this.creditHoursComboBoxUpdate.TabIndex = 51;
+            this.creditHoursComboBoxUpdate.SelectedIndexChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // updateCourseButton
             // 
@@ -430,6 +529,7 @@
             this.updateCourseButton.TabIndex = 52;
             this.updateCourseButton.Text = "Update Course";
             this.updateCourseButton.UseVisualStyleBackColor = true;
+            this.updateCourseButton.Click += new System.EventHandler(this.updateCourseButton_Click);
             // 
             // deleteCourseButton
             // 
@@ -454,90 +554,6 @@
             this.clearSearchButton.UseVisualStyleBackColor = true;
             this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
             // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "CourseID";
-            this.dataGridViewTextBoxColumn1.HeaderText = "CourseID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 92;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 73;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prefix";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Prefix";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 69;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Number";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Number";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 84;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Section";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Section";
-            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 81;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Semester";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Semester";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 94;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Year";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Year";
-            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 65;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "TeacherFullName";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Teacher";
-            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 87;
-            // 
             // clearCourseButton
             // 
             this.clearCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -549,10 +565,106 @@
             this.clearCourseButton.UseVisualStyleBackColor = true;
             this.clearCourseButton.Click += new System.EventHandler(this.clearCourseButton_Click);
             // 
+            // teacherErrorLabel
+            // 
+            this.teacherErrorLabel.AutoSize = true;
+            this.teacherErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.teacherErrorLabel.Location = new System.Drawing.Point(836, 455);
+            this.teacherErrorLabel.Name = "teacherErrorLabel";
+            this.teacherErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.teacherErrorLabel.TabIndex = 68;
+            this.teacherErrorLabel.Text = "  ";
+            // 
+            // yearErrorLabel
+            // 
+            this.yearErrorLabel.AutoSize = true;
+            this.yearErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.yearErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.yearErrorLabel.Location = new System.Drawing.Point(128, 454);
+            this.yearErrorLabel.Name = "yearErrorLabel";
+            this.yearErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.yearErrorLabel.TabIndex = 67;
+            this.yearErrorLabel.Text = "  ";
+            // 
+            // creditErrorLabel
+            // 
+            this.creditErrorLabel.AutoSize = true;
+            this.creditErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creditErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.creditErrorLabel.Location = new System.Drawing.Point(836, 327);
+            this.creditErrorLabel.Name = "creditErrorLabel";
+            this.creditErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.creditErrorLabel.TabIndex = 66;
+            this.creditErrorLabel.Text = "  ";
+            // 
+            // numberErrorLabel
+            // 
+            this.numberErrorLabel.AutoSize = true;
+            this.numberErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.numberErrorLabel.Location = new System.Drawing.Point(458, 387);
+            this.numberErrorLabel.Name = "numberErrorLabel";
+            this.numberErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.numberErrorLabel.TabIndex = 65;
+            this.numberErrorLabel.Text = "  ";
+            // 
+            // semesterErrorLabel
+            // 
+            this.semesterErrorLabel.AutoSize = true;
+            this.semesterErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.semesterErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.semesterErrorLabel.Location = new System.Drawing.Point(458, 454);
+            this.semesterErrorLabel.Name = "semesterErrorLabel";
+            this.semesterErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.semesterErrorLabel.TabIndex = 64;
+            this.semesterErrorLabel.Text = "  ";
+            // 
+            // sectionErrorLabel
+            // 
+            this.sectionErrorLabel.AutoSize = true;
+            this.sectionErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.sectionErrorLabel.Location = new System.Drawing.Point(836, 387);
+            this.sectionErrorLabel.Name = "sectionErrorLabel";
+            this.sectionErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.sectionErrorLabel.TabIndex = 63;
+            this.sectionErrorLabel.Text = "  ";
+            // 
+            // prefixErrorLabel
+            // 
+            this.prefixErrorLabel.AutoSize = true;
+            this.prefixErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prefixErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.prefixErrorLabel.Location = new System.Drawing.Point(128, 387);
+            this.prefixErrorLabel.Name = "prefixErrorLabel";
+            this.prefixErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.prefixErrorLabel.TabIndex = 62;
+            this.prefixErrorLabel.Text = "  ";
+            // 
+            // nameErrorLabel
+            // 
+            this.nameErrorLabel.AutoSize = true;
+            this.nameErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.nameErrorLabel.Location = new System.Drawing.Point(128, 331);
+            this.nameErrorLabel.Name = "nameErrorLabel";
+            this.nameErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.nameErrorLabel.TabIndex = 61;
+            this.nameErrorLabel.Text = "  ";
+            // 
             // AdministratorSearchUpdateCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.teacherErrorLabel);
+            this.Controls.Add(this.yearErrorLabel);
+            this.Controls.Add(this.creditErrorLabel);
+            this.Controls.Add(this.numberErrorLabel);
+            this.Controls.Add(this.semesterErrorLabel);
+            this.Controls.Add(this.sectionErrorLabel);
+            this.Controls.Add(this.prefixErrorLabel);
+            this.Controls.Add(this.nameErrorLabel);
             this.Controls.Add(this.clearCourseButton);
             this.Controls.Add(this.clearSearchButton);
             this.Controls.Add(this.deleteCourseButton);
@@ -588,7 +700,7 @@
             this.Controls.Add(this.semesterLabel);
             this.Controls.Add(this.searchCourseButton);
             this.Name = "AdministratorSearchUpdateCourse";
-            this.Size = new System.Drawing.Size(1320, 549);
+            this.Size = new System.Drawing.Size(1338, 519);
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -634,5 +746,13 @@
         private System.Windows.Forms.Button deleteCourseButton;
         private System.Windows.Forms.Button clearSearchButton;
         private System.Windows.Forms.Button clearCourseButton;
+        private System.Windows.Forms.Label teacherErrorLabel;
+        private System.Windows.Forms.Label yearErrorLabel;
+        private System.Windows.Forms.Label creditErrorLabel;
+        private System.Windows.Forms.Label numberErrorLabel;
+        private System.Windows.Forms.Label semesterErrorLabel;
+        private System.Windows.Forms.Label sectionErrorLabel;
+        private System.Windows.Forms.Label prefixErrorLabel;
+        private System.Windows.Forms.Label nameErrorLabel;
     }
 }
