@@ -64,10 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\AssignmentController.cs" />
     <Compile Include="Controller\CourseController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
+    <Compile Include="DAL\AssignmentDAL.cs" />
     <Compile Include="DAL\CourseDAL.cs" />
     <Compile Include="DAL\GradebookDBConnection.cs" />
     <Compile Include="DAL\Hashing.cs" />
@@ -265,6 +267,7 @@
     <EmbeddedResource Include="View\TeacherDashboard.resx">
       <DependentUpon>TeacherDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Gradebook.Model.Assignment.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Course.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Student.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Teacher.datasource" />
