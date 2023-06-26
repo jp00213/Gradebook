@@ -121,6 +121,51 @@ namespace Gradebook.DAL
             return teacher;    
         }
 
+
+        public Teacher GetTeacherByUsername(string username)
+        {
+            Teacher teacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM Teacher te " +
+                "JOIN person pe " +
+                "ON te.recordID = pe.recordID " +
+                "WHERE te.username = @username";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@username", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@username"].Value = username;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teacher = new Teacher
+                        {
+                            RecordId = (int)(reader)["recordID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            TeacherID = (int)(reader)["teacherID"],
+                            Sex = (string)(reader)["sex"],
+                            SSN = (reader)["ssn"] as string
+                        };
+                    }
+                }
+            }
+            return teacher;
+        }
+
         /// Gets all teachers
         /// </summary>
         /// <param name="firstName"></param>
