@@ -24,5 +24,10 @@ namespace Gradebook.Controller
         {
             return this._assignmentDAL.AddNewAssignment(assignment);
         }
+
+        public List<Assignment> GetAssignmentsByCourseID(int courseID)
+        {
+            return this._assignmentDAL.GetAssignmentsByCourseID(courseID);
+        }
     }
 }

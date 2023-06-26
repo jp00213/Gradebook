@@ -17,6 +17,8 @@
             this.Description = description;
             this.Weight = weight;
         }
+
+        public Assignment() { }
     }
 
     

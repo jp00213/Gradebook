@@ -29,16 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.selectClassLabel = new System.Windows.Forms.Label();
             this.selectClassComboBox = new System.Windows.Forms.ComboBox();
             this.assignmentTypeLabel = new System.Windows.Forms.Label();
             this.assignmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.classAssignmentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classAssignmentsLabel = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -50,6 +48,11 @@
             this.assignmentTypeErrorMessageLabel = new System.Windows.Forms.Label();
             this.descriptionErrorMessageLabel = new System.Windows.Forms.Label();
             this.weightTextBox = new System.Windows.Forms.TextBox();
+            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.classAssignmentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -95,6 +98,14 @@
             // classAssignmentsDataGridView
             // 
             this.classAssignmentsDataGridView.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classAssignmentsDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.classAssignmentsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.classAssignmentsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.assignmentIDDataGridViewTextBoxColumn,
@@ -102,38 +113,26 @@
             this.descriptionDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn});
             this.classAssignmentsDataGridView.DataSource = this.assignmentBindingSource;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.classAssignmentsDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.classAssignmentsDataGridView.Location = new System.Drawing.Point(128, 351);
             this.classAssignmentsDataGridView.Name = "classAssignmentsDataGridView";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.classAssignmentsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.classAssignmentsDataGridView.Size = new System.Drawing.Size(756, 238);
             this.classAssignmentsDataGridView.TabIndex = 4;
-            // 
-            // assignmentIDDataGridViewTextBoxColumn
-            // 
-            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
-            // 
-            // courseIDDataGridViewTextBoxColumn
-            // 
-            this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
-            this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
-            this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            // 
-            // assignmentBindingSource
-            // 
-            this.assignmentBindingSource.DataSource = typeof(Gradebook.Model.Assignment);
             // 
             // classAssignmentsLabel
             // 
@@ -235,6 +234,34 @@
             this.weightTextBox.Size = new System.Drawing.Size(253, 20);
             this.weightTextBox.TabIndex = 17;
             this.weightTextBox.TextChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            // 
+            // assignmentIDDataGridViewTextBoxColumn
+            // 
+            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
+            // 
+            // courseIDDataGridViewTextBoxColumn
+            // 
+            this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
+            this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
+            this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            // 
+            // assignmentBindingSource
+            // 
+            this.assignmentBindingSource.DataSource = typeof(Gradebook.Model.Assignment);
             // 
             // TeacherAddAssignmentUserControl
             // 

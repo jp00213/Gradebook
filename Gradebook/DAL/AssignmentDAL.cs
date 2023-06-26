@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Gradebook.DAL
 {
@@ -46,6 +47,42 @@ namespace Gradebook.DAL
             }
 
             return success;
+        }
+
+        public List<Assignment> GetAssignmentsByCourseID(int courseID)
+        {
+            List<Assignment> assignments = new List<Assignment>();
+            Assignment addAssignment = new Assignment();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM assignment " +
+                "WHERE courseID = @courseID ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@courseID"].Value = courseID;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        addAssignment = new Assignment
+                        {
+                            AssignmentID = (int)(reader)["assignmentID"],
+                            CourseID = (int)(reader)["courseID"],
+                            Description = (string)(reader)["description"],
+                            Weight = (Decimal)(reader)["weight"],
+                        };
+                        assignments.Add(addAssignment);
+                    }
+                }
+            }
+            return assignments;
         }
     }
 }

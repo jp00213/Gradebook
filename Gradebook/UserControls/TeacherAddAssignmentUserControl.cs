@@ -25,6 +25,8 @@ namespace Gradebook.UserControls
             this._courseController = new CourseController();
             this._teacherController= new TeacherController();
             this._assignmentController= new AssignmentController();
+            this._courseID= 4;
+            this.classAssignmentsDataGridView.DataSource = this._assignmentController.GetAssignmentsByCourseID(this._courseID);
             this.SetUpTypeComboBox();
             this.SetUpClassComboBox();
         }
@@ -57,6 +59,7 @@ namespace Gradebook.UserControls
             /*Course selected = (Course)this.selectClassComboBox.SelectedItem;*/
             /*MessageBox.Show(this._courseController.GetCourseByName(courseName));*/
             /*MessageBox.Show(selected.Name);*/
+            
             return 4;
         }
 
@@ -103,7 +106,7 @@ namespace Gradebook.UserControls
 
             if (!Decimal.TryParse(this.weightTextBox.Text.Trim(), out _) || Decimal.Parse(this.weightTextBox.Text.Trim()) < 0 || Decimal.Parse(this.weightTextBox.Text.Trim()) > 100 || string.IsNullOrEmpty(this.weightTextBox.Text))
             {
-                this.weightErrorMessageLabel.Text = "Please enter a valid assignment weight. Ex: 7.0";
+                this.weightErrorMessageLabel.Text = "Please enter a valid assignment weight as a whole number. Ex: 5";
                 this.weightErrorMessageLabel.ForeColor = Color.Red;
             }
 
@@ -147,10 +150,9 @@ namespace Gradebook.UserControls
                 var description = (this.assignmentTypeComboBox.Text + " - " + this.descriptionRichTextBox.Text.Trim());
                 this.ShowInvalidErrorMessages();
                 
-                if (string.IsNullOrEmpty(this.selectClassComboBox.Text) || string.IsNullOrEmpty(this.assignmentTypeComboBox.Text) /*|| !ValidationUtility.IsDecimal(this.weightTextBox.Text.Trim())*/ || !ValidationUtility.IsLessThan100(this.weightTextBox.Text.Trim()) || !ValidationUtility.IsGreaterThan0(this.weightTextBox.Text.Trim()) || string.IsNullOrEmpty(this.weightTextBox.Text.Trim()) || string.IsNullOrEmpty(this.descriptionRichTextBox.Text.Trim()))
+                if (string.IsNullOrEmpty(this.selectClassComboBox.Text) || string.IsNullOrEmpty(this.assignmentTypeComboBox.Text) || !ValidationUtility.IsInt32(this.weightTextBox.Text.Trim()) || !ValidationUtility.IsLessThan100(this.weightTextBox.Text.Trim()) || !ValidationUtility.IsGreaterThan0(this.weightTextBox.Text.Trim()) || string.IsNullOrEmpty(this.weightTextBox.Text.Trim()) || string.IsNullOrEmpty(this.descriptionRichTextBox.Text.Trim()))
                 {
                     this.ShowInvalidErrorMessages();
-                    MessageBox.Show("Still registering error!");
                 } else
                 {
                     if (this.ConfirmAssignment() == DialogResult.Yes)
