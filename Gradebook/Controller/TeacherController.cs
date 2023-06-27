@@ -117,5 +117,14 @@ namespace Gradebook.Controller
         {
             _currentUser.userName = username;
         }
+
+        /// <summary>
+        /// Get all teachers
+        /// </summary>
+        /// <returns></returns>
+        public List<Teacher> GetAllTeachers()
+        {
+            return this._teacherDAL.GetAllTeachers();
+        }
     }
 }

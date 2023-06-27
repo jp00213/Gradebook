@@ -257,5 +257,43 @@ namespace Gradebook.DAL
             }
             return theTeacher;
         }
+
+        /// <summary>
+        /// Get all teachers active and inactive
+        /// </summary>
+        /// <returns></returns>
+        public List<Teacher> GetAllTeachers()
+        {
+            List<Teacher> teachers = new List<Teacher>();
+
+            Teacher teacher = new Teacher();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM Teacher t, person p " +
+                "WHERE t.recordID = p.recordID ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        teacher = new Teacher
+                        {
+                            RecordId = (int)(reader)["recordID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            TeacherID = (int)(reader)["teacherID"],
+
+                        };
+                        teachers.Add(teacher);
+                    }
+                }
+            }
+            return teachers;
+        }
     }
 }
