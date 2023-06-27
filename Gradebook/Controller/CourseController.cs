@@ -141,5 +141,25 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetCoursesByStudentRegistration(studentID);
         }
+
+        /// <summary>
+        /// Get courses by teacherID & Semester & Year
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetCourseByTeacherIDAndSemesterAndYear(Course searchItems)
+        {
+            return this._courseDAL.GetCourseByTeacherIDAndSemesterAndYear(searchItems);
+        }
+
+        /// <summary>
+        /// Get roster data by teacherID & Semester & Year & CourseID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetRosterDataByTeacherIDAndSemesterAndYearAndCourseID(Course searchItems)
+        {
+            return this._courseDAL.GetRosterDataByTeacherIDAndSemesterAndYearAndCourseID(searchItems);
+        }
     }
 }

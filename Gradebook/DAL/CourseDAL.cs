@@ -648,5 +648,98 @@ namespace Gradebook.DAL
             }
             return courses;
         }
+
+        /// <summary>
+        /// Get course by teacherID & Semester & Year
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetCourseByTeacherIDAndSemesterAndYear(Course searchItems)
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement = "select * ,  (select count(*)  from StudentsInCourse r where r.courseID = c.courseID) as studentCount  " +
+                                     "from course c  " +
+                                     "where c.teacherID = @teacherID  " +
+                                     "and c.semester = @semester " +
+                                     "and c.year = @year   ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@teacherID", searchItems.TeacherID);
+            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            StudentCount = (int)(reader)["studentCount"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
+
+        /// <summary>
+        /// Get roster data by teacherID & Semester & Year & CourseID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetRosterDataByTeacherIDAndSemesterAndYearAndCourseID(Course searchItems)
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement = "select * " +
+                                     "from course c, StudentsInCourse i, student s, person p  " +
+                                     "where i.courseID = c.courseID  " +
+                                     "and i.studentID = s.studentID " +
+                                     "and s.recordID = p.recordID  " +
+                                     "and c.teacherID = @teacherID " +
+                                     "and c.semester = @semester " +
+                                     "and c.year = @year " +
+                                     "and c.courseID = @courseID ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@teacherID", searchItems.TeacherID);
+            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
+            selectCommand.Parameters.AddWithValue("@courseID", searchItems.CourseID);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            StudentID = (int)(reader)["studentID"],
+                            StudentFullName = (string)(reader)["firstName"] + " " + (string)(reader)["lastName"]
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
     }
 }

@@ -16,5 +16,7 @@
         public int TeacherID { get; set; }
         public int StudentID { get; set; }
         public string TeacherFullName { get; set; }
+        public string StudentFullName { get; set; }
+        public int StudentCount { get; set; }
     }
 }

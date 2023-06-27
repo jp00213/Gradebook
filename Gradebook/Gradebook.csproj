@@ -125,6 +125,12 @@
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\RosterUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RosterUserControl.Designer.cs">
+      <DependentUpon>RosterUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\StudentRegistrationDetailsUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\RosterUserControl.resx">
+      <DependentUpon>RosterUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentRegistrationDetailsUserControl.resx">
       <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
