@@ -601,5 +601,52 @@ namespace Gradebook.DAL
 
 
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public List<Course> GetCoursesByStudentRegistration(int studentID)
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM course c,  studentsincourse s " +
+                "WHERE c.courseID = s.courseID  AND s.studentID = @studentID ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@studentID"].Value = studentID;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                            TeacherID = (int)(reader)["teacherID"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
     }
 }

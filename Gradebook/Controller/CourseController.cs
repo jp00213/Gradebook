@@ -130,5 +130,16 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.UpdateCourse(updateCourse, oldCourse);
         }
+
+        /// <summary>
+        /// Gets courses registered to one student ID
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public List<Course> GetCoursesByStudentRegistration(int studentID)
+        {
+            return this._courseDAL.GetCoursesByStudentRegistration(studentID);
+        }
     }
 }
