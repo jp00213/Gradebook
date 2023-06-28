@@ -44,7 +44,6 @@ namespace Gradebook.Controller
         /// <summary>
         /// Register student for a course
         /// </summary>
-        /// <exception cref="NotImplementedException"></exception>
         public Boolean RegisterStudent(int studentId, int courseId)
         {
             return this._courseDAL.RegisterStudent(studentId, courseId);
@@ -110,7 +109,6 @@ namespace Gradebook.Controller
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool DeleteCourse(int courseID)
         {
             return this._courseDAL.DeleteCourse(courseID);
@@ -131,7 +129,6 @@ namespace Gradebook.Controller
         /// </summary>
         /// <param name="updateCourse"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool UpdateCourse(Course updateCourse, Course oldCourse)
         {
             return this._courseDAL.UpdateCourse(updateCourse, oldCourse);
@@ -142,7 +139,6 @@ namespace Gradebook.Controller
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public List<Course> GetCoursesByStudentRegistration(int studentID)
         {
             return this._courseDAL.GetCoursesByStudentRegistration(studentID);
@@ -178,6 +174,16 @@ namespace Gradebook.Controller
         public List<Course> GetCoursesByYearSemesterStudentID(string semester, int year, int studentID)
         {
             return this._courseDAL.GetCoursesByYearSemesterStudentID(semester, year, studentID);
+        }
+
+        /// <summary>
+        /// Deletes registration for course and student
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <param name="studentid"></param>
+        public bool DeleteRegistration(int courseID, int studentid)
+        {
+            return this._courseDAL.DeleteRegistration(courseID, studentid);
         }
     }
 }

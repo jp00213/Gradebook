@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.courseDataGridView = new System.Windows.Forms.DataGridView();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentIDTextBox = new System.Windows.Forms.TextBox();
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.searchAllStudenCourseButton = new System.Windows.Forms.Button();
@@ -45,16 +46,17 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // courseDataGridView
             // 
+            this.courseDataGridView.AllowUserToAddRows = false;
+            this.courseDataGridView.AllowUserToDeleteRows = false;
             this.courseDataGridView.AutoGenerateColumns = false;
             this.courseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.courseDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -64,16 +66,21 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
+            this.dataGridViewTextBoxColumn7,
+            this.DeleteButton});
             this.courseDataGridView.DataSource = this.courseBindingSource;
-            this.courseDataGridView.Location = new System.Drawing.Point(21, 123);
+            this.courseDataGridView.Location = new System.Drawing.Point(35, 143);
             this.courseDataGridView.Name = "courseDataGridView";
             this.courseDataGridView.RowHeadersWidth = 51;
             this.courseDataGridView.RowTemplate.Height = 24;
             this.courseDataGridView.Size = new System.Drawing.Size(1068, 198);
             this.courseDataGridView.TabIndex = 1;
+            this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
             // 
             // studentIDTextBox
             // 
@@ -221,14 +228,6 @@
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.Width = 125;
             // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "Semester";
-            this.dataGridViewTextBoxColumn7.HeaderText = "Semester";
-            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.Width = 125;
-            // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Year";
@@ -237,17 +236,24 @@
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.Width = 125;
             // 
-            // dataGridViewTextBoxColumn9
+            // dataGridViewTextBoxColumn7
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "TeacherID";
-            this.dataGridViewTextBoxColumn9.HeaderText = "TeacherID";
-            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.Width = 125;
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Semester";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Semester";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
-            // courseBindingSource
+            // DeleteButton
             // 
-            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
+            this.DeleteButton.HeaderText = "Delete";
+            this.DeleteButton.MinimumWidth = 6;
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DeleteButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DeleteButton.Text = "Delete";
+            this.DeleteButton.UseColumnTextForButtonValue = true;
+            this.DeleteButton.Width = 125;
             // 
             // AdministratorUpdateRegistration
             // 
@@ -280,19 +286,19 @@
         private System.Windows.Forms.Label studentIDLabel;
         private System.Windows.Forms.Button searchAllStudenCourseButton;
         private System.Windows.Forms.Label studentIDErrorLabel;
+        private System.Windows.Forms.Button viewFutureCoursesButton;
+        private System.Windows.Forms.DateTimePicker courseYearPicker;
+        private System.Windows.Forms.Label yearLabel;
+        private System.Windows.Forms.ComboBox semesterComboBox;
+        private System.Windows.Forms.Label semesterLabel;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.Button viewFutureCoursesButton;
-        private System.Windows.Forms.DateTimePicker courseYearPicker;
-        private System.Windows.Forms.Label yearLabel;
-        private System.Windows.Forms.ComboBox semesterComboBox;
-        private System.Windows.Forms.Label semesterLabel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewButtonColumn DeleteButton;
     }
 }

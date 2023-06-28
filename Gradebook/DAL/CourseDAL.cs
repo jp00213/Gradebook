@@ -841,5 +841,14 @@ namespace Gradebook.DAL
             return courses;
         }
 
+        /// <summary>
+        /// Deletes registration for a student and course
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <param name="studentid"></param>
+        public bool DeleteRegistration(int courseID, int studentid)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

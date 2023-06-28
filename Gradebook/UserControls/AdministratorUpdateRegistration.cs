@@ -11,7 +11,7 @@ namespace Gradebook.UserControls
     public partial class AdministratorUpdateRegistration : UserControl
     {
         private readonly CourseController _courseController;
-
+        private int studentid;
         /// <summary>
         /// Constructor for user control
         /// </summary>
@@ -25,7 +25,7 @@ namespace Gradebook.UserControls
         {
             try
             {
-                if (Int32.TryParse(this.studentIDTextBox.Text, out int studentid))
+                if (Int32.TryParse(this.studentIDTextBox.Text, out studentid))
                 {
                     this.courseDataGridView.DataSource = this._courseController.GetCoursesByStudentRegistration(studentid);
                 } else
@@ -57,7 +57,20 @@ namespace Gradebook.UserControls
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-
         }
+
+        private void courseDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == courseDataGridView.Columns["DeleteButton"].Index && e.RowIndex >= 0)
+                {
+                    Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
+                    this._courseController.DeleteRegistration(viewCourse.CourseID, studentid);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
     }
 }
