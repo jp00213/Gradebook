@@ -64,10 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\AccountController.cs" />
+    <Compile Include="Controller\AssignmentController.cs" />
     <Compile Include="Controller\CourseController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
+    <Compile Include="DAL\AssignmentDAL.cs" />
     <Compile Include="DAL\CourseDAL.cs" />
     <Compile Include="DAL\GradebookDBConnection.cs" />
     <Compile Include="DAL\Hashing.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="Function\CreatePersonUserName.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
+    <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\CurrentUser.cs" />
     <Compile Include="Model\Grades.cs" />
@@ -124,6 +127,13 @@
     </Compile>
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TeacherAddAssignmentUserControl.Designer.cs">
+      <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\RosterUserControl.cs">
       <SubType>UserControl</SubType>
@@ -248,11 +258,17 @@
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
+
+    <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
+      <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+
     <EmbeddedResource Include="UserControls\RosterUserControl.resx">
       <DependentUpon>RosterUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentRegistrationDetailsUserControl.resx">
       <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherClassesUserControl.resx">
       <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>
@@ -293,6 +309,7 @@
     <EmbeddedResource Include="View\TeacherDashboard.resx">
       <DependentUpon>TeacherDashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\Gradebook.Model.Assignment.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Course.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Student.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Teacher.datasource" />

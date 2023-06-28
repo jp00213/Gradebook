@@ -354,6 +354,35 @@ namespace Gradebook.Function
         }
 
         /// <summary>
+        /// Tests to see if the string is greater than 100
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static bool IsLessThan100(string input)
+        {
+            bool valid = false;
+            if (Convert.ToDecimal(input) < 101)
+            {
+                valid = true;
+            }
+            return valid;
+        }
+
+        /// <summary>
+        /// Tests to see if a numeric strin is less than 0
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public static bool IsGreaterThan0(string input)
+        {
+            bool valid = false;
+            if (Convert.ToInt32(input) > 0)
+            {
+                valid = true;
+            }
+            return valid;
+        }
+
         /// Handle null value coming from the reader
         /// </summary>
         /// <param name="reader"></param>

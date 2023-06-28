@@ -67,6 +67,12 @@ namespace Gradebook.Controller
             return this._courseDAL.GetCourseList();
         }
 
+
+        public Course GetCourseByName(string name) 
+        {
+            return this._courseDAL.GetCourseByName(name);
+        }
+
         /// <summary>
         /// Get student course detail by term, year and student ID.
         /// </summary>

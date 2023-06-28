@@ -31,11 +31,13 @@
             this.logoutLinkLabel = new System.Windows.Forms.LinkLabel();
             this.teacherTabControl = new System.Windows.Forms.TabControl();
             this.classesTabPage = new System.Windows.Forms.TabPage();
+            this.teacherClassesUserControl1 = new Gradebook.UserControls.TeacherClassesUserControl();
             this.assignmentsTabPage = new System.Windows.Forms.TabPage();
             this.gradesTabPage = new System.Windows.Forms.TabPage();
-            this.teacherClassesUserControl1 = new Gradebook.UserControls.TeacherClassesUserControl();
+            this.teacherAddAssignmentUserControl1 = new Gradebook.UserControls.TeacherAddAssignmentUserControl();
             this.teacherTabControl.SuspendLayout();
             this.classesTabPage.SuspendLayout();
+            this.assignmentsTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoutLinkLabel
@@ -74,26 +76,6 @@
             this.classesTabPage.Text = "Classes";
             this.classesTabPage.UseVisualStyleBackColor = true;
             // 
-            // assignmentsTabPage
-            // 
-            this.assignmentsTabPage.Location = new System.Drawing.Point(4, 22);
-            this.assignmentsTabPage.Name = "assignmentsTabPage";
-            this.assignmentsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.assignmentsTabPage.Size = new System.Drawing.Size(1050, 597);
-            this.assignmentsTabPage.TabIndex = 1;
-            this.assignmentsTabPage.Text = "Assignments";
-            this.assignmentsTabPage.UseVisualStyleBackColor = true;
-            // 
-            // gradesTabPage
-            // 
-            this.gradesTabPage.Location = new System.Drawing.Point(4, 22);
-            this.gradesTabPage.Name = "gradesTabPage";
-            this.gradesTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.gradesTabPage.Size = new System.Drawing.Size(1050, 597);
-            this.gradesTabPage.TabIndex = 2;
-            this.gradesTabPage.Text = "Grades";
-            this.gradesTabPage.UseVisualStyleBackColor = true;
-            // 
             // teacherClassesUserControl1
             // 
             this.teacherClassesUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -102,6 +84,36 @@
             this.teacherClassesUserControl1.Name = "teacherClassesUserControl1";
             this.teacherClassesUserControl1.Size = new System.Drawing.Size(934, 589);
             this.teacherClassesUserControl1.TabIndex = 0;
+            // 
+            // assignmentsTabPage
+            // 
+            this.assignmentsTabPage.Controls.Add(this.teacherAddAssignmentUserControl1);
+            this.assignmentsTabPage.Location = new System.Drawing.Point(4, 29);
+            this.assignmentsTabPage.Name = "assignmentsTabPage";
+            this.assignmentsTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.assignmentsTabPage.Size = new System.Drawing.Size(1050, 590);
+            this.assignmentsTabPage.TabIndex = 1;
+            this.assignmentsTabPage.Text = "Assignments";
+            this.assignmentsTabPage.UseVisualStyleBackColor = true;
+            // 
+            // gradesTabPage
+            // 
+            this.gradesTabPage.Location = new System.Drawing.Point(4, 29);
+            this.gradesTabPage.Name = "gradesTabPage";
+            this.gradesTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gradesTabPage.Size = new System.Drawing.Size(1050, 590);
+            this.gradesTabPage.TabIndex = 2;
+            this.gradesTabPage.Text = "Grades";
+            this.gradesTabPage.UseVisualStyleBackColor = true;
+            // 
+            // teacherAddAssignmentUserControl1
+            // 
+            this.teacherAddAssignmentUserControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.teacherAddAssignmentUserControl1.Location = new System.Drawing.Point(18, -41);
+            this.teacherAddAssignmentUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.teacherAddAssignmentUserControl1.Name = "teacherAddAssignmentUserControl1";
+            this.teacherAddAssignmentUserControl1.Size = new System.Drawing.Size(999, 648);
+            this.teacherAddAssignmentUserControl1.TabIndex = 0;
             // 
             // TeacherDashboard
             // 
@@ -118,6 +130,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorDashboard_FormClosed);
             this.teacherTabControl.ResumeLayout(false);
             this.classesTabPage.ResumeLayout(false);
+            this.assignmentsTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +144,6 @@
         private System.Windows.Forms.TabPage assignmentsTabPage;
         private System.Windows.Forms.TabPage gradesTabPage;
         private UserControls.TeacherClassesUserControl teacherClassesUserControl1;
+        private UserControls.TeacherAddAssignmentUserControl teacherAddAssignmentUserControl1;
     }
 }
