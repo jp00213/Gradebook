@@ -67,9 +67,105 @@ namespace Gradebook.Controller
             return this._courseDAL.GetCourseList();
         }
 
+
         public Course GetCourseByName(string name) 
         {
             return this._courseDAL.GetCourseByName(name);
+        }
+
+        /// <summary>
+        /// Get student course detail by term, year and student ID.
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetStudentCourseDetailsByTermAndYearAndStudentID(Course searchItems)
+        {
+            return this._courseDAL.GetStudentCourseDetailsByTermAndYearAndStudentID(searchItems);
+
+
+        }
+
+        /// <summary>
+        /// Get courses by many combinations of parameters
+        /// </summary>
+        /// <param name="testCourse"></param>
+        /// <returns></returns>
+        public List<Course> GetCoursesByMultipleParameters(Course testCourse)
+        {
+            return this._courseDAL.GetCoursesByMultipleParameters(testCourse);
+        }
+
+        /// <summary>
+        /// Get student course grade details by studentID & courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns></returns>
+        public List<Grades> GetStudentCourseGradeDetailsByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            return this._courseDAL.GetStudentCourseGradeDetailsByStudentIDAndCourseID(gradesSearch);
+        }
+
+        /// <summary>
+        /// Delete course
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool DeleteCourse(int courseID)
+        {
+            return this._courseDAL.DeleteCourse(courseID);
+        }
+
+        /// <summary>
+        /// Get student course weight grade by studentID & courseID
+        /// </summary>
+        /// <param name="gradesSearch"></param>
+        /// <returns></returns>
+        public string GetStudentCourseWeightGradeByStudentIDAndCourseID(Grades gradesSearch)
+        {
+            return this._courseDAL.GetStudentCourseWeightGradeByStudentIDAndCourseID(gradesSearch);
+        }
+
+        /// <summary>
+        /// Updates a course
+        /// </summary>
+        /// <param name="updateCourse"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool UpdateCourse(Course updateCourse, Course oldCourse)
+        {
+            return this._courseDAL.UpdateCourse(updateCourse, oldCourse);
+        }
+
+        /// <summary>
+        /// Gets courses registered to one student ID
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public List<Course> GetCoursesByStudentRegistration(int studentID)
+        {
+            return this._courseDAL.GetCoursesByStudentRegistration(studentID);
+        }
+
+        /// <summary>
+        /// Get courses by teacherID & Semester & Year
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetCourseByTeacherIDAndSemesterAndYear(Course searchItems)
+        {
+            return this._courseDAL.GetCourseByTeacherIDAndSemesterAndYear(searchItems);
+        }
+
+        /// <summary>
+        /// Get roster data by teacherID & Semester & Year & CourseID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Course> GetRosterDataByTeacherIDAndSemesterAndYearAndCourseID(Course searchItems)
+        {
+            return this._courseDAL.GetRosterDataByTeacherIDAndSemesterAndYearAndCourseID(searchItems);
         }
     }
 }

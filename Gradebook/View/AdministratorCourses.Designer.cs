@@ -31,12 +31,18 @@
             this.backHomeButton = new System.Windows.Forms.Button();
             this.courseTabControl = new System.Windows.Forms.TabControl();
             this.createCourseTab = new System.Windows.Forms.TabPage();
-            this.addNewCourseUserControl1 = new Gradebook.UserControls.AddNewCourseUserControl();
             this.registerStudentTab = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.addNewCourseUserControl1 = new Gradebook.UserControls.AddNewCourseUserControl();
             this.administratorRegisterStudent1 = new Gradebook.UserControls.AdministratorRegisterStudent();
+            this.administratorSearchUpdateCourse1 = new Gradebook.UserControls.AdministratorSearchUpdateCourse();
+            this.administratorUpdateRegistration1 = new Gradebook.UserControls.AdministratorUpdateRegistration();
             this.courseTabControl.SuspendLayout();
             this.createCourseTab.SuspendLayout();
             this.registerStudentTab.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // backHomeButton
@@ -56,6 +62,8 @@
             // 
             this.courseTabControl.Controls.Add(this.createCourseTab);
             this.courseTabControl.Controls.Add(this.registerStudentTab);
+            this.courseTabControl.Controls.Add(this.tabPage1);
+            this.courseTabControl.Controls.Add(this.tabPage2);
             this.courseTabControl.Location = new System.Drawing.Point(0, 87);
             this.courseTabControl.Name = "courseTabControl";
             this.courseTabControl.SelectedIndex = 0;
@@ -73,13 +81,6 @@
             this.createCourseTab.Text = "Create Course";
             this.createCourseTab.UseVisualStyleBackColor = true;
             // 
-            // addNewCourseUserControl1
-            // 
-            this.addNewCourseUserControl1.Location = new System.Drawing.Point(8, 6);
-            this.addNewCourseUserControl1.Name = "addNewCourseUserControl1";
-            this.addNewCourseUserControl1.Size = new System.Drawing.Size(1253, 643);
-            this.addNewCourseUserControl1.TabIndex = 0;
-            // 
             // registerStudentTab
             // 
             this.registerStudentTab.Controls.Add(this.administratorRegisterStudent1);
@@ -91,12 +92,56 @@
             this.registerStudentTab.Text = "Register Student";
             this.registerStudentTab.UseVisualStyleBackColor = true;
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.administratorSearchUpdateCourse1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1349, 560);
+            this.tabPage1.TabIndex = 2;
+            this.tabPage1.Text = "Search/Update Course";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.administratorUpdateRegistration1);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1349, 560);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "View/Drop Student Registrations";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // addNewCourseUserControl1
+            // 
+            this.addNewCourseUserControl1.Font = new System.Drawing.Font("Symbol", 8.25F);
+            this.addNewCourseUserControl1.Location = new System.Drawing.Point(8, 6);
+            this.addNewCourseUserControl1.Name = "addNewCourseUserControl1";
+            this.addNewCourseUserControl1.Size = new System.Drawing.Size(1253, 643);
+            this.addNewCourseUserControl1.TabIndex = 0;
+            // 
             // administratorRegisterStudent1
             // 
             this.administratorRegisterStudent1.Location = new System.Drawing.Point(3, 1);
             this.administratorRegisterStudent1.Name = "administratorRegisterStudent1";
             this.administratorRegisterStudent1.Size = new System.Drawing.Size(1346, 553);
             this.administratorRegisterStudent1.TabIndex = 0;
+            // 
+            // administratorSearchUpdateCourse1
+            // 
+            this.administratorSearchUpdateCourse1.Location = new System.Drawing.Point(3, 0);
+            this.administratorSearchUpdateCourse1.Name = "administratorSearchUpdateCourse1";
+            this.administratorSearchUpdateCourse1.Size = new System.Drawing.Size(1343, 549);
+            this.administratorSearchUpdateCourse1.TabIndex = 0;
+            // 
+            // administratorUpdateRegistration1
+            // 
+            this.administratorUpdateRegistration1.Location = new System.Drawing.Point(3, 6);
+            this.administratorUpdateRegistration1.Name = "administratorUpdateRegistration1";
+            this.administratorUpdateRegistration1.Size = new System.Drawing.Size(1340, 558);
+            this.administratorUpdateRegistration1.TabIndex = 0;
             // 
             // AdministratorCourses
             // 
@@ -114,6 +159,8 @@
             this.courseTabControl.ResumeLayout(false);
             this.createCourseTab.ResumeLayout(false);
             this.registerStudentTab.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -126,5 +173,9 @@
         private System.Windows.Forms.TabPage registerStudentTab;
         private UserControls.AddNewCourseUserControl addNewCourseUserControl1;
         private UserControls.AdministratorRegisterStudent administratorRegisterStudent1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private UserControls.AdministratorSearchUpdateCourse administratorSearchUpdateCourse1;
+        private UserControls.AdministratorUpdateRegistration administratorUpdateRegistration1;
     }
 }

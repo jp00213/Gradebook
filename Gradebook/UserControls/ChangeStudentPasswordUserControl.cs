@@ -120,5 +120,7 @@ namespace Gradebook.UserControls
         {
             this.errorMessageLabel.Text = string.Empty;
         }
+
+
     }
 }

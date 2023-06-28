@@ -81,6 +81,7 @@
     <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Course.cs" />
     <Compile Include="Model\CurrentUser.cs" />
+    <Compile Include="Model\Grades.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Model\SearchItem.cs" />
     <Compile Include="Model\Student.cs" />
@@ -109,17 +110,42 @@
     <Compile Include="UserControls\AdministratorRegisterStudent.Designer.cs">
       <DependentUpon>AdministratorRegisterStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\AdministratorSearchUpdateCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdministratorSearchUpdateCourse.Designer.cs">
+      <DependentUpon>AdministratorSearchUpdateCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AdministratorUpdateRegistration.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdministratorUpdateRegistration.Designer.cs">
+      <DependentUpon>AdministratorUpdateRegistration.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </Compile>
+
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.Designer.cs">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RosterUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\RosterUserControl.Designer.cs">
+      <DependentUpon>RosterUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StudentRegistrationDetailsUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentRegistrationDetailsUserControl.Designer.cs">
+      <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TeacherClassesUserControl.cs">
       <SubType>UserControl</SubType>
@@ -222,11 +248,27 @@
     <EmbeddedResource Include="UserControls\AdministratorRegisterStudent.resx">
       <DependentUpon>AdministratorRegisterStudent.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdministratorSearchUpdateCourse.resx">
+      <DependentUpon>AdministratorSearchUpdateCourse.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\AdministratorUpdateRegistration.resx">
+      <DependentUpon>AdministratorUpdateRegistration.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+
+    <EmbeddedResource Include="UserControls\RosterUserControl.resx">
+      <DependentUpon>RosterUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentRegistrationDetailsUserControl.resx">
+      <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
+
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherClassesUserControl.resx">
       <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>

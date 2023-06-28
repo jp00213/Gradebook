@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using Gradebook.Function;
 using Gradebook.Model;
 
 namespace Gradebook.DAL
@@ -79,13 +80,14 @@ namespace Gradebook.DAL
                                      "and p.street = @oldStreet  " +
                                      "and p.city = @oldCity  " +
                                      "and p.state = @oldState  " +
-                                     "and p.zip = @oldZip  " +
-                                     "and p.ssn = @oldSSN  ";
+                                     "and p.zip = @oldZip  ";
 
             string updateStudentStatusStatement = "update s  " +
-                                                  "set s.activeStatus = @newStatus " +
+                                                  "set s.activeStatus = @newStatus, " +
+                                                  "s.maximumUnitsAllowed = @newMaximumUnitsAllowed " +
                                                   "from Student s  " +
                                                   "where s.recordID = @recordID  " +
+                                                  "and (s.maximumUnitsAllowed = @oldMaximumUnitsAllowed or s.maximumUnitsAllowed is null) " +
                                                   "and s.activeStatus = @oldStatus  ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
@@ -106,7 +108,7 @@ namespace Gradebook.DAL
                             updateCommand.Parameters.AddWithValue("@newCity", personNew.City);
                             updateCommand.Parameters.AddWithValue("@newState", personNew.State);
                             updateCommand.Parameters.AddWithValue("@newZip", personNew.Zip);
-                            updateCommand.Parameters.AddWithValue("@newSSN", personNew.SSN);
+                            //   updateCommand.Parameters.AddWithValue("@newSSN", personNew.SSN);
                             updateCommand.Parameters.AddWithValue("@recordID ", personNew.RecordId);
                             updateCommand.Parameters.AddWithValue("@oldFirstName", personOld.FirstName);
                             updateCommand.Parameters.AddWithValue("@oldLastName", personOld.LastName);
@@ -117,8 +119,26 @@ namespace Gradebook.DAL
                             updateCommand.Parameters.AddWithValue("@oldCity", personOld.City);
                             updateCommand.Parameters.AddWithValue("@oldState", personOld.State);
                             updateCommand.Parameters.AddWithValue("@oldZip", personOld.Zip);
-                            updateCommand.Parameters.AddWithValue("@oldSSN", personOld.SSN);
-
+                            updateCommand.Parameters.Add("@newSSN", System.Data.SqlDbType.Char);
+                            if (personNew.SSN == "")
+                            {
+                                updateCommand.Parameters["@newSSN"].Value = DBNull.Value;
+                            }
+                            else
+                            {
+                                updateCommand.Parameters["@newSSN"].Value = personNew.SSN;
+                            }
+                            /*    
+                                updateCommand.Parameters.Add("@oldSSN", System.Data.SqlDbType.Char);
+                                if ( personOld.SSN is null)    //if (personOld.SSN == "" || personOld.SSN is null)
+                                {
+                                    updateCommand.Parameters["@oldSSN"].Value = DBNull.Value;
+                                }
+                                else
+                                {
+                                    updateCommand.Parameters["@oldSSN"].Value = personOld.SSN;
+                                }
+                            */
                             updatePerson = updateCommand.ExecuteNonQuery();
                         }
                         using (SqlCommand updateStudentCommand = new SqlCommand(updateStudentStatusStatement, connection, transaction))
@@ -126,18 +146,34 @@ namespace Gradebook.DAL
                             updateStudentCommand.Parameters.AddWithValue("@newStatus", personNew.ActiveStatus);
                             updateStudentCommand.Parameters.AddWithValue("@recordID", personNew.RecordId);
                             updateStudentCommand.Parameters.AddWithValue("@oldStatus", personOld.ActiveStatus);
+
+                            if (personOld.MaximumUnitsAllowed is null || personOld.MaximumUnitsAllowed.ToString() == "")
+                            {
+                                updateStudentCommand.Parameters.AddWithValue("@oldMaximumUnitsAllowed", DBNull.Value);
+                            }
+                            else
+                            {
+                                updateStudentCommand.Parameters.AddWithValue("@oldMaximumUnitsAllowed", Convert.ToInt32(personOld.MaximumUnitsAllowed));
+
+                            }
+                     updateStudentCommand.Parameters.Add("@newMaximumUnitsAllowed", System.Data.SqlDbType.Int);
+                            if (personNew.MaximumUnitsAllowed is null)
+                            {
+                                updateStudentCommand.Parameters["@newMaximumUnitsAllowed"].Value = DBNull.Value;
+                            }
+                            else
+                            {
+                                updateStudentCommand.Parameters["@newMaximumUnitsAllowed"].Value = Convert.ToInt32(personNew.MaximumUnitsAllowed);
+                            }
                             updateStudent = updateStudentCommand.ExecuteNonQuery();
 
                         }
-                        //System.Windows.Forms.MessageBox.Show(updatePerson.ToString() + updateStudent.ToString());
-
+                             //  System.Windows.Forms.MessageBox.Show(updatePerson.ToString() + updateStudent.ToString());
                         if ((updatePerson == 1) && (updateStudent == 1))
                         {
                             result = true;
                             transaction.Commit();
-
-                            //           System.Windows.Forms.MessageBox.Show("update processed");
-
+                            //       System.Windows.Forms.MessageBox.Show("update processed");
                         };
                     }
                     catch (SqlException)
@@ -191,8 +227,8 @@ namespace Gradebook.DAL
                             SSN = reader["ssn"] as string,
                             ActiveStatus = (int)(byte)(reader)["activeStatus"],
                             Username = (string)(reader)["username"],
-                            RecordId = (int)(reader)["recordId"]
-
+                            RecordId = (int)(reader)["recordId"],
+                            MaximumUnitsAllowed = ValidationUtility.SafeGetInt(reader, "maximumUnitsAllowed")
                         };
                     }
                 }
@@ -313,6 +349,86 @@ namespace Gradebook.DAL
                 }
             }
             return student;
+        }
+
+        /// <summary>
+        /// Get student registered units total.
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns>unit count result</returns>
+        public int GetStudentRegisterUnitsTotal(SearchItem searchItems)
+        {
+            int countResult = 0;
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement = "select isnull(sum(c.credithours),0) as countTotal  " +
+                                     "from StudentsInCourse sc, course c  " +
+                                     "where sc.courseID = c.courseID  " +
+                                     "and sc.studentID = @studentID  " +
+                                     "and c.semester = @semester  " +
+                                     "and c.year = @year ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            selectCommand.Parameters.AddWithValue("@studentID", searchItems.StudentID);
+            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        {
+                            countResult = (int)(reader)["countTotal"];
+
+
+                        };
+                    }
+                }
+            }
+            return countResult;
+        }
+
+        /// <summary>
+        /// Get student maximum allowed unit.
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        public int GetStudentMaximumAllowedUnit(int studentID)
+        {
+
+            int maxAllowedResult = 0;
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement = "select   isnull(s.maximumUnitsAllowed, 18) as maxunits " +
+                                     "from student s " +
+                                     "where s.studentID = @studentID ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", studentID);
+
+
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+
+                        {
+                            maxAllowedResult = (int)(reader)["maxunits"];
+
+                        };
+                    }
+                }
+            }
+            return maxAllowedResult;
         }
 
     }

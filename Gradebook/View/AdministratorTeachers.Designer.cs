@@ -33,16 +33,20 @@
             this.addTeacherUserControl1 = new Gradebook.UserControls.AddTeacherUserControl();
             this.updateTeacherTabPage = new System.Windows.Forms.TabPage();
             this.updateTeacherUserControl1 = new Gradebook.UserControls.UpdateTeacherUserControl();
+            this.rosterTabPage = new System.Windows.Forms.TabPage();
             this.backHomeButton = new System.Windows.Forms.Button();
+            this.rosterUserControl1 = new Gradebook.UserControls.RosterUserControl();
             this.adminTeacherTabControl.SuspendLayout();
             this.addTeacherTabPage.SuspendLayout();
             this.updateTeacherTabPage.SuspendLayout();
+            this.rosterTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // adminTeacherTabControl
             // 
             this.adminTeacherTabControl.Controls.Add(this.addTeacherTabPage);
             this.adminTeacherTabControl.Controls.Add(this.updateTeacherTabPage);
+            this.adminTeacherTabControl.Controls.Add(this.rosterTabPage);
             this.adminTeacherTabControl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.adminTeacherTabControl.Location = new System.Drawing.Point(-4, 61);
             this.adminTeacherTabControl.Name = "adminTeacherTabControl";
@@ -88,6 +92,17 @@
             this.updateTeacherUserControl1.Size = new System.Drawing.Size(1003, 634);
             this.updateTeacherUserControl1.TabIndex = 0;
             // 
+            // rosterTabPage
+            // 
+            this.rosterTabPage.Controls.Add(this.rosterUserControl1);
+            this.rosterTabPage.Location = new System.Drawing.Point(4, 29);
+            this.rosterTabPage.Name = "rosterTabPage";
+            this.rosterTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.rosterTabPage.Size = new System.Drawing.Size(1100, 626);
+            this.rosterTabPage.TabIndex = 3;
+            this.rosterTabPage.Text = "Roster";
+            this.rosterTabPage.UseVisualStyleBackColor = true;
+            // 
             // backHomeButton
             // 
             this.backHomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -99,6 +114,14 @@
             this.backHomeButton.Text = "Home";
             this.backHomeButton.UseVisualStyleBackColor = true;
             this.backHomeButton.Click += new System.EventHandler(this.backHomeButton_Click);
+            // 
+            // rosterUserControl1
+            // 
+            this.rosterUserControl1.Location = new System.Drawing.Point(22, 8);
+            this.rosterUserControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rosterUserControl1.Name = "rosterUserControl1";
+            this.rosterUserControl1.Size = new System.Drawing.Size(1067, 579);
+            this.rosterUserControl1.TabIndex = 0;
             // 
             // AdministratorTeachers
             // 
@@ -117,6 +140,7 @@
             this.adminTeacherTabControl.ResumeLayout(false);
             this.addTeacherTabPage.ResumeLayout(false);
             this.updateTeacherTabPage.ResumeLayout(false);
+            this.rosterTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -129,5 +153,7 @@
         private System.Windows.Forms.Button backHomeButton;
         private UserControls.AddTeacherUserControl addTeacherUserControl1;
         private UserControls.UpdateTeacherUserControl updateTeacherUserControl1;
+        private System.Windows.Forms.TabPage rosterTabPage;
+        private UserControls.RosterUserControl rosterUserControl1;
     }
 }

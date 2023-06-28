@@ -122,5 +122,14 @@ namespace Gradebook.Controller
         {
             return this._teacherDAL.GetTeacherByUsername(username);
         }
+
+        /// <summary>
+        /// Get all teachers
+        /// </summary>
+        /// <returns></returns>
+        public List<Teacher> GetAllTeachers()
+        {
+            return this._teacherDAL.GetAllTeachers();
+        }
     }
 }
