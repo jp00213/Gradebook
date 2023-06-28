@@ -167,5 +167,17 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetRosterDataByTeacherIDAndSemesterAndYearAndCourseID(searchItems);
         }
+
+        /// <summary>
+        /// Returns a list of courses by semester, year, and studentID
+        /// </summary>
+        /// <param name="semester"></param>
+        /// <param name="year"></param>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        public List<Course> GetCoursesByYearSemesterStudentID(string semester, int year, int studentID)
+        {
+            return this._courseDAL.GetCoursesByYearSemesterStudentID(semester, year, studentID);
+        }
     }
 }
