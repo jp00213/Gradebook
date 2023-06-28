@@ -128,7 +128,6 @@
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -238,6 +237,7 @@
     </Compile>
     <EmbeddedResource Include="UserControls\AddNewCourseUserControl.resx">
       <DependentUpon>AddNewCourseUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddStudentUserControl.resx">
       <DependentUpon>AddStudentUserControl.cs</DependentUpon>
@@ -258,17 +258,14 @@
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="UserControls\RosterUserControl.resx">
       <DependentUpon>RosterUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentRegistrationDetailsUserControl.resx">
       <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherClassesUserControl.resx">
       <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>

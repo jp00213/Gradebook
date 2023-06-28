@@ -66,7 +66,13 @@ namespace Gradebook.UserControls
                 if (e.ColumnIndex == courseDataGridView.Columns["DeleteButton"].Index && e.RowIndex >= 0)
                 {
                     Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
-                    this._courseController.DeleteRegistration(viewCourse.CourseID, studentid);
+                    if (this._courseController.DeleteRegistration(viewCourse.CourseID, studentid))
+                    {
+                        MessageBox.Show("Registration successfully deleted");
+                    } else
+                    {
+                        MessageBox.Show("Registration was not deleted");
+                    }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }

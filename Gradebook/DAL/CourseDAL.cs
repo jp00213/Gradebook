@@ -15,7 +15,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="newCourse"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool AddNewCourse(Course newCourse)
         {
             Boolean result = false;
@@ -123,7 +122,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="studentId"></param>
         /// <param name="courseId"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public Boolean RegisterStudent(int studentId, int courseId)
         {
             Boolean result = false;
@@ -473,7 +471,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool DeleteCourse(int courseID)
         {
             SqlConnection connection = GradebookDBConnection.GetConnection();
@@ -546,7 +543,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="updateCourse"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool UpdateCourse(Course updateCourse, Course oldCourse)
         {
             SqlConnection connection = GradebookDBConnection.GetConnection();
@@ -651,7 +647,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="studentID"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public List<Course> GetCoursesByStudentRegistration(int studentID)
         {
             List<Course> courses = new List<Course>();
@@ -848,7 +843,31 @@ namespace Gradebook.DAL
         /// <param name="studentid"></param>
         public bool DeleteRegistration(int courseID, int studentid)
         {
-            throw new NotImplementedException();
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string deleteStatement =
+                "DELETE FROM studentsincourse " +
+                "WHERE courseID = @courseID AND studentID = @studentID";
+
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
+
+            deleteCommand.Parameters.AddWithValue("@courseID", courseID);
+            deleteCommand.Parameters.AddWithValue("@studentID", studentid);
+
+            using (deleteCommand)
+            {
+                connection.Open();
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
         }
+
     }
 }
