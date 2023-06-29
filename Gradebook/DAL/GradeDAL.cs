@@ -44,7 +44,7 @@ namespace Gradebook.DAL
                         Grades addGrade = new Grades
                         {
                             StudentID = (int)(reader)["studentID"],
-                            Score = (string)(reader)["score"],
+                            Score = (reader)["score"] as string,
                             StudentName = (string)(reader)["firstName"] + " " + (string)(reader)["lastName"]
                         };
                         gradeList.Add(addGrade);
