@@ -18,5 +18,6 @@ namespace Gradebook.Model
         public string Weight { get; set; }
         public string Score { get; set; }
         public string WeightGrade { get; set; }
+        public string StudentName { get; set; }
     }
 }

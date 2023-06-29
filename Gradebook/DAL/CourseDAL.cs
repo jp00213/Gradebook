@@ -618,10 +618,6 @@ namespace Gradebook.DAL
                 insertCommand.Parameters["@oldTeacherID"].Value = oldCourse.TeacherID;
             }
 
-
-
-
-
             insertCommand.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
             insertCommand.Parameters["@courseID"].Value = oldCourse.CourseID;
 
@@ -638,8 +634,6 @@ namespace Gradebook.DAL
                     return false;
                 }
             }
-
-
         }
 
         /// <summary>
