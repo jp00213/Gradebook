@@ -12,6 +12,7 @@ namespace Gradebook.UserControls
     {
         private readonly CourseController _courseController;
         private int studentid;
+
         /// <summary>
         /// Constructor for user control
         /// </summary>
@@ -25,9 +26,9 @@ namespace Gradebook.UserControls
         {
             try
             {
-                if (Int32.TryParse(this.studentIDTextBox.Text, out studentid))
+                if (Int32.TryParse(this.studentIDTextBox.Text, out this.studentid))
                 {
-                    this.courseDataGridView.DataSource = this._courseController.GetCoursesByStudentRegistration(studentid);
+                    this.courseDataGridView.DataSource = this._courseController.GetCoursesByStudentRegistration(this.studentid);
                 } else
                 {
                     this.studentIDErrorLabel.Text = "Please enter a number";
@@ -46,9 +47,9 @@ namespace Gradebook.UserControls
         {
             try
             {
-                if (Int32.TryParse(this.studentIDTextBox.Text, out int studentid))
+                if (Int32.TryParse(this.studentIDTextBox.Text, out this.studentid))
                 {
-                    this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemesterStudentID(this.semesterComboBox.Text, this.courseYearPicker.Value.Year, studentid);
+                    this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemesterStudentID(this.semesterComboBox.Text, this.courseYearPicker.Value.Year, this.studentid);
                 }
                 else
                 {
@@ -66,7 +67,7 @@ namespace Gradebook.UserControls
                 if (e.ColumnIndex == courseDataGridView.Columns["DeleteButton"].Index && e.RowIndex >= 0)
                 {
                     Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
-                    if (this._courseController.DeleteRegistration(viewCourse.CourseID, studentid))
+                    if (this._courseController.DeleteRegistration(viewCourse.CourseID, this.studentid))
                     {
                         MessageBox.Show("Registration successfully deleted");
                     } else
