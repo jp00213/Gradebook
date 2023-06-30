@@ -12,6 +12,7 @@ namespace Gradebook.UserControls
     {
         private readonly CourseController _courseController;
         private int studentid;
+        private bool searchAll;
 
         /// <summary>
         /// Constructor for user control
@@ -20,6 +21,7 @@ namespace Gradebook.UserControls
         {
             InitializeComponent();
             this._courseController = new CourseController();
+            this.searchAll = false;
         }
 
         private void searchCourseButton_Click(object sender, System.EventArgs e)
@@ -29,18 +31,15 @@ namespace Gradebook.UserControls
                 if (Int32.TryParse(this.studentIDTextBox.Text, out this.studentid))
                 {
                     this.courseDataGridView.DataSource = this._courseController.GetCoursesByStudentRegistration(this.studentid);
-                } else
+                    this.searchAll = true;
+                }
+                else
                 {
                     this.studentIDErrorLabel.Text = "Please enter a number";
                 }
 
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void studentIDTextBox_TextChanged(object sender, EventArgs e)
-        {
-            this.studentIDErrorLabel.Text = "";
         }
 
         private void viewFutureCoursesButton_Click(object sender, EventArgs e)
@@ -50,6 +49,7 @@ namespace Gradebook.UserControls
                 if (Int32.TryParse(this.studentIDTextBox.Text, out this.studentid))
                 {
                     this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemesterStudentID(this.semesterComboBox.Text, this.courseYearPicker.Value.Year, this.studentid);
+                    this.searchAll = false;
                 }
                 else
                 {
@@ -70,6 +70,7 @@ namespace Gradebook.UserControls
                     if (this._courseController.DeleteRegistration(viewCourse.CourseID, this.studentid))
                     {
                         MessageBox.Show("Registration successfully deleted");
+                        this.RedrawGrid();
                     } else
                     {
                         MessageBox.Show("Registration was not deleted");
@@ -77,6 +78,28 @@ namespace Gradebook.UserControls
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void RedrawGrid()
+        {
+            try
+            {
+                if (this.searchAll)
+                {
+                    this.courseDataGridView.DataSource = this._courseController.GetCoursesByStudentRegistration(this.studentid);
+                }
+                else
+                {
+                    this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemesterStudentID(this.semesterComboBox.Text, this.courseYearPicker.Value.Year, this.studentid);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+
+        }
+
+        private void studentIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.studentIDErrorLabel.Text = "";
         }
 
     }
