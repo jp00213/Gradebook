@@ -36,6 +36,9 @@
             this.selectClassComboBox = new System.Windows.Forms.ComboBox();
             this.selectAssignmentComboBox = new System.Windows.Forms.ComboBox();
             this.studentGradesDataGridView = new System.Windows.Forms.DataGridView();
+            this.selectClassErrorLabel = new System.Windows.Forms.Label();
+            this.selectAssignmentErrorLabel = new System.Windows.Forms.Label();
+            this.instructionsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentGradesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,6 +69,8 @@
             this.selectClassComboBox.Name = "selectClassComboBox";
             this.selectClassComboBox.Size = new System.Drawing.Size(309, 21);
             this.selectClassComboBox.TabIndex = 2;
+            this.selectClassComboBox.SelectedIndexChanged += new System.EventHandler(this.ClassSelected);
+            this.selectClassComboBox.SelectionChangeCommitted += new System.EventHandler(this.ClassSelected);
             // 
             // selectAssignmentComboBox
             // 
@@ -107,10 +112,39 @@
             this.studentGradesDataGridView.Size = new System.Drawing.Size(894, 395);
             this.studentGradesDataGridView.TabIndex = 4;
             // 
+            // selectClassErrorLabel
+            // 
+            this.selectClassErrorLabel.AutoSize = true;
+            this.selectClassErrorLabel.Location = new System.Drawing.Point(426, 104);
+            this.selectClassErrorLabel.Name = "selectClassErrorLabel";
+            this.selectClassErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.selectClassErrorLabel.TabIndex = 5;
+            // 
+            // selectAssignmentErrorLabel
+            // 
+            this.selectAssignmentErrorLabel.AutoSize = true;
+            this.selectAssignmentErrorLabel.Location = new System.Drawing.Point(426, 155);
+            this.selectAssignmentErrorLabel.Name = "selectAssignmentErrorLabel";
+            this.selectAssignmentErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.selectAssignmentErrorLabel.TabIndex = 6;
+            // 
+            // instructionsLabel
+            // 
+            this.instructionsLabel.AutoSize = true;
+            this.instructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.instructionsLabel.Location = new System.Drawing.Point(291, 27);
+            this.instructionsLabel.Name = "instructionsLabel";
+            this.instructionsLabel.Size = new System.Drawing.Size(409, 15);
+            this.instructionsLabel.TabIndex = 7;
+            this.instructionsLabel.Text = "Select course and Assignment to populate grading table and input grades.";
+            // 
             // TeacherGradingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.instructionsLabel);
+            this.Controls.Add(this.selectAssignmentErrorLabel);
+            this.Controls.Add(this.selectClassErrorLabel);
             this.Controls.Add(this.studentGradesDataGridView);
             this.Controls.Add(this.selectAssignmentComboBox);
             this.Controls.Add(this.selectClassComboBox);
@@ -131,5 +165,8 @@
         private System.Windows.Forms.ComboBox selectClassComboBox;
         private System.Windows.Forms.ComboBox selectAssignmentComboBox;
         private System.Windows.Forms.DataGridView studentGradesDataGridView;
+        private System.Windows.Forms.Label selectClassErrorLabel;
+        private System.Windows.Forms.Label selectAssignmentErrorLabel;
+        private System.Windows.Forms.Label instructionsLabel;
     }
 }
