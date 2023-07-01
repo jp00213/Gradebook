@@ -185,5 +185,21 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.DeleteRegistration(courseID, studentid);
         }
+
+        // waiting for DAL
+        public List<Grades> GetGradesDataByTeacherIDAndSemesterAndYearAndCourseID(Course searchItems)
+        {
+            return null;
+        }
+
+        /// <summary>
+        /// Get class grades by courseID
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
+        public List<Grades> GetClassGradesByCourseID(int courseID)
+        {
+            return this._courseDAL.GetClassGradesByCourseID(courseID);
+        }
     }
 }

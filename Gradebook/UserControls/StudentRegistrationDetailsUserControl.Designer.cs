@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.weightGradeTotalValueLabel = new System.Windows.Forms.Label();
+            this.weightedGradeTotalLabel = new System.Windows.Forms.Label();
             this.gradeListView = new System.Windows.Forms.ListView();
             this.courseHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.assignmentHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,8 +62,6 @@
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.semesterLabel = new System.Windows.Forms.Label();
             this.registrationDetailsLabel = new System.Windows.Forms.Label();
-            this.weightedGradeTotalLabel = new System.Windows.Forms.Label();
-            this.weightGradeTotalValueLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(932, 634);
             this.panel1.TabIndex = 0;
+            // 
+            // weightGradeTotalValueLabel
+            // 
+            this.weightGradeTotalValueLabel.AutoSize = true;
+            this.weightGradeTotalValueLabel.Location = new System.Drawing.Point(461, 482);
+            this.weightGradeTotalValueLabel.Name = "weightGradeTotalValueLabel";
+            this.weightGradeTotalValueLabel.Size = new System.Drawing.Size(13, 13);
+            this.weightGradeTotalValueLabel.TabIndex = 58;
+            this.weightGradeTotalValueLabel.Text = "0";
+            // 
+            // weightedGradeTotalLabel
+            // 
+            this.weightedGradeTotalLabel.AutoSize = true;
+            this.weightedGradeTotalLabel.Location = new System.Drawing.Point(339, 482);
+            this.weightedGradeTotalLabel.Name = "weightedGradeTotalLabel";
+            this.weightedGradeTotalLabel.Size = new System.Drawing.Size(115, 13);
+            this.weightedGradeTotalLabel.TabIndex = 57;
+            this.weightedGradeTotalLabel.Text = "Weighted Grade Total:";
             // 
             // gradeListView
             // 
@@ -209,9 +227,9 @@
             this.unitAvailableLabel.AutoSize = true;
             this.unitAvailableLabel.Location = new System.Drawing.Point(428, 95);
             this.unitAvailableLabel.Name = "unitAvailableLabel";
-            this.unitAvailableLabel.Size = new System.Drawing.Size(96, 13);
+            this.unitAvailableLabel.Size = new System.Drawing.Size(99, 13);
             this.unitAvailableLabel.TabIndex = 52;
-            this.unitAvailableLabel.Text = "Units still available:";
+            this.unitAvailableLabel.Text = "Units Still Available:";
             // 
             // allowedUnitsLabel
             // 
@@ -227,9 +245,9 @@
             this.maxAllowedUnitLabel.AutoSize = true;
             this.maxAllowedUnitLabel.Location = new System.Drawing.Point(34, 95);
             this.maxAllowedUnitLabel.Name = "maxAllowedUnitLabel";
-            this.maxAllowedUnitLabel.Size = new System.Drawing.Size(184, 13);
+            this.maxAllowedUnitLabel.Size = new System.Drawing.Size(187, 13);
             this.maxAllowedUnitLabel.TabIndex = 50;
-            this.maxAllowedUnitLabel.Text = "Maximum Allowed Units per semester:";
+            this.maxAllowedUnitLabel.Text = "Maximum Allowed Units Per Semester:";
             // 
             // currentStudentIDForEdit
             // 
@@ -340,24 +358,6 @@
             this.registrationDetailsLabel.Size = new System.Drawing.Size(284, 20);
             this.registrationDetailsLabel.TabIndex = 1;
             this.registrationDetailsLabel.Text = "Registration Details by Student ID";
-            // 
-            // weightedGradeTotalLabel
-            // 
-            this.weightedGradeTotalLabel.AutoSize = true;
-            this.weightedGradeTotalLabel.Location = new System.Drawing.Point(339, 482);
-            this.weightedGradeTotalLabel.Name = "weightedGradeTotalLabel";
-            this.weightedGradeTotalLabel.Size = new System.Drawing.Size(115, 13);
-            this.weightedGradeTotalLabel.TabIndex = 57;
-            this.weightedGradeTotalLabel.Text = "Weighted Grade Total:";
-            // 
-            // weightGradeTotalValueLabel
-            // 
-            this.weightGradeTotalValueLabel.AutoSize = true;
-            this.weightGradeTotalValueLabel.Location = new System.Drawing.Point(461, 482);
-            this.weightGradeTotalValueLabel.Name = "weightGradeTotalValueLabel";
-            this.weightGradeTotalValueLabel.Size = new System.Drawing.Size(13, 13);
-            this.weightGradeTotalValueLabel.TabIndex = 58;
-            this.weightGradeTotalValueLabel.Text = "0";
             // 
             // StudentRegistrationDetailsUserControl
             // 
