@@ -22,6 +22,9 @@ namespace Gradebook.UserControls
             InitializeComponent();
             this._courseController = new CourseController();
             this._teacherController = new TeacherController();
+            this.clearCourseButton.Enabled = false;
+            this.updateCourseButton.Enabled = false;
+            this.deleteCourseButton.Enabled = false;
             try
             {
                 this.teacherComboBox.DataSource = this._teacherController.GetAllActiveTeachers();
@@ -40,6 +43,11 @@ namespace Gradebook.UserControls
         }
 
         private void searchCourseButton_Click(object sender, System.EventArgs e)
+        {
+            this.SearchByParameters();
+        }
+
+        private void SearchByParameters()
         {
             try
             {
@@ -70,6 +78,11 @@ namespace Gradebook.UserControls
             this.dateTimePickerUpdate.Value = DateTime.Parse(viewCourse.Year.ToString() + "-01-01");
             this.semesterComboBoxUpdate.Text = viewCourse.Semester;
             this.teacherComboBoxUpdate.SelectedValue = viewCourse.TeacherID;
+
+            this.clearCourseButton.Enabled = true;
+            this.updateCourseButton.Enabled = true;
+            this.deleteCourseButton.Enabled = true;
+
         }
 
         private void clearSearchButton_Click(object sender, EventArgs e)
@@ -79,15 +92,22 @@ namespace Gradebook.UserControls
 
         private void deleteCourseButton_Click(object sender, EventArgs e)
         {
-            Course viewCourse = (Course)this.courseDataGridView.SelectedRows[0].DataBoundItem;
-            if (this._courseController.DeleteCourse(viewCourse.CourseID))
+            try
             {
-                MessageBox.Show("Course deleted");
-                this.ClearCourseDetails();
-            }
-            else
+                Course viewCourse = (Course)this.courseDataGridView.SelectedRows[0].DataBoundItem;
+                if (this._courseController.DeleteCourse(viewCourse.CourseID))
+                {
+                    MessageBox.Show("Course deleted");
+                    this.ClearCourseDetails();
+                    this.SearchByParameters();
+                }
+                else
+                {
+                    MessageBox.Show("Course was not deleted. Check student registrations.");
+                }
+            } catch (Exception ex)
             {
-                MessageBox.Show("Course was not deleted. Check student registrations.");
+                MessageBox.Show(ex.Message);
             }
 
         }
@@ -107,6 +127,10 @@ namespace Gradebook.UserControls
             this.dateTimePickerUpdate.Value = DateTime.Now;
             this.semesterComboBoxUpdate.SelectedValue = 0;
             this.teacherComboBoxUpdate.SelectedValue = 0;
+            this.clearCourseButton.Enabled = false;
+            this.updateCourseButton.Enabled = false;
+            this.deleteCourseButton.Enabled = false;
+
         }
 
         private void ClearSearchDetails()
@@ -149,7 +173,7 @@ namespace Gradebook.UserControls
 
                 // Chiaosy iteration 2 
                 string currentTeacher_ID = this.teacherComboBox.SelectedValue.ToString();
-                                Teacher theTeacher = this._teacherController.GetTeacherByID(Int32.Parse(currentTeacher_ID));
+                Teacher theTeacher = this._teacherController.GetTeacherByID(Int32.Parse(currentTeacher_ID));
                 if (theTeacher.ActiveStatus != 1)
                 {
                     MessageBox.Show("The Teacher status is disabled. Please check teacher status first.");

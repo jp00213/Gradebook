@@ -19,6 +19,7 @@ namespace Gradebook.UserControls
         private TeacherController _teacherController;
         private AssignmentController _assignmentController;
         private int _courseID;
+        private string _courseName;
         public TeacherAddAssignmentUserControl()
         {
             InitializeComponent();
@@ -47,20 +48,16 @@ namespace Gradebook.UserControls
             List<Course> currentCourses = this._courseController.GetCoursesByTeacherIDYearAndSemester(2, this.GetCurrentSemester(), DateTime.Now.Year);
             foreach (Course course in currentCourses)
             {
-                /*this.selectClassComboBox.Items.Add(course.Name + " - " + course.Prefix + " " + course.Number);*/
-                this.selectClassComboBox.Items.Add(course.Name);
+                string courseName = course.Name;
+                this.selectClassComboBox.Items.Add(courseName);
             }
         }
 
         private int GetCourseID()
         {
-            /*Course selectedCourse = this.selectClassComboBox.GetItemText(this.selectClassComboBox.SelectedItem);
-            string courseName = selectedCourse*/;
-            /*Course selected = (Course)this.selectClassComboBox.SelectedItem;*/
-            /*MessageBox.Show(this._courseController.GetCourseByName(courseName));*/
-            /*MessageBox.Show(selected.Name);*/
-            
-            return 4;
+            this._courseName = this.selectClassComboBox.SelectedItem.ToString();
+            Course currentCourse = this._courseController.GetCourseByName(this._courseName);
+            return currentCourse.CourseID;
         }
 
         private string GetCurrentSemester()
