@@ -43,7 +43,7 @@
             // 
             this.selectCourseLabel.AutoSize = true;
             this.selectCourseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectCourseLabel.Location = new System.Drawing.Point(245, 53);
+            this.selectCourseLabel.Location = new System.Drawing.Point(245, 76);
             this.selectCourseLabel.Name = "selectCourseLabel";
             this.selectCourseLabel.Size = new System.Drawing.Size(122, 20);
             this.selectCourseLabel.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.selectAssignmentLabel.AutoSize = true;
             this.selectAssignmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectAssignmentLabel.Location = new System.Drawing.Point(208, 105);
+            this.selectAssignmentLabel.Location = new System.Drawing.Point(208, 128);
             this.selectAssignmentLabel.Name = "selectAssignmentLabel";
             this.selectAssignmentLabel.Size = new System.Drawing.Size(159, 20);
             this.selectAssignmentLabel.TabIndex = 1;
@@ -62,7 +62,7 @@
             // selectClassComboBox
             // 
             this.selectClassComboBox.FormattingEnabled = true;
-            this.selectClassComboBox.Location = new System.Drawing.Point(426, 53);
+            this.selectClassComboBox.Location = new System.Drawing.Point(426, 76);
             this.selectClassComboBox.Name = "selectClassComboBox";
             this.selectClassComboBox.Size = new System.Drawing.Size(309, 21);
             this.selectClassComboBox.TabIndex = 2;
@@ -70,7 +70,7 @@
             // selectAssignmentComboBox
             // 
             this.selectAssignmentComboBox.FormattingEnabled = true;
-            this.selectAssignmentComboBox.Location = new System.Drawing.Point(426, 104);
+            this.selectAssignmentComboBox.Location = new System.Drawing.Point(426, 127);
             this.selectAssignmentComboBox.Name = "selectAssignmentComboBox";
             this.selectAssignmentComboBox.Size = new System.Drawing.Size(309, 21);
             this.selectAssignmentComboBox.TabIndex = 3;
@@ -104,7 +104,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.studentGradesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.studentGradesDataGridView.Size = new System.Drawing.Size(894, 422);
+            this.studentGradesDataGridView.Size = new System.Drawing.Size(894, 395);
             this.studentGradesDataGridView.TabIndex = 4;
             // 
             // TeacherGradingUserControl
