@@ -29,5 +29,10 @@ namespace Gradebook.Controller
         {
             return this._assignmentDAL.GetAssignmentsByCourseID(courseID);
         }
+
+        public Assignment GetAssignmentByDescription(string description)
+        {
+            return this._assignmentDAL.GetAssignmentByDescription(description);
+        }
     }
 }

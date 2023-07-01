@@ -84,5 +84,39 @@ namespace Gradebook.DAL
             }
             return assignments;
         }
+
+        public Assignment GetAssignmentByDescription(string description)
+        {
+            Assignment assignment = new Assignment();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM assignment " +
+                "WHERE description = @description ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@description", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@description"].Value = description;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        assignment = new Assignment
+                        {
+                            AssignmentID = (int)(reader)["assignmentID"],
+                            CourseID = (int)(reader)["courseID"],
+                            Description = (string)(reader)["description"],
+                            Weight = (Decimal)(reader)["weight"],
+                        };
+                    }
+                }
+            }
+            return assignment;
+        }
     }
 }
