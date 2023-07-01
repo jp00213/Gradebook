@@ -123,5 +123,10 @@ namespace Gradebook.Controller
 
         }
 
+        public List<Person> GetStudentsByCourseID(int courseID)
+        {
+            return this._studentDAL.GetStudentsByCourseID((int)courseID);
+        }
+
     }
 }
