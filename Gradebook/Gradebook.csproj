@@ -137,6 +137,7 @@
     <Compile Include="UserControls\CourseGradesUserControl.Designer.cs">
       <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
     </Compile>
+
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -273,7 +274,6 @@
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
