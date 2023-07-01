@@ -1,4 +1,5 @@
 ﻿using Gradebook.Model;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
@@ -100,5 +101,35 @@ namespace Gradebook.DAL
         }
 
 
+        public Boolean AddGrade(int assignmentID, int studentID, int score)
+        {
+            Boolean result = false;
+
+            string insertStatement = "INSERT INTO grades " +
+                "(assignmentID, studentID, score) " +
+                "VALUES (@assignmentID, @studentID, @score)";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlCommand insertCommand = new SqlCommand(insertStatement, connection))
+                {
+                    
+                    insertCommand.Parameters.Add("@assignmentID", System.Data.SqlDbType.Int);
+                    insertCommand.Parameters["@assignmentID"].Value = assignmentID;
+
+                    insertCommand.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
+                    insertCommand.Parameters["@studentID"].Value = studentID;
+
+                    insertCommand.Parameters.Add("@score", System.Data.SqlDbType.Int);
+                    insertCommand.Parameters["@score"].Value = score;
+                                        
+                    int record = insertCommand.ExecuteNonQuery();
+                    result = record > 0;
+                }
+            }
+
+            return result;
+        }
     }
 }
