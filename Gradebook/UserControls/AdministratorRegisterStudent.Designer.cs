@@ -162,7 +162,7 @@
             // searchCourseButton
             // 
             this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchCourseButton.Location = new System.Drawing.Point(657, 22);
+            this.searchCourseButton.Location = new System.Drawing.Point(645, 18);
             this.searchCourseButton.Name = "searchCourseButton";
             this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
             this.searchCourseButton.TabIndex = 2;
@@ -179,7 +179,7 @@
             "Spring",
             "Summer",
             "Fall"});
-            this.semesterComboBox.Location = new System.Drawing.Point(177, 35);
+            this.semesterComboBox.Location = new System.Drawing.Point(177, 31);
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
             this.semesterComboBox.TabIndex = 17;
@@ -210,7 +210,7 @@
             // 
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.yearLabel.Location = new System.Drawing.Point(420, 34);
+            this.yearLabel.Location = new System.Drawing.Point(420, 31);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(53, 25);
             this.yearLabel.TabIndex = 18;

@@ -1,6 +1,7 @@
 ﻿using Gradebook.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Gradebook.DAL
@@ -15,7 +16,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="newCourse"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool AddNewCourse(Course newCourse)
         {
             Boolean result = false;
@@ -123,7 +123,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="studentId"></param>
         /// <param name="courseId"></param>
-        /// <exception cref="NotImplementedException"></exception>
         public Boolean RegisterStudent(int studentId, int courseId)
         {
             Boolean result = false;
@@ -473,7 +472,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="courseID"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool DeleteCourse(int courseID)
         {
             SqlConnection connection = GradebookDBConnection.GetConnection();
@@ -546,7 +544,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="updateCourse"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public bool UpdateCourse(Course updateCourse, Course oldCourse)
         {
             SqlConnection connection = GradebookDBConnection.GetConnection();
@@ -622,10 +619,6 @@ namespace Gradebook.DAL
                 insertCommand.Parameters["@oldTeacherID"].Value = oldCourse.TeacherID;
             }
 
-
-
-
-
             insertCommand.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
             insertCommand.Parameters["@courseID"].Value = oldCourse.CourseID;
 
@@ -642,8 +635,6 @@ namespace Gradebook.DAL
                     return false;
                 }
             }
-
-
         }
 
         /// <summary>
@@ -651,7 +642,6 @@ namespace Gradebook.DAL
         /// </summary>
         /// <param name="studentID"></param>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public List<Course> GetCoursesByStudentRegistration(int studentID)
         {
             List<Course> courses = new List<Course>();
@@ -786,5 +776,142 @@ namespace Gradebook.DAL
             }
             return courses;
         }
+
+        /// <summary>
+        /// Returns all courses in a particular year and semester for a particular student ID
+        /// </summary>
+        /// <param name="semester"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public List<Course> GetCoursesByYearSemesterStudentID(string semester, int year, int studentID)
+        {
+            List<Course> courses = new List<Course>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM StudentsInCourse s, Course c " +
+                "WHERE s.courseID = c.courseID " +
+                "AND s.studentID = @studentID AND semester = @semester " +
+                "AND year = @year ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@semester", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@semester"].Value = semester;
+
+            selectCommand.Parameters.Add("@year", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@year"].Value = year;
+
+            selectCommand.Parameters.Add("@studentID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@studentID"].Value = studentID;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Course addCourse = new Course
+                        {
+                            CourseID = (int)(reader)["courseID"],
+                            Name = (string)(reader)["name"],
+                            Prefix = (string)(reader)["prefix"],
+                            Number = (string)(reader)["number"],
+                            Section = (int)(reader)["section"],
+                            CreditHours = (int)(reader)["credithours"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                            TeacherID = (int)(reader)["teacherID"],
+                        };
+                        courses.Add(addCourse);
+                    }
+                }
+            }
+            return courses;
+        }
+
+        /// <summary>
+        /// Deletes registration for a student and course
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <param name="studentid"></param>
+        public bool DeleteRegistration(int courseID, int studentid)
+        {
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string deleteStatement =
+                "DELETE FROM studentsincourse " +
+                "WHERE courseID = @courseID AND studentID = @studentID";
+
+            SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
+
+            deleteCommand.Parameters.AddWithValue("@courseID", courseID);
+            deleteCommand.Parameters.AddWithValue("@studentID", studentid);
+
+            using (deleteCommand)
+            {
+                connection.Open();
+                int rowsAffected = deleteCommand.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Get class grades by courseID
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns>grade list</returns>
+        public List<Grades> GetClassGradesByCourseID(int courseID)
+        {
+            List<Grades> gradesList = new List<Grades>();
+            Grades grade = new Grades();
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                SqlCommand command = new SqlCommand("dbo.spGetClassGradesByCourseID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@courseID", courseID);
+
+                command.Connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        grade = new Grades
+                        {
+                            StudentID = (int)(reader)["studentID"],
+                            Grade_1 = (string)(reader)["a1"],
+                            Grade_2 = (string)(reader)["a2"],
+                            Grade_3 = (string)(reader)["a3"],
+                            Grade_4 = (string)(reader)["a4"],
+                            Grade_5 = (string)(reader)["a5"],
+                            Grade_6 = (string)(reader)["a6"],
+                            Grade_7 = (string)(reader)["a7"],
+                            Grade_8 = (string)(reader)["a8"],
+                            Grade_9 = (string)(reader)["a9"],
+                            Grade_10 = (string)(reader)["a10"],
+                            Grade_11 = (string)(reader)["a11"],
+                            Grade_12 = (string)(reader)["a12"],
+                            Grade_13 = (string)(reader)["a13"],
+                            Grade_14 = (string)(reader)["a14"],
+                            Grade_15 = (string)(reader)["a15"],
+                            WeightGrade = (string)(reader)["total"]
+                        };
+                        gradesList.Add(grade);
+                    }
+                }
+            }
+            return gradesList;
+        }
+
     }
 }

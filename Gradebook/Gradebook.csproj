@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -66,12 +66,14 @@
     <Compile Include="Controller\AccountController.cs" />
     <Compile Include="Controller\AssignmentController.cs" />
     <Compile Include="Controller\CourseController.cs" />
+    <Compile Include="Controller\GradesController.cs" />
     <Compile Include="Controller\TeacherController.cs" />
     <Compile Include="Controller\StudentController.cs" />
     <Compile Include="DAL\AccountDAL.cs" />
     <Compile Include="DAL\AssignmentDAL.cs" />
     <Compile Include="DAL\CourseDAL.cs" />
     <Compile Include="DAL\GradebookDBConnection.cs" />
+    <Compile Include="DAL\GradeDAL.cs" />
     <Compile Include="DAL\Hashing.cs" />
     <Compile Include="DAL\PersonDAL.cs" />
     <Compile Include="DAL\StudentDAL.cs" />
@@ -127,6 +129,13 @@
     </Compile>
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </Compile>
+
+    <Compile Include="UserControls\CourseGradesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CourseGradesUserControl.Designer.cs">
+      <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
@@ -243,6 +252,7 @@
     </Compile>
     <EmbeddedResource Include="UserControls\AddNewCourseUserControl.resx">
       <DependentUpon>AddNewCourseUserControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\AddStudentUserControl.resx">
       <DependentUpon>AddStudentUserControl.cs</DependentUpon>
@@ -263,6 +273,7 @@
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
+
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
