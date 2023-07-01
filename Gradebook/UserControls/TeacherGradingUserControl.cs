@@ -18,6 +18,8 @@ namespace Gradebook.UserControls
         private TeacherController _teacherController;
         private AssignmentController _assignmentController;
         private GradesController _gradesController;
+        private StudentController _studentController;
+        private Person _student;
 
 
         public TeacherGradingUserControl()
@@ -26,7 +28,9 @@ namespace Gradebook.UserControls
             this._courseController = new CourseController();
             this._teacherController = new TeacherController();
             this._assignmentController = new AssignmentController();
+            this._studentController = new StudentController();
             this._gradesController= new GradesController();
+            this._student = new Person();
             this.SetUpClassComboBox();
         }
 
@@ -50,6 +54,16 @@ namespace Gradebook.UserControls
             }
         }
 
+        private void SetupStudentCombobox()
+        {
+            List<Person> studentsInClass = this._studentController.GetStudentsByCourseID(this.GetCourseID());
+            foreach (Person student in studentsInClass)
+            {
+                string studentName = student.FullName;
+                this.selectStudentComboBox.Items.Add(studentName);
+            }
+        }
+
         private int GetCourseID()
         {
             //make try catch with blanket exception
@@ -69,6 +83,11 @@ namespace Gradebook.UserControls
             string assignmentDescription = this.selectAssignmentComboBox.Text;
             Assignment assignment = this._assignmentController.GetAssignmentByDescription(assignmentDescription);
             return assignment.AssignmentID;
+        }
+
+        private int GetStudentID()
+        {
+            return 1;
         }
 
         private string GetCurrentSemester()
@@ -111,17 +130,39 @@ namespace Gradebook.UserControls
             this.selectClassComboBox.SelectedItem= null;
             this.selectAssignmentErrorLabel.Text= "";
             this.selectClassErrorLabel.Text = "";
+            MessageBox.Show(this._courseController.GetCoursesByStudentRegistration(1).Count.ToString());
         }
 
         private void populateButton_Click(object sender, EventArgs e)
         {
+            
             try
             {
+                int score = Int32.Parse(this.gradeTextBox.Text);
+                if (score > 0)
+                {
+                    bool success = this._gradesController.AddGrade(GetAssignmentID(), GetStudentID(), score);
+                    if (success)
+                    {
+                        MessageBox.Show("Grade sumbitted!");
+                    }
+                }
+
                 this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void selectAssignmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.SetupStudentCombobox();
         }
     }
 }

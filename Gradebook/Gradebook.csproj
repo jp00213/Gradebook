@@ -130,14 +130,12 @@
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UserControls\CourseGradesUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UserControls\CourseGradesUserControl.Designer.cs">
       <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -327,6 +325,7 @@
     </EmbeddedResource>
     <None Include="Properties\DataSources\Gradebook.Model.Assignment.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Course.datasource" />
+    <None Include="Properties\DataSources\Gradebook.Model.Grades.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Student.datasource" />
     <None Include="Properties\DataSources\Gradebook.Model.Teacher.datasource" />
     <None Include="Properties\Settings.settings">
