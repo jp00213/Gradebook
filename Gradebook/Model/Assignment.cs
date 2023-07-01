@@ -19,6 +19,13 @@
         }
 
         public Assignment() { }
+
+        public Assignment(int courseID, string description, decimal weight)
+        {
+            this.CourseID = courseID;
+            this.Description = description;
+            this.Weight = weight;
+        }
     }
 
     
