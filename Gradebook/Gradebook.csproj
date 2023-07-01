@@ -164,12 +164,6 @@
     <Compile Include="UserControls\SearchStudentUserControl.Designer.cs">
       <DependentUpon>SearchStudentUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\TeacherGradesUserControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\TeacherGradesUserControl.Designer.cs">
-      <DependentUpon>TeacherGradesUserControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\UpdateTeacherUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -280,9 +274,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchStudentUserControl.resx">
       <DependentUpon>SearchStudentUserControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\TeacherGradesUserControl.resx">
-      <DependentUpon>TeacherGradesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateTeacherUserControl.resx">
       <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
