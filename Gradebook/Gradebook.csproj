@@ -49,7 +49,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
     </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -129,6 +129,12 @@
     </Compile>
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CourseGradesUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\CourseGradesUserControl.Designer.cs">
+      <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
@@ -259,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\CourseGradesUserControl.resx">
+      <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
