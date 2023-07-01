@@ -17,6 +17,7 @@ namespace Gradebook.UserControls
         private CourseController _courseController;
         private TeacherController _teacherController;
         private AssignmentController _assignmentController;
+        private GradesController _gradesController;
 
 
         public TeacherGradingUserControl()
@@ -25,6 +26,7 @@ namespace Gradebook.UserControls
             this._courseController = new CourseController();
             this._teacherController = new TeacherController();
             this._assignmentController = new AssignmentController();
+            this._gradesController= new GradesController();
             this.SetUpClassComboBox();
         }
 
@@ -60,6 +62,13 @@ namespace Gradebook.UserControls
             }
             Course currentCourse = this._courseController.GetCourseByName(courseName);
             return currentCourse.CourseID;
+        }
+
+        private int GetAssignmentID()
+        {
+            string assignmentDescription = this.selectAssignmentComboBox.Text;
+            Assignment assignment = this._assignmentController.GetAssignmentByDescription(assignmentDescription);
+            return assignment.AssignmentID;
         }
 
         private string GetCurrentSemester()
@@ -102,6 +111,17 @@ namespace Gradebook.UserControls
             this.selectClassComboBox.SelectedItem= null;
             this.selectAssignmentErrorLabel.Text= "";
             this.selectClassErrorLabel.Text = "";
+        }
+
+        private void populateButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
