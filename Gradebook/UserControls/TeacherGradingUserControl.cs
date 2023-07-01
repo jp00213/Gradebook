@@ -50,6 +50,7 @@ namespace Gradebook.UserControls
 
         private int GetCourseID()
         {
+            //make try catch with blanket exception
             string courseName = this.selectClassComboBox.Text;
             if (String.IsNullOrEmpty(courseName))
             {
@@ -93,6 +94,14 @@ namespace Gradebook.UserControls
         private void ClassSelected(object sender, EventArgs e)
         {
             this.SetupAssignmentComboBox();
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            this.selectAssignmentComboBox.SelectedItem= null;
+            this.selectClassComboBox.SelectedItem= null;
+            this.selectAssignmentErrorLabel.Text= "";
+            this.selectClassErrorLabel.Text = "";
         }
     }
 }

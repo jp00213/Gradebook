@@ -39,6 +39,8 @@
             this.selectClassErrorLabel = new System.Windows.Forms.Label();
             this.selectAssignmentErrorLabel = new System.Windows.Forms.Label();
             this.instructionsLabel = new System.Windows.Forms.Label();
+            this.clearButton = new System.Windows.Forms.Button();
+            this.populateButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentGradesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -99,7 +101,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.studentGradesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.studentGradesDataGridView.Location = new System.Drawing.Point(73, 198);
+            this.studentGradesDataGridView.Location = new System.Drawing.Point(72, 211);
             this.studentGradesDataGridView.Name = "studentGradesDataGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -132,16 +134,39 @@
             // 
             this.instructionsLabel.AutoSize = true;
             this.instructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsLabel.Location = new System.Drawing.Point(291, 27);
+            this.instructionsLabel.Location = new System.Drawing.Point(303, 27);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(409, 15);
+            this.instructionsLabel.Size = new System.Drawing.Size(432, 15);
             this.instructionsLabel.TabIndex = 7;
-            this.instructionsLabel.Text = "Select course and Assignment to populate grading table and input grades.";
+            this.instructionsLabel.Text = "Select course and assignment, then click the populate button to begin grading.";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.Location = new System.Drawing.Point(426, 158);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(103, 39);
+            this.clearButton.TabIndex = 8;
+            this.clearButton.Text = "Clear Selections";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // populateButton
+            // 
+            this.populateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.populateButton.Location = new System.Drawing.Point(632, 157);
+            this.populateButton.Name = "populateButton";
+            this.populateButton.Size = new System.Drawing.Size(103, 40);
+            this.populateButton.TabIndex = 9;
+            this.populateButton.Text = "Populate";
+            this.populateButton.UseVisualStyleBackColor = true;
             // 
             // TeacherGradingUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.populateButton);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.instructionsLabel);
             this.Controls.Add(this.selectAssignmentErrorLabel);
             this.Controls.Add(this.selectClassErrorLabel);
@@ -168,5 +193,7 @@
         private System.Windows.Forms.Label selectClassErrorLabel;
         private System.Windows.Forms.Label selectAssignmentErrorLabel;
         private System.Windows.Forms.Label instructionsLabel;
+        private System.Windows.Forms.Button clearButton;
+        private System.Windows.Forms.Button populateButton;
     }
 }
