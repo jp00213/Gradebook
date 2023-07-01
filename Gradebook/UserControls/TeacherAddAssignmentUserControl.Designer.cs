@@ -37,6 +37,7 @@
             this.assignmentTypeLabel = new System.Windows.Forms.Label();
             this.assignmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.classAssignmentsDataGridView = new System.Windows.Forms.DataGridView();
+            this.assignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classAssignmentsLabel = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -52,7 +53,6 @@
             this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.classAssignmentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -133,6 +133,10 @@
             this.classAssignmentsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.classAssignmentsDataGridView.Size = new System.Drawing.Size(756, 238);
             this.classAssignmentsDataGridView.TabIndex = 4;
+            // 
+            // assignmentBindingSource
+            // 
+            this.assignmentBindingSource.DataSource = typeof(Gradebook.Model.Assignment);
             // 
             // classAssignmentsLabel
             // 
@@ -237,31 +241,31 @@
             // 
             // assignmentIDDataGridViewTextBoxColumn
             // 
+            this.assignmentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
             this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
             this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
             // 
             // courseIDDataGridViewTextBoxColumn
             // 
+            this.courseIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
             this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
             this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
             // weightDataGridViewTextBoxColumn
             // 
+            this.weightDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
             this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            // 
-            // assignmentBindingSource
-            // 
-            this.assignmentBindingSource.DataSource = typeof(Gradebook.Model.Assignment);
             // 
             // TeacherAddAssignmentUserControl
             // 
@@ -310,10 +314,10 @@
         private System.Windows.Forms.Label assignmentTypeErrorMessageLabel;
         private System.Windows.Forms.Label descriptionErrorMessageLabel;
         private System.Windows.Forms.TextBox weightTextBox;
+        private System.Windows.Forms.BindingSource assignmentBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource assignmentBindingSource;
     }
 }
