@@ -128,7 +128,6 @@
     <Compile Include="UserControls\ChangeStudentPasswordUserControl.Designer.cs">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </Compile>
-
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +163,12 @@
     </Compile>
     <Compile Include="UserControls\SearchStudentUserControl.Designer.cs">
       <DependentUpon>SearchStudentUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\TeacherGradingUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\TeacherGradingUserControl.Designer.cs">
+      <DependentUpon>TeacherGradingUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\UpdateTeacherUserControl.cs">
       <SubType>UserControl</SubType>
@@ -258,17 +263,14 @@
     <EmbeddedResource Include="UserControls\ChangeStudentPasswordUserControl.resx">
       <DependentUpon>ChangeStudentPasswordUserControl.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="UserControls\RosterUserControl.resx">
       <DependentUpon>RosterUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentRegistrationDetailsUserControl.resx">
       <DependentUpon>StudentRegistrationDetailsUserControl.cs</DependentUpon>
-
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherClassesUserControl.resx">
       <DependentUpon>TeacherClassesUserControl.cs</DependentUpon>
@@ -278,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\SearchStudentUserControl.resx">
       <DependentUpon>SearchStudentUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\TeacherGradingUserControl.resx">
+      <DependentUpon>TeacherGradingUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UpdateTeacherUserControl.resx">
       <DependentUpon>UpdateTeacherUserControl.cs</DependentUpon>
