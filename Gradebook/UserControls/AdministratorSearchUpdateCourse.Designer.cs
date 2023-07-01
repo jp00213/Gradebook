@@ -183,7 +183,7 @@
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
             this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
-            this.courseYearPicker.TabIndex = 24;
+            this.courseYearPicker.TabIndex = 23;
             // 
             // yearLabel
             // 
@@ -225,7 +225,7 @@
             this.searchCourseButton.Location = new System.Drawing.Point(918, 51);
             this.searchCourseButton.Name = "searchCourseButton";
             this.searchCourseButton.Size = new System.Drawing.Size(186, 43);
-            this.searchCourseButton.TabIndex = 20;
+            this.searchCourseButton.TabIndex = 28;
             this.searchCourseButton.Text = "Search Courses";
             this.searchCourseButton.UseVisualStyleBackColor = true;
             this.searchCourseButton.Click += new System.EventHandler(this.searchCourseButton_Click);
@@ -255,7 +255,7 @@
             this.courseDataGridView.RowTemplate.Height = 24;
             this.courseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseDataGridView.Size = new System.Drawing.Size(1215, 172);
-            this.courseDataGridView.TabIndex = 25;
+            this.courseDataGridView.TabIndex = 30;
             this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
@@ -357,7 +357,7 @@
             this.numberTextBox.Location = new System.Drawing.Point(330, 57);
             this.numberTextBox.Name = "numberTextBox";
             this.numberTextBox.Size = new System.Drawing.Size(120, 30);
-            this.numberTextBox.TabIndex = 31;
+            this.numberTextBox.TabIndex = 26;
             // 
             // prefixTextBox
             // 
@@ -365,7 +365,7 @@
             this.prefixTextBox.Location = new System.Drawing.Point(88, 57);
             this.prefixTextBox.Name = "prefixTextBox";
             this.prefixTextBox.Size = new System.Drawing.Size(124, 30);
-            this.prefixTextBox.TabIndex = 30;
+            this.prefixTextBox.TabIndex = 25;
             // 
             // nameTextBox
             // 
@@ -373,7 +373,7 @@
             this.nameTextBox.Location = new System.Drawing.Point(712, 13);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(307, 30);
-            this.nameTextBox.TabIndex = 29;
+            this.nameTextBox.TabIndex = 24;
             // 
             // prefixLabel
             // 
@@ -412,7 +412,7 @@
             this.teacherComboBox.Location = new System.Drawing.Point(600, 57);
             this.teacherComboBox.Name = "teacherComboBox";
             this.teacherComboBox.Size = new System.Drawing.Size(291, 33);
-            this.teacherComboBox.TabIndex = 33;
+            this.teacherComboBox.TabIndex = 27;
             // 
             // teacherLabel
             // 
@@ -431,7 +431,7 @@
             this.nameTextBoxUpdate.Location = new System.Drawing.Point(131, 298);
             this.nameTextBoxUpdate.Name = "nameTextBoxUpdate";
             this.nameTextBoxUpdate.Size = new System.Drawing.Size(529, 30);
-            this.nameTextBoxUpdate.TabIndex = 36;
+            this.nameTextBoxUpdate.TabIndex = 31;
             this.nameTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // numberTextBoxUpdate
@@ -441,7 +441,7 @@
             this.numberTextBoxUpdate.Location = new System.Drawing.Point(460, 354);
             this.numberTextBoxUpdate.Name = "numberTextBoxUpdate";
             this.numberTextBoxUpdate.Size = new System.Drawing.Size(200, 30);
-            this.numberTextBoxUpdate.TabIndex = 38;
+            this.numberTextBoxUpdate.TabIndex = 34;
             this.numberTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // prefixTextBoxUpdate
@@ -451,7 +451,7 @@
             this.prefixTextBoxUpdate.Location = new System.Drawing.Point(131, 354);
             this.prefixTextBoxUpdate.Name = "prefixTextBoxUpdate";
             this.prefixTextBoxUpdate.Size = new System.Drawing.Size(200, 30);
-            this.prefixTextBoxUpdate.TabIndex = 40;
+            this.prefixTextBoxUpdate.TabIndex = 33;
             this.prefixTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // sectionTextBoxUpdate
@@ -461,7 +461,7 @@
             this.sectionTextBoxUpdate.Location = new System.Drawing.Point(839, 354);
             this.sectionTextBoxUpdate.Name = "sectionTextBoxUpdate";
             this.sectionTextBoxUpdate.Size = new System.Drawing.Size(200, 30);
-            this.sectionTextBoxUpdate.TabIndex = 42;
+            this.sectionTextBoxUpdate.TabIndex = 35;
             this.sectionTextBoxUpdate.TextChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // teacherComboBoxUpdate
@@ -472,7 +472,7 @@
             this.teacherComboBoxUpdate.Location = new System.Drawing.Point(839, 419);
             this.teacherComboBoxUpdate.Name = "teacherComboBoxUpdate";
             this.teacherComboBoxUpdate.Size = new System.Drawing.Size(200, 33);
-            this.teacherComboBoxUpdate.TabIndex = 46;
+            this.teacherComboBoxUpdate.TabIndex = 38;
             // 
             // dateTimePickerUpdate
             // 
@@ -484,7 +484,7 @@
             this.dateTimePickerUpdate.Name = "dateTimePickerUpdate";
             this.dateTimePickerUpdate.ShowUpDown = true;
             this.dateTimePickerUpdate.Size = new System.Drawing.Size(200, 30);
-            this.dateTimePickerUpdate.TabIndex = 49;
+            this.dateTimePickerUpdate.TabIndex = 36;
             this.dateTimePickerUpdate.ValueChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // semesterComboBoxUpdate
@@ -499,7 +499,7 @@
             this.semesterComboBoxUpdate.Location = new System.Drawing.Point(461, 421);
             this.semesterComboBoxUpdate.Name = "semesterComboBoxUpdate";
             this.semesterComboBoxUpdate.Size = new System.Drawing.Size(240, 33);
-            this.semesterComboBoxUpdate.TabIndex = 50;
+            this.semesterComboBoxUpdate.TabIndex = 37;
             this.semesterComboBoxUpdate.SelectedIndexChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // creditHoursComboBoxUpdate
@@ -517,7 +517,7 @@
             this.creditHoursComboBoxUpdate.Location = new System.Drawing.Point(839, 291);
             this.creditHoursComboBoxUpdate.Name = "creditHoursComboBoxUpdate";
             this.creditHoursComboBoxUpdate.Size = new System.Drawing.Size(200, 33);
-            this.creditHoursComboBoxUpdate.TabIndex = 51;
+            this.creditHoursComboBoxUpdate.TabIndex = 32;
             this.creditHoursComboBoxUpdate.SelectedIndexChanged += new System.EventHandler(this.nameTextBoxUpdate_TextChanged);
             // 
             // updateCourseButton
@@ -526,7 +526,7 @@
             this.updateCourseButton.Location = new System.Drawing.Point(1088, 290);
             this.updateCourseButton.Name = "updateCourseButton";
             this.updateCourseButton.Size = new System.Drawing.Size(167, 43);
-            this.updateCourseButton.TabIndex = 52;
+            this.updateCourseButton.TabIndex = 39;
             this.updateCourseButton.Text = "Update Course";
             this.updateCourseButton.UseVisualStyleBackColor = true;
             this.updateCourseButton.Click += new System.EventHandler(this.updateCourseButton_Click);
@@ -538,7 +538,7 @@
             this.deleteCourseButton.Location = new System.Drawing.Point(1088, 438);
             this.deleteCourseButton.Name = "deleteCourseButton";
             this.deleteCourseButton.Size = new System.Drawing.Size(167, 43);
-            this.deleteCourseButton.TabIndex = 53;
+            this.deleteCourseButton.TabIndex = 41;
             this.deleteCourseButton.Text = "Delete Course";
             this.deleteCourseButton.UseVisualStyleBackColor = true;
             this.deleteCourseButton.Click += new System.EventHandler(this.deleteCourseButton_Click);
@@ -549,7 +549,7 @@
             this.clearSearchButton.Location = new System.Drawing.Point(1110, 51);
             this.clearSearchButton.Name = "clearSearchButton";
             this.clearSearchButton.Size = new System.Drawing.Size(167, 43);
-            this.clearSearchButton.TabIndex = 54;
+            this.clearSearchButton.TabIndex = 29;
             this.clearSearchButton.Text = "Clear Search";
             this.clearSearchButton.UseVisualStyleBackColor = true;
             this.clearSearchButton.Click += new System.EventHandler(this.clearSearchButton_Click);
@@ -560,7 +560,7 @@
             this.clearCourseButton.Location = new System.Drawing.Point(1088, 366);
             this.clearCourseButton.Name = "clearCourseButton";
             this.clearCourseButton.Size = new System.Drawing.Size(167, 43);
-            this.clearCourseButton.TabIndex = 55;
+            this.clearCourseButton.TabIndex = 40;
             this.clearCourseButton.Text = "Clear Course";
             this.clearCourseButton.UseVisualStyleBackColor = true;
             this.clearCourseButton.Click += new System.EventHandler(this.clearCourseButton_Click);

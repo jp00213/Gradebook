@@ -99,7 +99,7 @@
             this.courseDataGridView.RowTemplate.Height = 24;
             this.courseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseDataGridView.Size = new System.Drawing.Size(1134, 220);
-            this.courseDataGridView.TabIndex = 1;
+            this.courseDataGridView.TabIndex = 20;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -165,7 +165,7 @@
             this.searchCourseButton.Location = new System.Drawing.Point(645, 18);
             this.searchCourseButton.Name = "searchCourseButton";
             this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
-            this.searchCourseButton.TabIndex = 2;
+            this.searchCourseButton.TabIndex = 19;
             this.searchCourseButton.Text = "Search Courses";
             this.searchCourseButton.UseVisualStyleBackColor = true;
             this.searchCourseButton.Click += new System.EventHandler(this.searchCourseButton_Click);
@@ -204,7 +204,7 @@
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
             this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
-            this.courseYearPicker.TabIndex = 19;
+            this.courseYearPicker.TabIndex = 18;
             // 
             // yearLabel
             // 
@@ -222,7 +222,7 @@
             this.studentIDTextBox.Location = new System.Drawing.Point(190, 334);
             this.studentIDTextBox.Name = "studentIDTextBox";
             this.studentIDTextBox.Size = new System.Drawing.Size(121, 30);
-            this.studentIDTextBox.TabIndex = 20;
+            this.studentIDTextBox.TabIndex = 21;
             this.studentIDTextBox.TextChanged += new System.EventHandler(this.studentIDTextBox_TextChanged);
             // 
             // studentIDLabel
@@ -252,7 +252,7 @@
             this.registerButton.Location = new System.Drawing.Point(425, 434);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(315, 46);
-            this.registerButton.TabIndex = 25;
+            this.registerButton.TabIndex = 23;
             this.registerButton.Text = "Register Student For Course";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
