@@ -48,8 +48,13 @@
             this.inputGradeLabel = new System.Windows.Forms.Label();
             this.gradeTextBox = new System.Windows.Forms.TextBox();
             this.gradeErrorMessageLabel = new System.Windows.Forms.Label();
-            this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             this.gradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightGradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.studentGradesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -58,9 +63,10 @@
             // 
             this.selectCourseLabel.AutoSize = true;
             this.selectCourseLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectCourseLabel.Location = new System.Drawing.Point(245, 76);
+            this.selectCourseLabel.Location = new System.Drawing.Point(327, 94);
+            this.selectCourseLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectCourseLabel.Name = "selectCourseLabel";
-            this.selectCourseLabel.Size = new System.Drawing.Size(122, 20);
+            this.selectCourseLabel.Size = new System.Drawing.Size(149, 25);
             this.selectCourseLabel.TabIndex = 0;
             this.selectCourseLabel.Text = "Select Course";
             // 
@@ -68,18 +74,20 @@
             // 
             this.selectAssignmentLabel.AutoSize = true;
             this.selectAssignmentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectAssignmentLabel.Location = new System.Drawing.Point(208, 128);
+            this.selectAssignmentLabel.Location = new System.Drawing.Point(277, 158);
+            this.selectAssignmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectAssignmentLabel.Name = "selectAssignmentLabel";
-            this.selectAssignmentLabel.Size = new System.Drawing.Size(159, 20);
+            this.selectAssignmentLabel.Size = new System.Drawing.Size(192, 25);
             this.selectAssignmentLabel.TabIndex = 1;
             this.selectAssignmentLabel.Text = "Select Assignment";
             // 
             // selectClassComboBox
             // 
             this.selectClassComboBox.FormattingEnabled = true;
-            this.selectClassComboBox.Location = new System.Drawing.Point(426, 76);
+            this.selectClassComboBox.Location = new System.Drawing.Point(568, 94);
+            this.selectClassComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectClassComboBox.Name = "selectClassComboBox";
-            this.selectClassComboBox.Size = new System.Drawing.Size(309, 21);
+            this.selectClassComboBox.Size = new System.Drawing.Size(411, 24);
             this.selectClassComboBox.TabIndex = 2;
             this.selectClassComboBox.SelectedIndexChanged += new System.EventHandler(this.ClassSelected);
             this.selectClassComboBox.SelectionChangeCommitted += new System.EventHandler(this.ClassSelected);
@@ -87,9 +95,10 @@
             // selectAssignmentComboBox
             // 
             this.selectAssignmentComboBox.FormattingEnabled = true;
-            this.selectAssignmentComboBox.Location = new System.Drawing.Point(426, 127);
+            this.selectAssignmentComboBox.Location = new System.Drawing.Point(568, 156);
+            this.selectAssignmentComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectAssignmentComboBox.Name = "selectAssignmentComboBox";
-            this.selectAssignmentComboBox.Size = new System.Drawing.Size(309, 21);
+            this.selectAssignmentComboBox.Size = new System.Drawing.Size(411, 24);
             this.selectAssignmentComboBox.TabIndex = 3;
             this.selectAssignmentComboBox.SelectedIndexChanged += new System.EventHandler(this.selectAssignmentComboBox_SelectedIndexChanged);
             // 
@@ -97,6 +106,7 @@
             // 
             this.studentGradesDataGridView.AllowUserToAddRows = false;
             this.studentGradesDataGridView.AllowUserToDeleteRows = false;
+            this.studentGradesDataGridView.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -107,7 +117,13 @@
             this.studentGradesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.studentGradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentGradesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Add});
+            this.studentIDDataGridViewTextBoxColumn,
+            this.studentNameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.weightDataGridViewTextBoxColumn,
+            this.scoreDataGridViewTextBoxColumn,
+            this.weightGradeDataGridViewTextBoxColumn});
+            this.studentGradesDataGridView.DataSource = this.gradesBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -116,7 +132,8 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.studentGradesDataGridView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.studentGradesDataGridView.Location = new System.Drawing.Point(72, 367);
+            this.studentGradesDataGridView.Location = new System.Drawing.Point(96, 452);
+            this.studentGradesDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.studentGradesDataGridView.Name = "studentGradesDataGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -126,32 +143,36 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.studentGradesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.studentGradesDataGridView.Size = new System.Drawing.Size(894, 239);
+            this.studentGradesDataGridView.RowHeadersWidth = 51;
+            this.studentGradesDataGridView.Size = new System.Drawing.Size(1192, 294);
             this.studentGradesDataGridView.TabIndex = 4;
             // 
             // selectClassErrorLabel
             // 
             this.selectClassErrorLabel.AutoSize = true;
-            this.selectClassErrorLabel.Location = new System.Drawing.Point(426, 104);
+            this.selectClassErrorLabel.Location = new System.Drawing.Point(568, 128);
+            this.selectClassErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectClassErrorLabel.Name = "selectClassErrorLabel";
-            this.selectClassErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.selectClassErrorLabel.Size = new System.Drawing.Size(0, 16);
             this.selectClassErrorLabel.TabIndex = 5;
             // 
             // selectAssignmentErrorLabel
             // 
             this.selectAssignmentErrorLabel.AutoSize = true;
-            this.selectAssignmentErrorLabel.Location = new System.Drawing.Point(426, 155);
+            this.selectAssignmentErrorLabel.Location = new System.Drawing.Point(568, 191);
+            this.selectAssignmentErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectAssignmentErrorLabel.Name = "selectAssignmentErrorLabel";
-            this.selectAssignmentErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.selectAssignmentErrorLabel.Size = new System.Drawing.Size(0, 16);
             this.selectAssignmentErrorLabel.TabIndex = 6;
             // 
             // instructionsLabel
             // 
             this.instructionsLabel.AutoSize = true;
             this.instructionsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.instructionsLabel.Location = new System.Drawing.Point(128, 42);
+            this.instructionsLabel.Location = new System.Drawing.Point(171, 52);
+            this.instructionsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.instructionsLabel.Name = "instructionsLabel";
-            this.instructionsLabel.Size = new System.Drawing.Size(742, 15);
+            this.instructionsLabel.Size = new System.Drawing.Size(895, 18);
             this.instructionsLabel.TabIndex = 7;
             this.instructionsLabel.Text = "Select course, assignment, and student, then input their grade and click save. Sa" +
     "ved grades will populate at the bottom for each student.";
@@ -159,9 +180,10 @@
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.clearButton.Location = new System.Drawing.Point(426, 292);
+            this.clearButton.Location = new System.Drawing.Point(568, 359);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(103, 39);
+            this.clearButton.Size = new System.Drawing.Size(137, 48);
             this.clearButton.TabIndex = 8;
             this.clearButton.Text = "Clear Selections";
             this.clearButton.UseVisualStyleBackColor = true;
@@ -170,9 +192,10 @@
             // populateButton
             // 
             this.populateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.populateButton.Location = new System.Drawing.Point(632, 291);
+            this.populateButton.Location = new System.Drawing.Point(843, 358);
+            this.populateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.populateButton.Name = "populateButton";
-            this.populateButton.Size = new System.Drawing.Size(103, 40);
+            this.populateButton.Size = new System.Drawing.Size(137, 49);
             this.populateButton.TabIndex = 9;
             this.populateButton.Text = "Save Grade";
             this.populateButton.UseVisualStyleBackColor = true;
@@ -181,17 +204,19 @@
             // selectStudentErrorLabel
             // 
             this.selectStudentErrorLabel.AutoSize = true;
-            this.selectStudentErrorLabel.Location = new System.Drawing.Point(426, 210);
+            this.selectStudentErrorLabel.Location = new System.Drawing.Point(568, 258);
+            this.selectStudentErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectStudentErrorLabel.Name = "selectStudentErrorLabel";
-            this.selectStudentErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.selectStudentErrorLabel.Size = new System.Drawing.Size(0, 16);
             this.selectStudentErrorLabel.TabIndex = 12;
             // 
             // selectStudentComboBox
             // 
             this.selectStudentComboBox.FormattingEnabled = true;
-            this.selectStudentComboBox.Location = new System.Drawing.Point(426, 182);
+            this.selectStudentComboBox.Location = new System.Drawing.Point(568, 224);
+            this.selectStudentComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.selectStudentComboBox.Name = "selectStudentComboBox";
-            this.selectStudentComboBox.Size = new System.Drawing.Size(309, 21);
+            this.selectStudentComboBox.Size = new System.Drawing.Size(411, 24);
             this.selectStudentComboBox.TabIndex = 11;
             this.selectStudentComboBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -199,9 +224,10 @@
             // 
             this.selectStudentLabel.AutoSize = true;
             this.selectStudentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectStudentLabel.Location = new System.Drawing.Point(238, 183);
+            this.selectStudentLabel.Location = new System.Drawing.Point(317, 225);
+            this.selectStudentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectStudentLabel.Name = "selectStudentLabel";
-            this.selectStudentLabel.Size = new System.Drawing.Size(129, 20);
+            this.selectStudentLabel.Size = new System.Drawing.Size(154, 25);
             this.selectStudentLabel.TabIndex = 10;
             this.selectStudentLabel.Text = "Select Student";
             // 
@@ -209,41 +235,85 @@
             // 
             this.inputGradeLabel.AutoSize = true;
             this.inputGradeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.inputGradeLabel.Location = new System.Drawing.Point(261, 236);
+            this.inputGradeLabel.Location = new System.Drawing.Point(348, 290);
+            this.inputGradeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.inputGradeLabel.Name = "inputGradeLabel";
-            this.inputGradeLabel.Size = new System.Drawing.Size(106, 20);
+            this.inputGradeLabel.Size = new System.Drawing.Size(125, 25);
             this.inputGradeLabel.TabIndex = 13;
             this.inputGradeLabel.Text = "Input Grade";
             // 
             // gradeTextBox
             // 
-            this.gradeTextBox.Location = new System.Drawing.Point(426, 235);
+            this.gradeTextBox.Location = new System.Drawing.Point(568, 289);
+            this.gradeTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gradeTextBox.Name = "gradeTextBox";
-            this.gradeTextBox.Size = new System.Drawing.Size(309, 20);
+            this.gradeTextBox.Size = new System.Drawing.Size(411, 22);
             this.gradeTextBox.TabIndex = 14;
             // 
             // gradeErrorMessageLabel
             // 
             this.gradeErrorMessageLabel.AutoSize = true;
-            this.gradeErrorMessageLabel.Location = new System.Drawing.Point(426, 258);
+            this.gradeErrorMessageLabel.Location = new System.Drawing.Point(568, 318);
+            this.gradeErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gradeErrorMessageLabel.Name = "gradeErrorMessageLabel";
-            this.gradeErrorMessageLabel.Size = new System.Drawing.Size(0, 13);
+            this.gradeErrorMessageLabel.Size = new System.Drawing.Size(0, 16);
             this.gradeErrorMessageLabel.TabIndex = 15;
-            // 
-            // Add
-            // 
-            this.Add.HeaderText = "Edit";
-            this.Add.Name = "Add";
-            this.Add.Text = "Update";
-            this.Add.UseColumnTextForButtonValue = true;
             // 
             // gradesBindingSource
             // 
             this.gradesBindingSource.DataSource = typeof(Gradebook.Model.Grades);
             // 
+            // studentIDDataGridViewTextBoxColumn
+            // 
+            this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "StudentID";
+            this.studentIDDataGridViewTextBoxColumn.HeaderText = "StudentID";
+            this.studentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
+            this.studentIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // studentNameDataGridViewTextBoxColumn
+            // 
+            this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "StudentName";
+            this.studentNameDataGridViewTextBoxColumn.HeaderText = "StudentName";
+            this.studentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
+            this.studentNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
+            this.weightDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            this.weightDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // scoreDataGridViewTextBoxColumn
+            // 
+            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
+            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
+            this.scoreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
+            this.scoreDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // weightGradeDataGridViewTextBoxColumn
+            // 
+            this.weightGradeDataGridViewTextBoxColumn.DataPropertyName = "WeightGrade";
+            this.weightGradeDataGridViewTextBoxColumn.HeaderText = "WeightGrade";
+            this.weightGradeDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.weightGradeDataGridViewTextBoxColumn.Name = "weightGradeDataGridViewTextBoxColumn";
+            this.weightGradeDataGridViewTextBoxColumn.Width = 125;
+            // 
             // TeacherGradingUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gradeErrorMessageLabel);
             this.Controls.Add(this.gradeTextBox);
@@ -261,8 +331,9 @@
             this.Controls.Add(this.selectClassComboBox);
             this.Controls.Add(this.selectAssignmentLabel);
             this.Controls.Add(this.selectCourseLabel);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TeacherGradingUserControl";
-            this.Size = new System.Drawing.Size(1033, 672);
+            this.Size = new System.Drawing.Size(1377, 827);
             ((System.ComponentModel.ISupportInitialize)(this.studentGradesDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradesBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -289,6 +360,11 @@
         private System.Windows.Forms.TextBox gradeTextBox;
         private System.Windows.Forms.Label gradeErrorMessageLabel;
         private System.Windows.Forms.BindingSource gradesBindingSource;
-        private System.Windows.Forms.DataGridViewButtonColumn Add;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weightGradeDataGridViewTextBoxColumn;
     }
 }
