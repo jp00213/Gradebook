@@ -3,16 +3,14 @@ using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// UserControl to add assingments for students
+    /// </summary>
     public partial class TeacherAddAssignmentUserControl : UserControl
     {
         private CourseController _courseController;
@@ -20,6 +18,10 @@ namespace Gradebook.UserControls
         private AssignmentController _assignmentController;
         private int _courseID;
         private string _courseName;
+
+        /// <summary>
+        /// Used to add assignments
+        /// </summary>
         public TeacherAddAssignmentUserControl()
         {
             InitializeComponent();
@@ -45,7 +47,7 @@ namespace Gradebook.UserControls
 
         private void SetUpClassComboBox()
         {
-            List<Course> currentCourses = this._courseController.GetCoursesByTeacherIDYearAndSemester(2, this.GetCurrentSemester(), DateTime.Now.Year);
+            List<Course> currentCourses = this._courseController.GetCoursesByTeacherIDYearAndSemester(this.GetTeacherID(), this.GetCurrentSemester(), DateTime.Now.Year);
             foreach (Course course in currentCourses)
             {
                 string courseName = course.Name;

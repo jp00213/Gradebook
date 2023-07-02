@@ -113,10 +113,8 @@ namespace Gradebook.UserControls
         private int GetTeacherID()
         {
             string teacherUsername = TeacherController.GetUsername();
-            /*MessageBox.Show(teacherUsername);*/
-            /*Teacher currentTeacher = this._teacherController.GetTeacherByUsername(teacherUsername);
-            return currentTeacher.TeacherID;*/
-            return 2;
+            Teacher currentTeacher = this._teacherController.GetTeacherByUsername(teacherUsername);
+            return currentTeacher.TeacherID;
         }
 
         private void ClassSelected(object sender, EventArgs e)
@@ -147,12 +145,15 @@ namespace Gradebook.UserControls
                     bool success = this._gradesController.AddGrade(GetAssignmentID(), GetStudentID(), score);
                     if (success)
                     {
-                        MessageBox.Show("Grade sumbitted!");
+                        MessageBox.Show("Grade successfully submitted!", "Grade Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.PopulateGradeDataGridView();
+                    } else
+                    {
+                        MessageBox.Show("You have already submitted a grade for this student's assignment. Please select another student or use the grid below to edit the current grade.", "Grade Not Saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
 
-                /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());*/
-                this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();
+                this.PopulateGradeDataGridView();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -167,6 +168,12 @@ namespace Gradebook.UserControls
         private void selectAssignmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.SetupStudentCombobox();
+        }
+
+        private void PopulateGradeDataGridView()
+        {
+            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());*/
+            this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();
         }
     }
 }
