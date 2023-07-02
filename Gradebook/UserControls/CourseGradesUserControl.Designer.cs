@@ -320,7 +320,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(585, 40);
+            this.clearButton.Location = new System.Drawing.Point(596, 41);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 64;
@@ -330,7 +330,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(504, 41);
+            this.searchButton.Location = new System.Drawing.Point(515, 41);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 63;
