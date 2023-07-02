@@ -37,10 +37,12 @@ namespace Gradebook.UserControls
                 string courseName = course.Name;
                 this.selectClassComboBox.Items.Add(courseName);
             }
+            
         }
 
         private void SetupAssignmentComboBox()
         {
+            this.selectAssignmentComboBox.Items.Clear();
             List<Assignment> currentAssignments = this._assignmentController.GetAssignmentsByCourseID(this.GetCourseID());
             foreach (Assignment assignment in currentAssignments)
             {
@@ -51,6 +53,7 @@ namespace Gradebook.UserControls
 
         private void SetupStudentCombobox()
         {
+            this.selectStudentComboBox.Items.Clear();
             List<Person> studentsInClass = this._studentController.GetStudentsByCourseID(this.GetCourseID());
             foreach (Person student in studentsInClass)
             {
@@ -82,7 +85,21 @@ namespace Gradebook.UserControls
 
         private int GetStudentID()
         {
-            return 1;
+            string fullName = this.selectStudentComboBox.Text;
+
+            if (string.IsNullOrEmpty(fullName))
+            {
+                MessageBox.Show("Please select a student to continue.", "No Student Selected", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
+
+            var names = fullName.Split(' ');
+            string firstName = names[0];
+            string lastName = names[1];
+            Person student = this._studentController.GetStudentByNameAndCourseID(firstName, lastName, this.GetCourseID());
+            int studentID = student.StudentID;
+            MessageBox.Show(studentID.ToString());
+            return studentID;
         }
 
         private string GetCurrentSemester()
@@ -142,16 +159,13 @@ namespace Gradebook.UserControls
                     {
                         MessageBox.Show("Grade successfully submitted!", "Grade Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.PopulateGradeDataGridView();
-                    } else
-                    {
-                        MessageBox.Show("You have already submitted a grade for this student's assignment. Please select another student or use the grid below to edit the current grade.", "Grade Not Saved", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    } 
                 }
 
                 this.PopulateGradeDataGridView();
-            } catch (Exception ex)
+            } catch (Exception ex) 
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("You have already submitted a grade for this student's assignment. Please select another student or use the grid below to edit the current grade.", "Grade Not Saved" + ex.GetType(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -162,13 +176,14 @@ namespace Gradebook.UserControls
 
         private void selectAssignmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
             this.SetupStudentCombobox();
         }
 
         private void PopulateGradeDataGridView()
         {
-            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());*/
-            this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();
+            this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
+            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();*/
         }
     }
 }
