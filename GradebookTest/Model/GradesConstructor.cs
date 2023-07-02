@@ -41,7 +41,6 @@ namespace GradebookTest.Model
             grades.Grade_14 = "555";
             grades.Grade_15 = "666";
 
-
             Assert.That(grades.StudentID, Is.EqualTo(123));
             Assert.That(grades.CourseID, Is.EqualTo(555));
             Assert.That(grades.AssignmentID, Is.EqualTo(5454));
@@ -65,7 +64,6 @@ namespace GradebookTest.Model
             Assert.That(grades.Grade_13, Is.EqualTo("444"));
             Assert.That(grades.Grade_14, Is.EqualTo("555"));
             Assert.That(grades.Grade_15, Is.EqualTo("666"));
-
         }
     }
 }

@@ -18,9 +18,7 @@ namespace GradebookTest.Model
             user.userName = "MyUserNameIsAdmin";
 
             Assert.That(user.userName, Is.EqualTo("MyUserNameIsAdmin"));
-
         }
-
     }
 }
 
