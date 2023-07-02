@@ -82,7 +82,7 @@
             // coursesButton
             // 
             this.coursesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.coursesButton.Location = new System.Drawing.Point(295, 326);
+            this.coursesButton.Location = new System.Drawing.Point(295, 323);
             this.coursesButton.Name = "coursesButton";
             this.coursesButton.Size = new System.Drawing.Size(170, 67);
             this.coursesButton.TabIndex = 4;

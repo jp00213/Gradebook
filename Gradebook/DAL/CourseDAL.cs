@@ -641,7 +641,7 @@ namespace Gradebook.DAL
         }
 
         /// <summary>
-        /// 
+        /// Returns a list of courses by student ID
         /// </summary>
         /// <param name="studentID"></param>
         /// <returns></returns>

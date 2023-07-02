@@ -6,6 +6,7 @@
     public class CurrentUser
     {
         public string userName { get; set; }
+
         /// <summary>
         /// Construrctor for current user
         /// </summary>
