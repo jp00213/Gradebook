@@ -20,12 +20,19 @@ namespace Gradebook.DAL
 
             SqlConnection connection = GradebookDBConnection.GetConnection();
             string selectStatement =
-                "SELECT s.studentID, firstName, lastName, g.score " +
+                /*"SELECT s.studentID, firstName, lastName, g.score " +
                 "FROM person p, student s, studentsincourse sc, grades g, assignment a " +
                 "WHERE sc.courseID = @courseID AND a.assignmentID = @assignmentID " +
                 "AND p.recordID = s.recordID AND s.studentID = sc.studentID " +
                 "AND sc.studentID = g.studentID " +
-                "AND g.assignmentID = a.assignmentID ";
+                "AND g.assignmentID = a.assignmentID "*/
+                "SELECT sc.courseID, a.weight, a.description, g.score, s.studentID, p.firstName, p.lastName FROM studentsInCourse sc " +
+                "JOIN Assignment a ON sc.courseID = a.courseID " +
+                "JOIN Grades g ON a.assignmentID = g.assignmentID " +
+                "JOIN Student s ON sc.studentID = s.studentID " +
+                "JOIN Person p on s.recordID = p.recordID " +
+                "WHERE sc.courseID = @courseID " +
+                "AND g.assignmentID = @assignmentID ";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
@@ -44,8 +51,11 @@ namespace Gradebook.DAL
                     {
                         Grades addGrade = new Grades
                         {
-                            StudentID = (int)(reader)["studentID"],
+                            CourseID = (int)(reader)["courseID"],
+                            Weight = (reader)["weight"] as string,
+                            Description = (string)(reader)["Description"],
                             Score = (reader)["score"] as string,
+                            StudentID = (int)(reader)["studentID"],
                             StudentName = (string)(reader)["firstName"] + " " + (string)(reader)["lastName"]
                         };
                         gradeList.Add(addGrade);
@@ -130,6 +140,37 @@ namespace Gradebook.DAL
             }
 
             return result;
+        }
+
+        public List<Grades> GetAllGrades()
+        {
+            List<Grades> grades = new List<Grades>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "SELECT * " +
+                "FROM grades ";
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Grades addGrades = new Grades
+                        {
+                            AssignmentID = (int)(reader)["assignmentID"],
+                            StudentID = (int)(reader)["studentID"],
+                            Score = (reader)["score"] as string,
+
+                        };
+                        grades.Add(addGrades);
+                    }
+                }
+            }
+            return grades;
         }
     }
 }

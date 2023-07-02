@@ -128,9 +128,12 @@ namespace Gradebook.UserControls
         {
             this.selectAssignmentComboBox.SelectedItem= null;
             this.selectClassComboBox.SelectedItem= null;
+            this.selectStudentComboBox.SelectedItem= null;
+            this.gradeTextBox.Text= "";
+            this.selectStudentErrorLabel.Text = "";
+            this.gradeErrorMessageLabel.Text = "";
             this.selectAssignmentErrorLabel.Text= "";
             this.selectClassErrorLabel.Text = "";
-            MessageBox.Show(this._courseController.GetCoursesByStudentRegistration(1).Count.ToString());
         }
 
         private void populateButton_Click(object sender, EventArgs e)
@@ -148,7 +151,8 @@ namespace Gradebook.UserControls
                     }
                 }
 
-                this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
+                /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());*/
+                this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();
             } catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

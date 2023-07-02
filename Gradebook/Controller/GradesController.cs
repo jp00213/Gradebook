@@ -50,5 +50,10 @@ namespace Gradebook.Controller
             return this._gradeDAL.AddGrade(assignmentID, studentID, score);
         }
 
+        public List<Grades> GetAllGrades()
+        {
+            return this._gradeDAL.GetAllGrades();
+        }
+
     }
 }
