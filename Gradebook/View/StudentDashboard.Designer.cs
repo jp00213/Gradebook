@@ -52,6 +52,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StudentDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentDashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorDashboard_FormClosed);
             this.ResumeLayout(false);

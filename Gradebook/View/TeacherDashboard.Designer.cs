@@ -139,6 +139,7 @@
             this.MinimizeBox = false;
             this.Name = "TeacherDashboard";
             this.Text = "TeacherDashboard";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorDashboard_FormClosed);
             this.teacherTabControl.ResumeLayout(false);
             this.classesTabPage.ResumeLayout(false);
