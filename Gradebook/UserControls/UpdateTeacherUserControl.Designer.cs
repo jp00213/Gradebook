@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.clearButton = new System.Windows.Forms.Button();
             this.resultsDOBDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dobLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
@@ -51,6 +52,12 @@
             this.resultsFirstNameLabel = new System.Windows.Forms.Label();
             this.teacherIDLabel = new System.Windows.Forms.Label();
             this.teacherSearchDataGridView = new System.Windows.Forms.DataGridView();
+            this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchButton = new System.Windows.Forms.Button();
             this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastNameTextbox = new System.Windows.Forms.TextBox();
@@ -71,22 +78,15 @@
             this.phoneErrorLabel = new System.Windows.Forms.Label();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
-            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.Location = new System.Drawing.Point(367, 716);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(183, 39);
             this.clearButton.TabIndex = 59;
@@ -99,11 +99,15 @@
             this.resultsDOBDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "DateOfBirth", true));
             this.resultsDOBDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.resultsDOBDateTimePicker.Location = new System.Drawing.Point(313, 555);
-            this.resultsDOBDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultsDOBDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.resultsDOBDateTimePicker.Name = "resultsDOBDateTimePicker";
             this.resultsDOBDateTimePicker.Size = new System.Drawing.Size(309, 22);
             this.resultsDOBDateTimePicker.TabIndex = 51;
             this.resultsDOBDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resultsDOBDateTimePicker_MouseDown);
+            // 
+            // teacherBindingSource
+            // 
+            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
             // 
             // dobLabel
             // 
@@ -142,7 +146,7 @@
             // 
             this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Zip", true));
             this.zipTextBox.Location = new System.Drawing.Point(785, 555);
-            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(309, 22);
             this.zipTextBox.TabIndex = 57;
@@ -152,7 +156,7 @@
             // 
             this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "City", true));
             this.cityTextBox.Location = new System.Drawing.Point(784, 449);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(311, 22);
             this.cityTextBox.TabIndex = 55;
@@ -162,7 +166,7 @@
             // 
             this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "AddressStreet", true));
             this.addressTextBox.Location = new System.Drawing.Point(785, 400);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(309, 22);
             this.addressTextBox.TabIndex = 54;
@@ -172,7 +176,7 @@
             // 
             this.resultsLastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "LastName", true));
             this.resultsLastNameTextBox.Location = new System.Drawing.Point(313, 503);
-            this.resultsLastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultsLastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.resultsLastNameTextBox.Name = "resultsLastNameTextBox";
             this.resultsLastNameTextBox.Size = new System.Drawing.Size(309, 22);
             this.resultsLastNameTextBox.TabIndex = 50;
@@ -182,7 +186,7 @@
             // 
             this.resultsFirstNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "FirstName", true));
             this.resultsFirstNameTextbox.Location = new System.Drawing.Point(313, 449);
-            this.resultsFirstNameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.resultsFirstNameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.resultsFirstNameTextbox.Name = "resultsFirstNameTextbox";
             this.resultsFirstNameTextbox.Size = new System.Drawing.Size(309, 22);
             this.resultsFirstNameTextbox.TabIndex = 49;
@@ -192,7 +196,7 @@
             // 
             this.teacherIDtextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "TeacherID", true));
             this.teacherIDtextBox.Location = new System.Drawing.Point(313, 399);
-            this.teacherIDtextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherIDtextBox.Margin = new System.Windows.Forms.Padding(4);
             this.teacherIDtextBox.Name = "teacherIDtextBox";
             this.teacherIDtextBox.ReadOnly = true;
             this.teacherIDtextBox.Size = new System.Drawing.Size(309, 22);
@@ -321,18 +325,66 @@
             this.sexDataGridViewTextBoxColumn});
             this.teacherSearchDataGridView.DataSource = this.teacherBindingSource;
             this.teacherSearchDataGridView.Location = new System.Drawing.Point(137, 134);
-            this.teacherSearchDataGridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherSearchDataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.teacherSearchDataGridView.Name = "teacherSearchDataGridView";
             this.teacherSearchDataGridView.RowHeadersWidth = 51;
             this.teacherSearchDataGridView.Size = new System.Drawing.Size(984, 218);
             this.teacherSearchDataGridView.TabIndex = 36;
             this.teacherSearchDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherSearchDataGridView_CellClick);
             // 
+            // teacherIDDataGridViewTextBoxColumn
+            // 
+            this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
+            this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
+            this.teacherIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
+            this.teacherIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            this.dateOfBirthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // sexDataGridViewTextBoxColumn
+            // 
+            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
+            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
+            this.sexDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
+            this.sexDataGridViewTextBoxColumn.Width = 125;
+            // 
             // searchButton
             // 
             this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchButton.Location = new System.Drawing.Point(1001, 75);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(139, 33);
             this.searchButton.TabIndex = 35;
@@ -344,7 +396,7 @@
             // 
             this.dobDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dobDateTimePicker.Location = new System.Drawing.Point(703, 84);
-            this.dobDateTimePicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dobDateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(265, 22);
             this.dobDateTimePicker.TabIndex = 34;
@@ -353,7 +405,7 @@
             // lastNameTextbox
             // 
             this.lastNameTextbox.Location = new System.Drawing.Point(409, 84);
-            this.lastNameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastNameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.lastNameTextbox.Name = "lastNameTextbox";
             this.lastNameTextbox.Size = new System.Drawing.Size(265, 22);
             this.lastNameTextbox.TabIndex = 33;
@@ -361,7 +413,7 @@
             // firstNameTextbox
             // 
             this.firstNameTextbox.Location = new System.Drawing.Point(112, 84);
-            this.firstNameTextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstNameTextbox.Margin = new System.Windows.Forms.Padding(4);
             this.firstNameTextbox.Name = "firstNameTextbox";
             this.firstNameTextbox.Size = new System.Drawing.Size(265, 22);
             this.firstNameTextbox.TabIndex = 32;
@@ -371,7 +423,7 @@
             this.saveButton.Enabled = false;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.Location = new System.Drawing.Point(703, 716);
-            this.saveButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(183, 39);
             this.saveButton.TabIndex = 60;
@@ -382,6 +434,7 @@
             // stateComboBox
             // 
             this.stateComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "State", true));
+            this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Items.AddRange(new object[] {
             "AL",
@@ -435,7 +488,7 @@
             "WI",
             "WY"});
             this.stateComboBox.Location = new System.Drawing.Point(785, 503);
-            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(309, 24);
             this.stateComboBox.TabIndex = 56;
@@ -444,9 +497,10 @@
             // sexComboBox
             // 
             this.sexComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Sex", true));
+            this.sexComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sexComboBox.FormattingEnabled = true;
             this.sexComboBox.Location = new System.Drawing.Point(313, 658);
-            this.sexComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.sexComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(309, 24);
             this.sexComboBox.TabIndex = 53;
@@ -567,7 +621,7 @@
             // 
             this.ssnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "SSN", true));
             this.ssnTextBox.Location = new System.Drawing.Point(313, 607);
-            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(309, 22);
             this.ssnTextBox.TabIndex = 52;
@@ -577,63 +631,11 @@
             // 
             this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "Phone", true));
             this.phoneTextBox.Location = new System.Drawing.Point(785, 606);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(309, 22);
             this.phoneTextBox.TabIndex = 58;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
-            // 
-            // teacherBindingSource
-            // 
-            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
-            // 
-            // teacherIDDataGridViewTextBoxColumn
-            // 
-            this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
-            this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
-            this.teacherIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
-            this.teacherIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            this.dateOfBirthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // sexDataGridViewTextBoxColumn
-            // 
-            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
-            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
-            this.sexDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
-            this.sexDataGridViewTextBoxColumn.Width = 125;
             // 
             // UpdateTeacherUserControl
             // 
@@ -681,11 +683,11 @@
             this.Controls.Add(this.dobDateTimePicker);
             this.Controls.Add(this.lastNameTextbox);
             this.Controls.Add(this.firstNameTextbox);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateTeacherUserControl";
             this.Size = new System.Drawing.Size(1263, 780);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

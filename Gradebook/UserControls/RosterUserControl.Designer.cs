@@ -68,9 +68,10 @@
             this.panel1.Controls.Add(this.semesterComboBox);
             this.panel1.Controls.Add(this.semesterLabel);
             this.panel1.Controls.Add(this.registrationDetailsLabel);
-            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Location = new System.Drawing.Point(4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(942, 623);
+            this.panel1.Size = new System.Drawing.Size(1256, 767);
             this.panel1.TabIndex = 0;
             // 
             // rosterListView
@@ -80,9 +81,10 @@
             this.studentHeader,
             this.studentNameHeader});
             this.rosterListView.HideSelection = false;
-            this.rosterListView.Location = new System.Drawing.Point(16, 218);
+            this.rosterListView.Location = new System.Drawing.Point(21, 268);
+            this.rosterListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rosterListView.Name = "rosterListView";
-            this.rosterListView.Size = new System.Drawing.Size(608, 132);
+            this.rosterListView.Size = new System.Drawing.Size(809, 162);
             this.rosterListView.TabIndex = 58;
             this.rosterListView.UseCompatibleStateImageBehavior = false;
             this.rosterListView.View = System.Windows.Forms.View.Details;
@@ -114,9 +116,10 @@
             this.studentCountHeader});
             this.courseListView.FullRowSelect = true;
             this.courseListView.HideSelection = false;
-            this.courseListView.Location = new System.Drawing.Point(16, 88);
+            this.courseListView.Location = new System.Drawing.Point(21, 108);
+            this.courseListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.courseListView.Name = "courseListView";
-            this.courseListView.Size = new System.Drawing.Size(608, 124);
+            this.courseListView.Size = new System.Drawing.Size(809, 152);
             this.courseListView.TabIndex = 57;
             this.courseListView.UseCompatibleStateImageBehavior = false;
             this.courseListView.View = System.Windows.Forms.View.Details;
@@ -158,9 +161,10 @@
             // errorlabel
             // 
             this.errorlabel.AutoSize = true;
-            this.errorlabel.Location = new System.Drawing.Point(50, 63);
+            this.errorlabel.Location = new System.Drawing.Point(67, 78);
+            this.errorlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.errorlabel.Name = "errorlabel";
-            this.errorlabel.Size = new System.Drawing.Size(10, 13);
+            this.errorlabel.Size = new System.Drawing.Size(11, 16);
             this.errorlabel.TabIndex = 56;
             this.errorlabel.Text = "-";
             // 
@@ -172,37 +176,41 @@
             "Spring",
             "Summer",
             "Fall"});
-            this.teacherNameComboBox.Location = new System.Drawing.Point(66, 37);
+            this.teacherNameComboBox.Location = new System.Drawing.Point(88, 46);
+            this.teacherNameComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.teacherNameComboBox.Name = "teacherNameComboBox";
-            this.teacherNameComboBox.Size = new System.Drawing.Size(150, 21);
+            this.teacherNameComboBox.Size = new System.Drawing.Size(199, 24);
             this.teacherNameComboBox.TabIndex = 17;
             this.teacherNameComboBox.Click += new System.EventHandler(this.teacherNameComboBox_Click);
             // 
             // teacherlabel
             // 
             this.teacherlabel.AutoSize = true;
-            this.teacherlabel.Location = new System.Drawing.Point(13, 40);
+            this.teacherlabel.Location = new System.Drawing.Point(17, 49);
+            this.teacherlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.teacherlabel.Name = "teacherlabel";
-            this.teacherlabel.Size = new System.Drawing.Size(47, 13);
+            this.teacherlabel.Size = new System.Drawing.Size(58, 16);
             this.teacherlabel.TabIndex = 16;
             this.teacherlabel.Text = "Teacher";
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(588, 37);
+            this.clearButton.Location = new System.Drawing.Point(784, 46);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
-            this.clearButton.TabIndex = 15;
+            this.clearButton.Size = new System.Drawing.Size(100, 28);
+            this.clearButton.TabIndex = 21;
             this.clearButton.Text = "Clear";
             this.clearButton.UseVisualStyleBackColor = true;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(507, 37);
+            this.searchButton.Location = new System.Drawing.Point(676, 46);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
-            this.searchButton.TabIndex = 14;
+            this.searchButton.Size = new System.Drawing.Size(100, 28);
+            this.searchButton.TabIndex = 20;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -211,18 +219,20 @@
             // 
             this.courseYearPicker.CustomFormat = "yyyy";
             this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.courseYearPicker.Location = new System.Drawing.Point(438, 40);
+            this.courseYearPicker.Location = new System.Drawing.Point(584, 49);
+            this.courseYearPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
-            this.courseYearPicker.Size = new System.Drawing.Size(63, 20);
-            this.courseYearPicker.TabIndex = 13;
+            this.courseYearPicker.Size = new System.Drawing.Size(83, 22);
+            this.courseYearPicker.TabIndex = 19;
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
-            this.yearLabel.Location = new System.Drawing.Point(403, 41);
+            this.yearLabel.Location = new System.Drawing.Point(537, 50);
+            this.yearLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(29, 13);
+            this.yearLabel.Size = new System.Drawing.Size(36, 16);
             this.yearLabel.TabIndex = 12;
             this.yearLabel.Text = "Year";
             // 
@@ -235,18 +245,20 @@
             "Spring",
             "Summer",
             "Fall"});
-            this.semesterComboBox.Location = new System.Drawing.Point(279, 37);
+            this.semesterComboBox.Location = new System.Drawing.Point(372, 46);
+            this.semesterComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.semesterComboBox.Name = "semesterComboBox";
-            this.semesterComboBox.Size = new System.Drawing.Size(118, 21);
-            this.semesterComboBox.TabIndex = 11;
+            this.semesterComboBox.Size = new System.Drawing.Size(156, 24);
+            this.semesterComboBox.TabIndex = 18;
             this.semesterComboBox.Click += new System.EventHandler(this.semesterComboBox_Click);
             // 
             // semesterLabel
             // 
             this.semesterLabel.AutoSize = true;
-            this.semesterLabel.Location = new System.Drawing.Point(222, 41);
+            this.semesterLabel.Location = new System.Drawing.Point(296, 50);
+            this.semesterLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.semesterLabel.Name = "semesterLabel";
-            this.semesterLabel.Size = new System.Drawing.Size(51, 13);
+            this.semesterLabel.Size = new System.Drawing.Size(65, 16);
             this.semesterLabel.TabIndex = 10;
             this.semesterLabel.Text = "Semester";
             // 
@@ -254,19 +266,21 @@
             // 
             this.registrationDetailsLabel.AutoSize = true;
             this.registrationDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.registrationDetailsLabel.Location = new System.Drawing.Point(12, 0);
+            this.registrationDetailsLabel.Location = new System.Drawing.Point(16, 0);
+            this.registrationDetailsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.registrationDetailsLabel.Name = "registrationDetailsLabel";
-            this.registrationDetailsLabel.Size = new System.Drawing.Size(133, 20);
+            this.registrationDetailsLabel.Size = new System.Drawing.Size(160, 25);
             this.registrationDetailsLabel.TabIndex = 9;
             this.registrationDetailsLabel.Text = "Teacher Roster";
             // 
             // RosterUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "RosterUserControl";
-            this.Size = new System.Drawing.Size(960, 640);
+            this.Size = new System.Drawing.Size(1280, 788);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

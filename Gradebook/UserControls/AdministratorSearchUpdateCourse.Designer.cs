@@ -407,6 +407,7 @@
             // 
             // teacherComboBox
             // 
+            this.teacherComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.teacherComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.teacherComboBox.FormattingEnabled = true;
             this.teacherComboBox.Location = new System.Drawing.Point(600, 57);
@@ -467,6 +468,7 @@
             // teacherComboBoxUpdate
             // 
             this.teacherComboBoxUpdate.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.courseBindingSource, "TeacherID", true));
+            this.teacherComboBoxUpdate.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.teacherComboBoxUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.teacherComboBoxUpdate.FormattingEnabled = true;
             this.teacherComboBoxUpdate.Location = new System.Drawing.Point(839, 419);
