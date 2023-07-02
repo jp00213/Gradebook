@@ -73,8 +73,6 @@ namespace Gradebook.UserControls
             string courseName = this.selectClassComboBox.Text;
             if (String.IsNullOrEmpty(courseName))
             {
-                selectClassErrorLabel.Text = "Please select a course to grade for.";
-                selectClassErrorLabel.ForeColor = Color.Red;
                 return -1;
             }
             Course currentCourse = this._courseController.GetCourseByName(courseName);
@@ -186,9 +184,9 @@ namespace Gradebook.UserControls
 
         private void PopulateGradeDataGridView()
         {
-            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());*/
-            this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();
-           
+            this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
+            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();*/
+
         }
     }
 }
