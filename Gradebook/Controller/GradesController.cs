@@ -1,10 +1,6 @@
 ﻿using Gradebook.DAL;
 using Gradebook.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gradebook.Controller
 {
@@ -15,6 +11,9 @@ namespace Gradebook.Controller
     {
         private readonly GradeDAL _gradeDAL;
 
+        /// <summary>
+        /// Grades Controller constructor
+        /// </summary>
         public GradesController()
         {
             this._gradeDAL = new GradeDAL();
@@ -45,11 +44,22 @@ namespace Gradebook.Controller
             return this._gradeDAL.UpdateOneGrade(assignmentID, studentID, score, oldScore);
         }
 
+        /// <summary>
+        /// Adds grades to db
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <param name="studentID"></param>
+        /// <param name="score"></param>
+        /// <returns></returns>
         public bool AddGrade(int assignmentID, int studentID, int score)
         {
             return this._gradeDAL.AddGrade(assignmentID, studentID, score);
         }
 
+        /// <summary>
+        /// Returns a list of all grades
+        /// </summary>
+        /// <returns></returns>
         public List<Grades> GetAllGrades()
         {
             return this._gradeDAL.GetAllGrades();

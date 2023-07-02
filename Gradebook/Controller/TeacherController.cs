@@ -119,6 +119,11 @@ namespace Gradebook.Controller
             _currentUser.userName = username;
         }
 
+        /// <summary>
+        /// Gets teacher by username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public Teacher GetTeacherByUsername(string username)
         {
             return this._teacherDAL.GetTeacherByUsername(username);

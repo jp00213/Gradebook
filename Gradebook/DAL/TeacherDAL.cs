@@ -122,7 +122,11 @@ namespace Gradebook.DAL
             return teacher;    
         }
 
-
+        /// <summary>
+        /// Returns teacher based on username
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns></returns>
         public Teacher GetTeacherByUsername(string username)
         {
             Teacher teacher = new Teacher();

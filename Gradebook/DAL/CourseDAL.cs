@@ -204,7 +204,10 @@ namespace Gradebook.DAL
             return courses;
         }
 
-
+        /// <summary>
+        /// Returns a list of all courses
+        /// </summary>
+        /// <returns></returns>
         public List<Course> GetCourseList()
         {
             List<Course> courses = new List<Course>();
