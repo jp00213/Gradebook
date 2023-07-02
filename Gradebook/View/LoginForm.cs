@@ -35,6 +35,7 @@ namespace Gradebook
                 } else if (this._accountController.IsPasswordCorrectTeacher(this.usernameTextBox.Text, this.passwordTextBox.Text))
                 {
                     this.Hide();
+                    TeacherController.SetUsername(this.usernameTextBox.Text);
                     using (Form mainWindow = new TeacherDashboard(this.usernameTextBox.Text))
                     {
                         DialogResult result = mainWindow.ShowDialog(this);

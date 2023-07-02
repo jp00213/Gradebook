@@ -3,16 +3,14 @@ using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// UserControl to add assingments for students
+    /// </summary>
     public partial class TeacherAddAssignmentUserControl : UserControl
     {
         private CourseController _courseController;
@@ -20,14 +18,18 @@ namespace Gradebook.UserControls
         private AssignmentController _assignmentController;
         private int _courseID;
         private string _courseName;
+
+        /// <summary>
+        /// Used to add assignments
+        /// </summary>
         public TeacherAddAssignmentUserControl()
         {
             InitializeComponent();
             this._courseController = new CourseController();
             this._teacherController= new TeacherController();
             this._assignmentController= new AssignmentController();
-            this._courseID= 4;
-            this.classAssignmentsDataGridView.DataSource = this._assignmentController.GetAssignmentsByCourseID(this._courseID);
+            this._courseName = "";
+            this.currentAssignmentsButton.Enabled = false;
             this.SetUpTypeComboBox();
             this.SetUpClassComboBox();
         }
@@ -45,7 +47,7 @@ namespace Gradebook.UserControls
 
         private void SetUpClassComboBox()
         {
-            List<Course> currentCourses = this._courseController.GetCoursesByTeacherIDYearAndSemester(2, this.GetCurrentSemester(), DateTime.Now.Year);
+            List<Course> currentCourses = this._courseController.GetCoursesByTeacherIDYearAndSemester(this.GetTeacherID(), this.GetCurrentSemester(), DateTime.Now.Year);
             foreach (Course course in currentCourses)
             {
                 string courseName = course.Name;
@@ -129,19 +131,30 @@ namespace Gradebook.UserControls
             this.assignmentTypeComboBox.SelectedItem = null;
             this.weightTextBox.Clear();
             this.descriptionRichTextBox.Clear();
+            this.currentAssignmentsButton.Enabled = false;
+            this.HideInvalidErrorMessages();
         }
 
         private void clearButton_Click(object sender, EventArgs e)
         {
             ResetInputFields();
             this.HideInvalidErrorMessages();
+            this.currentAssignmentsButton.Enabled = false;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
         {
             try
             {
-                this._courseID = this.GetCourseID();
+                if (!string.IsNullOrEmpty(this.selectClassComboBox.Text))
+                {
+                    this._courseID = this.GetCourseID();
+                } else
+                {
+                    this.ShowInvalidErrorMessages();
+                    return;
+                }
+                    
                 Decimal weight;
                 this.CheckForParseErrors(Decimal.TryParse(this.weightTextBox.Text.Trim(), out weight));
                 var description = (this.assignmentTypeComboBox.Text + " - " + this.descriptionRichTextBox.Text.Trim());
@@ -154,12 +167,13 @@ namespace Gradebook.UserControls
                 {
                     if (this.ConfirmAssignment() == DialogResult.Yes)
                     {
-                        Assignment newAssignment = new Assignment(-1, this._courseID, description, weight);
+                        Assignment newAssignment = new Assignment(-1, this.GetCourseID(), description, weight);
                         bool success = this._assignmentController.AddNewAssignment(newAssignment);
 
                         if (success)
                         {
                             MessageBox.Show("Assignment successfully saved!", "Assignment Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.RefreshDataGridView(this.GetCourseID());
                             this.ResetInputFields();
                         }
                         else
@@ -196,6 +210,70 @@ namespace Gradebook.UserControls
         private void ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.HideInvalidErrorMessages();
+            this.currentAssignmentsButton.Enabled = true;
+        }
+
+        private void currentAssignmentsButton_Click(object sender, EventArgs e)
+        {
+            this._courseID = this.GetCourseID();
+            if (this._courseID <= 0)
+            {
+                MessageBox.Show(this._courseID.ToString());
+                this.classErrorMessageLabel.Text = "Please select a course.";
+                this.classErrorMessageLabel.ForeColor = Color.Red;
+            }
+            this.classAssignmentsDataGridView.DataSource = this._assignmentController.GetAssignmentsByCourseID(this._courseID);
+        }
+
+        private void RefreshDataGridView(int courseID)
+        {
+            this.classAssignmentsDataGridView.DataSource = this._assignmentController.GetAssignmentsByCourseID(courseID);
+        }
+
+        private void ClassAssignmentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == this.classAssignmentsDataGridView.Columns["UpdateGradeButton"].Index && e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = classAssignmentsDataGridView.Rows[e.RowIndex];
+                    object description = row.Cells["descriptionDataGridViewTextBoxColumn"].Value ?? "";
+                    object weight = row.Cells["assignmentIDDataGridViewTextBoxColumn"].Value;
+
+                    if (string.IsNullOrEmpty(description.ToString()) || string.IsNullOrEmpty(weight.ToString()) || description == null || weight == null)
+                    {
+                        MessageBox.Show("Please fill out the description and weight box. They cannot be blank.", "Incomplete Assignment Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else if (!Decimal.TryParse(weight.ToString(), out var weightAsDecimal)) 
+                    {
+                        MessageBox.Show("Must enter a valid weight for the assignment. Weight cannot be less than 0 or more than 100", "Invalid Weight", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    } else
+                    {
+                        Assignment assignmentToUpdate = row.DataBoundItem as Assignment;
+                        bool success = this._assignmentController.UpdateAssignment(assignmentToUpdate);
+
+                        if (success)
+                        {
+                            MessageBox.Show("The assignment has been successfully updated!", "Assignment Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        } else
+                        {
+                            MessageBox.Show("Warning: The assignment was not updated. Please check the values entered and try again.", "Incomplete Assignment Update", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        }
+                    }
+                } 
+            } 
+            catch (FormatException)
+            {
+                MessageBox.Show("There was an input error, please double check your inputs and try again.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } 
+            catch (Exception) 
+            {
+                MessageBox.Show("There was an error, please double check your inputs and try again.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void classAssignmentsDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            MessageBox.Show("There was an input error, please double check your inputs and try again.", "Update Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

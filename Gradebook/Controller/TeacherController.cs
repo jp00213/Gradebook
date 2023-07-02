@@ -21,7 +21,7 @@ namespace Gradebook.Controller
         {
             _personDAL = new PersonDAL();
             _teacherDAL = new TeacherDAL();
-            _currentUser = new CurrentUser();
+            
         }
 
         /// <summary>
@@ -115,6 +115,7 @@ namespace Gradebook.Controller
         /// <param name="username"></param>
         public static void SetUsername(string username)
         {
+            _currentUser = new CurrentUser(); 
             _currentUser.userName = username;
         }
 

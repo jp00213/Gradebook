@@ -48,6 +48,8 @@
             this.assignmentTypeErrorMessageLabel = new System.Windows.Forms.Label();
             this.descriptionErrorMessageLabel = new System.Windows.Forms.Label();
             this.weightTextBox = new System.Windows.Forms.TextBox();
+            this.currentAssignmentsButton = new System.Windows.Forms.Button();
+            this.UpdateGradeButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +63,7 @@
             // 
             this.selectClassLabel.AutoSize = true;
             this.selectClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectClassLabel.Location = new System.Drawing.Point(83, 56);
+            this.selectClassLabel.Location = new System.Drawing.Point(48, 53);
             this.selectClassLabel.Name = "selectClassLabel";
             this.selectClassLabel.Size = new System.Drawing.Size(114, 20);
             this.selectClassLabel.TabIndex = 0;
@@ -70,9 +72,9 @@
             // selectClassComboBox
             // 
             this.selectClassComboBox.FormattingEnabled = true;
-            this.selectClassComboBox.Location = new System.Drawing.Point(216, 55);
+            this.selectClassComboBox.Location = new System.Drawing.Point(181, 52);
             this.selectClassComboBox.Name = "selectClassComboBox";
-            this.selectClassComboBox.Size = new System.Drawing.Size(253, 21);
+            this.selectClassComboBox.Size = new System.Drawing.Size(288, 21);
             this.selectClassComboBox.TabIndex = 1;
             this.selectClassComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
             // 
@@ -97,6 +99,8 @@
             // 
             // classAssignmentsDataGridView
             // 
+            this.classAssignmentsDataGridView.AllowUserToAddRows = false;
+            this.classAssignmentsDataGridView.AllowUserToDeleteRows = false;
             this.classAssignmentsDataGridView.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -111,7 +115,8 @@
             this.assignmentIDDataGridViewTextBoxColumn,
             this.courseIDDataGridViewTextBoxColumn,
             this.descriptionDataGridViewTextBoxColumn,
-            this.weightDataGridViewTextBoxColumn});
+            this.weightDataGridViewTextBoxColumn,
+            this.UpdateGradeButton});
             this.classAssignmentsDataGridView.DataSource = this.assignmentBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -133,6 +138,8 @@
             this.classAssignmentsDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.classAssignmentsDataGridView.Size = new System.Drawing.Size(756, 238);
             this.classAssignmentsDataGridView.TabIndex = 4;
+            this.classAssignmentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassAssignmentDataGridView_CellContentClick);
+            this.classAssignmentsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.classAssignmentsDataGridView_DataError);
             // 
             // classAssignmentsLabel
             // 
@@ -148,7 +155,7 @@
             // 
             this.weightLabel.AutoSize = true;
             this.weightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.weightLabel.Location = new System.Drawing.Point(124, 118);
+            this.weightLabel.Location = new System.Drawing.Point(89, 132);
             this.weightLabel.Name = "weightLabel";
             this.weightLabel.Size = new System.Drawing.Size(70, 20);
             this.weightLabel.TabIndex = 6;
@@ -158,7 +165,7 @@
             // 
             this.descriptionLabel.AutoSize = true;
             this.descriptionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descriptionLabel.Location = new System.Drawing.Point(495, 118);
+            this.descriptionLabel.Location = new System.Drawing.Point(495, 132);
             this.descriptionLabel.Name = "descriptionLabel";
             this.descriptionLabel.Size = new System.Drawing.Size(105, 20);
             this.descriptionLabel.TabIndex = 7;
@@ -166,7 +173,7 @@
             // 
             // descriptionRichTextBox
             // 
-            this.descriptionRichTextBox.Location = new System.Drawing.Point(633, 117);
+            this.descriptionRichTextBox.Location = new System.Drawing.Point(633, 131);
             this.descriptionRichTextBox.Name = "descriptionRichTextBox";
             this.descriptionRichTextBox.Size = new System.Drawing.Size(249, 75);
             this.descriptionRichTextBox.TabIndex = 4;
@@ -198,7 +205,7 @@
             // classErrorMessageLabel
             // 
             this.classErrorMessageLabel.AutoSize = true;
-            this.classErrorMessageLabel.Location = new System.Drawing.Point(213, 79);
+            this.classErrorMessageLabel.Location = new System.Drawing.Point(178, 76);
             this.classErrorMessageLabel.Name = "classErrorMessageLabel";
             this.classErrorMessageLabel.Size = new System.Drawing.Size(0, 13);
             this.classErrorMessageLabel.TabIndex = 13;
@@ -206,7 +213,7 @@
             // weightErrorMessageLabel
             // 
             this.weightErrorMessageLabel.AutoSize = true;
-            this.weightErrorMessageLabel.Location = new System.Drawing.Point(210, 141);
+            this.weightErrorMessageLabel.Location = new System.Drawing.Point(175, 155);
             this.weightErrorMessageLabel.Name = "weightErrorMessageLabel";
             this.weightErrorMessageLabel.Size = new System.Drawing.Size(0, 13);
             this.weightErrorMessageLabel.TabIndex = 14;
@@ -222,42 +229,70 @@
             // descriptionErrorMessageLabel
             // 
             this.descriptionErrorMessageLabel.AutoSize = true;
-            this.descriptionErrorMessageLabel.Location = new System.Drawing.Point(633, 199);
+            this.descriptionErrorMessageLabel.Location = new System.Drawing.Point(633, 213);
             this.descriptionErrorMessageLabel.Name = "descriptionErrorMessageLabel";
             this.descriptionErrorMessageLabel.Size = new System.Drawing.Size(0, 13);
             this.descriptionErrorMessageLabel.TabIndex = 16;
             // 
             // weightTextBox
             // 
-            this.weightTextBox.Location = new System.Drawing.Point(216, 117);
+            this.weightTextBox.Location = new System.Drawing.Point(181, 131);
             this.weightTextBox.Name = "weightTextBox";
-            this.weightTextBox.Size = new System.Drawing.Size(253, 20);
+            this.weightTextBox.Size = new System.Drawing.Size(288, 20);
             this.weightTextBox.TabIndex = 17;
             this.weightTextBox.TextChanged += new System.EventHandler(this.ComboBox_SelectedIndexChanged);
+            // 
+            // currentAssignmentsButton
+            // 
+            this.currentAssignmentsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.currentAssignmentsButton.Location = new System.Drawing.Point(291, 91);
+            this.currentAssignmentsButton.Name = "currentAssignmentsButton";
+            this.currentAssignmentsButton.Size = new System.Drawing.Size(178, 34);
+            this.currentAssignmentsButton.TabIndex = 18;
+            this.currentAssignmentsButton.Text = "See Current Assignments";
+            this.currentAssignmentsButton.UseVisualStyleBackColor = true;
+            this.currentAssignmentsButton.Click += new System.EventHandler(this.currentAssignmentsButton_Click);
+            // 
+            // UpdateGradeButton
+            // 
+            this.UpdateGradeButton.HeaderText = "Update";
+            this.UpdateGradeButton.Name = "UpdateGradeButton";
+            this.UpdateGradeButton.Text = "Update";
+            this.UpdateGradeButton.UseColumnTextForButtonValue = true;
             // 
             // assignmentIDDataGridViewTextBoxColumn
             // 
             this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.FillWeight = 111.6751F;
             this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
             this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
+            this.assignmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.assignmentIDDataGridViewTextBoxColumn.Width = 75;
             // 
             // courseIDDataGridViewTextBoxColumn
             // 
             this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
+            this.courseIDDataGridViewTextBoxColumn.FillWeight = 96.10829F;
             this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
             this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
+            this.courseIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.courseIDDataGridViewTextBoxColumn.Width = 75;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.FillWeight = 96.10829F;
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
             // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.FillWeight = 96.10829F;
             this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            this.weightDataGridViewTextBoxColumn.Width = 75;
             // 
             // assignmentBindingSource
             // 
@@ -267,6 +302,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.currentAssignmentsButton);
             this.Controls.Add(this.weightTextBox);
             this.Controls.Add(this.descriptionErrorMessageLabel);
             this.Controls.Add(this.assignmentTypeErrorMessageLabel);
@@ -310,10 +346,12 @@
         private System.Windows.Forms.Label assignmentTypeErrorMessageLabel;
         private System.Windows.Forms.Label descriptionErrorMessageLabel;
         private System.Windows.Forms.TextBox weightTextBox;
+        private System.Windows.Forms.BindingSource assignmentBindingSource;
+        private System.Windows.Forms.Button currentAssignmentsButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn assignmentIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn courseIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource assignmentBindingSource;
+        private System.Windows.Forms.DataGridViewButtonColumn UpdateGradeButton;
     }
 }

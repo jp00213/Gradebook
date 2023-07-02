@@ -30,7 +30,7 @@ namespace Gradebook.UserControls
 
         private void LoadDataGridViews()
         {
-            this.currentClassDataGridView.DataSource = this._courseController.GetCoursesByTeacherIDYearAndSemester(2, this.GetCurrentSemester(), this.GetCurrentYear());
+            this.currentClassDataGridView.DataSource = this._courseController.GetCoursesByTeacherIDYearAndSemester(this.GetTeacherID(), this.GetCurrentSemester(), this.GetCurrentYear());
             this.pastClasseseDataGridView.DataSource = this.DeterminePastClasses();
             this.futureClassesDataGridView.DataSource = this.DetermineFutureClasses();
         }
@@ -57,6 +57,13 @@ namespace Gradebook.UserControls
             }
 
             return semester;
+        }
+
+        private int GetTeacherID()
+        {
+            string teacherUsername = TeacherController.GetUsername();
+            Teacher currentTeacher = this._teacherController.GetTeacherByUsername(teacherUsername);
+            return currentTeacher.TeacherID;
         }
 
         private int GetCurrentSemesterID(string semester)
