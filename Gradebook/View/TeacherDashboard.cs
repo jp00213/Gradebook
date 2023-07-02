@@ -1,8 +1,6 @@
 ﻿using Gradebook.Controller;
-using Gradebook.Model;
 using System;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Gradebook.View
 {

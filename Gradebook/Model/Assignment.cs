@@ -18,8 +18,17 @@
             this.Weight = weight;
         }
 
+        /// <summary>
+        /// Constructor for assignment
+        /// </summary>
         public Assignment() { }
 
+        /// <summary>
+        /// Alternate constructor for assignment
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <param name="description"></param>
+        /// <param name="weight"></param>
         public Assignment(int courseID, string description, decimal weight)
         {
             this.CourseID = courseID;

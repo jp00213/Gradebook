@@ -29,6 +29,10 @@ namespace Gradebook.UserControls
             this.DisableAllFields();
         }
 
+        /// <summary>
+        /// Sets current student ID
+        /// </summary>
+        /// <param name="currentStudentIDIn"></param>
         public void SetCurrentStudentID(string currentStudentIDIn)
         {
             this.currentStudentIDForEdit.Text = currentStudentIDIn;
