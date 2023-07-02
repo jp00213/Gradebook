@@ -15,10 +15,10 @@ namespace Gradebook.DAL
         {
             string connectionString =
 
-            "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\SchoolDatabase.mdf;" +
-            "Integrated Security=True";
-/*            "Data Source=localhost; Initial Catalog= SchoolDatabase;" +
+ /*           "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\SchoolDatabase.mdf;" +
             "Integrated Security=True";*/
+            "Data Source=localhost; Initial Catalog= SchoolDatabase;" +
+            "Integrated Security=True";
 
             SqlConnection connection = new SqlConnection(connectionString);
             return connection;
