@@ -484,5 +484,63 @@ namespace Gradebook.DAL
             return students;
         }
 
+        public Person GetStudentByNameAndCourseID(string firstName, string lastName, int courseID)
+        {
+            Person student = new Person();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+
+            string selectStatement =
+                "select *  " +
+                "from StudentsInCourse sc " +
+                "join Student s " +
+                "on sc.studentID = s.studentID " +
+                "join Person p " +
+                "on s.recordID = p.recordID " +
+                "where sc.courseID = @courseID " +
+                "AND p.firstName = @firstName " +
+                "AND p.lastName = @lastName";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.Add("@firstName", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@firstName"].Value = firstName;
+
+            selectCommand.Parameters.Add("@lastName", System.Data.SqlDbType.VarChar);
+            selectCommand.Parameters["@lastName"].Value = lastName;
+
+            selectCommand.Parameters.Add("@courseID", System.Data.SqlDbType.Int);
+            selectCommand.Parameters["@courseID"].Value = courseID;
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        student = new Person
+                        {
+                            StudentID = (int)(reader)["studentID"],
+                            LastName = (string)(reader)["lastName"],
+                            FirstName = (string)(reader)["firstName"],
+                            DateOfBirth = (DateTime)(reader)["birthday"],
+                            Phone = (string)(reader)["phoneNumber"],
+                            Sex = (string)(reader)["sex"],
+                            AddressStreet = (string)(reader)["street"],
+                            City = (string)(reader)["city"],
+                            State = (string)(reader)["state"],
+                            Zip = (string)(reader)["zip"],
+                            SSN = reader["ssn"] as string,
+                            ActiveStatus = (int)(byte)(reader)["activeStatus"],
+                            Username = (string)(reader)["username"],
+                            RecordId = (int)(reader)["recordId"]
+                        };
+                    }
+                }
+            }
+            return student;
+        }
+
     }
 }
