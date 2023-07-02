@@ -176,7 +176,7 @@ namespace Gradebook.UserControls
 
         private void selectAssignmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            this.PopulateGradeDataGridView();
             this.SetupStudentCombobox();
         }
 
