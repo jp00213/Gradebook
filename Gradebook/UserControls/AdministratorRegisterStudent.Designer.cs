@@ -32,13 +32,6 @@
             System.Windows.Forms.Label studentFullNameLabel;
             System.Windows.Forms.Label studentBirthdayLabel;
             this.courseDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.searchCourseButton = new System.Windows.Forms.Button();
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.semesterLabel = new System.Windows.Forms.Label();
@@ -51,6 +44,14 @@
             this.studentNameTextBox = new System.Windows.Forms.TextBox();
             this.studentBirthdayTextBox = new System.Windows.Forms.TextBox();
             this.findStudentErrorLabel = new System.Windows.Forms.Label();
+            this.alertLabel = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             studentFullNameLabel = new System.Windows.Forms.Label();
             studentBirthdayLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
@@ -99,7 +100,144 @@
             this.courseDataGridView.RowTemplate.Height = 24;
             this.courseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseDataGridView.Size = new System.Drawing.Size(1134, 220);
-            this.courseDataGridView.TabIndex = 1;
+            this.courseDataGridView.TabIndex = 20;
+            // 
+            // searchCourseButton
+            // 
+            this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.searchCourseButton.Location = new System.Drawing.Point(645, 18);
+            this.searchCourseButton.Name = "searchCourseButton";
+            this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
+            this.searchCourseButton.TabIndex = 19;
+            this.searchCourseButton.Text = "Search Courses";
+            this.searchCourseButton.UseVisualStyleBackColor = true;
+            this.searchCourseButton.Click += new System.EventHandler(this.searchCourseButton_Click);
+            // 
+            // semesterComboBox
+            // 
+            this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterComboBox.FormattingEnabled = true;
+            this.semesterComboBox.Items.AddRange(new object[] {
+            "Spring",
+            "Summer",
+            "Fall"});
+            this.semesterComboBox.Location = new System.Drawing.Point(177, 31);
+            this.semesterComboBox.Name = "semesterComboBox";
+            this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
+            this.semesterComboBox.TabIndex = 17;
+            // 
+            // semesterLabel
+            // 
+            this.semesterLabel.AutoSize = true;
+            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterLabel.Location = new System.Drawing.Point(75, 31);
+            this.semesterLabel.Name = "semesterLabel";
+            this.semesterLabel.Size = new System.Drawing.Size(96, 25);
+            this.semesterLabel.TabIndex = 16;
+            this.semesterLabel.Text = "Semester";
+            // 
+            // courseYearPicker
+            // 
+            this.courseYearPicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.courseYearPicker.CustomFormat = "yyyy";
+            this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.courseYearPicker.Location = new System.Drawing.Point(479, 31);
+            this.courseYearPicker.Name = "courseYearPicker";
+            this.courseYearPicker.ShowUpDown = true;
+            this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
+            this.courseYearPicker.TabIndex = 18;
+            // 
+            // yearLabel
+            // 
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.yearLabel.Location = new System.Drawing.Point(420, 31);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(53, 25);
+            this.yearLabel.TabIndex = 18;
+            this.yearLabel.Text = "Year";
+            // 
+            // studentIDTextBox
+            // 
+            this.studentIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.studentIDTextBox.Location = new System.Drawing.Point(190, 334);
+            this.studentIDTextBox.Name = "studentIDTextBox";
+            this.studentIDTextBox.Size = new System.Drawing.Size(121, 30);
+            this.studentIDTextBox.TabIndex = 21;
+            this.studentIDTextBox.TextChanged += new System.EventHandler(this.studentIDTextBox_TextChanged);
+            // 
+            // studentIDLabel
+            // 
+            this.studentIDLabel.AutoSize = true;
+            this.studentIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.studentIDLabel.Location = new System.Drawing.Point(71, 334);
+            this.studentIDLabel.Name = "studentIDLabel";
+            this.studentIDLabel.Size = new System.Drawing.Size(104, 25);
+            this.studentIDLabel.TabIndex = 21;
+            this.studentIDLabel.Text = "Student ID";
+            // 
+            // searchStudentButton
+            // 
+            this.searchStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.searchStudentButton.Location = new System.Drawing.Point(352, 334);
+            this.searchStudentButton.Name = "searchStudentButton";
+            this.searchStudentButton.Size = new System.Drawing.Size(178, 38);
+            this.searchStudentButton.TabIndex = 22;
+            this.searchStudentButton.Text = "Find Student";
+            this.searchStudentButton.UseVisualStyleBackColor = true;
+            this.searchStudentButton.Click += new System.EventHandler(this.searchStudentButton_Click);
+            // 
+            // registerButton
+            // 
+            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.registerButton.Location = new System.Drawing.Point(425, 422);
+            this.registerButton.Name = "registerButton";
+            this.registerButton.Size = new System.Drawing.Size(315, 46);
+            this.registerButton.TabIndex = 23;
+            this.registerButton.Text = "Register Student For Course";
+            this.registerButton.UseVisualStyleBackColor = true;
+            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // studentNameTextBox
+            // 
+            this.studentNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.studentNameTextBox.Location = new System.Drawing.Point(756, 334);
+            this.studentNameTextBox.Name = "studentNameTextBox";
+            this.studentNameTextBox.ReadOnly = true;
+            this.studentNameTextBox.Size = new System.Drawing.Size(235, 30);
+            this.studentNameTextBox.TabIndex = 26;
+            // 
+            // studentBirthdayTextBox
+            // 
+            this.studentBirthdayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.studentBirthdayTextBox.Location = new System.Drawing.Point(756, 371);
+            this.studentBirthdayTextBox.Name = "studentBirthdayTextBox";
+            this.studentBirthdayTextBox.ReadOnly = true;
+            this.studentBirthdayTextBox.Size = new System.Drawing.Size(235, 30);
+            this.studentBirthdayTextBox.TabIndex = 27;
+            // 
+            // findStudentErrorLabel
+            // 
+            this.findStudentErrorLabel.AutoSize = true;
+            this.findStudentErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.findStudentErrorLabel.Location = new System.Drawing.Point(118, 378);
+            this.findStudentErrorLabel.Name = "findStudentErrorLabel";
+            this.findStudentErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.findStudentErrorLabel.TabIndex = 28;
+            this.findStudentErrorLabel.Text = "  ";
+            // 
+            // alertLabel
+            // 
+            this.alertLabel.AutoSize = true;
+            this.alertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.alertLabel.Location = new System.Drawing.Point(250, 483);
+            this.alertLabel.Name = "alertLabel";
+            this.alertLabel.Size = new System.Drawing.Size(760, 25);
+            this.alertLabel.TabIndex = 29;
+            this.alertLabel.Text = "Note: This will override any limits to credit hours. Check course load before pro" +
+    "ceeding.";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -159,136 +297,11 @@
             // 
             this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
             // 
-            // searchCourseButton
-            // 
-            this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchCourseButton.Location = new System.Drawing.Point(645, 18);
-            this.searchCourseButton.Name = "searchCourseButton";
-            this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
-            this.searchCourseButton.TabIndex = 2;
-            this.searchCourseButton.Text = "Search Courses";
-            this.searchCourseButton.UseVisualStyleBackColor = true;
-            this.searchCourseButton.Click += new System.EventHandler(this.searchCourseButton_Click);
-            // 
-            // semesterComboBox
-            // 
-            this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.semesterComboBox.FormattingEnabled = true;
-            this.semesterComboBox.Items.AddRange(new object[] {
-            "Spring",
-            "Summer",
-            "Fall"});
-            this.semesterComboBox.Location = new System.Drawing.Point(177, 31);
-            this.semesterComboBox.Name = "semesterComboBox";
-            this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
-            this.semesterComboBox.TabIndex = 17;
-            // 
-            // semesterLabel
-            // 
-            this.semesterLabel.AutoSize = true;
-            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.semesterLabel.Location = new System.Drawing.Point(75, 31);
-            this.semesterLabel.Name = "semesterLabel";
-            this.semesterLabel.Size = new System.Drawing.Size(96, 25);
-            this.semesterLabel.TabIndex = 16;
-            this.semesterLabel.Text = "Semester";
-            // 
-            // courseYearPicker
-            // 
-            this.courseYearPicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.courseYearPicker.CustomFormat = "yyyy";
-            this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.courseYearPicker.Location = new System.Drawing.Point(479, 31);
-            this.courseYearPicker.Name = "courseYearPicker";
-            this.courseYearPicker.ShowUpDown = true;
-            this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
-            this.courseYearPicker.TabIndex = 19;
-            // 
-            // yearLabel
-            // 
-            this.yearLabel.AutoSize = true;
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.yearLabel.Location = new System.Drawing.Point(420, 31);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(53, 25);
-            this.yearLabel.TabIndex = 18;
-            this.yearLabel.Text = "Year";
-            // 
-            // studentIDTextBox
-            // 
-            this.studentIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.studentIDTextBox.Location = new System.Drawing.Point(190, 334);
-            this.studentIDTextBox.Name = "studentIDTextBox";
-            this.studentIDTextBox.Size = new System.Drawing.Size(121, 30);
-            this.studentIDTextBox.TabIndex = 20;
-            this.studentIDTextBox.TextChanged += new System.EventHandler(this.studentIDTextBox_TextChanged);
-            // 
-            // studentIDLabel
-            // 
-            this.studentIDLabel.AutoSize = true;
-            this.studentIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.studentIDLabel.Location = new System.Drawing.Point(71, 334);
-            this.studentIDLabel.Name = "studentIDLabel";
-            this.studentIDLabel.Size = new System.Drawing.Size(104, 25);
-            this.studentIDLabel.TabIndex = 21;
-            this.studentIDLabel.Text = "Student ID";
-            // 
-            // searchStudentButton
-            // 
-            this.searchStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchStudentButton.Location = new System.Drawing.Point(352, 334);
-            this.searchStudentButton.Name = "searchStudentButton";
-            this.searchStudentButton.Size = new System.Drawing.Size(178, 38);
-            this.searchStudentButton.TabIndex = 22;
-            this.searchStudentButton.Text = "Find Student";
-            this.searchStudentButton.UseVisualStyleBackColor = true;
-            this.searchStudentButton.Click += new System.EventHandler(this.searchStudentButton_Click);
-            // 
-            // registerButton
-            // 
-            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.registerButton.Location = new System.Drawing.Point(425, 434);
-            this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(315, 46);
-            this.registerButton.TabIndex = 25;
-            this.registerButton.Text = "Register Student For Course";
-            this.registerButton.UseVisualStyleBackColor = true;
-            this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
-            // 
-            // studentNameTextBox
-            // 
-            this.studentNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.studentNameTextBox.Location = new System.Drawing.Point(756, 334);
-            this.studentNameTextBox.Name = "studentNameTextBox";
-            this.studentNameTextBox.ReadOnly = true;
-            this.studentNameTextBox.Size = new System.Drawing.Size(235, 30);
-            this.studentNameTextBox.TabIndex = 26;
-            // 
-            // studentBirthdayTextBox
-            // 
-            this.studentBirthdayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.studentBirthdayTextBox.Location = new System.Drawing.Point(756, 371);
-            this.studentBirthdayTextBox.Name = "studentBirthdayTextBox";
-            this.studentBirthdayTextBox.ReadOnly = true;
-            this.studentBirthdayTextBox.Size = new System.Drawing.Size(235, 30);
-            this.studentBirthdayTextBox.TabIndex = 27;
-            // 
-            // findStudentErrorLabel
-            // 
-            this.findStudentErrorLabel.AutoSize = true;
-            this.findStudentErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.findStudentErrorLabel.Location = new System.Drawing.Point(118, 378);
-            this.findStudentErrorLabel.Name = "findStudentErrorLabel";
-            this.findStudentErrorLabel.Size = new System.Drawing.Size(13, 16);
-            this.findStudentErrorLabel.TabIndex = 28;
-            this.findStudentErrorLabel.Text = "  ";
-            // 
             // AdministratorRegisterStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.alertLabel);
             this.Controls.Add(this.findStudentErrorLabel);
             this.Controls.Add(this.studentBirthdayTextBox);
             this.Controls.Add(this.studentNameTextBox);
@@ -335,5 +348,6 @@
         private System.Windows.Forms.TextBox studentNameTextBox;
         private System.Windows.Forms.TextBox studentBirthdayTextBox;
         private System.Windows.Forms.Label findStudentErrorLabel;
+        private System.Windows.Forms.Label alertLabel;
     }
 }

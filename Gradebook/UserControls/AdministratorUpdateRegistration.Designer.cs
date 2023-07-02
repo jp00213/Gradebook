@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.courseDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentIDTextBox = new System.Windows.Forms.TextBox();
             this.studentIDLabel = new System.Windows.Forms.Label();
@@ -40,15 +49,6 @@
             this.yearLabel = new System.Windows.Forms.Label();
             this.semesterComboBox = new System.Windows.Forms.ComboBox();
             this.semesterLabel = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DeleteButton = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -74,111 +74,9 @@
             this.courseDataGridView.Name = "courseDataGridView";
             this.courseDataGridView.RowHeadersWidth = 51;
             this.courseDataGridView.RowTemplate.Height = 24;
-            this.courseDataGridView.Size = new System.Drawing.Size(1068, 198);
-            this.courseDataGridView.TabIndex = 1;
+            this.courseDataGridView.Size = new System.Drawing.Size(1068, 351);
+            this.courseDataGridView.TabIndex = 62;
             this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
-            // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
-            // 
-            // studentIDTextBox
-            // 
-            this.studentIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentIDTextBox.Location = new System.Drawing.Point(214, 14);
-            this.studentIDTextBox.Name = "studentIDTextBox";
-            this.studentIDTextBox.Size = new System.Drawing.Size(193, 30);
-            this.studentIDTextBox.TabIndex = 57;
-            this.studentIDTextBox.TextChanged += new System.EventHandler(this.studentIDTextBox_TextChanged);
-            // 
-            // studentIDLabel
-            // 
-            this.studentIDLabel.AutoSize = true;
-            this.studentIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentIDLabel.Location = new System.Drawing.Point(92, 16);
-            this.studentIDLabel.Name = "studentIDLabel";
-            this.studentIDLabel.Size = new System.Drawing.Size(104, 25);
-            this.studentIDLabel.TabIndex = 56;
-            this.studentIDLabel.Text = "Student ID";
-            // 
-            // searchAllStudenCourseButton
-            // 
-            this.searchAllStudenCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchAllStudenCourseButton.Location = new System.Drawing.Point(712, 18);
-            this.searchAllStudenCourseButton.Name = "searchAllStudenCourseButton";
-            this.searchAllStudenCourseButton.Size = new System.Drawing.Size(186, 79);
-            this.searchAllStudenCourseButton.TabIndex = 55;
-            this.searchAllStudenCourseButton.Text = "View All Courses";
-            this.searchAllStudenCourseButton.UseVisualStyleBackColor = true;
-            this.searchAllStudenCourseButton.Click += new System.EventHandler(this.searchCourseButton_Click);
-            // 
-            // studentIDErrorLabel
-            // 
-            this.studentIDErrorLabel.AutoSize = true;
-            this.studentIDErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.studentIDErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.studentIDErrorLabel.Location = new System.Drawing.Point(240, 45);
-            this.studentIDErrorLabel.Name = "studentIDErrorLabel";
-            this.studentIDErrorLabel.Size = new System.Drawing.Size(13, 16);
-            this.studentIDErrorLabel.TabIndex = 58;
-            this.studentIDErrorLabel.Text = "  ";
-            // 
-            // viewFutureCoursesButton
-            // 
-            this.viewFutureCoursesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.viewFutureCoursesButton.Location = new System.Drawing.Point(904, 16);
-            this.viewFutureCoursesButton.Name = "viewFutureCoursesButton";
-            this.viewFutureCoursesButton.Size = new System.Drawing.Size(185, 81);
-            this.viewFutureCoursesButton.TabIndex = 59;
-            this.viewFutureCoursesButton.Text = "View Current Courses";
-            this.viewFutureCoursesButton.UseVisualStyleBackColor = true;
-            this.viewFutureCoursesButton.Click += new System.EventHandler(this.viewFutureCoursesButton_Click);
-            // 
-            // courseYearPicker
-            // 
-            this.courseYearPicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.courseYearPicker.CustomFormat = "yyyy";
-            this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.courseYearPicker.Location = new System.Drawing.Point(570, 64);
-            this.courseYearPicker.Name = "courseYearPicker";
-            this.courseYearPicker.ShowUpDown = true;
-            this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
-            this.courseYearPicker.TabIndex = 63;
-            // 
-            // yearLabel
-            // 
-            this.yearLabel.AutoSize = true;
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.yearLabel.Location = new System.Drawing.Point(432, 67);
-            this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(123, 25);
-            this.yearLabel.TabIndex = 62;
-            this.yearLabel.Text = "Current Year";
-            // 
-            // semesterComboBox
-            // 
-            this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.semesterComboBox.FormattingEnabled = true;
-            this.semesterComboBox.Items.AddRange(new object[] {
-            "Spring",
-            "Summer",
-            "Fall"});
-            this.semesterComboBox.Location = new System.Drawing.Point(214, 64);
-            this.semesterComboBox.Name = "semesterComboBox";
-            this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
-            this.semesterComboBox.TabIndex = 61;
-            // 
-            // semesterLabel
-            // 
-            this.semesterLabel.AutoSize = true;
-            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.semesterLabel.Location = new System.Drawing.Point(30, 64);
-            this.semesterLabel.Name = "semesterLabel";
-            this.semesterLabel.Size = new System.Drawing.Size(166, 25);
-            this.semesterLabel.TabIndex = 60;
-            this.semesterLabel.Text = "Current Semester";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -263,6 +161,108 @@
             this.DeleteButton.Text = "Delete";
             this.DeleteButton.UseColumnTextForButtonValue = true;
             this.DeleteButton.Width = 76;
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
+            // 
+            // studentIDTextBox
+            // 
+            this.studentIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentIDTextBox.Location = new System.Drawing.Point(214, 14);
+            this.studentIDTextBox.Name = "studentIDTextBox";
+            this.studentIDTextBox.Size = new System.Drawing.Size(193, 30);
+            this.studentIDTextBox.TabIndex = 57;
+            this.studentIDTextBox.TextChanged += new System.EventHandler(this.studentIDTextBox_TextChanged);
+            // 
+            // studentIDLabel
+            // 
+            this.studentIDLabel.AutoSize = true;
+            this.studentIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentIDLabel.Location = new System.Drawing.Point(92, 16);
+            this.studentIDLabel.Name = "studentIDLabel";
+            this.studentIDLabel.Size = new System.Drawing.Size(104, 25);
+            this.studentIDLabel.TabIndex = 56;
+            this.studentIDLabel.Text = "Student ID";
+            // 
+            // searchAllStudenCourseButton
+            // 
+            this.searchAllStudenCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.searchAllStudenCourseButton.Location = new System.Drawing.Point(712, 18);
+            this.searchAllStudenCourseButton.Name = "searchAllStudenCourseButton";
+            this.searchAllStudenCourseButton.Size = new System.Drawing.Size(186, 79);
+            this.searchAllStudenCourseButton.TabIndex = 60;
+            this.searchAllStudenCourseButton.Text = "View All Courses";
+            this.searchAllStudenCourseButton.UseVisualStyleBackColor = true;
+            this.searchAllStudenCourseButton.Click += new System.EventHandler(this.searchCourseButton_Click);
+            // 
+            // studentIDErrorLabel
+            // 
+            this.studentIDErrorLabel.AutoSize = true;
+            this.studentIDErrorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.studentIDErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.studentIDErrorLabel.Location = new System.Drawing.Point(240, 45);
+            this.studentIDErrorLabel.Name = "studentIDErrorLabel";
+            this.studentIDErrorLabel.Size = new System.Drawing.Size(13, 16);
+            this.studentIDErrorLabel.TabIndex = 58;
+            this.studentIDErrorLabel.Text = "  ";
+            // 
+            // viewFutureCoursesButton
+            // 
+            this.viewFutureCoursesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.viewFutureCoursesButton.Location = new System.Drawing.Point(904, 16);
+            this.viewFutureCoursesButton.Name = "viewFutureCoursesButton";
+            this.viewFutureCoursesButton.Size = new System.Drawing.Size(185, 81);
+            this.viewFutureCoursesButton.TabIndex = 61;
+            this.viewFutureCoursesButton.Text = "View Current Courses";
+            this.viewFutureCoursesButton.UseVisualStyleBackColor = true;
+            this.viewFutureCoursesButton.Click += new System.EventHandler(this.viewFutureCoursesButton_Click);
+            // 
+            // courseYearPicker
+            // 
+            this.courseYearPicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.courseYearPicker.CustomFormat = "yyyy";
+            this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.courseYearPicker.Location = new System.Drawing.Point(570, 64);
+            this.courseYearPicker.Name = "courseYearPicker";
+            this.courseYearPicker.ShowUpDown = true;
+            this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
+            this.courseYearPicker.TabIndex = 59;
+            // 
+            // yearLabel
+            // 
+            this.yearLabel.AutoSize = true;
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.yearLabel.Location = new System.Drawing.Point(432, 67);
+            this.yearLabel.Name = "yearLabel";
+            this.yearLabel.Size = new System.Drawing.Size(123, 25);
+            this.yearLabel.TabIndex = 62;
+            this.yearLabel.Text = "Current Year";
+            // 
+            // semesterComboBox
+            // 
+            this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterComboBox.FormattingEnabled = true;
+            this.semesterComboBox.Items.AddRange(new object[] {
+            "Spring",
+            "Summer",
+            "Fall"});
+            this.semesterComboBox.Location = new System.Drawing.Point(214, 64);
+            this.semesterComboBox.Name = "semesterComboBox";
+            this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
+            this.semesterComboBox.TabIndex = 58;
+            // 
+            // semesterLabel
+            // 
+            this.semesterLabel.AutoSize = true;
+            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterLabel.Location = new System.Drawing.Point(30, 64);
+            this.semesterLabel.Name = "semesterLabel";
+            this.semesterLabel.Size = new System.Drawing.Size(166, 25);
+            this.semesterLabel.TabIndex = 60;
+            this.semesterLabel.Text = "Current Semester";
             // 
             // AdministratorUpdateRegistration
             // 

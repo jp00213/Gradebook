@@ -36,5 +36,32 @@ namespace GradebookTest.Model
             Assert.That(testCourse.TeacherID, Is.EqualTo(29));
         }
 
+        [Test]
+        public void ShouldCreateCourseWithStudentInformation()
+        {
+            var testCourse = new Course
+            {
+                Name = "Test Name",
+                Prefix = "EDU",
+                Number = "1234",
+                Section = 23,
+                CreditHours = 3,
+                Semester = "summer",
+                Year = 2023,
+                StudentID = 123,
+                TeacherFullName = "Amy Lee",
+                StudentFullName = "John Frank",
+                StudentCount = 321
+            };
+
+            Assert.That(testCourse.StudentID, Is.EqualTo(123));
+            Assert.That(testCourse.TeacherFullName, Is.EqualTo("Amy Lee"));
+            Assert.That(testCourse.StudentFullName, Is.EqualTo("John Frank"));
+            Assert.That(testCourse.StudentCount, Is.EqualTo(321));
+
+
+
+        }
+
     }
 }

@@ -167,7 +167,7 @@ namespace Gradebook.UserControls
                 this.PopulateGradeDataGridView();
             } catch (Exception ex) 
             {
-                MessageBox.Show("You have already submitted a grade for this student's assignment. Please select another student or use the grid below to edit the current grade.", "Grade Not Saved" + ex.GetType(), MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A grade already exists for this student. Editing not permitted yet. Please select another student or assignment.", "Grade Not Saved" + ex.GetType(), MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -178,7 +178,7 @@ namespace Gradebook.UserControls
 
         private void selectAssignmentComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            this.PopulateGradeDataGridView();
             this.SetupStudentCombobox();
         }
 
@@ -186,6 +186,7 @@ namespace Gradebook.UserControls
         {
             this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
             /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();*/
+
 
         }
     }
