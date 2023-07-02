@@ -51,10 +51,9 @@
             this.gradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightGradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+
             ((System.ComponentModel.ISupportInitialize)(this.studentGradesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -119,10 +118,9 @@
             this.studentGradesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.studentIDDataGridViewTextBoxColumn,
             this.studentNameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.weightDataGridViewTextBoxColumn,
             this.scoreDataGridViewTextBoxColumn,
-            this.weightGradeDataGridViewTextBoxColumn});
+            this.weightDataGridViewTextBoxColumn});
+
             this.studentGradesDataGridView.DataSource = this.gradesBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
@@ -265,51 +263,33 @@
             // 
             // studentIDDataGridViewTextBoxColumn
             // 
+
+            this.studentIDDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "StudentID";
             this.studentIDDataGridViewTextBoxColumn.HeaderText = "StudentID";
-            this.studentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
-            this.studentIDDataGridViewTextBoxColumn.Width = 125;
             // 
             // studentNameDataGridViewTextBoxColumn
             // 
+            this.studentNameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "StudentName";
             this.studentNameDataGridViewTextBoxColumn.HeaderText = "StudentName";
-            this.studentNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
-            this.studentNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
-            this.weightDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            this.weightDataGridViewTextBoxColumn.Width = 125;
             // 
             // scoreDataGridViewTextBoxColumn
             // 
+            this.scoreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
             this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
-            this.scoreDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
-            this.scoreDataGridViewTextBoxColumn.Width = 125;
             // 
-            // weightGradeDataGridViewTextBoxColumn
+            // weightDataGridViewTextBoxColumn
             // 
-            this.weightGradeDataGridViewTextBoxColumn.DataPropertyName = "WeightGrade";
-            this.weightGradeDataGridViewTextBoxColumn.HeaderText = "WeightGrade";
-            this.weightGradeDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.weightGradeDataGridViewTextBoxColumn.Name = "weightGradeDataGridViewTextBoxColumn";
-            this.weightGradeDataGridViewTextBoxColumn.Width = 125;
+            this.weightDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+
             // 
             // TeacherGradingUserControl
             // 
@@ -362,9 +342,8 @@
         private System.Windows.Forms.BindingSource gradesBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn weightGradeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
+
     }
 }
