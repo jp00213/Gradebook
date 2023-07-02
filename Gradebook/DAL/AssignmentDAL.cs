@@ -2,10 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Gradebook.DAL
 {
@@ -49,6 +45,11 @@ namespace Gradebook.DAL
             return success;
         }
 
+        /// <summary>
+        /// Returns a list of assignments based on course ID
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public List<Assignment> GetAssignmentsByCourseID(int courseID)
         {
             List<Assignment> assignments = new List<Assignment>();
@@ -85,6 +86,11 @@ namespace Gradebook.DAL
             return assignments;
         }
 
+        /// <summary>
+        /// Returns an assigment based on the description
+        /// </summary>
+        /// <param name="description"></param>
+        /// <returns></returns>
         public Assignment GetAssignmentByDescription(string description)
         {
             Assignment assignment = new Assignment();
@@ -119,6 +125,11 @@ namespace Gradebook.DAL
             return assignment;
         }
 
+        /// <summary>
+        /// Returns t/f based on if the update of that assignment info was successful
+        /// </summary>
+        /// <param name="assignment"></param>
+        /// <returns></returns>
         public bool UpdateAssignment(Assignment assignment)
         {
             SqlConnection connection = GradebookDBConnection.GetConnection();

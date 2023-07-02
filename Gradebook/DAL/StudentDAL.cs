@@ -431,7 +431,11 @@ namespace Gradebook.DAL
             return maxAllowedResult;
         }
 
-
+        /// <summary>
+        /// Returns a list of students based on course ID
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public List<Person> GetStudentsByCourseID(int courseID)
         {
             List<Person> students = new List<Person>();
@@ -484,6 +488,13 @@ namespace Gradebook.DAL
             return students;
         }
 
+        /// <summary>
+        /// Returns a student based on name and courseID
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public Person GetStudentByNameAndCourseID(string firstName, string lastName, int courseID)
         {
             Person student = new Person();

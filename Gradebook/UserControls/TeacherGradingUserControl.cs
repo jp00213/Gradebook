@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// The usercontrol that allows teachers to input grades
+    /// </summary>
     public partial class TeacherGradingUserControl : UserControl
     {
         private CourseController _courseController;
@@ -16,7 +19,9 @@ namespace Gradebook.UserControls
         private StudentController _studentController;
         private Person _student;
 
-
+        /// <summary>
+        /// User Control constructor
+        /// </summary>
         public TeacherGradingUserControl()
         {
             InitializeComponent();
@@ -98,7 +103,6 @@ namespace Gradebook.UserControls
             string lastName = names[1];
             Person student = this._studentController.GetStudentByNameAndCourseID(firstName, lastName, this.GetCourseID());
             int studentID = student.StudentID;
-            MessageBox.Show(studentID.ToString());
             return studentID;
         }
 
@@ -137,8 +141,8 @@ namespace Gradebook.UserControls
         private void clearButton_Click(object sender, EventArgs e)
         {
             this.selectAssignmentComboBox.SelectedItem= null;
-            this.selectClassComboBox.SelectedItem= null;
-            this.selectStudentComboBox.SelectedItem= null;
+            this.selectClassComboBox.SelectedItem = null;
+            this.selectStudentComboBox.SelectedItem = null;
             this.gradeTextBox.Text= "";
             this.selectStudentErrorLabel.Text = "";
             this.gradeErrorMessageLabel.Text = "";
@@ -182,8 +186,9 @@ namespace Gradebook.UserControls
 
         private void PopulateGradeDataGridView()
         {
-            this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());
-            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();*/
+            /*this.studentGradesDataGridView.DataSource = this._gradesController.GetAssignmentGrades(this.GetCourseID(), this.GetAssignmentID());*/
+            this.studentGradesDataGridView.DataSource = this._gradesController.GetAllGrades();
+           
         }
     }
 }

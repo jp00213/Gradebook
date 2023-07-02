@@ -5,6 +5,9 @@ using System.Data.SqlClient;
 
 namespace Gradebook.DAL
 {
+    /// <summary>
+    /// Communicates with the grade controller 
+    /// </summary>
     public class GradeDAL
     {
         /// <summary>
@@ -110,7 +113,13 @@ namespace Gradebook.DAL
             }
         }
 
-
+        /// <summary>
+        /// Adds a grade to the DB
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <param name="studentID"></param>
+        /// <param name="score"></param>
+        /// <returns></returns>
         public Boolean AddGrade(int assignmentID, int studentID, int score)
         {
             Boolean result = false;
@@ -142,6 +151,10 @@ namespace Gradebook.DAL
             return result;
         }
 
+        /// <summary>
+        /// Gets all grades
+        /// </summary>
+        /// <returns></returns>
         public List<Grades> GetAllGrades()
         {
             List<Grades> grades = new List<Grades>();

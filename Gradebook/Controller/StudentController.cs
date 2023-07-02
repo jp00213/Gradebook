@@ -123,11 +123,23 @@ namespace Gradebook.Controller
 
         }
 
+        /// <summary>
+        /// Returns a list of students based on course ID
+        /// </summary>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public List<Person> GetStudentsByCourseID(int courseID)
         {
             return this._studentDAL.GetStudentsByCourseID((int)courseID);
         }
 
+        /// <summary>
+        /// Returns a student based on name and course ID
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <param name="courseID"></param>
+        /// <returns></returns>
         public Person GetStudentByNameAndCourseID(string firstName, string lastName, int courseID)
         {
             return this._studentDAL.GetStudentByNameAndCourseID(firstName, lastName, courseID);

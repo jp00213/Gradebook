@@ -6,6 +6,9 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// The classes ussercontrol
+    /// </summary>
     public partial class TeacherClassesUserControl : UserControl
     {
         private TeacherController _teacherController;
