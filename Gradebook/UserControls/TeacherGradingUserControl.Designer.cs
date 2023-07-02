@@ -37,6 +37,7 @@
             this.selectClassComboBox = new System.Windows.Forms.ComboBox();
             this.selectAssignmentComboBox = new System.Windows.Forms.ComboBox();
             this.studentGradesDataGridView = new System.Windows.Forms.DataGridView();
+            this.gradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.selectClassErrorLabel = new System.Windows.Forms.Label();
             this.selectAssignmentErrorLabel = new System.Windows.Forms.Label();
             this.instructionsLabel = new System.Windows.Forms.Label();
@@ -48,16 +49,11 @@
             this.inputGradeLabel = new System.Windows.Forms.Label();
             this.gradeTextBox = new System.Windows.Forms.TextBox();
             this.gradeErrorMessageLabel = new System.Windows.Forms.Label();
-            this.gradesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.studentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.weightGradeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.studentGradesDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gradesBindingSource)).BeginInit();
@@ -117,15 +113,11 @@
             this.studentGradesDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.studentGradesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.studentGradesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Description,
             this.studentIDDataGridViewTextBoxColumn,
-            this.courseIDDataGridViewTextBoxColumn,
-            this.assignmentIDDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
+            this.studentNameDataGridViewTextBoxColumn,
             this.weightDataGridViewTextBoxColumn,
             this.scoreDataGridViewTextBoxColumn,
             this.weightGradeDataGridViewTextBoxColumn,
-            this.studentNameDataGridViewTextBoxColumn,
             this.Add});
             this.studentGradesDataGridView.DataSource = this.gradesBindingSource;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -148,6 +140,10 @@
             this.studentGradesDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.studentGradesDataGridView.Size = new System.Drawing.Size(894, 239);
             this.studentGradesDataGridView.TabIndex = 4;
+            // 
+            // gradesBindingSource
+            // 
+            this.gradesBindingSource.DataSource = typeof(Gradebook.Model.Grades);
             // 
             // selectClassErrorLabel
             // 
@@ -250,45 +246,26 @@
             this.gradeErrorMessageLabel.Size = new System.Drawing.Size(0, 13);
             this.gradeErrorMessageLabel.TabIndex = 15;
             // 
-            // gradesBindingSource
-            // 
-            this.gradesBindingSource.DataSource = typeof(Gradebook.Model.Grades);
-            // 
-            // Description
-            // 
-            this.Description.DataPropertyName = "Description";
-            this.Description.HeaderText = "Description";
-            this.Description.Name = "Description";
-            // 
             // studentIDDataGridViewTextBoxColumn
             // 
             this.studentIDDataGridViewTextBoxColumn.DataPropertyName = "StudentID";
             this.studentIDDataGridViewTextBoxColumn.HeaderText = "StudentID";
             this.studentIDDataGridViewTextBoxColumn.Name = "studentIDDataGridViewTextBoxColumn";
+            this.studentIDDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // courseIDDataGridViewTextBoxColumn
+            // studentNameDataGridViewTextBoxColumn
             // 
-            this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
-            this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
-            this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
-            // 
-            // assignmentIDDataGridViewTextBoxColumn
-            // 
-            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "StudentName";
+            this.studentNameDataGridViewTextBoxColumn.HeaderText = "StudentName";
+            this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
+            this.studentNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // weightDataGridViewTextBoxColumn
             // 
             this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
             this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
             this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            this.weightDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // scoreDataGridViewTextBoxColumn
             // 
@@ -301,17 +278,14 @@
             this.weightGradeDataGridViewTextBoxColumn.DataPropertyName = "WeightGrade";
             this.weightGradeDataGridViewTextBoxColumn.HeaderText = "WeightGrade";
             this.weightGradeDataGridViewTextBoxColumn.Name = "weightGradeDataGridViewTextBoxColumn";
-            // 
-            // studentNameDataGridViewTextBoxColumn
-            // 
-            this.studentNameDataGridViewTextBoxColumn.DataPropertyName = "StudentName";
-            this.studentNameDataGridViewTextBoxColumn.HeaderText = "StudentName";
-            this.studentNameDataGridViewTextBoxColumn.Name = "studentNameDataGridViewTextBoxColumn";
+            this.weightGradeDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // Add
             // 
             this.Add.HeaderText = "Edit";
             this.Add.Name = "Add";
+            this.Add.Text = "Update";
+            this.Add.UseColumnTextForButtonValue = true;
             // 
             // TeacherGradingUserControl
             // 
@@ -361,15 +335,11 @@
         private System.Windows.Forms.TextBox gradeTextBox;
         private System.Windows.Forms.Label gradeErrorMessageLabel;
         private System.Windows.Forms.BindingSource gradesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Description;
         private System.Windows.Forms.DataGridViewTextBoxColumn studentIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn courseIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn assignmentIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn weightGradeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn studentNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn Add;
     }
 }
