@@ -10,14 +10,6 @@
         public string Description { get; set; }
         public decimal Weight { get; set; }
 
-        public Assignment(int assignmentID, int courseID, string description, decimal weight)
-        {
-           this.AssignmentID = assignmentID;
-            this.CourseID = courseID;
-            this.Description = description;
-            this.Weight = weight;
-        }
-
         /// <summary>
         /// Constructor for assignment
         /// </summary>
@@ -35,7 +27,22 @@
             this.Description = description;
             this.Weight = weight;
         }
+
+        /// <summary>
+        /// Alternate constructor for assignment
+        /// </summary>
+        /// <param name="assignmentID"></param>
+        /// <param name="courseID"></param>
+        /// <param name="description"></param>
+        /// <param name="weight"></param>
+        public Assignment(int assignmentID, int courseID, string description, decimal weight)
+        {
+            this.AssignmentID = assignmentID;
+            this.CourseID = courseID;
+            this.Description = description;
+            this.Weight = weight;
+        }
+
     }
 
-    
 }

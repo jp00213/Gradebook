@@ -243,7 +243,7 @@ namespace Gradebook.Function
         }
 
         /// <summary>
-        /// Generates passwordscore
+        /// Generates passwordscore (not used or tested)
         /// </summary>
         public enum PasswordScore
         {
@@ -383,23 +383,30 @@ namespace Gradebook.Function
             return valid;
         }
 
-        /// Handle null value coming from the reader
+        /// <summary>
+        /// Returns current semester as a string (based on today)
         /// </summary>
-        /// <param name="reader"></param>
-        /// <param name="colName"></param>
         /// <returns></returns>
-        public static int? SafeGetInt(this SqlDataReader reader, string colName)
+        public static string GetCurrentSemester(DateTime testTime)
         {
-            int colIndex = reader.GetOrdinal(colName);
+            string semester;
+            Console.WriteLine(testTime.Month);
 
-            if (!reader.IsDBNull(colIndex))
+            if (testTime.Month <= 4)
             {
-                return reader.GetInt32(colIndex);
+                semester = "Spring";
+            }
+            else if (testTime.Month > 4 && testTime.Month < 8)
+            {
+                semester = "Summer";
             }
             else
             {
-                return null;
+                semester = "Fall";
             }
+
+            return semester;
         }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Gradebook.Function;
+using System.Data.SqlClient;
 
 namespace GradebookTest.Function
 {
@@ -392,5 +393,39 @@ namespace GradebookTest.Function
             Assert.That(testValue4, Is.EqualTo(true));
         }
 
+        [Test]
+        public void ShouldReturnTrueIfLessThan100()
+        {
+            var test1 = ValidationUtility.IsLessThan100("32");
+            Assert.That(test1, Is.EqualTo(true));
+            var test2 = ValidationUtility.IsLessThan100("150");
+            Assert.That(test2, Is.EqualTo(false));
+            var test3 = ValidationUtility.IsLessThan100("9");
+            Assert.That(test3, Is.EqualTo(true));
+        }
+
+        [Test]
+        public void ShouldReturnTrueIfIsGreaterThan0()
+        {
+            var test1 = ValidationUtility.IsGreaterThan0("32");
+            Assert.That(test1, Is.EqualTo(true));
+            var test2 = ValidationUtility.IsGreaterThan0("150");
+            Assert.That(test2, Is.EqualTo(true));
+            var test3 = ValidationUtility.IsGreaterThan0("0");
+            Assert.That(test3, Is.EqualTo(false));
+            var test4 = ValidationUtility.IsGreaterThan0("-9");
+            Assert.That(test4, Is.EqualTo(false));
+        }
+
+        [Test]
+        public void ShouldReturnCurrentSemester()
+        {
+            var test1 = ValidationUtility.GetCurrentSemester(new DateTime(2023,01,01));
+            Assert.That(test1, Is.EqualTo("Spring"));
+            var test2 = ValidationUtility.GetCurrentSemester(new DateTime(2023,05,01));
+            Assert.That(test2, Is.EqualTo("Summer"));
+            var test3 = ValidationUtility.GetCurrentSemester(new DateTime(2023,09,01));
+            Assert.That(test3, Is.EqualTo("Fall"));
+        }
     }
 }

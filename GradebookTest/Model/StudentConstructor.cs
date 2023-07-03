@@ -15,7 +15,7 @@ namespace GradebookTest.Model
         {
             var DateOfBirth = new DateTime(1999, 1, 15);
 
-            Person person = new Person
+            Student person = new Student
             {
                 LastName = "Pan",
                 FirstName = "Peter",

@@ -64,22 +64,7 @@ namespace Gradebook.UserControls
 
         private string GetCurrentSemester()
         {
-            string semester;
-
-            if (DateTime.Now.Month <= 4)
-            {
-                semester = "Spring";
-            }
-            else if (DateTime.Now.Month > 4 && DateTime.Now.Month < 8)
-            {
-                semester = "Summer";
-            }
-            else
-            {
-                semester = "Fall";
-            }
-
-            return semester;
+            return ValidationUtility.GetCurrentSemester(DateTime.Now);
         }
 
         private void CheckForParseErrors(bool parseable)

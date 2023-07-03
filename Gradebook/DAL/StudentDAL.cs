@@ -228,7 +228,7 @@ namespace Gradebook.DAL
                             ActiveStatus = (int)(byte)(reader)["activeStatus"],
                             Username = (string)(reader)["username"],
                             RecordId = (int)(reader)["recordId"],
-                            MaximumUnitsAllowed = ValidationUtility.SafeGetInt(reader, "maximumUnitsAllowed")
+                            MaximumUnitsAllowed = reader["maximumUnitsAllowed"] == DBNull.Value ? default : (int)reader["maximumUnitsAllowed"]
                         };
                     }
                 }
