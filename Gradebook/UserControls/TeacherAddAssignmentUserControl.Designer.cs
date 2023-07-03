@@ -37,12 +37,6 @@
             this.assignmentTypeLabel = new System.Windows.Forms.Label();
             this.assignmentTypeComboBox = new System.Windows.Forms.ComboBox();
             this.classAssignmentsDataGridView = new System.Windows.Forms.DataGridView();
-            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UpdateGradeButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.assignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.classAssignmentsLabel = new System.Windows.Forms.Label();
             this.weightLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
@@ -55,6 +49,12 @@
             this.descriptionErrorMessageLabel = new System.Windows.Forms.Label();
             this.weightTextBox = new System.Windows.Forms.TextBox();
             this.currentAssignmentsButton = new System.Windows.Forms.Button();
+            this.UpdateGradeButton = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.assignmentIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.weightDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.assignmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.classAssignmentsDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.assignmentBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -63,7 +63,7 @@
             // 
             this.selectClassLabel.AutoSize = true;
             this.selectClassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectClassLabel.Location = new System.Drawing.Point(188, 59);
+            this.selectClassLabel.Location = new System.Drawing.Point(188, 77);
             this.selectClassLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.selectClassLabel.Name = "selectClassLabel";
             this.selectClassLabel.Size = new System.Drawing.Size(141, 25);
@@ -74,7 +74,7 @@
             // 
             this.selectClassComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.selectClassComboBox.FormattingEnabled = true;
-            this.selectClassComboBox.Location = new System.Drawing.Point(365, 58);
+            this.selectClassComboBox.Location = new System.Drawing.Point(365, 76);
             this.selectClassComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.selectClassComboBox.Name = "selectClassComboBox";
             this.selectClassComboBox.Size = new System.Drawing.Size(383, 24);
@@ -148,57 +148,6 @@
             this.classAssignmentsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClassAssignmentDataGridView_CellContentClick);
             this.classAssignmentsDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.classAssignmentsDataGridView_DataError);
             // 
-            // assignmentIDDataGridViewTextBoxColumn
-            // 
-            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.FillWeight = 111.6751F;
-            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
-            this.assignmentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
-            this.assignmentIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.assignmentIDDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // courseIDDataGridViewTextBoxColumn
-            // 
-            this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
-            this.courseIDDataGridViewTextBoxColumn.FillWeight = 96.10829F;
-            this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
-            this.courseIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
-            this.courseIDDataGridViewTextBoxColumn.ReadOnly = true;
-            this.courseIDDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.FillWeight = 96.10829F;
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            // 
-            // weightDataGridViewTextBoxColumn
-            // 
-            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
-            this.weightDataGridViewTextBoxColumn.FillWeight = 96.10829F;
-            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
-            this.weightDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
-            this.weightDataGridViewTextBoxColumn.Width = 75;
-            // 
-            // UpdateGradeButton
-            // 
-            this.UpdateGradeButton.HeaderText = "Update";
-            this.UpdateGradeButton.MinimumWidth = 6;
-            this.UpdateGradeButton.Name = "UpdateGradeButton";
-            this.UpdateGradeButton.Text = "Update";
-            this.UpdateGradeButton.UseColumnTextForButtonValue = true;
-            this.UpdateGradeButton.Width = 125;
-            // 
-            // assignmentBindingSource
-            // 
-            this.assignmentBindingSource.DataSource = typeof(Gradebook.Model.Assignment);
-            // 
             // classAssignmentsLabel
             // 
             this.classAssignmentsLabel.AutoSize = true;
@@ -269,7 +218,7 @@
             // classErrorMessageLabel
             // 
             this.classErrorMessageLabel.AutoSize = true;
-            this.classErrorMessageLabel.Location = new System.Drawing.Point(361, 88);
+            this.classErrorMessageLabel.Location = new System.Drawing.Point(361, 106);
             this.classErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.classErrorMessageLabel.Name = "classErrorMessageLabel";
             this.classErrorMessageLabel.Size = new System.Drawing.Size(0, 16);
@@ -314,7 +263,7 @@
             // currentAssignmentsButton
             // 
             this.currentAssignmentsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.currentAssignmentsButton.Location = new System.Drawing.Point(812, 52);
+            this.currentAssignmentsButton.Location = new System.Drawing.Point(812, 70);
             this.currentAssignmentsButton.Margin = new System.Windows.Forms.Padding(4);
             this.currentAssignmentsButton.Name = "currentAssignmentsButton";
             this.currentAssignmentsButton.Size = new System.Drawing.Size(237, 42);
@@ -322,6 +271,58 @@
             this.currentAssignmentsButton.Text = "See Current Assignments";
             this.currentAssignmentsButton.UseVisualStyleBackColor = true;
             this.currentAssignmentsButton.Click += new System.EventHandler(this.currentAssignmentsButton_Click);
+            // 
+            // UpdateGradeButton
+            // 
+            this.UpdateGradeButton.HeaderText = "Update";
+            this.UpdateGradeButton.MinimumWidth = 6;
+            this.UpdateGradeButton.Name = "UpdateGradeButton";
+            this.UpdateGradeButton.ReadOnly = true;
+            this.UpdateGradeButton.Text = "Update";
+            this.UpdateGradeButton.UseColumnTextForButtonValue = true;
+            this.UpdateGradeButton.Width = 125;
+            // 
+            // assignmentIDDataGridViewTextBoxColumn
+            // 
+            this.assignmentIDDataGridViewTextBoxColumn.DataPropertyName = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.FillWeight = 111.6751F;
+            this.assignmentIDDataGridViewTextBoxColumn.HeaderText = "AssignmentID";
+            this.assignmentIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.assignmentIDDataGridViewTextBoxColumn.Name = "assignmentIDDataGridViewTextBoxColumn";
+            this.assignmentIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.assignmentIDDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // courseIDDataGridViewTextBoxColumn
+            // 
+            this.courseIDDataGridViewTextBoxColumn.DataPropertyName = "CourseID";
+            this.courseIDDataGridViewTextBoxColumn.FillWeight = 96.10829F;
+            this.courseIDDataGridViewTextBoxColumn.HeaderText = "CourseID";
+            this.courseIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.courseIDDataGridViewTextBoxColumn.Name = "courseIDDataGridViewTextBoxColumn";
+            this.courseIDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.courseIDDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.FillWeight = 96.10829F;
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            // 
+            // weightDataGridViewTextBoxColumn
+            // 
+            this.weightDataGridViewTextBoxColumn.DataPropertyName = "Weight";
+            this.weightDataGridViewTextBoxColumn.FillWeight = 96.10829F;
+            this.weightDataGridViewTextBoxColumn.HeaderText = "Weight";
+            this.weightDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.weightDataGridViewTextBoxColumn.Name = "weightDataGridViewTextBoxColumn";
+            this.weightDataGridViewTextBoxColumn.Width = 75;
+            // 
+            // assignmentBindingSource
+            // 
+            this.assignmentBindingSource.DataSource = typeof(Gradebook.Model.Assignment);
             // 
             // TeacherAddAssignmentUserControl
             // 
