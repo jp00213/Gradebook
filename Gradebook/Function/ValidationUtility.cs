@@ -390,7 +390,6 @@ namespace Gradebook.Function
         public static string GetCurrentSemester(DateTime testTime)
         {
             string semester;
-            Console.WriteLine(testTime.Month);
 
             if (testTime.Month <= 4)
             {

@@ -84,6 +84,8 @@ namespace Gradebook.UserControls
         private void studentIDTextBox_TextChanged(object sender, EventArgs e)
         {
             this.findStudentErrorLabel.Text = "";
+            this.studentNameTextBox.Text = "";
+            this.studentBirthdayTextBox.Text = "";
         }
     }
 }

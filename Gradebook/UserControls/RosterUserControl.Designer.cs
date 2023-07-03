@@ -69,7 +69,7 @@
             this.panel1.Controls.Add(this.semesterLabel);
             this.panel1.Controls.Add(this.registrationDetailsLabel);
             this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1256, 767);
             this.panel1.TabIndex = 0;
@@ -82,7 +82,7 @@
             this.studentNameHeader});
             this.rosterListView.HideSelection = false;
             this.rosterListView.Location = new System.Drawing.Point(21, 268);
-            this.rosterListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rosterListView.Margin = new System.Windows.Forms.Padding(4);
             this.rosterListView.Name = "rosterListView";
             this.rosterListView.Size = new System.Drawing.Size(809, 162);
             this.rosterListView.TabIndex = 58;
@@ -117,7 +117,7 @@
             this.courseListView.FullRowSelect = true;
             this.courseListView.HideSelection = false;
             this.courseListView.Location = new System.Drawing.Point(21, 108);
-            this.courseListView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseListView.Margin = new System.Windows.Forms.Padding(4);
             this.courseListView.Name = "courseListView";
             this.courseListView.Size = new System.Drawing.Size(809, 152);
             this.courseListView.TabIndex = 57;
@@ -177,7 +177,7 @@
             "Summer",
             "Fall"});
             this.teacherNameComboBox.Location = new System.Drawing.Point(88, 46);
-            this.teacherNameComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.teacherNameComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.teacherNameComboBox.Name = "teacherNameComboBox";
             this.teacherNameComboBox.Size = new System.Drawing.Size(199, 24);
             this.teacherNameComboBox.TabIndex = 17;
@@ -196,7 +196,7 @@
             // clearButton
             // 
             this.clearButton.Location = new System.Drawing.Point(784, 46);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(100, 28);
             this.clearButton.TabIndex = 21;
@@ -207,7 +207,7 @@
             // searchButton
             // 
             this.searchButton.Location = new System.Drawing.Point(676, 46);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(100, 28);
             this.searchButton.TabIndex = 20;
@@ -220,7 +220,7 @@
             this.courseYearPicker.CustomFormat = "yyyy";
             this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.courseYearPicker.Location = new System.Drawing.Point(584, 49);
-            this.courseYearPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.courseYearPicker.Margin = new System.Windows.Forms.Padding(4);
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
             this.courseYearPicker.Size = new System.Drawing.Size(83, 22);
@@ -246,7 +246,7 @@
             "Summer",
             "Fall"});
             this.semesterComboBox.Location = new System.Drawing.Point(372, 46);
-            this.semesterComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.semesterComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(156, 24);
             this.semesterComboBox.TabIndex = 18;
@@ -278,9 +278,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "RosterUserControl";
             this.Size = new System.Drawing.Size(1280, 788);
+            this.VisibleChanged += new System.EventHandler(this.RosterUserControl_VisibleChanged);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

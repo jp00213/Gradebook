@@ -168,5 +168,10 @@ namespace Gradebook.UserControls
                 teacherNameComboBox.Items.Insert(0, "No teacher available");
             }
         }
+
+        private void panel1_VisibleChanged(object sender, EventArgs e)
+        {
+            this.SetTeacherComboBox();
+        }
     }
 }
