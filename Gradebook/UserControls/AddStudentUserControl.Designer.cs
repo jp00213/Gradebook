@@ -75,7 +75,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Location = new System.Drawing.Point(864, 666);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(9, 22);
             this.dateTimePicker1.TabIndex = 24;
@@ -83,7 +83,7 @@
             // clearButton
             // 
             this.clearButton.Location = new System.Drawing.Point(173, 432);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(100, 28);
             this.clearButton.TabIndex = 13;
@@ -95,7 +95,7 @@
             // addStudentButton
             // 
             this.addStudentButton.Location = new System.Drawing.Point(683, 432);
-            this.addStudentButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addStudentButton.Margin = new System.Windows.Forms.Padding(4);
             this.addStudentButton.Name = "addStudentButton";
             this.addStudentButton.Size = new System.Drawing.Size(100, 28);
             this.addStudentButton.TabIndex = 12;
@@ -115,11 +115,11 @@
             // 
             // lastNameTextBox
             // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(173, 92);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lastNameTextBox.Location = new System.Drawing.Point(173, 148);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(284, 22);
-            this.lastNameTextBox.TabIndex = 1;
+            this.lastNameTextBox.TabIndex = 2;
             this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // zipLabel
@@ -134,11 +134,11 @@
             // 
             // firstNameTextBox
             // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(173, 143);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.firstNameTextBox.Location = new System.Drawing.Point(173, 92);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.firstNameTextBox.Name = "firstNameTextBox";
             this.firstNameTextBox.Size = new System.Drawing.Size(284, 22);
-            this.firstNameTextBox.TabIndex = 2;
+            this.firstNameTextBox.TabIndex = 1;
             this.firstNameTextBox.TextChanged += new System.EventHandler(this.TextBox_changed);
             // 
             // statelabel
@@ -154,7 +154,7 @@
             // phoneTextBox
             // 
             this.phoneTextBox.Location = new System.Drawing.Point(173, 247);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(284, 22);
             this.phoneTextBox.TabIndex = 4;
@@ -173,7 +173,7 @@
             // ssnTextBox
             // 
             this.ssnTextBox.Location = new System.Drawing.Point(173, 313);
-            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ssnTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(284, 22);
             this.ssnTextBox.TabIndex = 5;
@@ -192,7 +192,7 @@
             // streetTextBox
             // 
             this.streetTextBox.Location = new System.Drawing.Point(683, 92);
-            this.streetTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.streetTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.streetTextBox.Name = "streetTextBox";
             this.streetTextBox.Size = new System.Drawing.Size(284, 22);
             this.streetTextBox.TabIndex = 7;
@@ -211,7 +211,7 @@
             // cityTextBox
             // 
             this.cityTextBox.Location = new System.Drawing.Point(683, 148);
-            this.cityTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(284, 22);
             this.cityTextBox.TabIndex = 8;
@@ -240,7 +240,7 @@
             // zipTextBox
             // 
             this.zipTextBox.Location = new System.Drawing.Point(683, 251);
-            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.zipTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(284, 22);
             this.zipTextBox.TabIndex = 10;
@@ -249,7 +249,7 @@
             // firstNameLabel
             // 
             this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(77, 143);
+            this.firstNameLabel.Location = new System.Drawing.Point(77, 92);
             this.firstNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstNameLabel.Name = "firstNameLabel";
             this.firstNameLabel.Size = new System.Drawing.Size(69, 16);
@@ -260,7 +260,7 @@
             // 
             this.dobPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dobPicker.Location = new System.Drawing.Point(173, 196);
-            this.dobPicker.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dobPicker.Margin = new System.Windows.Forms.Padding(4);
             this.dobPicker.Name = "dobPicker";
             this.dobPicker.Size = new System.Drawing.Size(265, 22);
             this.dobPicker.TabIndex = 3;
@@ -269,7 +269,7 @@
             // lastNameLabel
             // 
             this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(77, 96);
+            this.lastNameLabel.Location = new System.Drawing.Point(77, 152);
             this.lastNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastNameLabel.Name = "lastNameLabel";
             this.lastNameLabel.Size = new System.Drawing.Size(72, 16);
@@ -291,7 +291,7 @@
             this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.statusComboBox.FormattingEnabled = true;
             this.statusComboBox.Location = new System.Drawing.Point(173, 364);
-            this.statusComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.statusComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.statusComboBox.Name = "statusComboBox";
             this.statusComboBox.Size = new System.Drawing.Size(160, 24);
             this.statusComboBox.TabIndex = 6;
@@ -300,7 +300,7 @@
             // lastNameErrorMessageLabel
             // 
             this.lastNameErrorMessageLabel.AutoSize = true;
-            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(169, 73);
+            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(169, 129);
             this.lastNameErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastNameErrorMessageLabel.Name = "lastNameErrorMessageLabel";
             this.lastNameErrorMessageLabel.Size = new System.Drawing.Size(15, 16);
@@ -312,7 +312,7 @@
             this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.genderComboBox.FormattingEnabled = true;
             this.genderComboBox.Location = new System.Drawing.Point(683, 309);
-            this.genderComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.genderComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.genderComboBox.Name = "genderComboBox";
             this.genderComboBox.Size = new System.Drawing.Size(160, 24);
             this.genderComboBox.TabIndex = 11;
@@ -371,7 +371,7 @@
             this.addStudentUserControlPanel.Controls.Add(this.addStudentButton);
             this.addStudentUserControlPanel.Controls.Add(this.clearButton);
             this.addStudentUserControlPanel.Location = new System.Drawing.Point(4, 4);
-            this.addStudentUserControlPanel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.addStudentUserControlPanel.Margin = new System.Windows.Forms.Padding(4);
             this.addStudentUserControlPanel.Name = "addStudentUserControlPanel";
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(1229, 746);
             this.addStudentUserControlPanel.TabIndex = 27;
@@ -497,7 +497,7 @@
             // firstNameErrorMessageLabel
             // 
             this.firstNameErrorMessageLabel.AutoSize = true;
-            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(169, 123);
+            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(169, 72);
             this.firstNameErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstNameErrorMessageLabel.Name = "firstNameErrorMessageLabel";
             this.firstNameErrorMessageLabel.Size = new System.Drawing.Size(15, 16);
@@ -560,7 +560,7 @@
             "WI",
             "WY"});
             this.stateComboBox.Location = new System.Drawing.Point(683, 199);
-            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.stateComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(160, 24);
             this.stateComboBox.TabIndex = 9;
@@ -572,7 +572,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.addStudentUserControlPanel);
             this.Controls.Add(this.dateTimePicker1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddStudentUserControl";
             this.Size = new System.Drawing.Size(1280, 788);
             this.addStudentUserControlPanel.ResumeLayout(false);

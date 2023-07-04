@@ -171,7 +171,7 @@
             // 
             this.firstNameErrorMessageLabel.AutoSize = true;
             this.firstNameErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(248, 234);
+            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(251, 161);
             this.firstNameErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstNameErrorMessageLabel.Name = "firstNameErrorMessageLabel";
             this.firstNameErrorMessageLabel.Size = new System.Drawing.Size(0, 18);
@@ -194,7 +194,7 @@
             // 
             this.lastNameErrorMessageLabel.AutoSize = true;
             this.lastNameErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(248, 174);
+            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(251, 222);
             this.lastNameErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastNameErrorMessageLabel.Name = "lastNameErrorMessageLabel";
             this.lastNameErrorMessageLabel.Size = new System.Drawing.Size(0, 18);
