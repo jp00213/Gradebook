@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using Gradebook.UserControls;
+using System.Windows.Forms;
 
 namespace Gradebook.View
 {
@@ -14,6 +15,8 @@ namespace Gradebook.View
         public StudentDashboard(string username)
         {
             InitializeComponent();
+            this.userNameDataLabel.Text = username;
+            studentCourseSummaryUserControl1.SetCurrentStudentID(username);
         }
 
         private void logoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

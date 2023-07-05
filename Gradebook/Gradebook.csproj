@@ -79,6 +79,7 @@
     <Compile Include="DAL\StudentDAL.cs" />
     <Compile Include="DAL\TeacherDAL.cs" />
     <Compile Include="Function\CreatePersonUserName.cs" />
+    <Compile Include="Function\GradeUtility.cs" />
     <Compile Include="Function\ValidationUtility.cs" />
     <Compile Include="Model\Assignment.cs" />
     <Compile Include="Model\Course.cs" />
@@ -135,6 +136,12 @@
     </Compile>
     <Compile Include="UserControls\CourseGradesUserControl.Designer.cs">
       <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\StudentCourseSummaryUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentCourseSummaryUserControl.Designer.cs">
+      <DependentUpon>StudentCourseSummaryUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControls\TeacherAddAssignmentUserControl.cs">
       <SubType>UserControl</SubType>
@@ -274,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\CourseGradesUserControl.resx">
       <DependentUpon>CourseGradesUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentCourseSummaryUserControl.resx">
+      <DependentUpon>StudentCourseSummaryUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TeacherAddAssignmentUserControl.resx">
       <DependentUpon>TeacherAddAssignmentUserControl.cs</DependentUpon>
