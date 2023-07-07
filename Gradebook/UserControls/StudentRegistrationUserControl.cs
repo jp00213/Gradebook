@@ -58,7 +58,7 @@ namespace Gradebook.UserControls
 
         private void RedrawCurrentRegistrations()
         {
-            int totalCredits = 0;
+            // int totalCredits = 0;
             Course search = new Course
             {
                 StudentID = this.currentStudentID,
@@ -67,7 +67,7 @@ namespace Gradebook.UserControls
             };
             List<Course> totalCourses = this._courseController.GetStudentCourseDetailsByTermAndYearAndStudentID(search);
             // foreach (Course course in totalCourses) { totalCredits += course.CreditHours; }
-            this.registeredGridView1.DataSource = totalCourses;
+            this.registeredGridView.DataSource = totalCourses;
 
         }
 

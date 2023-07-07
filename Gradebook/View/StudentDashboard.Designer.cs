@@ -111,10 +111,10 @@
             // 
             // studentRegistrationUserControl1
             // 
-            this.studentRegistrationUserControl1.Location = new System.Drawing.Point(16, 7);
+            this.studentRegistrationUserControl1.Location = new System.Drawing.Point(-4, 7);
             this.studentRegistrationUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.studentRegistrationUserControl1.Name = "studentRegistrationUserControl1";
-            this.studentRegistrationUserControl1.Size = new System.Drawing.Size(1294, 754);
+            this.studentRegistrationUserControl1.Size = new System.Drawing.Size(1314, 754);
             this.studentRegistrationUserControl1.TabIndex = 0;
             // 
             // currentUsernameLabel
