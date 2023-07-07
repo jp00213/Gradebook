@@ -17,6 +17,7 @@ namespace Gradebook.View
             InitializeComponent();
             this.userNameDataLabel.Text = username;
             studentCourseSummaryUserControl1.SetCurrentStudentID(username);
+            studentRegistrationUserControl1.SetCurrentStudentID(username);
         }
 
         private void logoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
