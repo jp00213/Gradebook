@@ -36,14 +36,23 @@
             this.searchCourseButton = new System.Windows.Forms.Button();
             this.courseDataGridView = new System.Windows.Forms.DataGridView();
             this.registerButton = new System.Windows.Forms.Button();
+            this.registeredGridView1 = new System.Windows.Forms.DataGridView();
+            this.currentRegistrationsLabel = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.courseBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registeredGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +62,7 @@
             this.courseYearPicker.CustomFormat = "yyyy";
             this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.courseYearPicker.Location = new System.Drawing.Point(500, 36);
+            this.courseYearPicker.Location = new System.Drawing.Point(438, 17);
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
             this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
@@ -63,7 +72,7 @@
             // 
             this.yearLabel.AutoSize = true;
             this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.yearLabel.Location = new System.Drawing.Point(441, 36);
+            this.yearLabel.Location = new System.Drawing.Point(379, 17);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(53, 25);
             this.yearLabel.TabIndex = 27;
@@ -78,7 +87,7 @@
             "Spring",
             "Summer",
             "Fall"});
-            this.semesterComboBox.Location = new System.Drawing.Point(198, 36);
+            this.semesterComboBox.Location = new System.Drawing.Point(136, 17);
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
             this.semesterComboBox.TabIndex = 25;
@@ -87,7 +96,7 @@
             // 
             this.semesterLabel.AutoSize = true;
             this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.semesterLabel.Location = new System.Drawing.Point(96, 36);
+            this.semesterLabel.Location = new System.Drawing.Point(34, 17);
             this.semesterLabel.Name = "semesterLabel";
             this.semesterLabel.Size = new System.Drawing.Size(96, 25);
             this.semesterLabel.TabIndex = 24;
@@ -96,7 +105,7 @@
             // searchCourseButton
             // 
             this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.searchCourseButton.Location = new System.Drawing.Point(666, 36);
+            this.searchCourseButton.Location = new System.Drawing.Point(604, 17);
             this.searchCourseButton.Name = "searchCourseButton";
             this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
             this.searchCourseButton.TabIndex = 28;
@@ -118,27 +127,119 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.courseDataGridView.DataSource = this.courseBindingSource;
-            this.courseDataGridView.Location = new System.Drawing.Point(47, 117);
+            this.courseDataGridView.Location = new System.Drawing.Point(47, 66);
             this.courseDataGridView.MultiSelect = false;
             this.courseDataGridView.Name = "courseDataGridView";
             this.courseDataGridView.ReadOnly = true;
             this.courseDataGridView.RowHeadersWidth = 51;
             this.courseDataGridView.RowTemplate.Height = 24;
             this.courseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.courseDataGridView.Size = new System.Drawing.Size(1070, 281);
+            this.courseDataGridView.Size = new System.Drawing.Size(982, 226);
             this.courseDataGridView.TabIndex = 29;
             this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
             // 
             // registerButton
             // 
             this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.registerButton.Location = new System.Drawing.Point(365, 425);
+            this.registerButton.Location = new System.Drawing.Point(816, 17);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(315, 46);
+            this.registerButton.Size = new System.Drawing.Size(216, 43);
             this.registerButton.TabIndex = 30;
-            this.registerButton.Text = "Register Student For Course";
+            this.registerButton.Text = "Register For Course";
             this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // registeredGridView1
+            // 
+            this.registeredGridView1.AllowUserToAddRows = false;
+            this.registeredGridView1.AllowUserToDeleteRows = false;
+            this.registeredGridView1.AutoGenerateColumns = false;
+            this.registeredGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.registeredGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12});
+            this.registeredGridView1.DataSource = this.courseBindingSource;
+            this.registeredGridView1.Location = new System.Drawing.Point(47, 363);
+            this.registeredGridView1.MultiSelect = false;
+            this.registeredGridView1.Name = "registeredGridView1";
+            this.registeredGridView1.ReadOnly = true;
+            this.registeredGridView1.RowHeadersWidth = 51;
+            this.registeredGridView1.RowTemplate.Height = 24;
+            this.registeredGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.registeredGridView1.Size = new System.Drawing.Size(982, 226);
+            this.registeredGridView1.TabIndex = 31;
+            // 
+            // currentRegistrationsLabel
+            // 
+            this.currentRegistrationsLabel.AutoSize = true;
+            this.currentRegistrationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.currentRegistrationsLabel.Location = new System.Drawing.Point(53, 335);
+            this.currentRegistrationsLabel.Name = "currentRegistrationsLabel";
+            this.currentRegistrationsLabel.Size = new System.Drawing.Size(346, 25);
+            this.currentRegistrationsLabel.TabIndex = 32;
+            this.currentRegistrationsLabel.Text = "You\'re Registered For These Courses:";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "CourseID";
+            this.dataGridViewTextBoxColumn7.HeaderText = "CourseID";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "Prefix";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Prefix";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Number";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Number";
+            this.dataGridViewTextBoxColumn10.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Section";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Section";
+            this.dataGridViewTextBoxColumn11.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 125;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "CreditHours";
+            this.dataGridViewTextBoxColumn12.HeaderText = "CreditHours";
+            this.dataGridViewTextBoxColumn12.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 125;
+            // 
+            // courseBindingSource
+            // 
+            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -194,14 +295,12 @@
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             this.dataGridViewTextBoxColumn6.Width = 125;
             // 
-            // courseBindingSource
-            // 
-            this.courseBindingSource.DataSource = typeof(Gradebook.Model.Course);
-            // 
             // StudentRegistrationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.currentRegistrationsLabel);
+            this.Controls.Add(this.registeredGridView1);
             this.Controls.Add(this.courseYearPicker);
             this.Controls.Add(this.yearLabel);
             this.Controls.Add(this.semesterComboBox);
@@ -210,8 +309,9 @@
             this.Controls.Add(this.courseDataGridView);
             this.Controls.Add(this.registerButton);
             this.Name = "StudentRegistrationUserControl";
-            this.Size = new System.Drawing.Size(1190, 555);
+            this.Size = new System.Drawing.Size(1190, 655);
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.registeredGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -234,5 +334,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.BindingSource courseBindingSource;
         private System.Windows.Forms.Button registerButton;
+        private System.Windows.Forms.DataGridView registeredGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.Label currentRegistrationsLabel;
     }
 }

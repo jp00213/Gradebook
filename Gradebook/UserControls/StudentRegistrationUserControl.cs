@@ -1,6 +1,7 @@
 ﻿using Gradebook.Controller;
 using Gradebook.Model;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls
@@ -50,8 +51,24 @@ namespace Gradebook.UserControls
             try
             {
                 this.courseDataGridView.DataSource = this._courseController.GetCoursesByYearSemester(this.semesterComboBox.Text, this.courseYearPicker.Value.Year);
+                this.RedrawCurrentRegistrations();
             }
             catch { }
+        }
+
+        private void RedrawCurrentRegistrations()
+        {
+            int totalCredits = 0;
+            Course search = new Course
+            {
+                StudentID = this.currentStudentID,
+                Semester = this.semesterComboBox.Text,
+                Year = this.courseYearPicker.Value.Year
+            };
+            List<Course> totalCourses = this._courseController.GetStudentCourseDetailsByTermAndYearAndStudentID(search);
+            // foreach (Course course in totalCourses) { totalCredits += course.CreditHours; }
+            this.registeredGridView1.DataSource = totalCourses;
+
         }
 
         private void registerButton_Click(object sender, System.EventArgs e)
@@ -61,7 +78,7 @@ namespace Gradebook.UserControls
                 int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
                 this._courseController.RegisterStudent(this.currentStudentID, course);
                 MessageBox.Show("Successfully registered for course");
-               // this.studentIDTextBox.Text = "";
+                this.RedrawCurrentRegistrations();
                 this.registerButton.Enabled = false;
             }
             catch
