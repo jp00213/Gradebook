@@ -37,8 +37,10 @@
             this.studentRegistrationUserControl1 = new Gradebook.UserControls.StudentRegistrationUserControl();
             this.currentUsernameLabel = new System.Windows.Forms.Label();
             this.userNameDataLabel = new System.Windows.Forms.Label();
+            this.studentGPAUserControl1 = new Gradebook.UserControls.StudentGPAUserControl();
             this.tabControl1.SuspendLayout();
             this.courseSummaryTab.SuspendLayout();
+            this.gradeDetailstab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +90,7 @@
             // 
             // gradeDetailstab
             // 
+            this.gradeDetailstab.Controls.Add(this.studentGPAUserControl1);
             this.gradeDetailstab.Location = new System.Drawing.Point(4, 25);
             this.gradeDetailstab.Name = "gradeDetailstab";
             this.gradeDetailstab.Padding = new System.Windows.Forms.Padding(3);
@@ -134,6 +137,14 @@
             this.userNameDataLabel.TabIndex = 4;
             this.userNameDataLabel.Text = "-";
             // 
+            // studentGPAUserControl1
+            // 
+            this.studentGPAUserControl1.Location = new System.Drawing.Point(-4, 0);
+            this.studentGPAUserControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.studentGPAUserControl1.Name = "studentGPAUserControl1";
+            this.studentGPAUserControl1.Size = new System.Drawing.Size(978, 575);
+            this.studentGPAUserControl1.TabIndex = 0;
+            // 
             // StudentDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -152,6 +163,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AdministratorDashboard_FormClosed);
             this.tabControl1.ResumeLayout(false);
             this.courseSummaryTab.ResumeLayout(false);
+            this.gradeDetailstab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,5 +181,6 @@
         private UserControls.StudentCourseSummaryUserControl studentCourseSummaryUserControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private UserControls.StudentRegistrationUserControl studentRegistrationUserControl1;
+        private UserControls.StudentGPAUserControl studentGPAUserControl1;
     }
 }

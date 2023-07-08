@@ -116,7 +116,7 @@
             // gradeDetailsLabel
             // 
             this.gradeDetailsLabel.AutoSize = true;
-            this.gradeDetailsLabel.Location = new System.Drawing.Point(40, 240);
+            this.gradeDetailsLabel.Location = new System.Drawing.Point(3, 240);
             this.gradeDetailsLabel.Name = "gradeDetailsLabel";
             this.gradeDetailsLabel.Size = new System.Drawing.Size(71, 13);
             this.gradeDetailsLabel.TabIndex = 74;
@@ -310,7 +310,7 @@
             // errorMessageLabel
             // 
             this.errorMessageLabel.AutoSize = true;
-            this.errorMessageLabel.Location = new System.Drawing.Point(29, 46);
+            this.errorMessageLabel.Location = new System.Drawing.Point(29, 40);
             this.errorMessageLabel.Name = "errorMessageLabel";
             this.errorMessageLabel.Size = new System.Drawing.Size(10, 13);
             this.errorMessageLabel.TabIndex = 62;
@@ -319,7 +319,7 @@
             // cumulativeGPADataLabel
             // 
             this.cumulativeGPADataLabel.AutoSize = true;
-            this.cumulativeGPADataLabel.Location = new System.Drawing.Point(531, 62);
+            this.cumulativeGPADataLabel.Location = new System.Drawing.Point(531, 56);
             this.cumulativeGPADataLabel.Name = "cumulativeGPADataLabel";
             this.cumulativeGPADataLabel.Size = new System.Drawing.Size(10, 13);
             this.cumulativeGPADataLabel.TabIndex = 61;
@@ -328,7 +328,7 @@
             // cumulativeGPALabel
             // 
             this.cumulativeGPALabel.AutoSize = true;
-            this.cumulativeGPALabel.Location = new System.Drawing.Point(434, 62);
+            this.cumulativeGPALabel.Location = new System.Drawing.Point(434, 56);
             this.cumulativeGPALabel.Name = "cumulativeGPALabel";
             this.cumulativeGPALabel.Size = new System.Drawing.Size(87, 13);
             this.cumulativeGPALabel.TabIndex = 60;
@@ -337,7 +337,7 @@
             // CourseAndGradeLabel
             // 
             this.CourseAndGradeLabel.AutoSize = true;
-            this.CourseAndGradeLabel.Location = new System.Drawing.Point(40, 62);
+            this.CourseAndGradeLabel.Location = new System.Drawing.Point(3, 56);
             this.CourseAndGradeLabel.Name = "CourseAndGradeLabel";
             this.CourseAndGradeLabel.Size = new System.Drawing.Size(137, 13);
             this.CourseAndGradeLabel.TabIndex = 58;
@@ -346,7 +346,7 @@
             // semesterGPADataLabel
             // 
             this.semesterGPADataLabel.AutoSize = true;
-            this.semesterGPADataLabel.Location = new System.Drawing.Point(382, 62);
+            this.semesterGPADataLabel.Location = new System.Drawing.Point(382, 56);
             this.semesterGPADataLabel.Name = "semesterGPADataLabel";
             this.semesterGPADataLabel.Size = new System.Drawing.Size(10, 13);
             this.semesterGPADataLabel.TabIndex = 57;
@@ -355,7 +355,7 @@
             // semesterGPALabel
             // 
             this.semesterGPALabel.AutoSize = true;
-            this.semesterGPALabel.Location = new System.Drawing.Point(286, 62);
+            this.semesterGPALabel.Location = new System.Drawing.Point(286, 56);
             this.semesterGPALabel.Name = "semesterGPALabel";
             this.semesterGPALabel.Size = new System.Drawing.Size(79, 13);
             this.semesterGPALabel.TabIndex = 56;
@@ -364,7 +364,7 @@
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(541, 22);
+            this.nameLabel.Location = new System.Drawing.Point(541, 16);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(13, 13);
             this.nameLabel.TabIndex = 46;
@@ -373,7 +373,7 @@
             // currentStudentID
             // 
             this.currentStudentID.AutoSize = true;
-            this.currentStudentID.Location = new System.Drawing.Point(522, 22);
+            this.currentStudentID.Location = new System.Drawing.Point(522, 16);
             this.currentStudentID.Name = "currentStudentID";
             this.currentStudentID.Size = new System.Drawing.Size(13, 13);
             this.currentStudentID.TabIndex = 45;
@@ -382,7 +382,7 @@
             // currentStudentIDSetLabel
             // 
             this.currentStudentIDSetLabel.AutoSize = true;
-            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(464, 22);
+            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(464, 16);
             this.currentStudentIDSetLabel.Name = "currentStudentIDSetLabel";
             this.currentStudentIDSetLabel.Size = new System.Drawing.Size(61, 13);
             this.currentStudentIDSetLabel.TabIndex = 44;
@@ -390,7 +390,7 @@
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(383, 17);
+            this.clearButton.Location = new System.Drawing.Point(383, 11);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(75, 23);
             this.clearButton.TabIndex = 27;
@@ -400,7 +400,7 @@
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(302, 17);
+            this.searchButton.Location = new System.Drawing.Point(302, 11);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(75, 23);
             this.searchButton.TabIndex = 26;
@@ -412,7 +412,7 @@
             // 
             this.courseYearPicker.CustomFormat = "yyyy";
             this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.courseYearPicker.Location = new System.Drawing.Point(233, 18);
+            this.courseYearPicker.Location = new System.Drawing.Point(233, 12);
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
             this.courseYearPicker.Size = new System.Drawing.Size(63, 20);
@@ -421,7 +421,7 @@
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
-            this.yearLabel.Location = new System.Drawing.Point(198, 21);
+            this.yearLabel.Location = new System.Drawing.Point(198, 15);
             this.yearLabel.Name = "yearLabel";
             this.yearLabel.Size = new System.Drawing.Size(29, 13);
             this.yearLabel.TabIndex = 23;
@@ -436,7 +436,7 @@
             "Spring",
             "Summer",
             "Fall"});
-            this.semesterComboBox.Location = new System.Drawing.Point(74, 17);
+            this.semesterComboBox.Location = new System.Drawing.Point(74, 11);
             this.semesterComboBox.Name = "semesterComboBox";
             this.semesterComboBox.Size = new System.Drawing.Size(118, 21);
             this.semesterComboBox.TabIndex = 24;
@@ -444,7 +444,7 @@
             // semesterLabel
             // 
             this.semesterLabel.AutoSize = true;
-            this.semesterLabel.Location = new System.Drawing.Point(17, 21);
+            this.semesterLabel.Location = new System.Drawing.Point(17, 15);
             this.semesterLabel.Name = "semesterLabel";
             this.semesterLabel.Size = new System.Drawing.Size(51, 13);
             this.semesterLabel.TabIndex = 22;
