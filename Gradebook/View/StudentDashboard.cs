@@ -18,6 +18,7 @@ namespace Gradebook.View
             this.userNameDataLabel.Text = username;
             studentCourseSummaryUserControl1.SetCurrentStudentID(username);
             studentRegistrationUserControl1.SetCurrentStudentID(username);
+
         }
 
         private void logoutLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -30,5 +31,7 @@ namespace Gradebook.View
         {
             Application.Exit();
         }
+
+
     }
 }

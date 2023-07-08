@@ -209,5 +209,15 @@ namespace Gradebook.Controller
         {
             return this._courseDAL.GetClassGradesByCourseID(courseID);
         }
+
+        /// <summary>
+        /// Gets class grades by studentID and courseID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Grades> GetClassGradesByStudentIDAndCourseID(SearchItem searchItems)
+        {
+            return this._courseDAL.GetClassGradesByStudentIDAndCourseID(searchItems);
+        }
     }
 }

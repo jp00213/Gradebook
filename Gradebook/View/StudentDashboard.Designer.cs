@@ -46,9 +46,10 @@
             // 
             this.logoutLinkLabel.AutoSize = true;
             this.logoutLinkLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.logoutLinkLabel.Location = new System.Drawing.Point(1141, 20);
+            this.logoutLinkLabel.Location = new System.Drawing.Point(856, 16);
+            this.logoutLinkLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.logoutLinkLabel.Name = "logoutLinkLabel";
-            this.logoutLinkLabel.Size = new System.Drawing.Size(72, 25);
+            this.logoutLinkLabel.Size = new System.Drawing.Size(59, 20);
             this.logoutLinkLabel.TabIndex = 1;
             this.logoutLinkLabel.TabStop = true;
             this.logoutLinkLabel.Text = "Logout";
@@ -60,40 +61,37 @@
             this.tabControl1.Controls.Add(this.gradeDetailstab);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(3, 48);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Location = new System.Drawing.Point(2, 39);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1325, 801);
+            this.tabControl1.Size = new System.Drawing.Size(994, 651);
             this.tabControl1.TabIndex = 2;
             // 
             // courseSummaryTab
             // 
             this.courseSummaryTab.Controls.Add(this.studentCourseSummaryUserControl1);
-            this.courseSummaryTab.Location = new System.Drawing.Point(4, 29);
-            this.courseSummaryTab.Margin = new System.Windows.Forms.Padding(4);
+            this.courseSummaryTab.Location = new System.Drawing.Point(4, 25);
             this.courseSummaryTab.Name = "courseSummaryTab";
-            this.courseSummaryTab.Padding = new System.Windows.Forms.Padding(4);
-            this.courseSummaryTab.Size = new System.Drawing.Size(1317, 768);
+            this.courseSummaryTab.Padding = new System.Windows.Forms.Padding(3);
+            this.courseSummaryTab.Size = new System.Drawing.Size(986, 622);
             this.courseSummaryTab.TabIndex = 0;
             this.courseSummaryTab.Text = "Grade Summary";
             this.courseSummaryTab.UseVisualStyleBackColor = true;
             // 
             // studentCourseSummaryUserControl1
             // 
-            this.studentCourseSummaryUserControl1.Location = new System.Drawing.Point(12, 7);
-            this.studentCourseSummaryUserControl1.Margin = new System.Windows.Forms.Padding(5);
+            this.studentCourseSummaryUserControl1.Location = new System.Drawing.Point(-7, 0);
+            this.studentCourseSummaryUserControl1.Margin = new System.Windows.Forms.Padding(4);
             this.studentCourseSummaryUserControl1.Name = "studentCourseSummaryUserControl1";
-            this.studentCourseSummaryUserControl1.Size = new System.Drawing.Size(1283, 742);
+            this.studentCourseSummaryUserControl1.Size = new System.Drawing.Size(997, 603);
             this.studentCourseSummaryUserControl1.TabIndex = 0;
             // 
             // gradeDetailstab
             // 
-            this.gradeDetailstab.Location = new System.Drawing.Point(4, 29);
-            this.gradeDetailstab.Margin = new System.Windows.Forms.Padding(4);
+            this.gradeDetailstab.Location = new System.Drawing.Point(4, 25);
             this.gradeDetailstab.Name = "gradeDetailstab";
-            this.gradeDetailstab.Padding = new System.Windows.Forms.Padding(4);
-            this.gradeDetailstab.Size = new System.Drawing.Size(1317, 768);
+            this.gradeDetailstab.Padding = new System.Windows.Forms.Padding(3);
+            this.gradeDetailstab.Size = new System.Drawing.Size(986, 622);
             this.gradeDetailstab.TabIndex = 1;
             this.gradeDetailstab.Text = "Grade Details";
             this.gradeDetailstab.UseVisualStyleBackColor = true;
@@ -101,52 +99,51 @@
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.studentRegistrationUserControl1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1317, 768);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(986, 622);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Registration";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // studentRegistrationUserControl1
             // 
-            this.studentRegistrationUserControl1.Location = new System.Drawing.Point(-4, 7);
-            this.studentRegistrationUserControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.studentRegistrationUserControl1.Location = new System.Drawing.Point(-3, 6);
+            this.studentRegistrationUserControl1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.studentRegistrationUserControl1.Name = "studentRegistrationUserControl1";
-            this.studentRegistrationUserControl1.Size = new System.Drawing.Size(1314, 754);
+            this.studentRegistrationUserControl1.Size = new System.Drawing.Size(986, 613);
             this.studentRegistrationUserControl1.TabIndex = 0;
             // 
             // currentUsernameLabel
             // 
             this.currentUsernameLabel.AutoSize = true;
-            this.currentUsernameLabel.Location = new System.Drawing.Point(763, 20);
-            this.currentUsernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentUsernameLabel.Location = new System.Drawing.Point(572, 16);
             this.currentUsernameLabel.Name = "currentUsernameLabel";
-            this.currentUsernameLabel.Size = new System.Drawing.Size(100, 16);
+            this.currentUsernameLabel.Size = new System.Drawing.Size(84, 13);
             this.currentUsernameLabel.TabIndex = 3;
             this.currentUsernameLabel.Text = "Current Student:";
             // 
             // userNameDataLabel
             // 
             this.userNameDataLabel.AutoSize = true;
-            this.userNameDataLabel.Location = new System.Drawing.Point(895, 20);
-            this.userNameDataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.userNameDataLabel.Location = new System.Drawing.Point(671, 16);
             this.userNameDataLabel.Name = "userNameDataLabel";
-            this.userNameDataLabel.Size = new System.Drawing.Size(11, 16);
+            this.userNameDataLabel.Size = new System.Drawing.Size(10, 13);
             this.userNameDataLabel.TabIndex = 4;
             this.userNameDataLabel.Text = "-";
             // 
             // StudentDashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1329, 853);
+            this.ClientSize = new System.Drawing.Size(997, 693);
             this.Controls.Add(this.userNameDataLabel);
             this.Controls.Add(this.currentUsernameLabel);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.logoutLinkLabel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "StudentDashboard";

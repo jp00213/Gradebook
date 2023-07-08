@@ -65,5 +65,45 @@ namespace Gradebook.Controller
             return this._gradeDAL.GetAllGrades();
         }
 
+        /// <summary>
+        /// Gets course grades summary by studentID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Grades> GetCourseGradesSummaryByStudentID(SearchItem searchItems)
+        {
+            return this._gradeDAL.GetCourseGradesSummaryByStudentID(searchItems);
+        }
+
+        /// <summary>
+        /// Gets sememter GPA
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public Grades GetSemesterGPA(SearchItem searchItems)
+        {
+            return this._gradeDAL.GetSemesterGPA(searchItems);
+        }
+
+        /// <summary>
+        /// Gets cumulate GPA
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public Grades GetCumulatedGPA(SearchItem searchItems)
+        {
+            return this._gradeDAL.GetCumulatedGPA(searchItems);
+        }
+
+        /// <summary>
+        /// Gets complete grade information by studentID
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns></returns>
+        public List<Grades> GetCompleteGradeInformationByStudentID(int studentID)
+        {
+            return this._gradeDAL.GetCompleteGradeInformationByStudentID(studentID);
+        }
+
     }
 }
