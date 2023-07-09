@@ -16,7 +16,7 @@ namespace Gradebook.Function
         /// </summary>
         /// <param name="score"></param>
         /// <returns></returns>
-        public static string ConvertIntoAalphabetGrade(double score)
+        public static string ConvertIntoAlphabetGrade(decimal score)
         {
             String grade = "";
 

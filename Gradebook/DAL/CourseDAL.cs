@@ -916,5 +916,55 @@ namespace Gradebook.DAL
             return gradesList;
         }
 
+        /// <summary>
+        /// Gets class grades by studentID & courseID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
+        public List<Grades> GetClassGradesByStudentIDAndCourseID(SearchItem searchItems)
+        {
+            List<Grades> gradesList = new List<Grades>();
+            Grades grade = new Grades();
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                SqlCommand command = new SqlCommand("dbo.spGetClassGradesByStudentIDAndCourseID", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@courseID", searchItems.CourseID);
+                command.Parameters.AddWithValue("@studentID", searchItems.StudentID);
+
+                command.Connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        grade = new Grades
+                        {
+                            StudentID = (int)(reader)["studentID"],
+                            Grade_1 = (string)(reader)["a1"],
+                            Grade_2 = (string)(reader)["a2"],
+                            Grade_3 = (string)(reader)["a3"],
+                            Grade_4 = (string)(reader)["a4"],
+                            Grade_5 = (string)(reader)["a5"],
+                            Grade_6 = (string)(reader)["a6"],
+                            Grade_7 = (string)(reader)["a7"],
+                            Grade_8 = (string)(reader)["a8"],
+                            Grade_9 = (string)(reader)["a9"],
+                            Grade_10 = (string)(reader)["a10"],
+                            Grade_11 = (string)(reader)["a11"],
+                            Grade_12 = (string)(reader)["a12"],
+                            Grade_13 = (string)(reader)["a13"],
+                            Grade_14 = (string)(reader)["a14"],
+                            Grade_15 = (string)(reader)["a15"],
+                            WeightGrade = (string)(reader)["total"]
+                        };
+                        gradesList.Add(grade);
+                    }
+                }
+            }
+            return gradesList;
+        }
+
     }
 }

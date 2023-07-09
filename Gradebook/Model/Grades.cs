@@ -28,5 +28,18 @@
         public string Grade_13 { get; set; }
         public string Grade_14 { get; set; }
         public string Grade_15 { get; set; }
+        public string Semester { get; set; }
+        public int Year { get; set; }
+        public int Units { get; set; }
+        public int Section { get; set; }
+        public string Prefix_number { get; set; }
+        public int GradePoints { get; set; }
+        public string GPA { get; set; }
+        public string Column1 { get; set; }
+        public string Column2 { get; set; }
+        public string Column3 { get; set; }
+        public string Column4 { get; set; }
+        public string Column5 { get; set; }
+        public string Column6 { get; set; }
     }
 }

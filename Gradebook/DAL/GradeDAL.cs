@@ -1,6 +1,7 @@
 ﻿using Gradebook.Model;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace Gradebook.DAL
@@ -184,6 +185,239 @@ namespace Gradebook.DAL
                 }
             }
             return grades;
+        }
+
+        /// <summary>
+        /// Gets course grades summary by studentID
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns>grade list</returns>
+        public List<Grades> GetCourseGradesSummaryByStudentID(SearchItem searchItems)
+        {
+            List<Grades> gradeList = new List<Grades>();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement = "select p.firstName, p.lastName, s.studentID,  " +
+                                     "c.name, c.semester, c.year, " +
+                                     "c.courseID, c.section, c.credithours, c.prefix , c.number, " +
+                                     "  cast( isnull((select   sum(CONVERT(DECIMAL(10,2), (isnull(score, 0) * (isnull(weight,0)/100) )))   " +
+                                     "from Grades g, Assignment a " +
+                                     "where g.assignmentID = a.assignmentID  " +
+                                     "and g.studentID = s.studentID  " +
+                                     "and a.courseID = c.courseID) , 0) AS VARCHAR(10)) as weighted_grade,  " +
+                                     " dbo.ufGetGradePointByScore(isnull((select   sum(CONVERT(DECIMAL(10,2), " +
+                                     "(isnull(score, 0) * (isnull(weight,0)/100) )))  " +
+                                     "from Grades g, Assignment a " +
+                                     "where g.assignmentID = a.assignmentID " +
+                                     "and g.studentID = s.studentID " +
+                                     "and a.courseID = c.courseID ) , 0)) as gradePoints " +
+                                     "from person p, student s, StudentsInCourse sc, Course c " +
+                                     "where p.recordID = s.recordID " +
+                                     "and  s.studentID  = @studentID " +
+                                     "and c.semester = @semester " +
+                                     "and c.year = @year " +
+                                     "and sc.studentID = s.studentID " +
+                                     "and sc.courseID = c.courseID " +
+                                     "order by c.year, c.semester, c.name  ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", searchItems.StudentID);
+            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        Grades addGrade = new Grades
+                        {
+                            //   StudentName = (string)(reader)["firstName"] + " " + (string)(reader)["lastName"],
+                            StudentID = (int)(reader)["studentID"],
+                            Description = (string)(reader)["name"],
+                            Semester = (string)(reader)["semester"],
+                            Year = (int)(reader)["year"],
+                            CourseID = (int)(reader)["courseID"],
+                            Section = (int)(reader)["section"],
+                            Units = (int)(reader)["credithours"],
+                            WeightGrade = (string)(reader)["weighted_grade"],
+                            Prefix_number = (string)(reader)["prefix"] + '-' + (string)(reader)["number"],
+                            GradePoints = (int)(reader)["gradePoints"]
+                        };
+                        gradeList.Add(addGrade);
+                    }
+                }
+            }
+            return gradeList;
+        }
+
+        /// <summary>
+        /// Gets semester GPA
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns>grade</returns>
+        public Grades GetSemesterGPA(SearchItem searchItems)
+        {
+            Grades grade = new Grades();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "select  " +
+                "Format( " +
+                "cast( " +
+                "(sum(     cast(  isnull(t.gradePointAverage,0) AS decimal(10,2) )    )  " +
+                "/ " +
+                "(select sum( cast(isnull(t.credithours,0) AS decimal(10,2) ) ) from " +
+                "(select  c.credithours " +
+                "from person p, student s, StudentsInCourse sc, Course c " +
+                "where p.recordID = s.recordID " +
+                "and s.studentID = @studentID " +
+                "and sc.studentID = s.studentID " +
+                "and sc.courseID = c.courseID " +
+                "and c.semester = @semester " +
+                "and c.year = @year) t )  " +
+                ")   as decimal(5,2)) " +
+                ",'N','en-US' ) " +
+                "as semesterGPA " +
+                "from " +
+                "(select  " +
+                "(c.credithours * dbo.ufGetGradePointByScore(isnull((select    " +
+                "sum(CONVERT(DECIMAL(10,2), (isnull(score, 0) * (isnull(weight,0)/100) )))   " +
+                "from Grades g, Assignment a  " +
+                "where g.assignmentID = a.assignmentID    and g.studentID = s.studentID and a.courseID = c.courseID ) , 0)))  " +
+                "as gradePointAverage " +
+                "from person p, student s, StudentsInCourse sc, Course c " +
+                "where p.recordID = s.recordID " +
+                "and s.studentID = @studentID   " +
+                "and sc.studentID = s.studentID   " +
+                "and sc.courseID = c.courseID " +
+                "and c.semester = @semester    " + //term
+                "and c.year = @year) t    "; //year
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", searchItems.StudentID);
+            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        grade = new Grades
+                        {
+                            GPA = (string)(reader)["semesterGPA"],
+
+                        };
+                    }
+                }
+            }
+            return grade;
+        }
+
+        /// <summary>
+        /// Gets cumulate GPA
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns>grade</returns>
+        public Grades GetCumulatedGPA(SearchItem searchItems)
+        {
+            Grades grade = new Grades();
+
+            SqlConnection connection = GradebookDBConnection.GetConnection();
+            string selectStatement =
+                "select  " +
+                "Format( " +
+                "cast( " +
+                "(sum(     cast(t.gradePointAverage AS decimal(10,2) )    )  " +
+                "/ " +
+                "(select sum( cast(t.credithours AS decimal(10,2) ) ) from " +
+                "(select  c.credithours " +
+                "from person p, student s, StudentsInCourse sc, Course c " +
+                "where p.recordID = s.recordID " +
+                "and s.studentID = @studentID " +
+                "and sc.studentID = s.studentID " +
+                "and sc.courseID = c.courseID ) t ) " +
+                ")   as decimal(5,2)) " +
+                ",'N','en-US' ) " +
+                "as cumulativeGPA " +
+                "from " +
+                "(select  " +
+                "(c.credithours * dbo.ufGetGradePointByScore(isnull((select    " +
+                "sum(CONVERT(DECIMAL(10,2), (isnull(score, 0) * (isnull(weight,0)/100) )))   " +
+                "from Grades g, Assignment a  " +
+                "where g.assignmentID = a.assignmentID    and g.studentID = s.studentID and a.courseID = c.courseID ) , 0)))  " +
+                "as gradePointAverage " +
+                "from person p, student s, StudentsInCourse sc, Course c " +
+                "where p.recordID = s.recordID " +
+                "and s.studentID = @studentID   " +
+                "and sc.studentID = s.studentID   " +
+                "and sc.courseID = c.courseID ) t  ";
+
+            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+
+            selectCommand.Parameters.AddWithValue("@studentID", searchItems.StudentID);
+
+            using (selectCommand)
+            {
+                connection.Open();
+                using (SqlDataReader reader = selectCommand.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        grade = new Grades
+                        {
+                            GPA = (string)(reader)["cumulativeGPA"],
+
+                        };
+                    }
+                }
+            }
+            return grade;
+        }
+
+        /// <summary>
+        /// Gets complete grade information by studentID
+        /// </summary>
+        /// <param name="studentID"></param>
+        /// <returns>grade list</returns>
+        public List<Grades> GetCompleteGradeInformationByStudentID(int studentID)
+        {
+            List<Grades> gradesList = new List<Grades>();
+            Grades grade = new Grades();
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                SqlCommand command = new SqlCommand("dbo.spGetAllCoursesAndGrades", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.AddWithValue("@studentID", studentID);
+
+                command.Connection.Open();
+                using (SqlDataReader reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        grade = new Grades
+                        {
+                            Column1 = (string)(reader)["column1"],
+                            Column2 = (string)(reader)["column2"],
+                            Column3 = (string)(reader)["column3"],
+                            Column4 = (string)(reader)["column4"],
+                            Column5 = (string)(reader)["column5"],
+                            Column6 = (string)(reader)["column6"]
+                        };
+                        gradesList.Add(grade);
+                    }
+                }
+            }
+            return gradesList;
         }
     }
 }
