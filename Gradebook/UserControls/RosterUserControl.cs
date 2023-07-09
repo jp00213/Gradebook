@@ -67,13 +67,14 @@ namespace Gradebook.UserControls
 
         private void LoadTeacherCourseList()
         {
-
+            /*
             if (this.semesterComboBox.SelectedIndex == 0)
             {
                 this.errorlabel.Text = "Please choose a term.";
                 this.errorlabel.ForeColor = Color.Blue;
                 return;
             }
+            */
 
             Course searchItems = this.GetSearchItems();
 

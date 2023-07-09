@@ -700,15 +700,23 @@ namespace Gradebook.DAL
             string selectStatement = "select * ,  (select count(*)  from StudentsInCourse r where r.courseID = c.courseID) as studentCount  " +
                                      "from course c  " +
                                      "where c.teacherID = @teacherID  " +
-                                     "and c.semester = @semester " +
-                                     "and c.year = @year   ";
+                                     "and c.year = @year  " +
+                                     "and c.semester = IIF(@semester  IS NULL, c.semester, @semester)  ";
 
             SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
 
             selectCommand.Parameters.AddWithValue("@teacherID", searchItems.TeacherID);
-            selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            //  selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
             selectCommand.Parameters.AddWithValue("@year", searchItems.Year);
 
+            if (searchItems.Semester == "-- All --" || searchItems.Semester == null)
+            {
+                selectCommand.Parameters.AddWithValue("@semester", DBNull.Value);
+            }
+            else
+            {
+                selectCommand.Parameters.AddWithValue("@semester", searchItems.Semester);
+            }
             using (selectCommand)
             {
                 connection.Open();
@@ -724,7 +732,8 @@ namespace Gradebook.DAL
                             Number = (string)(reader)["number"],
                             Section = (int)(reader)["section"],
                             CreditHours = (int)(reader)["credithours"],
-                            StudentCount = (int)(reader)["studentCount"],
+                            StudentCount = (int)(reader)["studentCount"]
+
                         };
                         courses.Add(addCourse);
                     }
@@ -749,7 +758,7 @@ namespace Gradebook.DAL
                                      "and i.studentID = s.studentID " +
                                      "and s.recordID = p.recordID  " +
                                      "and c.teacherID = @teacherID " +
-                                     "and c.semester = @semester " +
+                                     //"and c.semester = @semester " +
                                      "and c.year = @year " +
                                      "and c.courseID = @courseID ";
 
