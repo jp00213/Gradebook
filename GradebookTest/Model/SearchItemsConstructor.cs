@@ -24,6 +24,7 @@ namespace GradebookTest.Model
             searchItem.StudentID = 23456;
             searchItem.Semester = "Spring";
             searchItem.Year = "2015";
+            searchItem.CourseID = 232323;
 
             Assert.That(searchItem.idNumber, Is.EqualTo(1));
             Assert.That(searchItem.LastName, Is.EqualTo("ABC"));
@@ -33,6 +34,7 @@ namespace GradebookTest.Model
             Assert.That(searchItem.StudentID, Is.EqualTo(23456));
             Assert.That(searchItem.Semester, Is.EqualTo("Spring"));
             Assert.That(searchItem.Year, Is.EqualTo("2015"));
+            Assert.That(searchItem.CourseID, Is.EqualTo(232323));
 
         }
     }
