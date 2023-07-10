@@ -10,6 +10,7 @@ namespace Gradebook.UserControls
     {
         private readonly CourseController _courseController;
         private readonly StudentController _studentController;
+        private readonly TeacherController _teacherController;
         private int currentStudentID;
 
         /// <summary>
@@ -20,6 +21,7 @@ namespace Gradebook.UserControls
             InitializeComponent();
             this._courseController = new CourseController();
             this._studentController = new StudentController();
+            this._teacherController = new TeacherController();
             this.registerButton.Enabled = false;
         }
 
@@ -91,5 +93,20 @@ namespace Gradebook.UserControls
         {
             this.registerButton.Enabled = true;
         }
+
+        private void registeredGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == registeredGridView.Columns["TeacherContact"].Index && e.RowIndex >= 0)
+                {
+                    Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
+                    Teacher teacher = this._teacherController.GetTeacherByID(viewCourse.TeacherID);
+                    MessageBox.Show("Teacher Contact Info\n" + teacher.FullName + "\n" + teacher.Phone);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
     }
 }
