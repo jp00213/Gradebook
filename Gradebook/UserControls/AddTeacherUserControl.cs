@@ -58,7 +58,7 @@ namespace Gradebook.UserControls
             string zip = this.zipTextBox.Text.Trim();
             string sex = this.sexComboBox.Text;
             string ssn = this.ssnTextBox.Text.Trim();
-            string status = this.statusComboBox.Text;
+            // string status = this.statusComboBox.Text;
 
             if (string.IsNullOrEmpty(lastName) || !ValidationUtility.IsMoreThanOneLetters(lastName) ||
                 string.IsNullOrEmpty(firstName) || !ValidationUtility.IsMoreThanOneLetters(firstName) ||
@@ -143,7 +143,7 @@ namespace Gradebook.UserControls
                 this.sexErrorMessageLabel.ForeColor = Color.Red;
             }
 
-            if (!ValidationUtility.IsSSNValid(this.ssnTextBox.Text.Trim()))
+            if (!ValidationUtility.IsSSNValid(this.ssnTextBox.Text.Trim()) || string.IsNullOrEmpty(this.ssnTextBox.Text.Trim()))
             {
                 this.ssnErrorMessageLabel.Text = "Please enter a valid 9 digit SSN, numbers only.";
                 this.ssnErrorMessageLabel.ForeColor = Color.Red;
