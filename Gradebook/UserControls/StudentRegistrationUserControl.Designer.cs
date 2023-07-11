@@ -52,6 +52,7 @@
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.currentRegistrationsLabel = new System.Windows.Forms.Label();
+            this.registerTotalLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.courseDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.courseBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registeredGridView)).BeginInit();
@@ -323,10 +324,21 @@
             this.currentRegistrationsLabel.TabIndex = 32;
             this.currentRegistrationsLabel.Text = "You\'re Registered For These Courses:";
             // 
+            // registerTotalLabel
+            // 
+            this.registerTotalLabel.AutoSize = true;
+            this.registerTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.registerTotalLabel.Location = new System.Drawing.Point(535, 334);
+            this.registerTotalLabel.Name = "registerTotalLabel";
+            this.registerTotalLabel.Size = new System.Drawing.Size(143, 25);
+            this.registerTotalLabel.TabIndex = 33;
+            this.registerTotalLabel.Text = "Registered for: ";
+            // 
             // StudentRegistrationUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.registerTotalLabel);
             this.Controls.Add(this.currentRegistrationsLabel);
             this.Controls.Add(this.registeredGridView);
             this.Controls.Add(this.courseYearPicker);
@@ -371,5 +383,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.Label registerTotalLabel;
     }
 }

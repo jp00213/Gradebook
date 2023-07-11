@@ -6,12 +6,17 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// User control for students to register themselves
+    /// </summary>
     public partial class StudentRegistrationUserControl : UserControl
     {
         private readonly CourseController _courseController;
         private readonly StudentController _studentController;
         private readonly TeacherController _teacherController;
         private int currentStudentID;
+        private int totalCredits;
+        private int maximumCredits;
 
         /// <summary>
         /// Constructor for user control
@@ -41,10 +46,7 @@ namespace Gradebook.UserControls
         public void SetCurrentStudentID(string username)
         {
             Person person = this._studentController.GetStudentByUsername(username);
-            // String name = person.FirstName + ' ' + person.LastName;
             this.currentStudentID = person.StudentID;
-            // this.currentStudentID.Text = studentID.ToString();
-            // this.nameLabel.Text = name.ToString();
         }
 
 
@@ -60,7 +62,14 @@ namespace Gradebook.UserControls
 
         private void RedrawCurrentRegistrations()
         {
-            // int totalCredits = 0;
+            SearchItem searchTotal = new SearchItem
+            {
+                StudentID = this.currentStudentID,
+                Semester = this.semesterComboBox.Text,
+                Year = this.courseYearPicker.Value.Year.ToString()
+            };
+            this.totalCredits = this._studentController.GetStudentRegisteredUnitsTotal(searchTotal);
+            this.registerTotalLabel.Text = "Registered for: " + this.totalCredits + " credits";
             Course search = new Course
             {
                 StudentID = this.currentStudentID,
@@ -68,7 +77,6 @@ namespace Gradebook.UserControls
                 Year = this.courseYearPicker.Value.Year
             };
             List<Course> totalCourses = this._courseController.GetStudentCourseDetailsByTermAndYearAndStudentID(search);
-            // foreach (Course course in totalCourses) { totalCredits += course.CreditHours; }
             this.registeredGridView.DataSource = totalCourses;
 
         }
@@ -77,11 +85,19 @@ namespace Gradebook.UserControls
         {
             try
             {
-                int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
-                this._courseController.RegisterStudent(this.currentStudentID, course);
-                MessageBox.Show("Successfully registered for course");
-                this.RedrawCurrentRegistrations();
-                this.registerButton.Enabled = false;
+                Course course = (Course)this.courseDataGridView.SelectedRows[0].DataBoundItem;
+                // int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
+                this.maximumCredits = this._studentController.GetStudentMaximumAllowedUnits(this.currentStudentID);
+                if ((this.totalCredits + course.CreditHours) <= this.maximumCredits)
+                {
+                    this._courseController.RegisterStudent(this.currentStudentID, course.CourseID);
+                    MessageBox.Show("Successfully registered for course");
+                    this.RedrawCurrentRegistrations();
+                    this.registerButton.Enabled = false;
+                } else
+                {
+                    MessageBox.Show("Did not register.\nYour maximum is " + this.maximumCredits + "credits.\nYou have " + this.totalCredits + " credits already");
+                }
             }
             catch
             {
@@ -101,8 +117,21 @@ namespace Gradebook.UserControls
                 if (e.ColumnIndex == registeredGridView.Columns["TeacherContact"].Index && e.RowIndex >= 0)
                 {
                     Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
-                    Teacher teacher = this._teacherController.GetTeacherByID(viewCourse.TeacherID);
-                    MessageBox.Show("Teacher Contact Info\n" + teacher.FullName + "\n" + teacher.Phone);
+                    if (viewCourse.TeacherID == 0)
+                    {
+                        MessageBox.Show("No teacher assigned", "Teacher Contact Info", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        Teacher teacher = this._teacherController.GetTeacherByID(viewCourse.TeacherID);
+                        string phone = teacher.Phone;
+                        if (teacher.Phone.Length == 10)
+                        {
+                            phone = "(" + teacher.Phone.Substring(0, 3) + ") " + teacher.Phone.Substring(3, 3) + "-" + teacher.Phone.Substring(6, 4);
+                        }
+                        string message = "Name: " + teacher.FullName + "\nPhone: " + phone + "\nEmail: TBD";
+                        MessageBox.Show(message, "Teacher Contact Info", MessageBoxButtons.OK);
+                    }
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
