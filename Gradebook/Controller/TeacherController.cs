@@ -137,5 +137,16 @@ namespace Gradebook.Controller
         {
             return this._teacherDAL.GetAllTeachers();
         }
+
+        /// <summary>
+        /// Get the last created username for a teacher
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <param name="lastName"></param>
+        /// <exception cref="NotImplementedException"></exception>
+        public string GetTheLastCreatedUsernameForTeacher(string firstNameIn, string lastNameIn)
+        {
+            return this._personDAL.GetTheLastCreatedUsernameByFirstAndLastName(firstNameIn, lastNameIn);
+        }
     }
 }

@@ -207,8 +207,9 @@ namespace Gradebook.DAL
                         using (SqlCommand insertCommand = new SqlCommand(insertStatementAccount, connection))
                         {
                             insertCommand.Transaction = transaction;
+                            string passwordhashed = Hashing.HashPassword("mypassword");
                             insertCommand.Parameters.AddWithValue("@newUsername", newUsername);
-                            insertCommand.Parameters.AddWithValue("@password", "mypassword");
+                            insertCommand.Parameters.AddWithValue("@password", passwordhashed);
                             insertCommand.ExecuteNonQuery();
                         }
 
@@ -236,7 +237,7 @@ namespace Gradebook.DAL
                         result = affectedRecords > 0;
 
                         transaction.Commit();
-                        connection.Close();
+                        // connection.Close();
                     }
                     catch (SqlException)
                     {

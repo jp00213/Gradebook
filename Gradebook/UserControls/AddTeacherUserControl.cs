@@ -77,7 +77,9 @@ namespace Gradebook.UserControls
                 bool success = this._teacherController.AddPersonAsTeacher(person);
                 if (success)
                 {
-                    MessageBox.Show("Teacher successfully created!", "Teacher Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    string username = this._teacherController.GetTheLastCreatedUsernameForTeacher(firstName, lastName);
+                    string teacherInfo = "Teacher successfully created!\nUsername: " + username + "\nTemporary Password: mypassword";
+                    MessageBox.Show(teacherInfo, "Teacher Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ResetInputFields();
                 }
             }
