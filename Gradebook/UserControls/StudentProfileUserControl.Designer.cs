@@ -90,6 +90,7 @@
             // 
             // activeStatusComboBox
             // 
+            this.activeStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "ActiveStatus", true));
             this.activeStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.activeStatusComboBox.FormattingEnabled = true;
             this.activeStatusComboBox.Location = new System.Drawing.Point(569, 399);
@@ -110,6 +111,7 @@
             // 
             // phoneTextBox
             // 
+            this.phoneTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Phone", true));
             this.phoneTextBox.Location = new System.Drawing.Point(570, 337);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(233, 20);
@@ -117,6 +119,7 @@
             // 
             // ssnTextBox
             // 
+            this.ssnTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "SSN", true));
             this.ssnTextBox.Location = new System.Drawing.Point(216, 337);
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(233, 20);
@@ -215,6 +218,7 @@
             // 
             // stateComboBox
             // 
+            this.stateComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "State", true));
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Items.AddRange(new object[] {
@@ -275,6 +279,7 @@
             // 
             // sexComboBox
             // 
+            this.sexComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Sex", true));
             this.sexComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.sexComboBox.FormattingEnabled = true;
             this.sexComboBox.Location = new System.Drawing.Point(216, 400);
@@ -284,6 +289,7 @@
             // 
             // resultsDOBDateTimePicker
             // 
+            this.resultsDOBDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "DateOfBirth", true));
             this.resultsDOBDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.resultsDOBDateTimePicker.Location = new System.Drawing.Point(216, 281);
             this.resultsDOBDateTimePicker.Name = "resultsDOBDateTimePicker";
@@ -292,6 +298,7 @@
             // 
             // zipTextBox
             // 
+            this.zipTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "Zip", true));
             this.zipTextBox.Location = new System.Drawing.Point(570, 281);
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(233, 20);
@@ -299,6 +306,7 @@
             // 
             // cityTextBox
             // 
+            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "City", true));
             this.cityTextBox.Location = new System.Drawing.Point(569, 168);
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(234, 20);
@@ -306,6 +314,7 @@
             // 
             // addressTextBox
             // 
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "AddressStreet", true));
             this.addressTextBox.Location = new System.Drawing.Point(570, 112);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(233, 20);
@@ -313,6 +322,7 @@
             // 
             // lastNameTextBox
             // 
+            this.lastNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "LastName", true));
             this.lastNameTextBox.Location = new System.Drawing.Point(216, 225);
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(233, 20);
@@ -320,6 +330,7 @@
             // 
             // firstNameTextbox
             // 
+            this.firstNameTextbox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "FirstName", true));
             this.firstNameTextbox.Location = new System.Drawing.Point(216, 168);
             this.firstNameTextbox.Name = "firstNameTextbox";
             this.firstNameTextbox.Size = new System.Drawing.Size(233, 20);
@@ -327,6 +338,7 @@
             // 
             // studentIDtextBox
             // 
+            this.studentIDtextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.studentBindingSource, "RecordId", true));
             this.studentIDtextBox.Location = new System.Drawing.Point(216, 112);
             this.studentIDtextBox.Name = "studentIDtextBox";
             this.studentIDtextBox.ReadOnly = true;
