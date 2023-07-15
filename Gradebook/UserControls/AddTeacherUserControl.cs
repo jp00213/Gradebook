@@ -58,7 +58,6 @@ namespace Gradebook.UserControls
             string zip = this.zipTextBox.Text.Trim();
             string sex = this.sexComboBox.Text;
             string ssn = this.ssnTextBox.Text.Trim();
-            // string status = this.statusComboBox.Text;
 
             if (string.IsNullOrEmpty(lastName) || !ValidationUtility.IsMoreThanOneLetters(lastName) ||
                 string.IsNullOrEmpty(firstName) || !ValidationUtility.IsMoreThanOneLetters(firstName) ||
@@ -163,7 +162,6 @@ namespace Gradebook.UserControls
             this.stateErrorMessageLabel.Text = "";
             this.zipErrorMessageLabel.Text = "";
             this.sexErrorMessageLabel.Text = "";
-            this.statusErrorMessageLabel.Text = "";
             this.phoneErrorLabel.Text = "";
         }
 

@@ -52,16 +52,13 @@
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.SSNLabel = new System.Windows.Forms.Label();
             this.sexLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
             this.sexComboBox = new System.Windows.Forms.ComboBox();
-            this.statusComboBox = new System.Windows.Forms.ComboBox();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.clearButton = new System.Windows.Forms.Button();
             this.addTeacherButton = new System.Windows.Forms.Button();
             this.zipErrorMessageLabel = new System.Windows.Forms.Label();
             this.ssnErrorMessageLabel = new System.Windows.Forms.Label();
             this.sexErrorMessageLabel = new System.Windows.Forms.Label();
-            this.statusErrorMessageLabel = new System.Windows.Forms.Label();
             this.phoneErrorLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -364,17 +361,6 @@
             this.sexLabel.TabIndex = 54;
             this.sexLabel.Text = "Sex";
             // 
-            // statusLabel
-            // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusLabel.Location = new System.Drawing.Point(136, 433);
-            this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(68, 25);
-            this.statusLabel.TabIndex = 55;
-            this.statusLabel.Text = "Status";
-            // 
             // sexComboBox
             // 
             this.sexComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -388,20 +374,6 @@
             this.sexComboBox.Size = new System.Drawing.Size(304, 24);
             this.sexComboBox.TabIndex = 43;
             this.sexComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboboxOrDateTimePicker_MouseDown);
-            // 
-            // statusComboBox
-            // 
-            this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Items.AddRange(new object[] {
-            "Active",
-            "Inactive"});
-            this.statusComboBox.Location = new System.Drawing.Point(251, 433);
-            this.statusComboBox.Margin = new System.Windows.Forms.Padding(4);
-            this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(304, 24);
-            this.statusComboBox.TabIndex = 44;
-            this.statusComboBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ComboboxOrDateTimePicker_MouseDown);
             // 
             // ssnTextBox
             // 
@@ -466,16 +438,6 @@
             this.sexErrorMessageLabel.Size = new System.Drawing.Size(0, 18);
             this.sexErrorMessageLabel.TabIndex = 63;
             // 
-            // statusErrorMessageLabel
-            // 
-            this.statusErrorMessageLabel.AutoSize = true;
-            this.statusErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.statusErrorMessageLabel.Location = new System.Drawing.Point(251, 463);
-            this.statusErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.statusErrorMessageLabel.Name = "statusErrorMessageLabel";
-            this.statusErrorMessageLabel.Size = new System.Drawing.Size(0, 18);
-            this.statusErrorMessageLabel.TabIndex = 64;
-            // 
             // phoneErrorLabel
             // 
             this.phoneErrorLabel.AutoSize = true;
@@ -491,16 +453,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.phoneErrorLabel);
-            this.Controls.Add(this.statusErrorMessageLabel);
             this.Controls.Add(this.sexErrorMessageLabel);
             this.Controls.Add(this.ssnErrorMessageLabel);
             this.Controls.Add(this.zipErrorMessageLabel);
             this.Controls.Add(this.addTeacherButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.ssnTextBox);
-            this.Controls.Add(this.statusComboBox);
             this.Controls.Add(this.sexComboBox);
-            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.sexLabel);
             this.Controls.Add(this.SSNLabel);
             this.Controls.Add(this.stateComboBox);
@@ -559,16 +518,13 @@
         private System.Windows.Forms.Label lastNameLabel;
         private System.Windows.Forms.Label SSNLabel;
         private System.Windows.Forms.Label sexLabel;
-        private System.Windows.Forms.Label statusLabel;
         private System.Windows.Forms.ComboBox sexComboBox;
-        private System.Windows.Forms.ComboBox statusComboBox;
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button addTeacherButton;
         private System.Windows.Forms.Label zipErrorMessageLabel;
         private System.Windows.Forms.Label ssnErrorMessageLabel;
         private System.Windows.Forms.Label sexErrorMessageLabel;
-        private System.Windows.Forms.Label statusErrorMessageLabel;
         private System.Windows.Forms.Label phoneErrorLabel;
     }
 }

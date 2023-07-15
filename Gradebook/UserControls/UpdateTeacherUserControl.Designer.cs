@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.clearButton = new System.Windows.Forms.Button();
             this.resultsDOBDateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dobLabel = new System.Windows.Forms.Label();
             this.lastNameLabel = new System.Windows.Forms.Label();
             this.firstNameLabel = new System.Windows.Forms.Label();
@@ -52,12 +51,6 @@
             this.resultsFirstNameLabel = new System.Windows.Forms.Label();
             this.teacherIDLabel = new System.Windows.Forms.Label();
             this.teacherSearchDataGridView = new System.Windows.Forms.DataGridView();
-            this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.searchButton = new System.Windows.Forms.Button();
             this.dobDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.lastNameTextbox = new System.Windows.Forms.TextBox();
@@ -78,8 +71,18 @@
             this.phoneErrorLabel = new System.Windows.Forms.Label();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
+            this.statusErrorMessageLabel = new System.Windows.Forms.Label();
+            this.statusLabel = new System.Windows.Forms.Label();
+            this.activeStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.teacherBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teacherIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateOfBirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sexDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // clearButton
@@ -104,10 +107,6 @@
             this.resultsDOBDateTimePicker.Size = new System.Drawing.Size(309, 22);
             this.resultsDOBDateTimePicker.TabIndex = 51;
             this.resultsDOBDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resultsDOBDateTimePicker_MouseDown);
-            // 
-            // teacherBindingSource
-            // 
-            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
             // 
             // dobLabel
             // 
@@ -331,54 +330,6 @@
             this.teacherSearchDataGridView.Size = new System.Drawing.Size(984, 218);
             this.teacherSearchDataGridView.TabIndex = 36;
             this.teacherSearchDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teacherSearchDataGridView_CellClick);
-            // 
-            // teacherIDDataGridViewTextBoxColumn
-            // 
-            this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
-            this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
-            this.teacherIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
-            this.teacherIDDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // firstNameDataGridViewTextBoxColumn
-            // 
-            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
-            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
-            this.firstNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // lastNameDataGridViewTextBoxColumn
-            // 
-            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
-            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
-            this.lastNameDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // dateOfBirthDataGridViewTextBoxColumn
-            // 
-            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
-            this.dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
-            this.dateOfBirthDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // phoneDataGridViewTextBoxColumn
-            // 
-            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
-            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
-            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
-            this.phoneDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // sexDataGridViewTextBoxColumn
-            // 
-            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
-            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
-            this.sexDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
-            this.sexDataGridViewTextBoxColumn.Width = 125;
             // 
             // searchButton
             // 
@@ -637,10 +588,97 @@
             this.phoneTextBox.TabIndex = 58;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
+            // statusErrorMessageLabel
+            // 
+            this.statusErrorMessageLabel.AutoSize = true;
+            this.statusErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusErrorMessageLabel.Location = new System.Drawing.Point(789, 684);
+            this.statusErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.statusErrorMessageLabel.Name = "statusErrorMessageLabel";
+            this.statusErrorMessageLabel.Size = new System.Drawing.Size(0, 18);
+            this.statusErrorMessageLabel.TabIndex = 82;
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.AutoSize = true;
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.statusLabel.Location = new System.Drawing.Point(708, 658);
+            this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(57, 20);
+            this.statusLabel.TabIndex = 80;
+            this.statusLabel.Text = "Status";
+            // 
+            // activeStatusComboBox
+            // 
+            this.activeStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.teacherBindingSource, "ActiveStatus", true));
+            this.activeStatusComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.teacherBindingSource, "ActiveStatus", true));
+            this.activeStatusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.activeStatusComboBox.FormattingEnabled = true;
+            this.activeStatusComboBox.Location = new System.Drawing.Point(785, 657);
+            this.activeStatusComboBox.Name = "activeStatusComboBox";
+            this.activeStatusComboBox.Size = new System.Drawing.Size(310, 24);
+            this.activeStatusComboBox.TabIndex = 83;
+            // 
+            // teacherBindingSource
+            // 
+            this.teacherBindingSource.DataSource = typeof(Gradebook.Model.Teacher);
+            // 
+            // teacherIDDataGridViewTextBoxColumn
+            // 
+            this.teacherIDDataGridViewTextBoxColumn.DataPropertyName = "TeacherID";
+            this.teacherIDDataGridViewTextBoxColumn.HeaderText = "TeacherID";
+            this.teacherIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.teacherIDDataGridViewTextBoxColumn.Name = "teacherIDDataGridViewTextBoxColumn";
+            this.teacherIDDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // firstNameDataGridViewTextBoxColumn
+            // 
+            this.firstNameDataGridViewTextBoxColumn.DataPropertyName = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.HeaderText = "FirstName";
+            this.firstNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.firstNameDataGridViewTextBoxColumn.Name = "firstNameDataGridViewTextBoxColumn";
+            this.firstNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // lastNameDataGridViewTextBoxColumn
+            // 
+            this.lastNameDataGridViewTextBoxColumn.DataPropertyName = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.HeaderText = "LastName";
+            this.lastNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.lastNameDataGridViewTextBoxColumn.Name = "lastNameDataGridViewTextBoxColumn";
+            this.lastNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dateOfBirthDataGridViewTextBoxColumn
+            // 
+            this.dateOfBirthDataGridViewTextBoxColumn.DataPropertyName = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.HeaderText = "DateOfBirth";
+            this.dateOfBirthDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dateOfBirthDataGridViewTextBoxColumn.Name = "dateOfBirthDataGridViewTextBoxColumn";
+            this.dateOfBirthDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // phoneDataGridViewTextBoxColumn
+            // 
+            this.phoneDataGridViewTextBoxColumn.DataPropertyName = "Phone";
+            this.phoneDataGridViewTextBoxColumn.HeaderText = "Phone";
+            this.phoneDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.phoneDataGridViewTextBoxColumn.Name = "phoneDataGridViewTextBoxColumn";
+            this.phoneDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // sexDataGridViewTextBoxColumn
+            // 
+            this.sexDataGridViewTextBoxColumn.DataPropertyName = "Sex";
+            this.sexDataGridViewTextBoxColumn.HeaderText = "Sex";
+            this.sexDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sexDataGridViewTextBoxColumn.Name = "sexDataGridViewTextBoxColumn";
+            this.sexDataGridViewTextBoxColumn.Width = 125;
+            // 
             // UpdateTeacherUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.activeStatusComboBox);
+            this.Controls.Add(this.statusErrorMessageLabel);
+            this.Controls.Add(this.statusLabel);
             this.Controls.Add(this.phoneTextBox);
             this.Controls.Add(this.ssnTextBox);
             this.Controls.Add(this.phoneErrorLabel);
@@ -686,8 +724,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "UpdateTeacherUserControl";
             this.Size = new System.Drawing.Size(1263, 780);
-            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.teacherSearchDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teacherBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -745,5 +783,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sexDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox ssnTextBox;
         private System.Windows.Forms.TextBox phoneTextBox;
+        private System.Windows.Forms.Label statusErrorMessageLabel;
+        private System.Windows.Forms.Label statusLabel;
+        private System.Windows.Forms.ComboBox activeStatusComboBox;
     }
 }

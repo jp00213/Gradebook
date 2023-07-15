@@ -58,7 +58,7 @@ namespace Gradebook.Controller
         }
 
         /// <summary>
-        /// Updates patient in the db
+        /// Updates teacher in the db
         /// </summary>
         /// <param name="recordID"></param>
         /// <param name="lastName"></param>
@@ -72,9 +72,9 @@ namespace Gradebook.Controller
         /// <param name="sex"></param>
         /// <param name="ssn"></param>
         /// <returns></returns>
-        public bool UpdateTeacher(int recordID, string lastName, string firstName, DateTime birthday, string street, string city, string state, string zip, string phone, string sex, string ssn)
+        public bool UpdateTeacher(Teacher oldTeacher, Teacher newTeacher)
         {
-            return this._personDAL.UpdatePerson(recordID, lastName, firstName, birthday, street, city, state, zip, phone, sex, ssn);
+            return this._personDAL.UpdatePerson(oldTeacher, newTeacher);
         }
         
         /// <summary>

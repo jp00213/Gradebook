@@ -2,6 +2,7 @@
 using Gradebook.Model;
 using System;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace Gradebook.DAL
 {
@@ -413,14 +414,21 @@ namespace Gradebook.DAL
         /// <param name="sex"></param>
         /// <param name="ssn"></param>
         /// <returns>boolean result</returns>
-        public bool UpdatePerson(int recordID, string lastName, string firstName, DateTime birthday, string street, string city, string state, string zip, string phone, string sex, string ssn)
+        public bool UpdatePerson(Teacher oldTeacher, Teacher newTeacher)
         {
-            bool result = false;
-            int affectedRecords = 0;
-            string updateStatement = "UPDATE person SET " + "lastName = @newLastName, " + "firstName = @newFirstName, " +
-                "birthday = @newBirthday, " + "street = @newStreet, " + "city = @newCity, " + "state = @newState, "
-                + "zip = @newZip, " + "phoneNumber = @newPhone, sex = @newSex, ssn = @newSSN " + "WHERE recordID = @oldRecordID";
-            string selectStatement = "SELECT @@ROWCOUNT";
+            string updatePersonStatement = "UPDATE person " +
+                "SET lastName = @newLastName, firstName = @newFirstName, " +
+                "birthday = @newBirthday, street = @newStreet, city = @newCity, " +
+                "state = @newState, zip = @newZip, phoneNumber = @newPhone, sex = @newSex, " +
+                "ssn = @newSSN " +
+                "WHERE recordID = @oldRecordID AND " +
+                "lastName = @oldLastName AND firstName = @oldFirstName AND birthday = @oldBirthday AND " +
+                "street = @oldStreet AND city = @oldCity AND state = @oldState AND zip = @oldZip AND " +
+                "phoneNumber = @oldPhone AND sex = @oldSex AND ssn = @oldSSN OR ssn is NULL";
+            string updateTeacherStatement = "UPDATE teacher " +
+                "SET activeStatus = @newStatus " +
+                "WHERE recordID = @oldRecordID " +
+                "AND activeStatus = @oldStatus ";
 
             using (SqlConnection connection = GradebookDBConnection.GetConnection())
             {
@@ -429,49 +437,74 @@ namespace Gradebook.DAL
                 {
                     try
                     {
-                        using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
+                        using (SqlCommand updateCommand = new SqlCommand(updatePersonStatement, connection))
                         {
                             updateCommand.Transaction = transaction;
 
-                            updateCommand.Parameters.AddWithValue("@oldRecordID", recordID);
-                            updateCommand.Parameters.AddWithValue("@newLastName", lastName);
-                            updateCommand.Parameters.AddWithValue("@newFirstName", firstName);
-                            updateCommand.Parameters.AddWithValue("@newBirthday", birthday);
-                            updateCommand.Parameters.AddWithValue("@newStreet", street);
-                            updateCommand.Parameters.AddWithValue("@newCity", city);
-                            updateCommand.Parameters.AddWithValue("@newState", state);
-                            updateCommand.Parameters.AddWithValue("@newZip", zip);
-                            updateCommand.Parameters.AddWithValue("@newPhone", phone);
-                            updateCommand.Parameters.AddWithValue("@newSex", sex);
-                            if (ssn == "")
+                            updateCommand.Parameters.AddWithValue("@oldRecordID", oldTeacher.RecordId);
+                            updateCommand.Parameters.AddWithValue("@newLastName", newTeacher.LastName);
+                            updateCommand.Parameters.AddWithValue("@newFirstName", newTeacher.FirstName);
+                            updateCommand.Parameters.AddWithValue("@newBirthday", newTeacher.DateOfBirth);
+                            updateCommand.Parameters.AddWithValue("@newStreet", newTeacher.AddressStreet);
+                            updateCommand.Parameters.AddWithValue("@newCity", newTeacher.City);
+                            updateCommand.Parameters.AddWithValue("@newState", newTeacher.State);
+                            updateCommand.Parameters.AddWithValue("@newZip", newTeacher.Zip);
+                            updateCommand.Parameters.AddWithValue("@newPhone", newTeacher.Phone);
+                            updateCommand.Parameters.AddWithValue("@newSex", newTeacher.Sex);
+                            if (newTeacher.SSN is null)
                             {
                                 updateCommand.Parameters.AddWithValue("@newSSN", DBNull.Value);
                             }
                             else
                             {
-                                updateCommand.Parameters.AddWithValue("@newSSN", ssn);
+                                updateCommand.Parameters.AddWithValue("@newSSN", newTeacher.SSN);
                             }
+                            updateCommand.Parameters.AddWithValue("@oldLastName", oldTeacher.LastName);
+                            updateCommand.Parameters.AddWithValue("@oldFirstName", oldTeacher.FirstName);
+                            updateCommand.Parameters.AddWithValue("@oldBirthday", oldTeacher.DateOfBirth);
+                            updateCommand.Parameters.AddWithValue("@oldStreet", oldTeacher.AddressStreet);
+                            updateCommand.Parameters.AddWithValue("@oldCity", oldTeacher.City);
+                            updateCommand.Parameters.AddWithValue("@oldState", oldTeacher.State);
+                            updateCommand.Parameters.AddWithValue("@oldZip", oldTeacher.Zip);
+                            updateCommand.Parameters.AddWithValue("@oldPhone", oldTeacher.Phone);
+                            updateCommand.Parameters.AddWithValue("@oldSex", oldTeacher.Sex);
+                            if (oldTeacher.SSN is null)
+                            {
+                                updateCommand.Parameters.AddWithValue("@oldSSN", DBNull.Value);
+                            }
+                            else
+                            {
+                                updateCommand.Parameters.AddWithValue("@oldSSN", oldTeacher.SSN);
+                            }
+                            Console.WriteLine(oldTeacher.SSN + " vs " + newTeacher.SSN);
 
                             updateCommand.ExecuteNonQuery();
-
-                            SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-                            selectCommand.Transaction = transaction;
-                            using (selectCommand)
+                            Console.WriteLine("this worked");
+                            
+                            using (SqlCommand updateCommand2 = new SqlCommand(updateTeacherStatement, connection))
                             {
-                                affectedRecords = Convert.ToInt32(selectCommand.ExecuteScalar());
-                            }
+                                updateCommand2.Transaction = transaction;
 
-                            result = affectedRecords > 0;
+                                updateCommand2.Parameters.AddWithValue("@oldRecordID", oldTeacher.RecordId);
+                                Console.WriteLine(oldTeacher.ActiveStatus + " and " + newTeacher.ActiveStatus);
+                                updateCommand2.Parameters.AddWithValue("@newStatus", newTeacher.ActiveStatus);
+                                updateCommand2.Parameters.AddWithValue("@oldStatus", oldTeacher.ActiveStatus);
+
+                                updateCommand2.ExecuteNonQuery();
+                                Console.WriteLine("this worked too");
+                            }
                             transaction.Commit();
+                            return true;
                         }
                     }
-                    catch
+                    catch (Exception ex) 
                     {
+                        MessageBox.Show(ex.Message);
                         transaction.Rollback();
+                        return false;
                     }
                 }
             }
-            return result;
         }
     }
 }

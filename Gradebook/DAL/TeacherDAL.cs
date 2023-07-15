@@ -62,7 +62,8 @@ namespace Gradebook.DAL
                             Phone = (string)(reader)["phoneNumber"],
                             TeacherID = (int)(reader)["teacherID"],
                             Sex = (string)(reader)["sex"],
-                            SSN = (reader)["ssn"] as string
+                            SSN = (reader)["ssn"] as string,
+                            ActiveStatus = (int)(byte)(reader)["activeStatus"]
                         };
                         teachers.Add(teacher);
                     }
