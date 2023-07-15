@@ -19,6 +19,7 @@ namespace Gradebook.View
             studentCourseSummaryUserControl1.SetCurrentStudentID(username);
             studentRegistrationUserControl1.SetCurrentStudentID(username);
             studentGPAUserControl1.SetCurrentStudentID(username);
+            studentProfileUserControl1.SetCurrentStudentID(username);
 
         }
 
