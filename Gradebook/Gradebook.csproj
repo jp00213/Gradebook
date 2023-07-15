@@ -149,6 +149,12 @@
     <Compile Include="UserControls\StudentGPAUserControl.Designer.cs">
       <DependentUpon>StudentGPAUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\StudentProfileUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\StudentProfileUserControl.Designer.cs">
+      <DependentUpon>StudentProfileUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\StudentRegistrationUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -299,6 +305,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentGPAUserControl.resx">
       <DependentUpon>StudentGPAUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\StudentProfileUserControl.resx">
+      <DependentUpon>StudentProfileUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\StudentRegistrationUserControl.resx">
       <DependentUpon>StudentRegistrationUserControl.cs</DependentUpon>
