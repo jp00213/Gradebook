@@ -118,12 +118,9 @@ namespace Gradebook.DAL
                         result = affectedRecords > 0;
 
                         transaction.Commit();
-                        //      System.Windows.Forms.MessageBox.Show("processed");
-                        //      connection.Close();
                     }
                     catch (SqlException)
                     {
-                        // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
                     }
                 }
@@ -242,7 +239,6 @@ namespace Gradebook.DAL
                     }
                     catch (SqlException)
                     {
-                        // System.Windows.Forms.MessageBox.Show(sqlEx.Message);
                         transaction.Rollback();
                     }
                 }
@@ -400,22 +396,14 @@ namespace Gradebook.DAL
         }
 
         /// <summary>
-        /// Updates person's info in the DB
+        /// Updates teacher's info in the DB
         /// </summary>
-        /// <param name="recordID"></param>
-        /// <param name="lastName"></param>
-        /// <param name="firstName"></param>
-        /// <param name="birthday"></param>
-        /// <param name="addressStreet"></param>
-        /// <param name="city"></param>
-        /// <param name="state"></param>
-        /// <param name="zip"></param>
-        /// <param name="phone"></param>
-        /// <param name="sex"></param>
-        /// <param name="ssn"></param>
-        /// <returns>boolean result</returns>
+        /// <param name="oldTeacher"></param>
+        /// <param name="newTeacher"></param>
+        /// <returns></returns>
         public bool UpdatePerson(Teacher oldTeacher, Teacher newTeacher)
         {
+            int records = 0;
             string updatePersonStatement = "UPDATE person " +
                 "SET lastName = @newLastName, firstName = @newFirstName, " +
                 "birthday = @newBirthday, street = @newStreet, city = @newCity, " +
@@ -424,7 +412,7 @@ namespace Gradebook.DAL
                 "WHERE recordID = @oldRecordID AND " +
                 "lastName = @oldLastName AND firstName = @oldFirstName AND birthday = @oldBirthday AND " +
                 "street = @oldStreet AND city = @oldCity AND state = @oldState AND zip = @oldZip AND " +
-                "phoneNumber = @oldPhone AND sex = @oldSex AND ssn = @oldSSN OR ssn is NULL";
+                "phoneNumber = @oldPhone AND sex = @oldSex AND (ssn = @oldSSN OR ssn is null) ";
             string updateTeacherStatement = "UPDATE teacher " +
                 "SET activeStatus = @newStatus " +
                 "WHERE recordID = @oldRecordID " +
@@ -476,30 +464,32 @@ namespace Gradebook.DAL
                             {
                                 updateCommand.Parameters.AddWithValue("@oldSSN", oldTeacher.SSN);
                             }
-                            Console.WriteLine(oldTeacher.SSN + " vs " + newTeacher.SSN);
 
-                            updateCommand.ExecuteNonQuery();
-                            Console.WriteLine("this worked");
+                            records = updateCommand.ExecuteNonQuery();
                             
-                            using (SqlCommand updateCommand2 = new SqlCommand(updateTeacherStatement, connection))
+                            if (records > 0)
                             {
-                                updateCommand2.Transaction = transaction;
+                                records = 0;
+                                using (SqlCommand updateCommand2 = new SqlCommand(updateTeacherStatement, connection))
+                                {
+                                    updateCommand2.Transaction = transaction;
 
-                                updateCommand2.Parameters.AddWithValue("@oldRecordID", oldTeacher.RecordId);
-                                Console.WriteLine(oldTeacher.ActiveStatus + " and " + newTeacher.ActiveStatus);
-                                updateCommand2.Parameters.AddWithValue("@newStatus", newTeacher.ActiveStatus);
-                                updateCommand2.Parameters.AddWithValue("@oldStatus", oldTeacher.ActiveStatus);
+                                    updateCommand2.Parameters.AddWithValue("@oldRecordID", oldTeacher.RecordId);
+                                    updateCommand2.Parameters.AddWithValue("@newStatus", newTeacher.ActiveStatus);
+                                    updateCommand2.Parameters.AddWithValue("@oldStatus", oldTeacher.ActiveStatus);
 
-                                updateCommand2.ExecuteNonQuery();
-                                Console.WriteLine("this worked too");
+                                    records = updateCommand2.ExecuteNonQuery();
+                                }
                             }
-                            transaction.Commit();
-                            return true;
+                            if (records > 0)
+                            {
+                                transaction.Commit();
+                                return true;
+                            } else { return false; }
                         }
                     }
-                    catch (Exception ex) 
+                    catch
                     {
-                        MessageBox.Show(ex.Message);
                         transaction.Rollback();
                         return false;
                     }

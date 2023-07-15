@@ -44,7 +44,6 @@ namespace Gradebook.UserControls
             try
             {
                 this._teacher = (Teacher)this.teacherSearchDataGridView.SelectedRows[0].DataBoundItem;
-                Console.WriteLine("teacher ssn is " + this._teacher.SSN);
                 this.teacherIDtextBox.Text = this._teacher.TeacherID.ToString();
                 this.resultsFirstNameTextbox.Text = this._teacher.FirstName;
                 this.resultsLastNameTextBox.Text = this._teacher.LastName;
