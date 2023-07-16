@@ -62,36 +62,42 @@
             this.changeStudentPasswordPanel.Controls.Add(this.currentStudentIDSetLabel);
             this.changeStudentPasswordPanel.Controls.Add(this.changePasswordTitleLable);
             this.changeStudentPasswordPanel.Controls.Add(this.firstPasswordLabel);
-            this.changeStudentPasswordPanel.Location = new System.Drawing.Point(22, 19);
+            this.changeStudentPasswordPanel.Location = new System.Drawing.Point(44, 36);
+            this.changeStudentPasswordPanel.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.changeStudentPasswordPanel.Name = "changeStudentPasswordPanel";
-            this.changeStudentPasswordPanel.Size = new System.Drawing.Size(917, 584);
+            this.changeStudentPasswordPanel.Size = new System.Drawing.Size(1834, 1123);
             this.changeStudentPasswordPanel.TabIndex = 0;
-
             // 
             // complexityRequirementLabel
             // 
             this.complexityRequirementLabel.AutoSize = true;
+            this.complexityRequirementLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.complexityRequirementLabel.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.complexityRequirementLabel.Location = new System.Drawing.Point(427, 163);
+            this.complexityRequirementLabel.Location = new System.Drawing.Point(158, 196);
+            this.complexityRequirementLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.complexityRequirementLabel.Name = "complexityRequirementLabel";
-            this.complexityRequirementLabel.Size = new System.Drawing.Size(226, 13);
+            this.complexityRequirementLabel.Size = new System.Drawing.Size(411, 25);
             this.complexityRequirementLabel.TabIndex = 56;
             this.complexityRequirementLabel.Text = "At least 8 characters including letters and digit.";
             // 
             // errorMessageLabel
             // 
             this.errorMessageLabel.AutoSize = true;
-            this.errorMessageLabel.Location = new System.Drawing.Point(189, 120);
+            this.errorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.errorMessageLabel.Location = new System.Drawing.Point(172, 156);
+            this.errorMessageLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.errorMessageLabel.Name = "errorMessageLabel";
-            this.errorMessageLabel.Size = new System.Drawing.Size(10, 13);
+            this.errorMessageLabel.Size = new System.Drawing.Size(19, 25);
             this.errorMessageLabel.TabIndex = 55;
             this.errorMessageLabel.Text = "-";
             // 
             // changePasswordButton
             // 
-            this.changePasswordButton.Location = new System.Drawing.Point(241, 257);
+            this.changePasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.changePasswordButton.Location = new System.Drawing.Point(250, 374);
+            this.changePasswordButton.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(155, 23);
+            this.changePasswordButton.Size = new System.Drawing.Size(310, 44);
             this.changePasswordButton.TabIndex = 54;
             this.changePasswordButton.Text = "Change Password";
             this.changePasswordButton.UseVisualStyleBackColor = true;
@@ -99,72 +105,88 @@
             // 
             // maskedPasswordTextBox2
             // 
-            this.maskedPasswordTextBox2.Location = new System.Drawing.Point(192, 199);
+            this.maskedPasswordTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.maskedPasswordTextBox2.Location = new System.Drawing.Point(266, 291);
+            this.maskedPasswordTextBox2.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.maskedPasswordTextBox2.Name = "maskedPasswordTextBox2";
             this.maskedPasswordTextBox2.PasswordChar = '*';
-            this.maskedPasswordTextBox2.Size = new System.Drawing.Size(204, 20);
+            this.maskedPasswordTextBox2.Size = new System.Drawing.Size(357, 30);
             this.maskedPasswordTextBox2.TabIndex = 53;
             // 
             // maskedPasswordTextBox1
             // 
-            this.maskedPasswordTextBox1.Location = new System.Drawing.Point(192, 156);
+            this.maskedPasswordTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.maskedPasswordTextBox1.Location = new System.Drawing.Point(266, 227);
+            this.maskedPasswordTextBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.maskedPasswordTextBox1.Name = "maskedPasswordTextBox1";
             this.maskedPasswordTextBox1.PasswordChar = '*';
-            this.maskedPasswordTextBox1.Size = new System.Drawing.Size(204, 20);
+            this.maskedPasswordTextBox1.Size = new System.Drawing.Size(357, 30);
             this.maskedPasswordTextBox1.TabIndex = 51;
             this.maskedPasswordTextBox1.TextChanged += new System.EventHandler(this.maskedTextBox1_TextChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(50, 202);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Location = new System.Drawing.Point(42, 294);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 13);
+            this.label1.Size = new System.Drawing.Size(221, 25);
             this.label1.TabIndex = 50;
             this.label1.Text = "Confirm New Password:";
             // 
             // firstLastNameLabelText
             // 
             this.firstLastNameLabelText.AutoSize = true;
-            this.firstLastNameLabelText.Location = new System.Drawing.Point(475, 64);
+            this.firstLastNameLabelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.firstLastNameLabelText.Location = new System.Drawing.Point(744, 98);
+            this.firstLastNameLabelText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.firstLastNameLabelText.Name = "firstLastNameLabelText";
-            this.firstLastNameLabelText.Size = new System.Drawing.Size(13, 13);
+            this.firstLastNameLabelText.Size = new System.Drawing.Size(26, 25);
             this.firstLastNameLabelText.TabIndex = 49;
             this.firstLastNameLabelText.Text = "--";
             // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
-            this.nameLabel.Location = new System.Drawing.Point(408, 64);
+            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.nameLabel.Location = new System.Drawing.Point(610, 98);
+            this.nameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(38, 13);
+            this.nameLabel.Size = new System.Drawing.Size(70, 25);
             this.nameLabel.TabIndex = 48;
             this.nameLabel.Text = "Name:";
             // 
             // usernameLabelText
             // 
             this.usernameLabelText.AutoSize = true;
-            this.usernameLabelText.Location = new System.Drawing.Point(265, 64);
+            this.usernameLabelText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.usernameLabelText.Location = new System.Drawing.Point(448, 98);
+            this.usernameLabelText.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.usernameLabelText.Name = "usernameLabelText";
-            this.usernameLabelText.Size = new System.Drawing.Size(13, 13);
+            this.usernameLabelText.Size = new System.Drawing.Size(26, 25);
             this.usernameLabelText.TabIndex = 47;
             this.usernameLabelText.Text = "--";
             // 
             // usernameLabel
             // 
             this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(189, 64);
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.usernameLabel.Location = new System.Drawing.Point(296, 98);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(58, 13);
+            this.usernameLabel.Size = new System.Drawing.Size(108, 25);
             this.usernameLabel.TabIndex = 46;
             this.usernameLabel.Text = "Username:";
             // 
             // currentStudentIDForEdit
             // 
             this.currentStudentIDForEdit.AutoSize = true;
-            this.currentStudentIDForEdit.Location = new System.Drawing.Point(117, 64);
+            this.currentStudentIDForEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.currentStudentIDForEdit.Location = new System.Drawing.Point(189, 98);
+            this.currentStudentIDForEdit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.currentStudentIDForEdit.Name = "currentStudentIDForEdit";
-            this.currentStudentIDForEdit.Size = new System.Drawing.Size(13, 13);
+            this.currentStudentIDForEdit.Size = new System.Drawing.Size(23, 25);
             this.currentStudentIDForEdit.TabIndex = 45;
             this.currentStudentIDForEdit.Text = "0";
             this.currentStudentIDForEdit.TextChanged += new System.EventHandler(this.studentIDChanged);
@@ -172,9 +194,11 @@
             // currentStudentIDSetLabel
             // 
             this.currentStudentIDSetLabel.AutoSize = true;
-            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(50, 64);
+            this.currentStudentIDSetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(55, 98);
+            this.currentStudentIDSetLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.currentStudentIDSetLabel.Name = "currentStudentIDSetLabel";
-            this.currentStudentIDSetLabel.Size = new System.Drawing.Size(61, 13);
+            this.currentStudentIDSetLabel.Size = new System.Drawing.Size(110, 25);
             this.currentStudentIDSetLabel.TabIndex = 44;
             this.currentStudentIDSetLabel.Text = "Student ID:";
             // 
@@ -182,28 +206,33 @@
             // 
             this.changePasswordTitleLable.AutoSize = true;
             this.changePasswordTitleLable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changePasswordTitleLable.Location = new System.Drawing.Point(49, 16);
+            this.changePasswordTitleLable.Location = new System.Drawing.Point(98, 31);
+            this.changePasswordTitleLable.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.changePasswordTitleLable.Name = "changePasswordTitleLable";
-            this.changePasswordTitleLable.Size = new System.Drawing.Size(153, 20);
+            this.changePasswordTitleLable.Size = new System.Drawing.Size(188, 25);
             this.changePasswordTitleLable.TabIndex = 1;
             this.changePasswordTitleLable.Text = "Change Password";
             // 
             // firstPasswordLabel
             // 
             this.firstPasswordLabel.AutoSize = true;
-            this.firstPasswordLabel.Location = new System.Drawing.Point(50, 159);
+            this.firstPasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.firstPasswordLabel.Location = new System.Drawing.Point(42, 230);
+            this.firstPasswordLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.firstPasswordLabel.Name = "firstPasswordLabel";
-            this.firstPasswordLabel.Size = new System.Drawing.Size(109, 13);
+            this.firstPasswordLabel.Size = new System.Drawing.Size(199, 25);
             this.firstPasswordLabel.TabIndex = 0;
             this.firstPasswordLabel.Text = "Enter New Password:";
             // 
             // ChangeStudentPasswordUserControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.changeStudentPasswordPanel);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "ChangeStudentPasswordUserControl";
-            this.Size = new System.Drawing.Size(960, 640);
+            this.Size = new System.Drawing.Size(1920, 1231);
             this.changeStudentPasswordPanel.ResumeLayout(false);
             this.changeStudentPasswordPanel.PerformLayout();
             this.ResumeLayout(false);

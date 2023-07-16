@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.clearEditButton = new System.Windows.Forms.Button();
             this.maximumAllowedUnitsComboBox = new System.Windows.Forms.ComboBox();
             this.maximumUnitLabel = new System.Windows.Forms.Label();
             this.messageErrorMainLabel = new System.Windows.Forms.Label();
@@ -68,15 +69,6 @@
             this.phoneLabel = new System.Windows.Forms.Label();
             this.updateStudentButton = new System.Windows.Forms.Button();
             this.studentDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.currentStudentIDSetLabel = new System.Windows.Forms.Label();
             this.currentStudentIDLabel = new System.Windows.Forms.Label();
             this.searchOptionGroup = new System.Windows.Forms.GroupBox();
@@ -98,11 +90,19 @@
             this.usernameLabel = new System.Windows.Forms.Label();
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.searchTitleLabel = new System.Windows.Forms.Label();
-            this.clearEditButton = new System.Windows.Forms.Button();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.searchOptionGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -169,9 +169,22 @@
             this.panel1.Size = new System.Drawing.Size(1179, 771);
             this.panel1.TabIndex = 0;
             // 
+            // clearEditButton
+            // 
+            this.clearEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.clearEditButton.Location = new System.Drawing.Point(394, 694);
+            this.clearEditButton.Margin = new System.Windows.Forms.Padding(4);
+            this.clearEditButton.Name = "clearEditButton";
+            this.clearEditButton.Size = new System.Drawing.Size(145, 32);
+            this.clearEditButton.TabIndex = 83;
+            this.clearEditButton.Text = "Clear Edits";
+            this.clearEditButton.UseVisualStyleBackColor = true;
+            this.clearEditButton.Click += new System.EventHandler(this.clearEditButton_Click);
+            // 
             // maximumAllowedUnitsComboBox
             // 
             this.maximumAllowedUnitsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.maximumAllowedUnitsComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.maximumAllowedUnitsComboBox.FormattingEnabled = true;
             this.maximumAllowedUnitsComboBox.Items.AddRange(new object[] {
             "0",
@@ -199,136 +212,149 @@
             "22",
             "23",
             "24"});
-            this.maximumAllowedUnitsComboBox.Location = new System.Drawing.Point(717, 635);
+            this.maximumAllowedUnitsComboBox.Location = new System.Drawing.Point(711, 631);
             this.maximumAllowedUnitsComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.maximumAllowedUnitsComboBox.Name = "maximumAllowedUnitsComboBox";
-            this.maximumAllowedUnitsComboBox.Size = new System.Drawing.Size(160, 24);
+            this.maximumAllowedUnitsComboBox.Size = new System.Drawing.Size(160, 33);
             this.maximumAllowedUnitsComboBox.TabIndex = 68;
             this.maximumAllowedUnitsComboBox.SelectedIndexChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // maximumUnitLabel
             // 
             this.maximumUnitLabel.AutoSize = true;
-            this.maximumUnitLabel.Location = new System.Drawing.Point(552, 639);
+            this.maximumUnitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.maximumUnitLabel.Location = new System.Drawing.Point(462, 635);
             this.maximumUnitLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.maximumUnitLabel.Name = "maximumUnitLabel";
-            this.maximumUnitLabel.Size = new System.Drawing.Size(148, 16);
+            this.maximumUnitLabel.Size = new System.Drawing.Size(220, 25);
             this.maximumUnitLabel.TabIndex = 82;
             this.maximumUnitLabel.Text = "Maximum Allowed Units";
             // 
             // messageErrorMainLabel
             // 
             this.messageErrorMainLabel.AutoSize = true;
-            this.messageErrorMainLabel.Location = new System.Drawing.Point(204, 317);
+            this.messageErrorMainLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.messageErrorMainLabel.Location = new System.Drawing.Point(194, 304);
             this.messageErrorMainLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.messageErrorMainLabel.Name = "messageErrorMainLabel";
-            this.messageErrorMainLabel.Size = new System.Drawing.Size(19, 16);
+            this.messageErrorMainLabel.Size = new System.Drawing.Size(29, 20);
             this.messageErrorMainLabel.TabIndex = 80;
             this.messageErrorMainLabel.Text = "    ";
             // 
             // genderErrorMessageLabel
             // 
             this.genderErrorMessageLabel.AutoSize = true;
-            this.genderErrorMessageLabel.Location = new System.Drawing.Point(714, 609);
+            this.genderErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.genderErrorMessageLabel.Location = new System.Drawing.Point(707, 607);
             this.genderErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.genderErrorMessageLabel.Name = "genderErrorMessageLabel";
-            this.genderErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.genderErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.genderErrorMessageLabel.TabIndex = 79;
             this.genderErrorMessageLabel.Text = "    ";
             // 
             // zipErrorMessageLabel
             // 
             this.zipErrorMessageLabel.AutoSize = true;
-            this.zipErrorMessageLabel.Location = new System.Drawing.Point(714, 547);
+            this.zipErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.zipErrorMessageLabel.Location = new System.Drawing.Point(707, 538);
             this.zipErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.zipErrorMessageLabel.Name = "zipErrorMessageLabel";
-            this.zipErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.zipErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.zipErrorMessageLabel.TabIndex = 78;
             this.zipErrorMessageLabel.Text = "    ";
             // 
             // stateErrorMessageLabel
             // 
             this.stateErrorMessageLabel.AutoSize = true;
-            this.stateErrorMessageLabel.Location = new System.Drawing.Point(714, 496);
+            this.stateErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.stateErrorMessageLabel.Location = new System.Drawing.Point(707, 481);
             this.stateErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.stateErrorMessageLabel.Name = "stateErrorMessageLabel";
-            this.stateErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.stateErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.stateErrorMessageLabel.TabIndex = 77;
             this.stateErrorMessageLabel.Text = "    ";
             // 
             // cityErrorMessageLabel
             // 
             this.cityErrorMessageLabel.AutoSize = true;
-            this.cityErrorMessageLabel.Location = new System.Drawing.Point(714, 444);
+            this.cityErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.cityErrorMessageLabel.Location = new System.Drawing.Point(707, 423);
             this.cityErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cityErrorMessageLabel.Name = "cityErrorMessageLabel";
-            this.cityErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.cityErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.cityErrorMessageLabel.TabIndex = 76;
             this.cityErrorMessageLabel.Text = "    ";
             // 
             // addressErrorMessageLabel
             // 
             this.addressErrorMessageLabel.AutoSize = true;
-            this.addressErrorMessageLabel.Location = new System.Drawing.Point(714, 389);
+            this.addressErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.addressErrorMessageLabel.Location = new System.Drawing.Point(707, 360);
             this.addressErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.addressErrorMessageLabel.Name = "addressErrorMessageLabel";
-            this.addressErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.addressErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.addressErrorMessageLabel.TabIndex = 75;
             this.addressErrorMessageLabel.Text = "    ";
             // 
             // statusErrorMessageLabel
             // 
             this.statusErrorMessageLabel.AutoSize = true;
-            this.statusErrorMessageLabel.Location = new System.Drawing.Point(204, 663);
+            this.statusErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.statusErrorMessageLabel.Location = new System.Drawing.Point(197, 670);
             this.statusErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.statusErrorMessageLabel.Name = "statusErrorMessageLabel";
-            this.statusErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.statusErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.statusErrorMessageLabel.TabIndex = 74;
             this.statusErrorMessageLabel.Text = "    ";
             // 
             // ssnErrorMessageLabel
             // 
             this.ssnErrorMessageLabel.AutoSize = true;
-            this.ssnErrorMessageLabel.Location = new System.Drawing.Point(204, 610);
+            this.ssnErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.ssnErrorMessageLabel.Location = new System.Drawing.Point(197, 608);
             this.ssnErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ssnErrorMessageLabel.Name = "ssnErrorMessageLabel";
-            this.ssnErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.ssnErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.ssnErrorMessageLabel.TabIndex = 73;
             this.ssnErrorMessageLabel.Text = "    ";
             // 
             // phoneErrorMessageLabel
             // 
             this.phoneErrorMessageLabel.AutoSize = true;
-            this.phoneErrorMessageLabel.Location = new System.Drawing.Point(204, 541);
+            this.phoneErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.phoneErrorMessageLabel.Location = new System.Drawing.Point(196, 538);
             this.phoneErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.phoneErrorMessageLabel.Name = "phoneErrorMessageLabel";
-            this.phoneErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.phoneErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.phoneErrorMessageLabel.TabIndex = 72;
             this.phoneErrorMessageLabel.Text = "    ";
             // 
             // dobErrorMessageLabel
             // 
             this.dobErrorMessageLabel.AutoSize = true;
-            this.dobErrorMessageLabel.Location = new System.Drawing.Point(204, 493);
+            this.dobErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dobErrorMessageLabel.Location = new System.Drawing.Point(197, 478);
             this.dobErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dobErrorMessageLabel.Name = "dobErrorMessageLabel";
-            this.dobErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.dobErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.dobErrorMessageLabel.TabIndex = 71;
             this.dobErrorMessageLabel.Text = "    ";
             // 
             // firstNameErrorMessageLabel
             // 
             this.firstNameErrorMessageLabel.AutoSize = true;
-            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(206, 389);
+            this.firstNameErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.firstNameErrorMessageLabel.Location = new System.Drawing.Point(199, 360);
             this.firstNameErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstNameErrorMessageLabel.Name = "firstNameErrorMessageLabel";
-            this.firstNameErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.firstNameErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.firstNameErrorMessageLabel.TabIndex = 70;
             this.firstNameErrorMessageLabel.Text = "    ";
             // 
             // stateComboBox
             // 
             this.stateComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.stateComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.stateComboBox.FormattingEnabled = true;
             this.stateComboBox.Items.AddRange(new object[] {
             "AL",
@@ -381,233 +407,256 @@
             "WV",
             "WI",
             "WY"});
-            this.stateComboBox.Location = new System.Drawing.Point(717, 470);
+            this.stateComboBox.Location = new System.Drawing.Point(711, 447);
             this.stateComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.stateComboBox.Name = "stateComboBox";
-            this.stateComboBox.Size = new System.Drawing.Size(160, 24);
+            this.stateComboBox.Size = new System.Drawing.Size(160, 33);
             this.stateComboBox.TabIndex = 65;
             this.stateComboBox.SelectedIndexChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // genderComboBox
             // 
             this.genderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.genderComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.genderComboBox.FormattingEnabled = true;
-            this.genderComboBox.Location = new System.Drawing.Point(717, 580);
+            this.genderComboBox.Location = new System.Drawing.Point(711, 569);
             this.genderComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.genderComboBox.Name = "genderComboBox";
-            this.genderComboBox.Size = new System.Drawing.Size(160, 24);
+            this.genderComboBox.Size = new System.Drawing.Size(160, 33);
             this.genderComboBox.TabIndex = 67;
             this.genderComboBox.SelectedIndexChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // lastNameErrorMessageLabel
             // 
             this.lastNameErrorMessageLabel.AutoSize = true;
-            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(203, 443);
+            this.lastNameErrorMessageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lastNameErrorMessageLabel.Location = new System.Drawing.Point(196, 422);
             this.lastNameErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastNameErrorMessageLabel.Name = "lastNameErrorMessageLabel";
-            this.lastNameErrorMessageLabel.Size = new System.Drawing.Size(19, 16);
+            this.lastNameErrorMessageLabel.Size = new System.Drawing.Size(29, 20);
             this.lastNameErrorMessageLabel.TabIndex = 45;
             this.lastNameErrorMessageLabel.Text = "    ";
             // 
             // statusComboBox
             // 
             this.statusComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statusComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.statusComboBox.FormattingEnabled = true;
-            this.statusComboBox.Location = new System.Drawing.Point(208, 635);
+            this.statusComboBox.Location = new System.Drawing.Point(202, 631);
             this.statusComboBox.Margin = new System.Windows.Forms.Padding(4);
             this.statusComboBox.Name = "statusComboBox";
-            this.statusComboBox.Size = new System.Drawing.Size(160, 24);
+            this.statusComboBox.Size = new System.Drawing.Size(160, 33);
             this.statusComboBox.TabIndex = 58;
             this.statusComboBox.SelectedIndexChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // cityLabel
             // 
             this.cityLabel.AutoSize = true;
-            this.cityLabel.Location = new System.Drawing.Point(677, 422);
+            this.cityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cityLabel.Location = new System.Drawing.Point(632, 390);
             this.cityLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.cityLabel.Name = "cityLabel";
-            this.cityLabel.Size = new System.Drawing.Size(29, 16);
+            this.cityLabel.Size = new System.Drawing.Size(46, 25);
             this.cityLabel.TabIndex = 59;
             this.cityLabel.Text = "City";
             // 
             // lastNameDetailsLabel
             // 
             this.lastNameDetailsLabel.AutoSize = true;
-            this.lastNameDetailsLabel.Location = new System.Drawing.Point(122, 420);
+            this.lastNameDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lastNameDetailsLabel.Location = new System.Drawing.Point(75, 388);
             this.lastNameDetailsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastNameDetailsLabel.Name = "lastNameDetailsLabel";
-            this.lastNameDetailsLabel.Size = new System.Drawing.Size(72, 16);
+            this.lastNameDetailsLabel.Size = new System.Drawing.Size(106, 25);
             this.lastNameDetailsLabel.TabIndex = 46;
             this.lastNameDetailsLabel.Text = "Last Name";
             // 
             // dobPicker
             // 
+            this.dobPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dobPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dobPicker.Location = new System.Drawing.Point(208, 467);
+            this.dobPicker.Location = new System.Drawing.Point(202, 444);
             this.dobPicker.Margin = new System.Windows.Forms.Padding(4);
             this.dobPicker.Name = "dobPicker";
-            this.dobPicker.Size = new System.Drawing.Size(283, 22);
+            this.dobPicker.Size = new System.Drawing.Size(283, 30);
             this.dobPicker.TabIndex = 52;
             // 
             // firstNameDetailsLabel
             // 
             this.firstNameDetailsLabel.AutoSize = true;
-            this.firstNameDetailsLabel.Location = new System.Drawing.Point(125, 363);
+            this.firstNameDetailsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.firstNameDetailsLabel.Location = new System.Drawing.Point(78, 328);
             this.firstNameDetailsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstNameDetailsLabel.Name = "firstNameDetailsLabel";
-            this.firstNameDetailsLabel.Size = new System.Drawing.Size(69, 16);
+            this.firstNameDetailsLabel.Size = new System.Drawing.Size(101, 25);
             this.firstNameDetailsLabel.TabIndex = 47;
             this.firstNameDetailsLabel.Text = "FirstName";
             // 
             // zipTextBox
             // 
-            this.zipTextBox.Location = new System.Drawing.Point(717, 522);
+            this.zipTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.zipTextBox.Location = new System.Drawing.Point(711, 505);
             this.zipTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.zipTextBox.Name = "zipTextBox";
-            this.zipTextBox.Size = new System.Drawing.Size(284, 22);
+            this.zipTextBox.Size = new System.Drawing.Size(284, 30);
             this.zipTextBox.TabIndex = 66;
             this.zipTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // dobLabel
             // 
             this.dobLabel.AutoSize = true;
-            this.dobLabel.Location = new System.Drawing.Point(112, 467);
+            this.dobLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dobLabel.Location = new System.Drawing.Point(65, 444);
             this.dobLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dobLabel.Name = "dobLabel";
-            this.dobLabel.Size = new System.Drawing.Size(79, 16);
+            this.dobLabel.Size = new System.Drawing.Size(118, 25);
             this.dobLabel.TabIndex = 48;
             this.dobLabel.Text = "Date of Birth";
             // 
             // ssnLabel
             // 
             this.ssnLabel.AutoSize = true;
-            this.ssnLabel.Location = new System.Drawing.Point(156, 587);
+            this.ssnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ssnLabel.Location = new System.Drawing.Point(109, 576);
             this.ssnLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ssnLabel.Name = "ssnLabel";
-            this.ssnLabel.Size = new System.Drawing.Size(35, 16);
+            this.ssnLabel.Size = new System.Drawing.Size(54, 25);
             this.ssnLabel.TabIndex = 51;
             this.ssnLabel.Text = "SSN";
             // 
             // cityTextBox
             // 
-            this.cityTextBox.Location = new System.Drawing.Point(717, 419);
+            this.cityTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cityTextBox.Location = new System.Drawing.Point(711, 387);
             this.cityTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.cityTextBox.Name = "cityTextBox";
-            this.cityTextBox.Size = new System.Drawing.Size(284, 22);
+            this.cityTextBox.Size = new System.Drawing.Size(284, 30);
             this.cityTextBox.TabIndex = 62;
             this.cityTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // statusLabel
             // 
             this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(144, 639);
+            this.statusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.statusLabel.Location = new System.Drawing.Point(97, 635);
             this.statusLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(44, 16);
+            this.statusLabel.Size = new System.Drawing.Size(68, 25);
             this.statusLabel.TabIndex = 53;
             this.statusLabel.Text = "Status";
             // 
             // streetTextBox
             // 
-            this.streetTextBox.Location = new System.Drawing.Point(717, 363);
+            this.streetTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.streetTextBox.Location = new System.Drawing.Point(711, 328);
             this.streetTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.streetTextBox.Name = "streetTextBox";
-            this.streetTextBox.Size = new System.Drawing.Size(284, 22);
+            this.streetTextBox.Size = new System.Drawing.Size(284, 30);
             this.streetTextBox.TabIndex = 60;
             this.streetTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // genderlabel
             // 
             this.genderlabel.AutoSize = true;
-            this.genderlabel.Location = new System.Drawing.Point(649, 584);
+            this.genderlabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.genderlabel.Location = new System.Drawing.Point(604, 573);
             this.genderlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.genderlabel.Name = "genderlabel";
-            this.genderlabel.Size = new System.Drawing.Size(52, 16);
+            this.genderlabel.Size = new System.Drawing.Size(77, 25);
             this.genderlabel.TabIndex = 54;
             this.genderlabel.Text = "Gender";
             // 
             // ssnTextBox
             // 
-            this.ssnTextBox.Location = new System.Drawing.Point(208, 584);
+            this.ssnTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.ssnTextBox.Location = new System.Drawing.Point(202, 573);
             this.ssnTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.ssnTextBox.Name = "ssnTextBox";
-            this.ssnTextBox.Size = new System.Drawing.Size(284, 22);
+            this.ssnTextBox.Size = new System.Drawing.Size(284, 30);
             this.ssnTextBox.TabIndex = 57;
             this.ssnTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // streeLabel
             // 
             this.streeLabel.AutoSize = true;
-            this.streeLabel.Location = new System.Drawing.Point(663, 367);
+            this.streeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.streeLabel.Location = new System.Drawing.Point(618, 332);
             this.streeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.streeLabel.Name = "streeLabel";
-            this.streeLabel.Size = new System.Drawing.Size(42, 16);
+            this.streeLabel.Size = new System.Drawing.Size(64, 25);
             this.streeLabel.TabIndex = 56;
             this.streeLabel.Text = "Street";
             // 
             // phoneTextBox
             // 
-            this.phoneTextBox.Location = new System.Drawing.Point(208, 518);
+            this.phoneTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.phoneTextBox.Location = new System.Drawing.Point(202, 501);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
-            this.phoneTextBox.Size = new System.Drawing.Size(284, 22);
+            this.phoneTextBox.Size = new System.Drawing.Size(284, 30);
             this.phoneTextBox.TabIndex = 55;
             this.phoneTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // statelabel
             // 
             this.statelabel.AutoSize = true;
-            this.statelabel.Location = new System.Drawing.Point(667, 480);
+            this.statelabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.statelabel.Location = new System.Drawing.Point(622, 457);
             this.statelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.statelabel.Name = "statelabel";
-            this.statelabel.Size = new System.Drawing.Size(38, 16);
+            this.statelabel.Size = new System.Drawing.Size(58, 25);
             this.statelabel.TabIndex = 61;
             this.statelabel.Text = "State";
             // 
             // firstNameDetailsTextBox
             // 
-            this.firstNameDetailsTextBox.Location = new System.Drawing.Point(206, 363);
+            this.firstNameDetailsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.firstNameDetailsTextBox.Location = new System.Drawing.Point(200, 328);
             this.firstNameDetailsTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.firstNameDetailsTextBox.Name = "firstNameDetailsTextBox";
-            this.firstNameDetailsTextBox.Size = new System.Drawing.Size(284, 22);
+            this.firstNameDetailsTextBox.Size = new System.Drawing.Size(284, 30);
             this.firstNameDetailsTextBox.TabIndex = 50;
             this.firstNameDetailsTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // zipLabel
             // 
             this.zipLabel.AutoSize = true;
-            this.zipLabel.Location = new System.Drawing.Point(676, 526);
+            this.zipLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.zipLabel.Location = new System.Drawing.Point(631, 509);
             this.zipLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.zipLabel.Name = "zipLabel";
-            this.zipLabel.Size = new System.Drawing.Size(26, 16);
+            this.zipLabel.Size = new System.Drawing.Size(39, 25);
             this.zipLabel.TabIndex = 63;
             this.zipLabel.Text = "Zip";
             // 
             // lastNameDetailsTextBox
             // 
-            this.lastNameDetailsTextBox.Location = new System.Drawing.Point(207, 416);
+            this.lastNameDetailsTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lastNameDetailsTextBox.Location = new System.Drawing.Point(201, 384);
             this.lastNameDetailsTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.lastNameDetailsTextBox.Name = "lastNameDetailsTextBox";
-            this.lastNameDetailsTextBox.Size = new System.Drawing.Size(284, 22);
+            this.lastNameDetailsTextBox.Size = new System.Drawing.Size(284, 30);
             this.lastNameDetailsTextBox.TabIndex = 49;
             this.lastNameDetailsTextBox.TextChanged += new System.EventHandler(this.lastNameDetailsTextBox_TextChanged);
             // 
             // phoneLabel
             // 
             this.phoneLabel.AutoSize = true;
-            this.phoneLabel.Location = new System.Drawing.Point(144, 518);
+            this.phoneLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.phoneLabel.Location = new System.Drawing.Point(97, 501);
             this.phoneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.phoneLabel.Name = "phoneLabel";
-            this.phoneLabel.Size = new System.Drawing.Size(46, 16);
+            this.phoneLabel.Size = new System.Drawing.Size(69, 25);
             this.phoneLabel.TabIndex = 64;
             this.phoneLabel.Text = "Phone";
             // 
             // updateStudentButton
             // 
-            this.updateStudentButton.Location = new System.Drawing.Point(615, 705);
+            this.updateStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.updateStudentButton.Location = new System.Drawing.Point(551, 694);
             this.updateStudentButton.Margin = new System.Windows.Forms.Padding(4);
             this.updateStudentButton.Name = "updateStudentButton";
-            this.updateStudentButton.Size = new System.Drawing.Size(100, 28);
+            this.updateStudentButton.Size = new System.Drawing.Size(145, 32);
             this.updateStudentButton.TabIndex = 69;
             this.updateStudentButton.Text = "Update";
             this.updateStudentButton.UseVisualStyleBackColor = true;
@@ -639,6 +688,242 @@
             this.studentDataGridView.Size = new System.Drawing.Size(1135, 135);
             this.studentDataGridView.TabIndex = 18;
             this.studentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
+            // 
+            // currentStudentIDSetLabel
+            // 
+            this.currentStudentIDSetLabel.AutoSize = true;
+            this.currentStudentIDSetLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(733, 46);
+            this.currentStudentIDSetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentStudentIDSetLabel.Name = "currentStudentIDSetLabel";
+            this.currentStudentIDSetLabel.Size = new System.Drawing.Size(14, 20);
+            this.currentStudentIDSetLabel.TabIndex = 18;
+            this.currentStudentIDSetLabel.Text = ":";
+            // 
+            // currentStudentIDLabel
+            // 
+            this.currentStudentIDLabel.AutoSize = true;
+            this.currentStudentIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.currentStudentIDLabel.Location = new System.Drawing.Point(567, 46);
+            this.currentStudentIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.currentStudentIDLabel.Name = "currentStudentIDLabel";
+            this.currentStudentIDLabel.Size = new System.Drawing.Size(149, 20);
+            this.currentStudentIDLabel.TabIndex = 17;
+            this.currentStudentIDLabel.Text = "Current Student ID";
+            // 
+            // searchOptionGroup
+            // 
+            this.searchOptionGroup.Controls.Add(this.searchDobPicker);
+            this.searchOptionGroup.Controls.Add(this.searchNameRadioButton);
+            this.searchOptionGroup.Controls.Add(this.searchUsernameRadioButton);
+            this.searchOptionGroup.Controls.Add(this.searchStudentIDRadioButton);
+            this.searchOptionGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.searchOptionGroup.Location = new System.Drawing.Point(33, 46);
+            this.searchOptionGroup.Margin = new System.Windows.Forms.Padding(4);
+            this.searchOptionGroup.Name = "searchOptionGroup";
+            this.searchOptionGroup.Padding = new System.Windows.Forms.Padding(4);
+            this.searchOptionGroup.Size = new System.Drawing.Size(525, 50);
+            this.searchOptionGroup.TabIndex = 16;
+            this.searchOptionGroup.TabStop = false;
+            this.searchOptionGroup.Text = "Search By:";
+            // 
+            // searchDobPicker
+            // 
+            this.searchDobPicker.AutoSize = true;
+            this.searchDobPicker.Location = new System.Drawing.Point(416, 18);
+            this.searchDobPicker.Margin = new System.Windows.Forms.Padding(4);
+            this.searchDobPicker.Name = "searchDobPicker";
+            this.searchDobPicker.Size = new System.Drawing.Size(68, 24);
+            this.searchDobPicker.TabIndex = 6;
+            this.searchDobPicker.TabStop = true;
+            this.searchDobPicker.Text = "DOB";
+            this.searchDobPicker.UseVisualStyleBackColor = true;
+            this.searchDobPicker.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
+            // 
+            // searchNameRadioButton
+            // 
+            this.searchNameRadioButton.AutoSize = true;
+            this.searchNameRadioButton.Location = new System.Drawing.Point(312, 18);
+            this.searchNameRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchNameRadioButton.Name = "searchNameRadioButton";
+            this.searchNameRadioButton.Size = new System.Drawing.Size(74, 24);
+            this.searchNameRadioButton.TabIndex = 5;
+            this.searchNameRadioButton.TabStop = true;
+            this.searchNameRadioButton.Text = "Name";
+            this.searchNameRadioButton.UseVisualStyleBackColor = true;
+            this.searchNameRadioButton.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
+            // 
+            // searchUsernameRadioButton
+            // 
+            this.searchUsernameRadioButton.AutoSize = true;
+            this.searchUsernameRadioButton.Location = new System.Drawing.Point(177, 18);
+            this.searchUsernameRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchUsernameRadioButton.Name = "searchUsernameRadioButton";
+            this.searchUsernameRadioButton.Size = new System.Drawing.Size(107, 24);
+            this.searchUsernameRadioButton.TabIndex = 4;
+            this.searchUsernameRadioButton.TabStop = true;
+            this.searchUsernameRadioButton.Text = "Username";
+            this.searchUsernameRadioButton.UseVisualStyleBackColor = true;
+            this.searchUsernameRadioButton.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
+            // 
+            // searchStudentIDRadioButton
+            // 
+            this.searchStudentIDRadioButton.AutoSize = true;
+            this.searchStudentIDRadioButton.Location = new System.Drawing.Point(37, 18);
+            this.searchStudentIDRadioButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchStudentIDRadioButton.Name = "searchStudentIDRadioButton";
+            this.searchStudentIDRadioButton.Size = new System.Drawing.Size(118, 24);
+            this.searchStudentIDRadioButton.TabIndex = 3;
+            this.searchStudentIDRadioButton.TabStop = true;
+            this.searchStudentIDRadioButton.Text = "Student ID#";
+            this.searchStudentIDRadioButton.UseVisualStyleBackColor = true;
+            this.searchStudentIDRadioButton.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
+            // 
+            // ErrorMessageLabel
+            // 
+            this.ErrorMessageLabel.AutoSize = true;
+            this.ErrorMessageLabel.Location = new System.Drawing.Point(567, 11);
+            this.ErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ErrorMessageLabel.Name = "ErrorMessageLabel";
+            this.ErrorMessageLabel.Size = new System.Drawing.Size(15, 16);
+            this.ErrorMessageLabel.TabIndex = 15;
+            this.ErrorMessageLabel.Text = "--";
+            // 
+            // clearButton
+            // 
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.clearButton.Location = new System.Drawing.Point(1023, 116);
+            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(129, 28);
+            this.clearButton.TabIndex = 13;
+            this.clearButton.Text = "Clear Search";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.searchButton.Location = new System.Drawing.Point(901, 116);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(100, 28);
+            this.searchButton.TabIndex = 12;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // dob_Datepicker
+            // 
+            this.dob_Datepicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dob_Datepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dob_Datepicker.Location = new System.Drawing.Point(737, 119);
+            this.dob_Datepicker.Margin = new System.Windows.Forms.Padding(4);
+            this.dob_Datepicker.Name = "dob_Datepicker";
+            this.dob_Datepicker.Size = new System.Drawing.Size(141, 26);
+            this.dob_Datepicker.TabIndex = 11;
+            // 
+            // lastNameTextBox
+            // 
+            this.lastNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lastNameTextBox.Location = new System.Drawing.Point(540, 119);
+            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.lastNameTextBox.Name = "lastNameTextBox";
+            this.lastNameTextBox.Size = new System.Drawing.Size(188, 26);
+            this.lastNameTextBox.TabIndex = 10;
+            // 
+            // firstNameTextBox
+            // 
+            this.firstNameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.firstNameTextBox.Location = new System.Drawing.Point(316, 119);
+            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.firstNameTextBox.Name = "firstNameTextBox";
+            this.firstNameTextBox.Size = new System.Drawing.Size(215, 26);
+            this.firstNameTextBox.TabIndex = 9;
+            // 
+            // usernameTextBox
+            // 
+            this.usernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.usernameTextBox.Location = new System.Drawing.Point(175, 119);
+            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.usernameTextBox.Name = "usernameTextBox";
+            this.usernameTextBox.Size = new System.Drawing.Size(132, 26);
+            this.usernameTextBox.TabIndex = 8;
+            // 
+            // studentIDTextBox
+            // 
+            this.studentIDTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.studentIDTextBox.Location = new System.Drawing.Point(33, 119);
+            this.studentIDTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.studentIDTextBox.Name = "studentIDTextBox";
+            this.studentIDTextBox.Size = new System.Drawing.Size(132, 26);
+            this.studentIDTextBox.TabIndex = 7;
+            // 
+            // dobTimePicker
+            // 
+            this.dobTimePicker.AutoSize = true;
+            this.dobTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.dobTimePicker.Location = new System.Drawing.Point(733, 100);
+            this.dobTimePicker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dobTimePicker.Name = "dobTimePicker";
+            this.dobTimePicker.Size = new System.Drawing.Size(47, 20);
+            this.dobTimePicker.TabIndex = 7;
+            this.dobTimePicker.Text = "DOB";
+            // 
+            // lastNameLabel
+            // 
+            this.lastNameLabel.AutoSize = true;
+            this.lastNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lastNameLabel.Location = new System.Drawing.Point(536, 100);
+            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lastNameLabel.Name = "lastNameLabel";
+            this.lastNameLabel.Size = new System.Drawing.Size(91, 20);
+            this.lastNameLabel.TabIndex = 6;
+            this.lastNameLabel.Text = "Last Name";
+            // 
+            // firstNameLabel
+            // 
+            this.firstNameLabel.AutoSize = true;
+            this.firstNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.firstNameLabel.Location = new System.Drawing.Point(312, 100);
+            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.firstNameLabel.Name = "firstNameLabel";
+            this.firstNameLabel.Size = new System.Drawing.Size(92, 20);
+            this.firstNameLabel.TabIndex = 5;
+            this.firstNameLabel.Text = "First Name";
+            // 
+            // usernameLabel
+            // 
+            this.usernameLabel.AutoSize = true;
+            this.usernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.usernameLabel.Location = new System.Drawing.Point(171, 100);
+            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.usernameLabel.Name = "usernameLabel";
+            this.usernameLabel.Size = new System.Drawing.Size(86, 20);
+            this.usernameLabel.TabIndex = 4;
+            this.usernameLabel.Text = "Username";
+            // 
+            // studentIDLabel
+            // 
+            this.studentIDLabel.AutoSize = true;
+            this.studentIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.studentIDLabel.Location = new System.Drawing.Point(29, 100);
+            this.studentIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.studentIDLabel.Name = "studentIDLabel";
+            this.studentIDLabel.Size = new System.Drawing.Size(88, 20);
+            this.studentIDLabel.TabIndex = 3;
+            this.studentIDLabel.Text = "Student ID";
+            // 
+            // searchTitleLabel
+            // 
+            this.searchTitleLabel.AutoSize = true;
+            this.searchTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchTitleLabel.Location = new System.Drawing.Point(19, 5);
+            this.searchTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.searchTitleLabel.Name = "searchTitleLabel";
+            this.searchTitleLabel.Size = new System.Drawing.Size(247, 25);
+            this.searchTitleLabel.TabIndex = 0;
+            this.searchTitleLabel.Text = "Search and Edit Student";
             // 
             // dataGridViewTextBoxColumn16
             // 
@@ -724,238 +1009,6 @@
             // 
             this.studentBindingSource.DataSource = typeof(Gradebook.Model.Student);
             // 
-            // currentStudentIDSetLabel
-            // 
-            this.currentStudentIDSetLabel.AutoSize = true;
-            this.currentStudentIDSetLabel.Location = new System.Drawing.Point(705, 46);
-            this.currentStudentIDSetLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentStudentIDSetLabel.Name = "currentStudentIDSetLabel";
-            this.currentStudentIDSetLabel.Size = new System.Drawing.Size(10, 16);
-            this.currentStudentIDSetLabel.TabIndex = 18;
-            this.currentStudentIDSetLabel.Text = ":";
-            // 
-            // currentStudentIDLabel
-            // 
-            this.currentStudentIDLabel.AutoSize = true;
-            this.currentStudentIDLabel.Location = new System.Drawing.Point(567, 46);
-            this.currentStudentIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.currentStudentIDLabel.Name = "currentStudentIDLabel";
-            this.currentStudentIDLabel.Size = new System.Drawing.Size(113, 16);
-            this.currentStudentIDLabel.TabIndex = 17;
-            this.currentStudentIDLabel.Text = "Current Student ID";
-            // 
-            // searchOptionGroup
-            // 
-            this.searchOptionGroup.Controls.Add(this.searchDobPicker);
-            this.searchOptionGroup.Controls.Add(this.searchNameRadioButton);
-            this.searchOptionGroup.Controls.Add(this.searchUsernameRadioButton);
-            this.searchOptionGroup.Controls.Add(this.searchStudentIDRadioButton);
-            this.searchOptionGroup.Location = new System.Drawing.Point(33, 46);
-            this.searchOptionGroup.Margin = new System.Windows.Forms.Padding(4);
-            this.searchOptionGroup.Name = "searchOptionGroup";
-            this.searchOptionGroup.Padding = new System.Windows.Forms.Padding(4);
-            this.searchOptionGroup.Size = new System.Drawing.Size(525, 50);
-            this.searchOptionGroup.TabIndex = 16;
-            this.searchOptionGroup.TabStop = false;
-            this.searchOptionGroup.Text = "Search By:";
-            // 
-            // searchDobPicker
-            // 
-            this.searchDobPicker.AutoSize = true;
-            this.searchDobPicker.Location = new System.Drawing.Point(416, 18);
-            this.searchDobPicker.Margin = new System.Windows.Forms.Padding(4);
-            this.searchDobPicker.Name = "searchDobPicker";
-            this.searchDobPicker.Size = new System.Drawing.Size(57, 20);
-            this.searchDobPicker.TabIndex = 6;
-            this.searchDobPicker.TabStop = true;
-            this.searchDobPicker.Text = "DOB";
-            this.searchDobPicker.UseVisualStyleBackColor = true;
-            this.searchDobPicker.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
-            // 
-            // searchNameRadioButton
-            // 
-            this.searchNameRadioButton.AutoSize = true;
-            this.searchNameRadioButton.Location = new System.Drawing.Point(312, 18);
-            this.searchNameRadioButton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchNameRadioButton.Name = "searchNameRadioButton";
-            this.searchNameRadioButton.Size = new System.Drawing.Size(65, 20);
-            this.searchNameRadioButton.TabIndex = 5;
-            this.searchNameRadioButton.TabStop = true;
-            this.searchNameRadioButton.Text = "Name";
-            this.searchNameRadioButton.UseVisualStyleBackColor = true;
-            this.searchNameRadioButton.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
-            // 
-            // searchUsernameRadioButton
-            // 
-            this.searchUsernameRadioButton.AutoSize = true;
-            this.searchUsernameRadioButton.Location = new System.Drawing.Point(177, 18);
-            this.searchUsernameRadioButton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchUsernameRadioButton.Name = "searchUsernameRadioButton";
-            this.searchUsernameRadioButton.Size = new System.Drawing.Size(91, 20);
-            this.searchUsernameRadioButton.TabIndex = 4;
-            this.searchUsernameRadioButton.TabStop = true;
-            this.searchUsernameRadioButton.Text = "Username";
-            this.searchUsernameRadioButton.UseVisualStyleBackColor = true;
-            this.searchUsernameRadioButton.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
-            // 
-            // searchStudentIDRadioButton
-            // 
-            this.searchStudentIDRadioButton.AutoSize = true;
-            this.searchStudentIDRadioButton.Location = new System.Drawing.Point(37, 18);
-            this.searchStudentIDRadioButton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchStudentIDRadioButton.Name = "searchStudentIDRadioButton";
-            this.searchStudentIDRadioButton.Size = new System.Drawing.Size(96, 20);
-            this.searchStudentIDRadioButton.TabIndex = 3;
-            this.searchStudentIDRadioButton.TabStop = true;
-            this.searchStudentIDRadioButton.Text = "Student ID#";
-            this.searchStudentIDRadioButton.UseVisualStyleBackColor = true;
-            this.searchStudentIDRadioButton.CheckedChanged += new System.EventHandler(this.ChangeSearchBox);
-            // 
-            // ErrorMessageLabel
-            // 
-            this.ErrorMessageLabel.AutoSize = true;
-            this.ErrorMessageLabel.Location = new System.Drawing.Point(567, 11);
-            this.ErrorMessageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ErrorMessageLabel.Name = "ErrorMessageLabel";
-            this.ErrorMessageLabel.Size = new System.Drawing.Size(15, 16);
-            this.ErrorMessageLabel.TabIndex = 15;
-            this.ErrorMessageLabel.Text = "--";
-            // 
-            // clearButton
-            // 
-            this.clearButton.Location = new System.Drawing.Point(1023, 116);
-            this.clearButton.Margin = new System.Windows.Forms.Padding(4);
-            this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(100, 28);
-            this.clearButton.TabIndex = 13;
-            this.clearButton.Text = "Clear Search";
-            this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
-            // 
-            // searchButton
-            // 
-            this.searchButton.Location = new System.Drawing.Point(901, 116);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(100, 28);
-            this.searchButton.TabIndex = 12;
-            this.searchButton.Text = "Search";
-            this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
-            // 
-            // dob_Datepicker
-            // 
-            this.dob_Datepicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dob_Datepicker.Location = new System.Drawing.Point(737, 119);
-            this.dob_Datepicker.Margin = new System.Windows.Forms.Padding(4);
-            this.dob_Datepicker.Name = "dob_Datepicker";
-            this.dob_Datepicker.Size = new System.Drawing.Size(141, 22);
-            this.dob_Datepicker.TabIndex = 11;
-            // 
-            // lastNameTextBox
-            // 
-            this.lastNameTextBox.Location = new System.Drawing.Point(540, 119);
-            this.lastNameTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.lastNameTextBox.Name = "lastNameTextBox";
-            this.lastNameTextBox.Size = new System.Drawing.Size(188, 22);
-            this.lastNameTextBox.TabIndex = 10;
-            // 
-            // firstNameTextBox
-            // 
-            this.firstNameTextBox.Location = new System.Drawing.Point(316, 119);
-            this.firstNameTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.firstNameTextBox.Name = "firstNameTextBox";
-            this.firstNameTextBox.Size = new System.Drawing.Size(215, 22);
-            this.firstNameTextBox.TabIndex = 9;
-            // 
-            // usernameTextBox
-            // 
-            this.usernameTextBox.Location = new System.Drawing.Point(175, 119);
-            this.usernameTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.usernameTextBox.Name = "usernameTextBox";
-            this.usernameTextBox.Size = new System.Drawing.Size(132, 22);
-            this.usernameTextBox.TabIndex = 8;
-            // 
-            // studentIDTextBox
-            // 
-            this.studentIDTextBox.Location = new System.Drawing.Point(33, 119);
-            this.studentIDTextBox.Margin = new System.Windows.Forms.Padding(4);
-            this.studentIDTextBox.Name = "studentIDTextBox";
-            this.studentIDTextBox.Size = new System.Drawing.Size(132, 22);
-            this.studentIDTextBox.TabIndex = 7;
-            // 
-            // dobTimePicker
-            // 
-            this.dobTimePicker.AutoSize = true;
-            this.dobTimePicker.Location = new System.Drawing.Point(733, 100);
-            this.dobTimePicker.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.dobTimePicker.Name = "dobTimePicker";
-            this.dobTimePicker.Size = new System.Drawing.Size(36, 16);
-            this.dobTimePicker.TabIndex = 7;
-            this.dobTimePicker.Text = "DOB";
-            // 
-            // lastNameLabel
-            // 
-            this.lastNameLabel.AutoSize = true;
-            this.lastNameLabel.Location = new System.Drawing.Point(536, 100);
-            this.lastNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lastNameLabel.Name = "lastNameLabel";
-            this.lastNameLabel.Size = new System.Drawing.Size(72, 16);
-            this.lastNameLabel.TabIndex = 6;
-            this.lastNameLabel.Text = "Last Name";
-            // 
-            // firstNameLabel
-            // 
-            this.firstNameLabel.AutoSize = true;
-            this.firstNameLabel.Location = new System.Drawing.Point(312, 100);
-            this.firstNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.firstNameLabel.Name = "firstNameLabel";
-            this.firstNameLabel.Size = new System.Drawing.Size(72, 16);
-            this.firstNameLabel.TabIndex = 5;
-            this.firstNameLabel.Text = "First Name";
-            // 
-            // usernameLabel
-            // 
-            this.usernameLabel.AutoSize = true;
-            this.usernameLabel.Location = new System.Drawing.Point(171, 100);
-            this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.usernameLabel.Name = "usernameLabel";
-            this.usernameLabel.Size = new System.Drawing.Size(70, 16);
-            this.usernameLabel.TabIndex = 4;
-            this.usernameLabel.Text = "Username";
-            // 
-            // studentIDLabel
-            // 
-            this.studentIDLabel.AutoSize = true;
-            this.studentIDLabel.Location = new System.Drawing.Point(29, 100);
-            this.studentIDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.studentIDLabel.Name = "studentIDLabel";
-            this.studentIDLabel.Size = new System.Drawing.Size(68, 16);
-            this.studentIDLabel.TabIndex = 3;
-            this.studentIDLabel.Text = "Student ID";
-            // 
-            // searchTitleLabel
-            // 
-            this.searchTitleLabel.AutoSize = true;
-            this.searchTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchTitleLabel.Location = new System.Drawing.Point(19, 5);
-            this.searchTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.searchTitleLabel.Name = "searchTitleLabel";
-            this.searchTitleLabel.Size = new System.Drawing.Size(247, 25);
-            this.searchTitleLabel.TabIndex = 0;
-            this.searchTitleLabel.Text = "Search and Edit Student";
-            // 
-            // clearEditButton
-            // 
-            this.clearEditButton.Location = new System.Drawing.Point(458, 705);
-            this.clearEditButton.Margin = new System.Windows.Forms.Padding(4);
-            this.clearEditButton.Name = "clearEditButton";
-            this.clearEditButton.Size = new System.Drawing.Size(100, 28);
-            this.clearEditButton.TabIndex = 83;
-            this.clearEditButton.Text = "Clear Edits";
-            this.clearEditButton.UseVisualStyleBackColor = true;
-            this.clearEditButton.Click += new System.EventHandler(this.clearEditButton_Click);
-            // 
             // SearchStudentUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -967,9 +1020,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.studentDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.searchOptionGroup.ResumeLayout(false);
             this.searchOptionGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
