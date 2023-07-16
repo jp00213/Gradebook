@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Gradebook.Function
 {
@@ -26,8 +22,6 @@ namespace Gradebook.Function
             else if (score >= 60 & score < 70) grade = "D";
             else if (score >= 0 & score < 60) grade = "F";
             else grade = "U";  // unclassified
-
-
 
             return grade;
         }
