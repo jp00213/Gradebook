@@ -66,6 +66,7 @@
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.studentProfileLabel = new System.Windows.Forms.Label();
             this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sexErrorLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,6 +80,7 @@
             this.saveButton.TabIndex = 21;
             this.saveButton.Text = "Save";
             this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // editButton
             // 
@@ -102,6 +104,7 @@
             this.activeStatusComboBox.Name = "activeStatusComboBox";
             this.activeStatusComboBox.Size = new System.Drawing.Size(234, 21);
             this.activeStatusComboBox.TabIndex = 117;
+            this.activeStatusComboBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // statusLabel
             // 
@@ -121,6 +124,7 @@
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.Size = new System.Drawing.Size(233, 20);
             this.phoneTextBox.TabIndex = 104;
+            this.phoneTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // ssnTextBox
             // 
@@ -130,6 +134,7 @@
             this.ssnTextBox.Name = "ssnTextBox";
             this.ssnTextBox.Size = new System.Drawing.Size(233, 20);
             this.ssnTextBox.TabIndex = 98;
+            this.ssnTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // phoneErrorLabel
             // 
@@ -283,6 +288,7 @@
             this.stateComboBox.Name = "stateComboBox";
             this.stateComboBox.Size = new System.Drawing.Size(233, 21);
             this.stateComboBox.TabIndex = 102;
+            this.stateComboBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // sexComboBox
             // 
@@ -294,6 +300,7 @@
             this.sexComboBox.Name = "sexComboBox";
             this.sexComboBox.Size = new System.Drawing.Size(233, 21);
             this.sexComboBox.TabIndex = 99;
+            this.sexComboBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // dobDateTimePicker
             // 
@@ -304,6 +311,7 @@
             this.dobDateTimePicker.Name = "dobDateTimePicker";
             this.dobDateTimePicker.Size = new System.Drawing.Size(233, 20);
             this.dobDateTimePicker.TabIndex = 97;
+            this.dobDateTimePicker.MouseDown += new System.Windows.Forms.MouseEventHandler(this.resultsDOBDateTimePicker_MouseDown);
             // 
             // zipTextBox
             // 
@@ -313,6 +321,7 @@
             this.zipTextBox.Name = "zipTextBox";
             this.zipTextBox.Size = new System.Drawing.Size(233, 20);
             this.zipTextBox.TabIndex = 103;
+            this.zipTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // cityTextBox
             // 
@@ -322,6 +331,7 @@
             this.cityTextBox.Name = "cityTextBox";
             this.cityTextBox.Size = new System.Drawing.Size(234, 20);
             this.cityTextBox.TabIndex = 101;
+            this.cityTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // addressTextBox
             // 
@@ -331,6 +341,7 @@
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(233, 20);
             this.addressTextBox.TabIndex = 100;
+            this.addressTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // lastNameTextBox
             // 
@@ -340,6 +351,7 @@
             this.lastNameTextBox.Name = "lastNameTextBox";
             this.lastNameTextBox.Size = new System.Drawing.Size(233, 20);
             this.lastNameTextBox.TabIndex = 96;
+            this.lastNameTextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // firstNameTextbox
             // 
@@ -349,6 +361,7 @@
             this.firstNameTextbox.Name = "firstNameTextbox";
             this.firstNameTextbox.Size = new System.Drawing.Size(233, 20);
             this.firstNameTextbox.TabIndex = 95;
+            this.firstNameTextbox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // studentIDtextBox
             // 
@@ -359,6 +372,7 @@
             this.studentIDtextBox.ReadOnly = true;
             this.studentIDtextBox.Size = new System.Drawing.Size(233, 20);
             this.studentIDtextBox.TabIndex = 94;
+            this.studentIDtextBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
             // 
             // phoneLabel
             // 
@@ -474,10 +488,19 @@
             // 
             this.studentBindingSource.DataSource = typeof(Gradebook.Model.Student);
             // 
+            // sexErrorLabel
+            // 
+            this.sexErrorLabel.AutoSize = true;
+            this.sexErrorLabel.Location = new System.Drawing.Point(216, 428);
+            this.sexErrorLabel.Name = "sexErrorLabel";
+            this.sexErrorLabel.Size = new System.Drawing.Size(0, 13);
+            this.sexErrorLabel.TabIndex = 119;
+            // 
             // StudentProfileUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.sexErrorLabel);
             this.Controls.Add(this.studentProfileLabel);
             this.Controls.Add(this.activeStatusComboBox);
             this.Controls.Add(this.statusLabel);
@@ -561,5 +584,6 @@
         private System.Windows.Forms.Label studentIDLabel;
         private System.Windows.Forms.BindingSource studentBindingSource;
         private System.Windows.Forms.Label studentProfileLabel;
+        private System.Windows.Forms.Label sexErrorLabel;
     }
 }

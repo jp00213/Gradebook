@@ -1,4 +1,5 @@
 ﻿using Gradebook.Controller;
+using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace Gradebook.UserControls
 {
@@ -73,8 +75,10 @@ namespace Gradebook.UserControls
 
         private void SetupComboBoxes()
         {
-            this.sexComboBox.Items.Insert(1, "M");
-            this.sexComboBox.Items.Insert(2, "F");
+            this.activeStatusComboBox.Items.Insert(0, "Disable");
+            this.activeStatusComboBox.Items.Insert(1, "Active");
+            this.sexComboBox.Items.Insert(0, "M");
+            this.sexComboBox.Items.Insert(1, "F");
         }
 
         private void StudentProfileUserControl_Enter(object sender, EventArgs e)
@@ -96,6 +100,170 @@ namespace Gradebook.UserControls
             this.zipTextBox.Enabled = true;
             this.phoneTextBox.Enabled = true;
 
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (!this.firstNameTextbox.Enabled)
+            {
+                MessageBox.Show("Please click the edit button to make edits, then click save.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } else
+            {
+                Person oldStudent = this._student;
+                Person newStudent = new Person
+                {
+                    LastName = this.lastNameTextBox.Text.Trim(),
+                    FirstName = this.firstNameTextbox.Text.Trim(),
+                    DateOfBirth = this.dobDateTimePicker.Value,
+                    Phone = this.phoneTextBox.Text.Trim(),
+                    AddressStreet = this.addressTextBox.Text.Trim(),
+                    City = this.cityTextBox.Text.Trim(),
+                    State = this.stateComboBox.Text.Trim(),
+                    Zip = this.zipTextBox.Text.Trim(),
+                    Sex = this.sexComboBox.Text.Trim(),
+                    SSN = this.ssnTextBox.Text.Trim(),
+                    ActiveStatus = this.activeStatusComboBox.SelectedIndex
+                };
+                string lastName = this.lastNameTextBox.Text.Trim();
+                string firstName = this.firstNameTextbox.Text.Trim();
+                DateTime dob = this.dobDateTimePicker.Value;
+                string phone = this.phoneTextBox.Text.Trim();
+                string address = this.addressTextBox.Text.Trim();
+                string city = this.cityTextBox.Text.Trim();
+                string state = this.stateComboBox.Text.Trim();
+                string zip = this.zipTextBox.Text.Trim();
+                string sex = this.sexComboBox.Text.Trim();
+                string ssn = this.ssnTextBox.Text.Trim();
+                string status = this.activeStatusComboBox.Text.Trim();
+
+                if (string.IsNullOrEmpty(lastName) || !ValidationUtility.IsMoreThanOneLetters(lastName) ||
+                    string.IsNullOrEmpty(firstName) || !ValidationUtility.IsMoreThanOneLetters(firstName) ||
+                    dob > DateTime.Now || string.IsNullOrEmpty(address) ||
+                    !ValidationUtility.IsMoreThanOneLetters(address) || string.IsNullOrEmpty(city) ||
+                    !ValidationUtility.IsMoreThanOneLetters(city) || string.IsNullOrEmpty(state) ||
+                    state.Length != 2 || !ValidationUtility.IsValidZipCode(zip) ||
+                    !ValidationUtility.IsValidPhoneNumber(phone) || !ValidationUtility.IsGenderValid(sex) ||
+                    !ValidationUtility.IsSSNValid(ssn) || string.IsNullOrEmpty(ssn) || !ValidationUtility.IsStatusValid(status))
+                {
+                    this.ShowInvalidErrorMessages();
+                }
+                else
+                {
+                    if (this._studentController.UpdatePersonStudent(oldStudent, newStudent))
+                    {
+                        MessageBox.Show("Student profile successfully updated!", "Profile Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please check your inputs. Update failed.", "Profile Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(newStudent.StudentID + " " +
+                            newStudent.RecordId + " " +
+                            newStudent.FirstName + " " +
+                            newStudent.LastName + " " +
+                            newStudent.DateOfBirth + " " +
+                            newStudent.SSN + " " +
+                            newStudent.Sex + " " +
+                            newStudent.AddressStreet + " " +
+                            newStudent.City + " " +
+                            newStudent.State + " " +
+                            newStudent.Zip + " " +
+                            newStudent.Phone + " " +
+                            newStudent.ActiveStatus + " ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }   
+        }
+
+        private void ShowInvalidErrorMessages()
+        {
+            if (string.IsNullOrEmpty(lastNameTextBox.Text) || string.IsNullOrWhiteSpace(lastNameTextBox.Text) ||
+                !ValidationUtility.IsMoreThanOneLetters(this.lastNameTextBox.Text.Trim()))
+            {
+                this.lastNameErrorLabel.Text = "Please enter your last name.";
+                this.lastNameErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (string.IsNullOrEmpty(firstNameTextbox.Text) || string.IsNullOrWhiteSpace(firstNameTextbox.Text) ||
+                 !ValidationUtility.IsMoreThanOneLetters(this.firstNameTextbox.Text.Trim()))
+            {
+                this.firstNameErrorLabel.Text = "Please enter your first name.";
+                this.firstNameErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (this.dobDateTimePicker.Value > DateTime.Now)
+            {
+                this.DOBErrorLabel.Text = "Invalid Date. Birthday cannot be in future.";
+                this.DOBErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsMoreThanOneLetters(this.addressTextBox.Text.Trim()) ||
+                    string.IsNullOrEmpty(this.addressTextBox.Text.Trim()))
+            {
+                this.addressErrorLabel.Text = "Please enter your full street address.";
+                this.addressErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsMoreThanOneLetters(this.cityTextBox.Text.Trim()) ||
+                    string.IsNullOrEmpty(this.cityTextBox.Text.Trim()))
+            {
+                this.cityErrorLabel.Text = "Please enter your city.";
+                this.cityErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (this.stateComboBox.Text.Trim().Length != 2 || string.IsNullOrEmpty(this.stateComboBox.Text.Trim()))
+            {
+                this.stateErrorLabel.Text = "Please select your state abbreviation.";
+                this.stateErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsValidZipCode(this.zipTextBox.Text.Trim()))
+            {
+                this.zipErrorLabel.Text = "Please enter a valid zipcode.";
+                this.zipErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsValidPhoneNumber(this.phoneTextBox.Text.Trim()))
+            {
+                this.phoneErrorLabel.Text = "Please enter your 10 digit phone only numbers.";
+                this.phoneErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsGenderValid(this.sexComboBox.Text.Trim()))
+            {
+                this.sexErrorLabel.Text = "Please enter M or F.";
+                this.sexErrorLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsSSNValid(this.ssnTextBox.Text.Trim()))
+            {
+                this.ssnErrorLabel.Text = "Please enter a valid 9 digit SSN, numbers only.";
+                this.ssnErrorLabel.ForeColor = Color.Red;
+            }
+
+        }
+
+        private void resultsDOBDateTimePicker_MouseDown(object sender, MouseEventArgs e)
+        {
+            this.HideInvalidErrorMessages();
+        }
+
+        private void HideInvalidErrorMessages()
+        {
+            this.lastNameErrorLabel.Text = "";
+            this.firstNameErrorLabel.Text = "";
+            this.DOBErrorLabel.Text = "";
+            this.addressErrorLabel.Text = "";
+            this.phoneErrorLabel.Text = "";
+            this.cityErrorLabel.Text = "";
+            this.stateErrorLabel.Text = "";
+            this.zipErrorLabel.Text = "";
+            this.sexErrorLabel.Text = "";
+            this.ssnErrorLabel.Text = "";
+        }
+
+        private void TextBox_Changed(object sender, EventArgs e)
+        {
+            this.HideInvalidErrorMessages();
         }
     }
 }
