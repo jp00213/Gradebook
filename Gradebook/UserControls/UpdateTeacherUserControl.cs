@@ -99,7 +99,7 @@ namespace Gradebook.UserControls
             string zip = this.zipTextBox.Text.Trim();
             string sex = this.sexComboBox.Text.Trim();
             string ssn = this.ssnTextBox.Text.Trim();
-            string status = this.activeStatusComboBox.Text.Trim();
+            int status = this.activeStatusComboBox.SelectedIndex;
 
             if (string.IsNullOrEmpty(lastName) || !ValidationUtility.IsMoreThanOneLetters(lastName) ||
                 string.IsNullOrEmpty(firstName) || !ValidationUtility.IsMoreThanOneLetters(firstName) ||
@@ -108,7 +108,8 @@ namespace Gradebook.UserControls
                 !ValidationUtility.IsMoreThanOneLetters(city) || string.IsNullOrEmpty(state) ||
                 state.Length != 2 || !ValidationUtility.IsValidZipCode(zip) ||
                 !ValidationUtility.IsValidPhoneNumber(phone) || !ValidationUtility.IsGenderValid(sex) ||
-                !ValidationUtility.IsSSNValid(ssn) || string.IsNullOrEmpty(ssn) || !ValidationUtility.IsStatusValid(status))
+                !ValidationUtility.IsSSNValid(ssn) || string.IsNullOrEmpty(ssn) || status < 1 ||
+                status > 3)
             {
                 this.ShowInvalidErrorMessages();
             }
@@ -228,11 +229,12 @@ namespace Gradebook.UserControls
                 this.ssnErrorLabel.ForeColor = Color.Red;
             }
 
-            if (!ValidationUtility.IsStatusValid(this.activeStatusComboBox.Text.Trim()))
+            if ((this.activeStatusComboBox.SelectedIndex < 1) || (this.activeStatusComboBox.SelectedIndex > 3))
             {
-                this.statusErrorMessageLabel.Text = "Please enter a valid status";
+                this.statusErrorMessageLabel.Text = "Please choose a valid item.";
                 this.statusErrorMessageLabel.ForeColor = Color.Red;
             }
+
         }
 
         private void HideInvalidErrorMessages()
@@ -262,8 +264,13 @@ namespace Gradebook.UserControls
 
         private void SetupComboBoxes()
         {
-            this.activeStatusComboBox.Items.Insert(0, "Disable");
+            this.activeStatusComboBox.Items.Insert(0, "-- select --");
             this.activeStatusComboBox.Items.Insert(1, "Active");
+            this.activeStatusComboBox.Items.Insert(2, "Hold");
+            this.activeStatusComboBox.Items.Insert(3, "Disable");
+
+            this.activeStatusComboBox.SelectedIndex = 0;
+
             this.sexComboBox.Items.Insert(0, "-- select --");
             this.sexComboBox.Items.Insert(1, "M");
             this.sexComboBox.Items.Insert(2, "F");
