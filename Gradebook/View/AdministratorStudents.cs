@@ -28,7 +28,6 @@ namespace Gradebook.View
 
         private void currentStudentIDDataLabel_TextChanged(object sender, System.EventArgs e)
         {
-            viewAndUpdateStudentUserControl1.SetCurrentViewEditID(this.currentStudentIDDataLabel.Text);
             changeStudentPasswordUserControl1.SetCurrentStudentID(this.currentStudentIDDataLabel.Text);
             studentRegistrationDetailsUserControl1.SetCurrentStudentID(this.currentStudentIDDataLabel.Text);
         }
