@@ -2,24 +2,23 @@
 using Gradebook.Function;
 using Gradebook.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.AxHost;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// Student profile user control
+    /// </summary>
     public partial class StudentProfileUserControl : UserControl
     {
 
         private StudentController _studentController;
         private Person _student;
 
+        /// <summary>
+        /// Student profile user control
+        /// </summary>
         public StudentProfileUserControl()
         {
             InitializeComponent();
@@ -66,7 +65,7 @@ namespace Gradebook.UserControls
                 this.phoneTextBox.Text = this._student.Phone;
                 this.activeStatusComboBox.SelectedIndex = this._student.ActiveStatus;
                 
-                this.saveButton.Enabled = true;
+                this.saveButton.Enabled = false;
             } catch (Exception)
             {
                 MessageBox.Show("Please log in as a student.", "Error", MessageBoxButtons.OK);
@@ -99,6 +98,25 @@ namespace Gradebook.UserControls
             this.stateComboBox.Enabled = true;
             this.zipTextBox.Enabled = true;
             this.phoneTextBox.Enabled = true;
+
+        }
+
+
+        private void RefreshPage()
+        {
+            this.GetCurrentStudent(this._student.StudentID);
+            this.FillStudentInfo();
+            this.saveButton.Enabled = false;
+            this.firstNameTextbox.Enabled = false;
+            this.lastNameTextBox.Enabled = false;
+            this.dobDateTimePicker.Enabled = false;
+            this.ssnTextBox.Enabled = false;
+            this.sexComboBox.Enabled = false;
+            this.addressTextBox.Enabled = false;
+            this.cityTextBox.Enabled = false;
+            this.stateComboBox.Enabled = false;
+            this.zipTextBox.Enabled = false;
+            this.phoneTextBox.Enabled = false;
 
         }
 
@@ -152,23 +170,12 @@ namespace Gradebook.UserControls
                     if (this._studentController.UpdatePersonStudent(oldStudent, newStudent))
                     {
                         MessageBox.Show("Student profile successfully updated!", "Profile Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.RefreshPage();
+                        
                     }
                     else
                     {
                         MessageBox.Show("Please check your inputs. Update failed.", "Profile Update Unsuccessful", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        MessageBox.Show(newStudent.StudentID + " " +
-                            newStudent.RecordId + " " +
-                            newStudent.FirstName + " " +
-                            newStudent.LastName + " " +
-                            newStudent.DateOfBirth + " " +
-                            newStudent.SSN + " " +
-                            newStudent.Sex + " " +
-                            newStudent.AddressStreet + " " +
-                            newStudent.City + " " +
-                            newStudent.State + " " +
-                            newStudent.Zip + " " +
-                            newStudent.Phone + " " +
-                            newStudent.ActiveStatus + " ", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }   
@@ -264,6 +271,11 @@ namespace Gradebook.UserControls
         private void TextBox_Changed(object sender, EventArgs e)
         {
             this.HideInvalidErrorMessages();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.RefreshPage();
         }
     }
 }

@@ -32,6 +32,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.activeStatusComboBox = new System.Windows.Forms.ComboBox();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.statusLabel = new System.Windows.Forms.Label();
             this.phoneTextBox = new System.Windows.Forms.TextBox();
             this.ssnTextBox = new System.Windows.Forms.TextBox();
@@ -65,8 +66,8 @@
             this.firstNameLabel = new System.Windows.Forms.Label();
             this.studentIDLabel = new System.Windows.Forms.Label();
             this.studentProfileLabel = new System.Windows.Forms.Label();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.sexErrorLabel = new System.Windows.Forms.Label();
+            this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.studentBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -74,7 +75,7 @@
             // 
             this.saveButton.Enabled = false;
             this.saveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveButton.Location = new System.Drawing.Point(297, 462);
+            this.saveButton.Location = new System.Drawing.Point(408, 462);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(115, 36);
             this.saveButton.TabIndex = 21;
@@ -105,6 +106,10 @@
             this.activeStatusComboBox.Size = new System.Drawing.Size(234, 21);
             this.activeStatusComboBox.TabIndex = 117;
             this.activeStatusComboBox.TextChanged += new System.EventHandler(this.TextBox_Changed);
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(Gradebook.Model.Student);
             // 
             // statusLabel
             // 
@@ -484,10 +489,6 @@
             this.studentProfileLabel.TabIndex = 118;
             this.studentProfileLabel.Text = "Student Profile";
             // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(Gradebook.Model.Student);
-            // 
             // sexErrorLabel
             // 
             this.sexErrorLabel.AutoSize = true;
@@ -496,10 +497,22 @@
             this.sexErrorLabel.Size = new System.Drawing.Size(0, 13);
             this.sexErrorLabel.TabIndex = 119;
             // 
+            // cancelButton
+            // 
+            this.cancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cancelButton.Location = new System.Drawing.Point(246, 462);
+            this.cancelButton.Name = "cancelButton";
+            this.cancelButton.Size = new System.Drawing.Size(115, 36);
+            this.cancelButton.TabIndex = 120;
+            this.cancelButton.Text = "Cancel";
+            this.cancelButton.UseVisualStyleBackColor = true;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            // 
             // StudentProfileUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.sexErrorLabel);
             this.Controls.Add(this.studentProfileLabel);
             this.Controls.Add(this.activeStatusComboBox);
@@ -585,5 +598,6 @@
         private System.Windows.Forms.BindingSource studentBindingSource;
         private System.Windows.Forms.Label studentProfileLabel;
         private System.Windows.Forms.Label sexErrorLabel;
+        private System.Windows.Forms.Button cancelButton;
     }
 }
