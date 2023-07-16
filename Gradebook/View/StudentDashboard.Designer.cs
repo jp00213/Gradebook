@@ -36,13 +36,15 @@
             this.studentGPAUserControl1 = new Gradebook.UserControls.StudentGPAUserControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.studentRegistrationUserControl1 = new Gradebook.UserControls.StudentRegistrationUserControl();
+            this.studentProfileTabPage = new System.Windows.Forms.TabPage();
+            this.studentProfileUserControl1 = new Gradebook.UserControls.StudentProfileUserControl();
             this.currentUsernameLabel = new System.Windows.Forms.Label();
             this.userNameDataLabel = new System.Windows.Forms.Label();
-            this.studentProfileTabPage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.courseSummaryTab.SuspendLayout();
             this.gradeDetailstab.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.studentProfileTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // logoutLinkLabel
@@ -129,6 +131,25 @@
             this.studentRegistrationUserControl1.Size = new System.Drawing.Size(986, 613);
             this.studentRegistrationUserControl1.TabIndex = 0;
             // 
+            // studentProfileTabPage
+            // 
+            this.studentProfileTabPage.Controls.Add(this.studentProfileUserControl1);
+            this.studentProfileTabPage.Location = new System.Drawing.Point(4, 25);
+            this.studentProfileTabPage.Name = "studentProfileTabPage";
+            this.studentProfileTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.studentProfileTabPage.Size = new System.Drawing.Size(986, 622);
+            this.studentProfileTabPage.TabIndex = 3;
+            this.studentProfileTabPage.Text = "Student Profile";
+            this.studentProfileTabPage.UseVisualStyleBackColor = true;
+            // 
+            // studentProfileUserControl1
+            // 
+            this.studentProfileUserControl1.Location = new System.Drawing.Point(-148, -48);
+            this.studentProfileUserControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.studentProfileUserControl1.Name = "studentProfileUserControl1";
+            this.studentProfileUserControl1.Size = new System.Drawing.Size(1138, 679);
+            this.studentProfileUserControl1.TabIndex = 0;
+            // 
             // currentUsernameLabel
             // 
             this.currentUsernameLabel.AutoSize = true;
@@ -146,16 +167,6 @@
             this.userNameDataLabel.Size = new System.Drawing.Size(10, 13);
             this.userNameDataLabel.TabIndex = 4;
             this.userNameDataLabel.Text = "-";
-            // 
-            // studentProfileTabPage
-            // 
-            this.studentProfileTabPage.Location = new System.Drawing.Point(4, 25);
-            this.studentProfileTabPage.Name = "studentProfileTabPage";
-            this.studentProfileTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.studentProfileTabPage.Size = new System.Drawing.Size(986, 622);
-            this.studentProfileTabPage.TabIndex = 3;
-            this.studentProfileTabPage.Text = "Student Profile";
-            this.studentProfileTabPage.UseVisualStyleBackColor = true;
             // 
             // StudentDashboard
             // 
@@ -177,6 +188,7 @@
             this.courseSummaryTab.ResumeLayout(false);
             this.gradeDetailstab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.studentProfileTabPage.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,5 +207,6 @@
         private UserControls.StudentRegistrationUserControl studentRegistrationUserControl1;
         private UserControls.StudentGPAUserControl studentGPAUserControl1;
         private System.Windows.Forms.TabPage studentProfileTabPage;
+        private UserControls.StudentProfileUserControl studentProfileUserControl1;
     }
 }

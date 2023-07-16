@@ -496,5 +496,90 @@ namespace Gradebook.DAL
                 }
             }
         }
+
+        /// <summary>
+        /// Updates teacher's info in the DB
+        /// </summary>
+        /// <param name="oldStudent"></param>
+        /// <param name="newStudent"></param>
+        /// <returns></returns>
+        public bool UpdatePersonStudent(Person oldStudent, Person newStudent)
+        {
+            int records = 0;
+            string updatePersonStatement = "UPDATE person " +
+                "SET lastName = @newLastName, firstName = @newFirstName, " +
+                "birthday = @newBirthday, street = @newStreet, city = @newCity, " +
+                "state = @newState, zip = @newZip, phoneNumber = @newPhone, sex = @newSex, " +
+                "ssn = @newSSN " +
+                "WHERE recordID = @oldRecordID AND " +
+                "lastName = @oldLastName AND firstName = @oldFirstName AND birthday = @oldBirthday AND " +
+                "street = @oldStreet AND city = @oldCity AND state = @oldState AND zip = @oldZip AND " +
+                "phoneNumber = @oldPhone AND sex = @oldSex AND (ssn = @oldSSN OR ssn is null) ";
+
+            using (SqlConnection connection = GradebookDBConnection.GetConnection())
+            {
+                connection.Open();
+                using (SqlTransaction transaction = connection.BeginTransaction())
+                {
+                    try
+                    {
+                        using (SqlCommand updateCommand = new SqlCommand(updatePersonStatement, connection))
+                        {
+                            updateCommand.Transaction = transaction;
+
+                            updateCommand.Parameters.AddWithValue("@oldRecordID", oldStudent.RecordId);
+                            updateCommand.Parameters.AddWithValue("@newLastName", newStudent.LastName);
+                            updateCommand.Parameters.AddWithValue("@newFirstName", newStudent.FirstName);
+                            updateCommand.Parameters.AddWithValue("@newBirthday", newStudent.DateOfBirth);
+                            updateCommand.Parameters.AddWithValue("@newStreet", newStudent.AddressStreet);
+                            updateCommand.Parameters.AddWithValue("@newCity", newStudent.City);
+                            updateCommand.Parameters.AddWithValue("@newState", newStudent.State);
+                            updateCommand.Parameters.AddWithValue("@newZip", newStudent.Zip);
+                            updateCommand.Parameters.AddWithValue("@newPhone", newStudent.Phone);
+                            updateCommand.Parameters.AddWithValue("@newSex", newStudent.Sex);
+                            if (newStudent.SSN is null)
+                            {
+                                updateCommand.Parameters.AddWithValue("@newSSN", DBNull.Value);
+                            }
+                            else
+                            {
+                                updateCommand.Parameters.AddWithValue("@newSSN", newStudent.SSN);
+                            }
+                            updateCommand.Parameters.AddWithValue("@oldLastName", oldStudent.LastName);
+                            updateCommand.Parameters.AddWithValue("@oldFirstName", oldStudent.FirstName);
+                            updateCommand.Parameters.AddWithValue("@oldBirthday", oldStudent.DateOfBirth);
+                            updateCommand.Parameters.AddWithValue("@oldStreet", oldStudent.AddressStreet);
+                            updateCommand.Parameters.AddWithValue("@oldCity", oldStudent.City);
+                            updateCommand.Parameters.AddWithValue("@oldState", oldStudent.State);
+                            updateCommand.Parameters.AddWithValue("@oldZip", oldStudent.Zip);
+                            updateCommand.Parameters.AddWithValue("@oldPhone", oldStudent.Phone);
+                            updateCommand.Parameters.AddWithValue("@oldSex", oldStudent.Sex);
+                            if (oldStudent.SSN is null)
+                            {
+                                updateCommand.Parameters.AddWithValue("@oldSSN", DBNull.Value);
+                            }
+                            else
+                            {
+                                updateCommand.Parameters.AddWithValue("@oldSSN", oldStudent.SSN);
+                            }
+
+                            records = updateCommand.ExecuteNonQuery();
+
+                            if (records > 0)
+                            {
+                                transaction.Commit();
+                                return true;
+                            }
+                            else { return false; }
+                        }
+                    }
+                    catch
+                    {
+                        transaction.Rollback();
+                        return false;
+                    }
+                }
+            }
+        }
     }
 }
