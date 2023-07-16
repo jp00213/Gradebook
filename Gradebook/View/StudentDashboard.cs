@@ -1,5 +1,4 @@
-﻿using Gradebook.UserControls;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Gradebook.View
 {

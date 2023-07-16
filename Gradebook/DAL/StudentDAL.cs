@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using Gradebook.Function;
 using Gradebook.Model;
 
 namespace Gradebook.DAL

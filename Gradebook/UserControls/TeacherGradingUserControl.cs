@@ -3,7 +3,6 @@ using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace Gradebook.UserControls

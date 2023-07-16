@@ -8,7 +8,7 @@
         public string userName { get; set; }
 
         /// <summary>
-        /// Construrctor for current user
+        /// Constructor for current user
         /// </summary>
         public CurrentUser() { }
 
