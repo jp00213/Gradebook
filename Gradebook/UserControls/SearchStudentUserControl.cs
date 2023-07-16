@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Gradebook.UserControls
 {
@@ -49,8 +50,17 @@ namespace Gradebook.UserControls
 
         private void SetStudentIDToZero()
         {
+            SearchItem searchItem = new SearchItem
+            {
+                FirstName = "",
+                LastName = "",
+                DateOfBirth = DateTime.Now,
+                StudentID = 0,
+                Username = ""
+            };
+            this.studentDataGridView.DataSource = this._studentController.GetStudentByParameters(searchItem);
+
             this._controlNumber.StudentID = 0;
-            this.studentListView.Items.Clear();
             // 5. event - event trigger
             this.OnNumberchanged(EventArgs.Empty);
         }
@@ -78,7 +88,6 @@ namespace Gradebook.UserControls
             this.SetupDatePickerMinus10Years();
             this.ErrorMessageLabel.Text = string.Empty;
             this.currentStudentIDSetLabel.Text = string.Empty;
-            this.studentListView.Items.Clear();
 
             this.SetStudentIDToZero();
 
@@ -91,7 +100,6 @@ namespace Gradebook.UserControls
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-
             if (
                  (this.firstNameTextBox.Text != string.Empty) ||
                  (this.lastNameTextBox.Text != string.Empty) ||
@@ -121,51 +129,24 @@ namespace Gradebook.UserControls
 
         private void LoadStudentListView(string studentID, string username, string firstName, string lastName, DateTime dob)
         {
-            SearchItem searchItem = new SearchItem();
-            searchItem.FirstName = firstName;
-            searchItem.LastName = lastName;
-            searchItem.DateOfBirth = dob;
+            SearchItem searchItem = new SearchItem
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                DateOfBirth = dob,
+                Username = username
+            };
 
-            int numericValue;
-            bool isNumber = int.TryParse(studentID, out numericValue);
-
-            this.studentListView.Items.Clear();
-
-            if ((studentID == null) || (isNumber != true))
+            if (int.TryParse(studentID, out int numericValue))
+            {
+                searchItem.StudentID = numericValue;
+            }
+            else
             {
                 searchItem.StudentID = 0;
             }
-            else
-            {
-                searchItem.StudentID = Convert.ToInt32(studentID);
-            }
-            searchItem.Username = username;
 
-            List<Person> studentList = this._studentController.GetStudentByParameters(searchItem);
-
-            if (studentList.Count > 0)
-            {
-                this.ErrorMessageLabel.Text = "";
-                this.studentListView.Items.Clear();
-                Person currentPerson;
-                for (int i = 0; i < studentList.Count; i++)
-                {
-                    currentPerson = studentList[i];
-                    studentListView.Items.Add(currentPerson.StudentID.ToString());
-                    studentListView.Items[i].SubItems.Add(currentPerson.RecordId.ToString());
-                    studentListView.Items[i].SubItems.Add(currentPerson.Username);
-                    studentListView.Items[i].SubItems.Add(currentPerson.FirstName);
-                    studentListView.Items[i].SubItems.Add(currentPerson.LastName);
-                    studentListView.Items[i].SubItems.Add(currentPerson.DateOfBirth.ToShortDateString());
-                    studentListView.Items[i].SubItems.Add(currentPerson.Phone);
-                    studentListView.Items[i].SubItems.Add(currentPerson.SSN);
-                }
-            }
-            else
-            {
-                this.ErrorMessageLabel.Text = "No student found.";
-                this.ErrorMessageLabel.ForeColor = Color.Blue;
-            }
+            this.studentDataGridView.DataSource = this._studentController.GetStudentByParameters(searchItem);
         }
 
         private void ChangeSearchBox(object sender, EventArgs e)
@@ -183,7 +164,6 @@ namespace Gradebook.UserControls
                 dob_Datepicker.Value = new DateTime(1900, 1, 1);
                 dob_Datepicker.Enabled = false;
             }
-
 
             if (searchUsernameRadioButton.Checked == true)
             {
@@ -228,13 +208,13 @@ namespace Gradebook.UserControls
             }
         }
 
-        private void studentListView_Click(object sender, EventArgs e)
+        private void studentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.currentStudentIDSetLabel.Text = studentListView.SelectedItems[0].SubItems[0].Text;
-            this._controlNumber.StudentID = int.Parse(currentStudentIDSetLabel.Text);
+            Person selectedStudent = (Person)this.studentDataGridView.SelectedRows[0].DataBoundItem;
+            this.currentStudentIDSetLabel.Text = selectedStudent.StudentID.ToString();
+            this._controlNumber.StudentID = selectedStudent.StudentID;
             // 5. event - event trigger
             this.OnNumberchanged(EventArgs.Empty);
-
         }
     }
 }
