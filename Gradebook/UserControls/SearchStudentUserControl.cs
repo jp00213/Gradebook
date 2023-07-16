@@ -93,6 +93,7 @@ namespace Gradebook.UserControls
         private void clearButton_Click(object sender, EventArgs e)
         {
             this.ClearSearchButton();
+            this.ClearLoadedStudent();
         }
 
         private void ClearSearchButton()

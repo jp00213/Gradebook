@@ -7,7 +7,9 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
-
+    /// <summary>
+    /// Student GPA user control
+    /// </summary>
     public partial class StudentGPAUserControl : UserControl
     {
         /// <summary>

@@ -172,7 +172,7 @@
             // clearEditButton
             // 
             this.clearEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.clearEditButton.Location = new System.Drawing.Point(394, 694);
+            this.clearEditButton.Location = new System.Drawing.Point(386, 683);
             this.clearEditButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearEditButton.Name = "clearEditButton";
             this.clearEditButton.Size = new System.Drawing.Size(145, 32);
@@ -653,7 +653,7 @@
             // updateStudentButton
             // 
             this.updateStudentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.updateStudentButton.Location = new System.Drawing.Point(551, 694);
+            this.updateStudentButton.Location = new System.Drawing.Point(543, 683);
             this.updateStudentButton.Margin = new System.Windows.Forms.Padding(4);
             this.updateStudentButton.Name = "updateStudentButton";
             this.updateStudentButton.Size = new System.Drawing.Size(145, 32);
@@ -687,7 +687,7 @@
             this.studentDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.studentDataGridView.Size = new System.Drawing.Size(1135, 135);
             this.studentDataGridView.TabIndex = 18;
-            this.studentDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
+            this.studentDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.studentDataGridView_CellContentClick);
             // 
             // currentStudentIDSetLabel
             // 
@@ -792,10 +792,10 @@
             // clearButton
             // 
             this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.clearButton.Location = new System.Drawing.Point(1023, 116);
+            this.clearButton.Location = new System.Drawing.Point(1009, 117);
             this.clearButton.Margin = new System.Windows.Forms.Padding(4);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(129, 28);
+            this.clearButton.Size = new System.Drawing.Size(152, 28);
             this.clearButton.TabIndex = 13;
             this.clearButton.Text = "Clear Search";
             this.clearButton.UseVisualStyleBackColor = true;

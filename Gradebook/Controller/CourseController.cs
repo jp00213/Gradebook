@@ -194,7 +194,11 @@ namespace Gradebook.Controller
             return this._courseDAL.DeleteRegistration(courseID, studentid);
         }
 
-        // waiting for DAL
+        /// <summary>
+        /// Held for future iterations
+        /// </summary>
+        /// <param name="searchItems"></param>
+        /// <returns></returns>
         public List<Grades> GetGradesDataByTeacherIDAndSemesterAndYearAndCourseID(Course searchItems)
         {
             return null;

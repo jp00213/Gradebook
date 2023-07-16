@@ -60,17 +60,8 @@ namespace Gradebook.Controller
         /// <summary>
         /// Updates teacher in the db
         /// </summary>
-        /// <param name="recordID"></param>
-        /// <param name="lastName"></param>
-        /// <param name="firstName"></param>
-        /// <param name="birthday"></param>
-        /// <param name="street"></param>
-        /// <param name="city"></param>
-        /// <param name="state"></param>
-        /// <param name="zip"></param>
-        /// <param name="phone"></param>
-        /// <param name="sex"></param>
-        /// <param name="ssn"></param>
+        /// <param name="oldTeacher"></param>
+        /// <param name="newTeacher"></param>
         /// <returns></returns>
         public bool UpdateTeacher(Teacher oldTeacher, Teacher newTeacher)
         {

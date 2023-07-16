@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace Gradebook.UserControls
 {
+    /// <summary>
+    /// Student course summary user control
+    /// </summary>
     public partial class StudentCourseSummaryUserControl : UserControl
     {
         /// <summary>

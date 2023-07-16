@@ -136,7 +136,7 @@
             // 
             sectionLabelUpdate.AutoSize = true;
             sectionLabelUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            sectionLabelUpdate.Location = new System.Drawing.Point(708, 373);
+            sectionLabelUpdate.Location = new System.Drawing.Point(744, 373);
             sectionLabelUpdate.Name = "sectionLabelUpdate";
             sectionLabelUpdate.Size = new System.Drawing.Size(78, 25);
             sectionLabelUpdate.TabIndex = 41;
@@ -146,7 +146,7 @@
             // 
             semesterLabelUpdate.AutoSize = true;
             semesterLabelUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            semesterLabelUpdate.Location = new System.Drawing.Point(371, 435);
+            semesterLabelUpdate.Location = new System.Drawing.Point(356, 435);
             semesterLabelUpdate.Name = "semesterLabelUpdate";
             semesterLabelUpdate.Size = new System.Drawing.Size(96, 25);
             semesterLabelUpdate.TabIndex = 43;
@@ -156,7 +156,7 @@
             // 
             teacherLabelUpdate.AutoSize = true;
             teacherLabelUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            teacherLabelUpdate.Location = new System.Drawing.Point(708, 438);
+            teacherLabelUpdate.Location = new System.Drawing.Point(744, 438);
             teacherLabelUpdate.Name = "teacherLabelUpdate";
             teacherLabelUpdate.Size = new System.Drawing.Size(85, 25);
             teacherLabelUpdate.TabIndex = 45;
@@ -253,7 +253,7 @@
             this.courseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseDataGridView.Size = new System.Drawing.Size(1215, 172);
             this.courseDataGridView.TabIndex = 30;
-            this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
+            this.courseDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 

@@ -32,7 +32,7 @@ namespace Gradebook.Controller
         }
 
         /// <summary>
-        /// Updates a grade for a student in an assignment
+        /// Updates a grade for a student in an assignment. Held for future iterations
         /// </summary>
         /// <param name="assignmentID"></param>
         /// <param name="studentID"></param>

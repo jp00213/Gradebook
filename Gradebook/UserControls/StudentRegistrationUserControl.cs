@@ -96,7 +96,7 @@ namespace Gradebook.UserControls
                     this.registerButton.Enabled = false;
                 } else
                 {
-                    MessageBox.Show("Did not register.\nYour maximum is " + this.maximumCredits + "credits.\nYou have " + this.totalCredits + " credits already", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Did not register.\nYour maximum is " + this.maximumCredits + " credits.\nYou have " + this.totalCredits + " credits already", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch
