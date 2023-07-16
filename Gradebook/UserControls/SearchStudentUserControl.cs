@@ -1,4 +1,5 @@
 ﻿using Gradebook.Controller;
+using Gradebook.Function;
 using Gradebook.Model;
 using System;
 using System.Collections.Generic;
@@ -14,9 +15,9 @@ namespace Gradebook.UserControls
     public partial class SearchStudentUserControl : UserControl
     {
         private readonly StudentController _studentController;
-
         // 1. customer event
         private Person _controlNumber;
+        private Person theStudent;
 
         /// <summary>
         /// 2. custom event
@@ -30,13 +31,13 @@ namespace Gradebook.UserControls
         {
             InitializeComponent();
             this.SetupDatePickerMinus10Years();
-            //  this.viewOnlyRadioButton.Enabled = true;
+            this.SetupComboBoxes();
             this._studentController = new StudentController();
+            this._controlNumber = new Person();
+
             this.ErrorMessageLabel.Text = string.Empty;
             this.searchStudentIDRadioButton.Enabled = true;
             this.searchStudentIDRadioButton.Checked = true;
-
-            this._controlNumber = new Person();
         }
 
         /// <summary>
@@ -46,6 +47,17 @@ namespace Gradebook.UserControls
         protected virtual void OnNumberchanged(EventArgs e)
         {
             StudentNumberChanged?.Invoke(this, e);
+        }
+
+        private void SetupComboBoxes()
+        {
+            this.genderComboBox.Items.Insert(0, "-- select --");
+            this.genderComboBox.Items.Insert(1, "M");
+            this.genderComboBox.Items.Insert(2, "F");
+            this.statusComboBox.Items.Insert(0, "-- select --");
+            this.statusComboBox.Items.Insert(1, "Active");
+            this.statusComboBox.Items.Insert(2, "Hold");
+            this.statusComboBox.Items.Insert(3, "Disable");
         }
 
         private void SetStudentIDToZero()
@@ -210,11 +222,190 @@ namespace Gradebook.UserControls
 
         private void studentDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            Person selectedStudent = (Person)this.studentDataGridView.SelectedRows[0].DataBoundItem;
-            this.currentStudentIDSetLabel.Text = selectedStudent.StudentID.ToString();
-            this._controlNumber.StudentID = selectedStudent.StudentID;
+            this.theStudent = (Person)this.studentDataGridView.SelectedRows[0].DataBoundItem;
+            this.currentStudentIDSetLabel.Text = this.theStudent.StudentID.ToString();
+            this._controlNumber.StudentID = this.theStudent.StudentID;
             // 5. event - event trigger
             this.OnNumberchanged(EventArgs.Empty);
+            this.LoadStudentDetails();
         }
+
+        private void LoadStudentDetails()
+        {
+            firstNameDetailsTextBox.Text = theStudent.FirstName;
+            lastNameDetailsTextBox.Text = theStudent.LastName;
+            dobPicker.Value = theStudent.DateOfBirth;
+            phoneTextBox.Text = theStudent.Phone;
+            genderComboBox.Text = theStudent.Sex;
+            streetTextBox.Text = theStudent.AddressStreet;
+            cityTextBox.Text = theStudent.City;
+            stateComboBox.Text = theStudent.State;
+            zipTextBox.Text = theStudent.Zip;
+            ssnTextBox.Text = theStudent.SSN;
+            if (theStudent.MaximumUnitsAllowed == null)
+            {
+                maximumAllowedUnitsComboBox.SelectedItem = null;
+            }
+            else
+            {
+                maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
+            };
+            statusComboBox.SelectedIndex = theStudent.ActiveStatus;
+        }
+
+        private void updateStudentButton_Click(object sender, EventArgs e)
+        {
+            string lastName = this.lastNameTextBox.Text.Trim();
+            string firstName = this.firstNameTextBox.Text.Trim();
+            DateTime dateOfBirth = this.dobPicker.Value;
+            string street = this.streetTextBox.Text.Trim();
+            string city = this.cityTextBox.Text.Trim();
+            string state = this.stateComboBox.Text.Trim();
+            string zip = this.zipTextBox.Text.Trim();
+            string phone = this.phoneTextBox.Text.Trim();
+            string sex = this.genderComboBox.Text.Trim();
+            string ssn = this.ssnTextBox.Text.Trim();
+            int status = this.statusComboBox.SelectedIndex;
+            int? maximumUnitsAllowed;
+            if (this.maximumAllowedUnitsComboBox.Text.Trim() is null || this.maximumAllowedUnitsComboBox.Text.Trim() == "")
+            {
+                maximumUnitsAllowed = null;
+            }
+            else
+            {
+                maximumUnitsAllowed = Convert.ToInt32(this.maximumAllowedUnitsComboBox.Text.Trim());
+            }
+            if (
+                string.IsNullOrEmpty(lastName) ||
+                !ValidationUtility.IsMoreThanOneLetters(lastName) ||
+                string.IsNullOrEmpty(firstName) ||
+                !ValidationUtility.IsMoreThanOneLetters(firstName) ||
+                dateOfBirth > DateTime.Now ||
+                string.IsNullOrEmpty(street) ||
+                 !ValidationUtility.IsMoreThanOneLetters(street) ||
+                string.IsNullOrEmpty(city) ||
+                 !ValidationUtility.IsMoreThanOneLetters(city) ||
+                string.IsNullOrEmpty(state) ||
+                state.Length != 2 ||
+                !ValidationUtility.IsValidZipCode(zip) ||
+                !ValidationUtility.IsValidPhoneNumber(phone) ||
+                !ValidationUtility.IsGenderValid(sex) ||
+                !ValidationUtility.IsSSNValid(ssn) ||
+                string.IsNullOrEmpty(ssn) ||
+                status < 1 ||
+                status > 3
+                )
+            {
+                this.DisplayErrorMessageOnInvalidFields();
+            }
+            else
+            {
+                Person newStudent = new Person
+                {
+                    RecordId = this.theStudent.RecordId,
+                    StudentID = this.theStudent.StudentID,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    DateOfBirth = dateOfBirth,
+                    AddressStreet = street,
+                    City = city,
+                    State = state,
+                    Zip = zip,
+                    Phone = phone,
+                    Sex = sex,
+                    SSN = ssn,
+                    ActiveStatus = status,
+                    MaximumUnitsAllowed = maximumUnitsAllowed,
+                    Username = this.theStudent.Username
+                };
+
+                if (this._studentController.UpdateStudent(newStudent, this.theStudent))
+                {
+                    // this.LoadStudent();
+                    MessageBox.Show("The update is successful.");
+                }
+                else
+                {
+                    MessageBox.Show("Please check your inputs. Update failed.");
+                }
+            }
+        }
+
+        private void DisplayErrorMessageOnInvalidFields()
+        {
+            if
+            (string.IsNullOrEmpty(this.lastNameTextBox.Text.Trim()) ||
+            !ValidationUtility.IsMoreThanOneLetters(this.lastNameTextBox.Text.Trim()))
+            {
+                this.lastNameErrorMessageLabel.Text = "Last name must have at least 2 letters.";
+                this.lastNameErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if
+             (string.IsNullOrEmpty(this.firstNameTextBox.Text.Trim()) ||
+             !ValidationUtility.IsMoreThanOneLetters(this.firstNameTextBox.Text.Trim()))
+            {
+                this.firstNameErrorMessageLabel.Text = "First name must have at least 2 letters.";
+                this.firstNameErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (this.dobPicker.Value > DateTime.Now.AddYears(-10))
+            {
+                this.dobErrorMessageLabel.Text = "Invalid Date. Minimum 10 years old.";
+                this.dobErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsValidPhoneNumber(this.phoneTextBox.Text.Trim()))
+            {
+                this.phoneErrorMessageLabel.Text = "Please enter your 10 digit phone number, numbers only.";
+                this.phoneErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsGenderValid(this.genderComboBox.Text.Trim()))
+            {
+                this.genderErrorMessageLabel.Text = "Please enter M or F.";
+                this.genderErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsSSNValid(this.ssnTextBox.Text.Trim()) ||
+                string.IsNullOrEmpty(this.ssnTextBox.Text.Trim()))
+            {
+                this.ssnErrorMessageLabel.Text = "Please enter a valid 9 digit SSN, numbers only.";
+                this.ssnErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsMoreThanOneLetters(this.streetTextBox.Text.Trim()) ||
+                string.IsNullOrEmpty(this.streetTextBox.Text.Trim()))
+            {
+                this.addressErrorMessageLabel.Text = "Please enter your full street address.";
+                this.addressErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsMoreThanOneLetters(this.cityTextBox.Text.Trim()) ||
+                string.IsNullOrEmpty(this.cityTextBox.Text.Trim()))
+            {
+                this.cityErrorMessageLabel.Text = "Please enter your full street address.";
+                this.cityErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (this.stateComboBox.Text.Trim().Length != 2 || string.IsNullOrEmpty(this.stateComboBox.Text.Trim()))
+            {
+                this.stateErrorMessageLabel.Text = "Please select your state abbreviation.";
+                this.stateErrorMessageLabel.ForeColor = Color.Red;
+            }
+
+            if (!ValidationUtility.IsValidZipCode(this.zipTextBox.Text.Trim()))
+            {
+                this.zipErrorMessageLabel.Text = "Please enter a valid zipcode.";
+                this.zipErrorMessageLabel.ForeColor = Color.Red;
+
+            }
+            if ((this.statusComboBox.SelectedIndex < 1) || (this.statusComboBox.SelectedIndex > 3))
+            {
+                this.statusErrorMessageLabel.Text = "Please choose a valid item.";
+                this.statusErrorMessageLabel.ForeColor = Color.Red;
+            }
+        }
+
     }
 }
