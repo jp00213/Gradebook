@@ -75,8 +75,7 @@ namespace Gradebook.UserControls
 
                 if (theTeacher.ActiveStatus != 1)
                 {
-
-                    MessageBox.Show("The Teacher status is disabled. Please check teacher status first.");
+                    MessageBox.Show("The Teacher status is disabled. Please check teacher status first.", "Status Disabled", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -84,11 +83,11 @@ namespace Gradebook.UserControls
 
                 if (this._courseController.AddNewCourse(newCourse))
                 {
-                    MessageBox.Show("Course Successfully Added");
+                    MessageBox.Show("Course Successfully Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Course was not added, check data and try again");
+                    MessageBox.Show("Course was not added, check data and try again.", "Course Not Added", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

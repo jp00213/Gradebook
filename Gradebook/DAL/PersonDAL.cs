@@ -401,7 +401,7 @@ namespace Gradebook.DAL
         /// <param name="oldTeacher"></param>
         /// <param name="newTeacher"></param>
         /// <returns></returns>
-        public bool UpdatePerson(Teacher oldTeacher, Teacher newTeacher)
+        public bool UpdateTeacher(Teacher oldTeacher, Teacher newTeacher)
         {
             int records = 0;
             string updatePersonStatement = "UPDATE person " +

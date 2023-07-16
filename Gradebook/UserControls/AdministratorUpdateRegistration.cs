@@ -72,17 +72,17 @@ namespace Gradebook.UserControls
                         Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
                         if (this._courseController.DeleteRegistration(viewCourse.CourseID, this.studentid))
                         {
-                            MessageBox.Show("Registration successfully deleted");
+                            MessageBox.Show("Registration successfully deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             this.RedrawGrid();
                         }
                         else
                         {
-                            MessageBox.Show("Registration was not deleted");
+                            MessageBox.Show("Registration was not deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else if (dialogResult == DialogResult.No)
                     {
-                        MessageBox.Show("Registration was not deleted");
+                        MessageBox.Show("Registration was not deleted.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }

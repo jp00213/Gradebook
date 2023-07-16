@@ -70,14 +70,14 @@ namespace Gradebook.UserControls
             {
                 int course = (int)this.courseDataGridView.SelectedRows[0].Cells[0].Value;
                 this._courseController.RegisterStudent(Convert.ToInt32(this.studentIDTextBox.Text), course);
-                MessageBox.Show("Successfully registered for course");
+                MessageBox.Show("Successfully registered for course.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.studentIDTextBox.Text = "";
                 this.studentBirthdayTextBox.Text = "";
                 this.studentNameTextBox.Text = "";
             this.registerButton.Enabled = false;
             } catch
             {
-                MessageBox.Show("Did not register for course. Check previous registrations and try again");
+                MessageBox.Show("Did not register for course. Check previous registrations and try again.", "Not Registered", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

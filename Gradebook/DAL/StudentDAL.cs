@@ -180,12 +180,12 @@ namespace Gradebook.DAL
                         {
                             result = true;
                             transaction.Commit();
-                        };
+                        }
                     }
-                    catch (Exception ex)
+                    catch
                     {
-                        Console.WriteLine(ex.Message);
                         transaction.Rollback();
+                        return false;
                     }
                 }
             }

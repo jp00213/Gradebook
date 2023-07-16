@@ -148,7 +148,7 @@ namespace Gradebook.UserControls
                 }
                 else
                 {
-                    MessageBox.Show("Please check your inputs. Student was not created.");
+                    MessageBox.Show("Please check your inputs. Student was not created.", "Student Not Created", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

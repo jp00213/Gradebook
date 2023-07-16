@@ -246,12 +246,10 @@ namespace Gradebook.UserControls
             ssnTextBox.Text = theStudent.SSN;
             if (theStudent.MaximumUnitsAllowed == null)
             {
-                Console.WriteLine("max is null");
                 maximumAllowedUnitsComboBox.SelectedItem = null;
             }
             else
             {
-                Console.WriteLine("max is a number");
                 maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
             };
             statusComboBox.SelectedIndex = theStudent.ActiveStatus;
@@ -327,11 +325,11 @@ namespace Gradebook.UserControls
                 {
                     this.ClearLoadedStudent();
                     this.ClearSearchButton();
-                    MessageBox.Show("The update is successful.");
+                    MessageBox.Show("The update is successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Please check your inputs. Update failed.");
+                    MessageBox.Show("Please check your inputs. Update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

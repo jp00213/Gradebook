@@ -91,17 +91,17 @@ namespace Gradebook.UserControls
                 if ((this.totalCredits + course.CreditHours) <= this.maximumCredits)
                 {
                     this._courseController.RegisterStudent(this.currentStudentID, course.CourseID);
-                    MessageBox.Show("Successfully registered for course");
+                    MessageBox.Show("Successfully registered for course.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.RedrawCurrentRegistrations();
                     this.registerButton.Enabled = false;
                 } else
                 {
-                    MessageBox.Show("Did not register.\nYour maximum is " + this.maximumCredits + "credits.\nYou have " + this.totalCredits + " credits already");
+                    MessageBox.Show("Did not register.\nYour maximum is " + this.maximumCredits + "credits.\nYou have " + this.totalCredits + " credits already", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch
             {
-                MessageBox.Show("Did not register for course. Check previous registrations and try again");
+                MessageBox.Show("Did not register for course. Check previous registrations and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -119,7 +119,7 @@ namespace Gradebook.UserControls
                     Course viewCourse = (Course)this.courseDataGridView.Rows[e.RowIndex].DataBoundItem;
                     if (viewCourse.TeacherID == 0)
                     {
-                        MessageBox.Show("No teacher assigned", "Teacher Contact Info", MessageBoxButtons.OK);
+                        MessageBox.Show("No teacher assigned", "Teacher Contact Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -130,7 +130,7 @@ namespace Gradebook.UserControls
                             phone = "(" + teacher.Phone.Substring(0, 3) + ") " + teacher.Phone.Substring(3, 3) + "-" + teacher.Phone.Substring(6, 4);
                         }
                         string message = "Name: " + teacher.FullName + "\nPhone: " + phone + "\nEmail: TBD";
-                        MessageBox.Show(message, "Teacher Contact Info", MessageBoxButtons.OK);
+                        MessageBox.Show(message, "Teacher Contact Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }

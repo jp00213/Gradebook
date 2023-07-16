@@ -74,7 +74,7 @@ namespace Gradebook.Controller
         /// <returns></returns>
         public bool UpdateTeacher(Teacher oldTeacher, Teacher newTeacher)
         {
-            return this._personDAL.UpdatePerson(oldTeacher, newTeacher);
+            return this._personDAL.UpdateTeacher(oldTeacher, newTeacher);
         }
         
         /// <summary>

@@ -97,13 +97,13 @@ namespace Gradebook.UserControls
                 Course viewCourse = (Course)this.courseDataGridView.SelectedRows[0].DataBoundItem;
                 if (this._courseController.DeleteCourse(viewCourse.CourseID))
                 {
-                    MessageBox.Show("Course deleted");
+                    MessageBox.Show("Course deleted.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.ClearCourseDetails();
                     this.SearchByParameters();
                 }
                 else
                 {
-                    MessageBox.Show("Course was not deleted. Check student registrations.");
+                    MessageBox.Show("Course was not deleted. Check student registrations.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             } catch (Exception ex)
             {
@@ -176,18 +176,18 @@ namespace Gradebook.UserControls
                 Teacher theTeacher = this._teacherController.GetTeacherByID(Int32.Parse(currentTeacher_ID));
                 if (theTeacher.ActiveStatus != 1)
                 {
-                    MessageBox.Show("The Teacher status is disabled. Please check teacher status first.");
+                    MessageBox.Show("The Teacher status is disabled. Please check teacher status first.", "Status Disabled", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 // end iteration 2 modification
 
                 if (this._courseController.UpdateCourse(updateCourse, oldCourse))
                 {
-                    MessageBox.Show("Course Successfully Updated");
+                    MessageBox.Show("Course successfully updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
-                    MessageBox.Show("Course was not updated, check data and try again");
+                    MessageBox.Show("Course was not updated, check data and try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
