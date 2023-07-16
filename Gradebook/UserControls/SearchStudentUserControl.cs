@@ -93,6 +93,11 @@ namespace Gradebook.UserControls
 
         private void clearButton_Click(object sender, EventArgs e)
         {
+            this.ClearSearchButton();
+        }
+
+        private void ClearSearchButton()
+        {
             this.studentIDTextBox.Text = string.Empty;
             this.usernameTextBox.Text = string.Empty;
             this.firstNameTextBox.Text = string.Empty;
@@ -107,7 +112,6 @@ namespace Gradebook.UserControls
             {
                 dob_Datepicker.Value = new DateTime(1900, 1, 1);
             }
-
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -244,10 +248,12 @@ namespace Gradebook.UserControls
             ssnTextBox.Text = theStudent.SSN;
             if (theStudent.MaximumUnitsAllowed == null)
             {
+                Console.WriteLine("max is null");
                 maximumAllowedUnitsComboBox.SelectedItem = null;
             }
             else
             {
+                Console.WriteLine("max is a number");
                 maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
             };
             statusComboBox.SelectedIndex = theStudent.ActiveStatus;
@@ -255,8 +261,8 @@ namespace Gradebook.UserControls
 
         private void updateStudentButton_Click(object sender, EventArgs e)
         {
-            string lastName = this.lastNameTextBox.Text.Trim();
-            string firstName = this.firstNameTextBox.Text.Trim();
+            string lastName = this.lastNameDetailsTextBox.Text.Trim();
+            string firstName = this.firstNameDetailsTextBox.Text.Trim();
             DateTime dateOfBirth = this.dobPicker.Value;
             string street = this.streetTextBox.Text.Trim();
             string city = this.cityTextBox.Text.Trim();
@@ -321,7 +327,8 @@ namespace Gradebook.UserControls
 
                 if (this._studentController.UpdateStudent(newStudent, this.theStudent))
                 {
-                    // this.LoadStudent();
+                    this.ClearLoadedStudent();
+                    this.ClearSearchButton();
                     MessageBox.Show("The update is successful.");
                 }
                 else
@@ -334,16 +341,16 @@ namespace Gradebook.UserControls
         private void DisplayErrorMessageOnInvalidFields()
         {
             if
-            (string.IsNullOrEmpty(this.lastNameTextBox.Text.Trim()) ||
-            !ValidationUtility.IsMoreThanOneLetters(this.lastNameTextBox.Text.Trim()))
+            (string.IsNullOrEmpty(this.lastNameDetailsTextBox.Text.Trim()) ||
+            !ValidationUtility.IsMoreThanOneLetters(this.lastNameDetailsTextBox.Text.Trim()))
             {
                 this.lastNameErrorMessageLabel.Text = "Last name must have at least 2 letters.";
                 this.lastNameErrorMessageLabel.ForeColor = Color.Red;
             }
 
             if
-             (string.IsNullOrEmpty(this.firstNameTextBox.Text.Trim()) ||
-             !ValidationUtility.IsMoreThanOneLetters(this.firstNameTextBox.Text.Trim()))
+             (string.IsNullOrEmpty(this.firstNameDetailsTextBox.Text.Trim()) ||
+             !ValidationUtility.IsMoreThanOneLetters(this.firstNameDetailsTextBox.Text.Trim()))
             {
                 this.firstNameErrorMessageLabel.Text = "First name must have at least 2 letters.";
                 this.firstNameErrorMessageLabel.ForeColor = Color.Red;
@@ -407,5 +414,47 @@ namespace Gradebook.UserControls
             }
         }
 
+        private void ClearInvalidFields()
+        {
+            this.firstNameErrorMessageLabel.Text = string.Empty;
+            this.lastNameErrorMessageLabel.Text = string.Empty;
+            this.dobErrorMessageLabel.Text = string.Empty;
+            this.phoneErrorMessageLabel.Text = string.Empty;
+            this.genderErrorMessageLabel.Text = string.Empty;
+            this.statusErrorMessageLabel.Text = string.Empty;
+            this.addressErrorMessageLabel.Text = string.Empty;
+            this.cityErrorMessageLabel.Text = string.Empty;
+            this.stateErrorMessageLabel.Text = string.Empty;
+            this.zipErrorMessageLabel.Text = string.Empty;
+            this.ssnErrorMessageLabel.Text = string.Empty;
+        }
+
+        private void lastNameDetailsTextBox_TextChanged(object sender, EventArgs e)
+        {
+            this.ClearInvalidFields();
+        }
+
+        private void clearEditButton_Click(object sender, EventArgs e)
+        {
+            this.ClearInvalidFields();
+            this.ClearLoadedStudent();
+        }
+
+        private void ClearLoadedStudent()
+        {
+            firstNameDetailsTextBox.Text = "";
+            lastNameDetailsTextBox.Text = "";
+            dobPicker.Value = DateTime.Now;
+            phoneTextBox.Text = "";
+            genderComboBox.Text = "M";
+            streetTextBox.Text = "";
+            cityTextBox.Text = "";
+            stateComboBox.Text = "";
+            zipTextBox.Text = "";
+            ssnTextBox.Text = "";
+            maximumAllowedUnitsComboBox.SelectedItem = null;
+            statusComboBox.SelectedIndex = 0;
+
+        }
     }
 }
