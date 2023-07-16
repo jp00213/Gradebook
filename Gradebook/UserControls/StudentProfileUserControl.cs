@@ -161,12 +161,13 @@ namespace Gradebook.UserControls
                     !ValidationUtility.IsMoreThanOneLetters(city) || string.IsNullOrEmpty(state) ||
                     state.Length != 2 || !ValidationUtility.IsValidZipCode(zip) ||
                     !ValidationUtility.IsValidPhoneNumber(phone) || !ValidationUtility.IsGenderValid(sex) ||
-                    !ValidationUtility.IsSSNValid(ssn) || string.IsNullOrEmpty(ssn) || !ValidationUtility.IsStatusValid(status))
+                    !ValidationUtility.IsSSNValid(ssn) || !ValidationUtility.IsStatusValid(status))
                 {
                     this.ShowInvalidErrorMessages();
                 }
                 else
                 {
+
                     if (this._studentController.UpdatePersonStudent(oldStudent, newStudent))
                     {
                         MessageBox.Show("Student profile successfully updated!", "Profile Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
