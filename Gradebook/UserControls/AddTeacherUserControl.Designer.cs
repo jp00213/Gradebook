@@ -60,6 +60,7 @@
             this.ssnErrorMessageLabel = new System.Windows.Forms.Label();
             this.sexErrorMessageLabel = new System.Windows.Forms.Label();
             this.phoneErrorLabel = new System.Windows.Forms.Label();
+            this.createStudentTitleLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // stateComboBox
@@ -448,10 +449,22 @@
             this.phoneErrorLabel.Size = new System.Drawing.Size(0, 18);
             this.phoneErrorLabel.TabIndex = 65;
             // 
+            // createStudentTitleLabel
+            // 
+            this.createStudentTitleLabel.AutoSize = true;
+            this.createStudentTitleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createStudentTitleLabel.Location = new System.Drawing.Point(465, 45);
+            this.createStudentTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.createStudentTitleLabel.Name = "createStudentTitleLabel";
+            this.createStudentTitleLabel.Size = new System.Drawing.Size(250, 25);
+            this.createStudentTitleLabel.TabIndex = 66;
+            this.createStudentTitleLabel.Text = "Add Teacher Information";
+            // 
             // AddTeacherUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.createStudentTitleLabel);
             this.Controls.Add(this.phoneErrorLabel);
             this.Controls.Add(this.sexErrorMessageLabel);
             this.Controls.Add(this.ssnErrorMessageLabel);
@@ -526,5 +539,6 @@
         private System.Windows.Forms.Label ssnErrorMessageLabel;
         private System.Windows.Forms.Label sexErrorMessageLabel;
         private System.Windows.Forms.Label phoneErrorLabel;
+        private System.Windows.Forms.Label createStudentTitleLabel;
     }
 }

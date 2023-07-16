@@ -36,6 +36,7 @@ namespace Gradebook.UserControls
             this.ErrorMessageLabel.Text = string.Empty;
             this.searchStudentIDRadioButton.Enabled = true;
             this.searchStudentIDRadioButton.Checked = true;
+            this.updateStudentButton.Enabled = false;
         }
 
         /// <summary>
@@ -253,6 +254,8 @@ namespace Gradebook.UserControls
                 maximumAllowedUnitsComboBox.Text = theStudent.MaximumUnitsAllowed.ToString();
             };
             statusComboBox.SelectedIndex = theStudent.ActiveStatus;
+
+            this.updateStudentButton.Enabled = true;
         }
 
         private void updateStudentButton_Click(object sender, EventArgs e)
@@ -451,6 +454,7 @@ namespace Gradebook.UserControls
             maximumAllowedUnitsComboBox.SelectedItem = null;
             statusComboBox.SelectedIndex = 0;
 
+            this.updateStudentButton.Enabled = true;
         }
     }
 }
