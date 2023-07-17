@@ -55,6 +55,7 @@
             this.genderComboBox = new System.Windows.Forms.ComboBox();
             this.createStudentTitleLabel = new System.Windows.Forms.Label();
             this.addStudentUserControlPanel = new System.Windows.Forms.Panel();
+            this.passwordInformationLabel = new System.Windows.Forms.Label();
             this.noteLable2 = new System.Windows.Forms.Label();
             this.noteLabel = new System.Windows.Forms.Label();
             this.messageErrorMainLabel = new System.Windows.Forms.Label();
@@ -276,6 +277,7 @@
             // 
             // dobPicker
             // 
+            this.dobPicker.Checked = false;
             this.dobPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dobPicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dobPicker.Location = new System.Drawing.Point(173, 218);
@@ -355,6 +357,7 @@
             // 
             // addStudentUserControlPanel
             // 
+            this.addStudentUserControlPanel.Controls.Add(this.passwordInformationLabel);
             this.addStudentUserControlPanel.Controls.Add(this.noteLable2);
             this.addStudentUserControlPanel.Controls.Add(this.noteLabel);
             this.addStudentUserControlPanel.Controls.Add(this.messageErrorMainLabel);
@@ -399,6 +402,17 @@
             this.addStudentUserControlPanel.Name = "addStudentUserControlPanel";
             this.addStudentUserControlPanel.Size = new System.Drawing.Size(1229, 746);
             this.addStudentUserControlPanel.TabIndex = 27;
+            // 
+            // passwordInformationLabel
+            // 
+            this.passwordInformationLabel.AutoSize = true;
+            this.passwordInformationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passwordInformationLabel.Location = new System.Drawing.Point(449, 420);
+            this.passwordInformationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passwordInformationLabel.Name = "passwordInformationLabel";
+            this.passwordInformationLabel.Size = new System.Drawing.Size(494, 25);
+            this.passwordInformationLabel.TabIndex = 41;
+            this.passwordInformationLabel.Text = "Default password: first name + last 4 digits of SSN";
             // 
             // noteLable2
             // 
@@ -659,5 +673,6 @@
         private System.Windows.Forms.Label messageErrorMainLabel;
         private System.Windows.Forms.Label noteLable2;
         private System.Windows.Forms.Label noteLabel;
+        private System.Windows.Forms.Label passwordInformationLabel;
     }
 }

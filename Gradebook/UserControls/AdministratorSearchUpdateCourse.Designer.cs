@@ -79,7 +79,6 @@
             this.sectionErrorLabel = new System.Windows.Forms.Label();
             this.prefixErrorLabel = new System.Windows.Forms.Label();
             this.nameErrorLabel = new System.Windows.Forms.Label();
-            this.alertLabel = new System.Windows.Forms.Label();
             creditHoursLabelUpdate = new System.Windows.Forms.Label();
             nameLabelUpdate = new System.Windows.Forms.Label();
             numberLabelUpdate = new System.Windows.Forms.Label();
@@ -633,21 +632,10 @@
             this.nameErrorLabel.TabIndex = 61;
             this.nameErrorLabel.Text = "  ";
             // 
-            // alertLabel
-            // 
-            this.alertLabel.AutoSize = true;
-            this.alertLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.alertLabel.Location = new System.Drawing.Point(42, 275);
-            this.alertLabel.Name = "alertLabel";
-            this.alertLabel.Size = new System.Drawing.Size(481, 25);
-            this.alertLabel.TabIndex = 69;
-            this.alertLabel.Text = "Note: Click on Course Name if info doesn\'t load below.";
-            // 
             // AdministratorSearchUpdateCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.alertLabel);
             this.Controls.Add(this.teacherErrorLabel);
             this.Controls.Add(this.yearErrorLabel);
             this.Controls.Add(this.creditErrorLabel);
@@ -743,6 +731,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.Label alertLabel;
     }
 }

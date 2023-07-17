@@ -40,6 +40,7 @@
             this.TeacherContact = new System.Windows.Forms.DataGridViewButtonColumn();
             this.currentRegistrationsLabel = new System.Windows.Forms.Label();
             this.registerTotalLabel = new System.Windows.Forms.Label();
+            this.availableCoursesLabel = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,28 +63,28 @@
             // 
             this.courseYearPicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.courseYearPicker.CustomFormat = "yyyy";
-            this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.courseYearPicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.courseYearPicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.courseYearPicker.Location = new System.Drawing.Point(384, 16);
             this.courseYearPicker.Name = "courseYearPicker";
             this.courseYearPicker.ShowUpDown = true;
-            this.courseYearPicker.Size = new System.Drawing.Size(115, 30);
+            this.courseYearPicker.Size = new System.Drawing.Size(115, 26);
             this.courseYearPicker.TabIndex = 26;
             // 
             // yearLabel
             // 
             this.yearLabel.AutoSize = true;
-            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.yearLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.yearLabel.Location = new System.Drawing.Point(325, 16);
             this.yearLabel.Name = "yearLabel";
-            this.yearLabel.Size = new System.Drawing.Size(53, 25);
+            this.yearLabel.Size = new System.Drawing.Size(43, 20);
             this.yearLabel.TabIndex = 27;
             this.yearLabel.Text = "Year";
             // 
             // semesterComboBox
             // 
             this.semesterComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.semesterComboBox.FormattingEnabled = true;
             this.semesterComboBox.Items.AddRange(new object[] {
             "Spring",
@@ -91,22 +92,22 @@
             "Fall"});
             this.semesterComboBox.Location = new System.Drawing.Point(110, 16);
             this.semesterComboBox.Name = "semesterComboBox";
-            this.semesterComboBox.Size = new System.Drawing.Size(193, 33);
+            this.semesterComboBox.Size = new System.Drawing.Size(193, 28);
             this.semesterComboBox.TabIndex = 25;
             // 
             // semesterLabel
             // 
             this.semesterLabel.AutoSize = true;
-            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.semesterLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.semesterLabel.Location = new System.Drawing.Point(8, 16);
             this.semesterLabel.Name = "semesterLabel";
-            this.semesterLabel.Size = new System.Drawing.Size(96, 25);
+            this.semesterLabel.Size = new System.Drawing.Size(81, 20);
             this.semesterLabel.TabIndex = 24;
             this.semesterLabel.Text = "Semester";
             // 
             // searchCourseButton
             // 
-            this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.searchCourseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.searchCourseButton.Location = new System.Drawing.Point(550, 16);
             this.searchCourseButton.Name = "searchCourseButton";
             this.searchCourseButton.Size = new System.Drawing.Size(179, 43);
@@ -129,7 +130,7 @@
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6});
             this.courseDataGridView.DataSource = this.courseBindingSource;
-            this.courseDataGridView.Location = new System.Drawing.Point(21, 65);
+            this.courseDataGridView.Location = new System.Drawing.Point(21, 95);
             this.courseDataGridView.MultiSelect = false;
             this.courseDataGridView.Name = "courseDataGridView";
             this.courseDataGridView.ReadOnly = true;
@@ -138,11 +139,11 @@
             this.courseDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.courseDataGridView.Size = new System.Drawing.Size(927, 226);
             this.courseDataGridView.TabIndex = 29;
-            this.courseDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
+            this.courseDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.courseDataGridView_CellContentClick);
             // 
             // registerButton
             // 
-            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.registerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.registerButton.Location = new System.Drawing.Point(735, 16);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(216, 43);
@@ -193,22 +194,32 @@
             // currentRegistrationsLabel
             // 
             this.currentRegistrationsLabel.AutoSize = true;
-            this.currentRegistrationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.currentRegistrationsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.currentRegistrationsLabel.Location = new System.Drawing.Point(27, 334);
             this.currentRegistrationsLabel.Name = "currentRegistrationsLabel";
-            this.currentRegistrationsLabel.Size = new System.Drawing.Size(346, 25);
+            this.currentRegistrationsLabel.Size = new System.Drawing.Size(296, 20);
             this.currentRegistrationsLabel.TabIndex = 32;
             this.currentRegistrationsLabel.Text = "You\'re Registered For These Courses:";
             // 
             // registerTotalLabel
             // 
             this.registerTotalLabel.AutoSize = true;
-            this.registerTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.registerTotalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.registerTotalLabel.Location = new System.Drawing.Point(535, 334);
             this.registerTotalLabel.Name = "registerTotalLabel";
-            this.registerTotalLabel.Size = new System.Drawing.Size(143, 25);
+            this.registerTotalLabel.Size = new System.Drawing.Size(125, 20);
             this.registerTotalLabel.TabIndex = 33;
             this.registerTotalLabel.Text = "Registered for: ";
+            // 
+            // availableCoursesLabel
+            // 
+            this.availableCoursesLabel.AutoSize = true;
+            this.availableCoursesLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.availableCoursesLabel.Location = new System.Drawing.Point(41, 72);
+            this.availableCoursesLabel.Name = "availableCoursesLabel";
+            this.availableCoursesLabel.Size = new System.Drawing.Size(379, 20);
+            this.availableCoursesLabel.TabIndex = 34;
+            this.availableCoursesLabel.Text = "Available Courses (check your registrations first):";
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -338,6 +349,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.availableCoursesLabel);
             this.Controls.Add(this.registerTotalLabel);
             this.Controls.Add(this.currentRegistrationsLabel);
             this.Controls.Add(this.registeredGridView);
@@ -384,5 +396,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.Label registerTotalLabel;
+        private System.Windows.Forms.Label availableCoursesLabel;
     }
 }

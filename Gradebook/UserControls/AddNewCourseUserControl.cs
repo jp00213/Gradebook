@@ -84,6 +84,7 @@ namespace Gradebook.UserControls
                 if (this._courseController.AddNewCourse(newCourse))
                 {
                     MessageBox.Show("Course Successfully Added.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.ResetFields();
                 }
                 else
                 {
