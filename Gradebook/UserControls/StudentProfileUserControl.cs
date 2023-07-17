@@ -74,8 +74,10 @@ namespace Gradebook.UserControls
 
         private void SetupComboBoxes()
         {
-            this.activeStatusComboBox.Items.Insert(0, "Disable");
+            this.activeStatusComboBox.Items.Insert(0, "-- select --");
             this.activeStatusComboBox.Items.Insert(1, "Active");
+            this.activeStatusComboBox.Items.Insert(2, "Hold");
+            this.activeStatusComboBox.Items.Insert(3, "Disable");
             this.sexComboBox.Items.Insert(0, "M");
             this.sexComboBox.Items.Insert(1, "F");
         }
