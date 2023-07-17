@@ -54,8 +54,7 @@ namespace Gradebook.Controller
         /// <returns></returns>
         public Boolean UpdateStudentPassword(string username, string password)
         {
-            string hashedPassword = Hashing.HashPassword(password);
-            return _studentDAL.UpdateStudentPassword(username, hashedPassword);
+            return _studentDAL.UpdateStudentPassword(username, password);
         }
 
         /// <summary>

@@ -18,6 +18,8 @@ namespace Gradebook.DAL
         /// <returns></returns>
         public bool UpdateStudentPassword(string username, string password)
         {
+            string hashedPassword = Hashing.HashPassword(password);
+
             string updateStatement = "update a  " +
                                      "set a.password = @password  " +
                                      "from Account a  " +
@@ -30,7 +32,7 @@ namespace Gradebook.DAL
                 using (SqlCommand updateCommand = new SqlCommand(updateStatement, connection))
                 {
                     updateCommand.Parameters.AddWithValue("@username", username);
-                    updateCommand.Parameters.AddWithValue("@password", password);
+                    updateCommand.Parameters.AddWithValue("@password", hashedPassword);
 
                     int updateCount = updateCommand.ExecuteNonQuery();
 
